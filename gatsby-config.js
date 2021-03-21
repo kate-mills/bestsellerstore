@@ -59,19 +59,15 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name:  `${companyName}`,
-        title:  `${companyName}`,
         short_name: `Bestsellers`,
         start_url: `/`,
         description: `${description}`,
         background_color: `#ffb1b1`,
         theme_color: `#ffb1b1`,
-        lang: `en`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
         crossOrigin: `use-credentials`,
-        icon_options: {
-          purpose: `any`,
-        },
+        icon_options: { purpose: `any`, },
       },
     },
     {
