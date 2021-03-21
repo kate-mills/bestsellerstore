@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../images/icons/beauty-icon.svg'
+import logo from '../images/beauty-icon.svg'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import { links } from '../utils/constants'

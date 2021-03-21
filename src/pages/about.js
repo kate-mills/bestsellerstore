@@ -1,17 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  Layout,
-  SEO
-} from '../components'
+import { Layout, PageHero, SEO } from '../components'
 
 const AboutPage = () => {
   return (
     <Layout>
       <SEO/>
-      <Wrapper>
-      About
-    </Wrapper>
+      <main>
+        <Wrapper className="page section section-center">
+
+        </Wrapper>
+      </main>
     </Layout>
   )
 }

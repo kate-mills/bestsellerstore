@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/icons/beauty-icon.svg'
+import logo from '../images/beauty-icon.svg'
 import { Link } from 'gatsby'
 import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
