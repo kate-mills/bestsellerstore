@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@fontsource/allerta-stencil": "^4.2.2",
     "@fontsource/montserrat": "^4.2.1",
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^2.32.3",

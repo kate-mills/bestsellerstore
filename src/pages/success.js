@@ -10,7 +10,7 @@ const SuccessPage = () => {
         <section>
           <h1>Thank You!</h1>
           <h3>Hilary will get back to you as soon as she can.</h3>
-          <Link fade to="/" className="btn">
+          <Link to="/" className="btn">
             Back to Homepage
           </Link>
         </section>

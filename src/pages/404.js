@@ -11,9 +11,7 @@ const ErrorPage = () => {
         <section>
           <h1>Oops!</h1>
           <h3>Sorry, the page you tried cannot be found.</h3>
-          <Link fade to="/" className="btn">
-            Back to Homepage
-          </Link>
+          <Link to="/" className="btn">Back Home</Link>
         </section>
       </Wrapper>
     </Layout>
@@ -27,7 +25,7 @@ const Wrapper = styled.main`
   align-items: center;
   text-align: center;
   h1 {
-    font-size: 10rem;
+    font-size: 5rem;
   }
   h3 {
     text-transform: none;
