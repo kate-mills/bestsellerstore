@@ -10,7 +10,7 @@ module.exports = {
     author: `kate-mills`,
     altUrl: `${netlifyUrl}`,
     dateModified: `${new Date().toISOString()}`,
-    image: `/images/default-image.png`, // ./static/images/default-image.png
+    image: `/images/default-img.png`, // ./static/images/default-image.png
     siteUrl: `${siteUrl}`,
     title: `${companyName}`,
     twitterUsername: `@gatsbyjs`,
@@ -66,7 +66,7 @@ module.exports = {
         theme_color: `#ffb1b1`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
-        crossOrigin: `use-credentials`,
+        crossOrigin: `Access-Control-Allow-*`,
         icon_options: { purpose: `any`, },
       },
     },
