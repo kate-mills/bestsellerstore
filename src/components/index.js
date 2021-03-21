@@ -17,7 +17,7 @@ import Stars from './Stars'
 import CartContent from './CarContent'
 import PageHero from './PageHero'
 import Layout from './layout'
-import SEO from './seo'
+import SEO from './SEO'
 
 export {
   SEO,

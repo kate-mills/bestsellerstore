@@ -1,5 +1,5 @@
 import React from 'react'
-import 'fontsource-raleway/400.css'
+//import 'fontsource-raleway/400.css'
 import './src/components/layout.css'
 
 import { ProductsProvider } from './src/context/products_context'

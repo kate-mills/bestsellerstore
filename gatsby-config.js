@@ -1,21 +1,50 @@
-require(`dotenv`).config({ path: `.env.${process.env.NODE_ENV}`, })
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, })
+
+const siteUrl = `https://bestsellerstore.netlify.app` // change to .com url
+const netlifyUrl = `https://bestsellerstore.netlify.app`
+const companyName = `Skincare Webstore, Best Sellers`
+const description = `${companyName} - Master Medical Estheticians bring you their latest top beauty products and skincare. We specialize in Acne, Anti-Aging and Sensitive skin.`
 
 module.exports = {
   siteMetadata: {
-    title: `Skincare Webstore,  Top Sellers`,
-    description: `Master Medical Estheticians bring you their latest top beauty products and skincare. We specialize in Acne, Anti-Aging and Sensitive skin.`,
     author: `kate-mills`,
+    altUrl: `${netlifyUrl}`,
+    dateModified: `${new Date().toISOString()}`,
+    image: `/images/default-image.jpg`, // ./static/images/default-image.jpg
+    siteUrl: `${siteUrl}`,
+    title: `${companyName}`,
+    twitterUsername: `@gatsbyjs`,
+
+    organization: {
+      address: {
+        name: `${companyName}`,
+        street: `24 Main St.`,
+        city: `Napa`,
+        state: `CA`,
+        zip: `94558`,
+        country: `USA`,
+      },
+      description: `${description}`,
+      email: `mailto:skincarewebstorecs@gmail.com`,
+      displayEmail: {
+        prefix: `skincarewebstorecs`,
+        suffix: `@gmail`,
+        ext: `.com`,
+      },
+      geo: {
+        lat: 38.30418834186992,
+        long: -122.29412004433584,
+      },
+      logo: `${siteUrl}/images/logo.png`, // ./static/images/
+      name: `${companyName}`,
+      phone: `+1-707-266-8106`,
+      displayPhone: `(707) 266-8106`,
+      priceRange: `$$`,
+      otherUrls: [],
+      url: `${siteUrl}`,
+    },
   },
   plugins: [
-    //{ resolve: `gatsby-plugin-snipcart`, options: { apiKey: process.env.SNIPCART_TEST_API, autopop: true, }, },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    `gatsby-plugin-transition-link`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -29,23 +58,36 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Skincare Webstore, Top Sellers`,
-        short_name: `Skincare Webstore`,
-        description: `Master Medical Estheticians bring you their latest top beauty products and skincare. We specialize in Acne, Anti-Aging and Sensitive skin.`,
-        lang: `en`,
+        name:  `${companyName}`,
+        title:  `${companyName}`,
+        short_name: `Bestsellers`,
         start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#ffe5d6`,
-        display: `standalone`, //minimal-ui
+        description: `${description}`,
+        background_color: `#ffb1b1`,
+        theme_color: `#ffb1b1`,
+        lang: `en`,
+        display: `minimal-ui`,
         icon: `src/images/icon.png`,
-        icon_options: { purpose: `any` },
+        crossOrigin: `use-credentials`,
+        icon_options: {
+          purpose: `any`,
+        },
       },
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: `${siteUrl}`,
+        sitemap: `${siteUrl}/sitemap.xml`,
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    `gatsby-plugin-netlify`, //keep last
   ],
 }
