@@ -20,6 +20,9 @@
   --clr-primary-8: hsl(17deg 94% 86%);
   --clr-primary-9: hsl(19deg 96% 89%);
   --clr-primary-10:hsl(22deg 100% 92%);
+  --clr-primary-11: hsl(5deg 54% 96%);
+  /*--clr-primary-11:hsl(22deg 46% 91%);*/
+
   /* darkest grey - used for headings */
   --clr-grey-1: #212121;
   --clr-grey-2: #424242;
@@ -204,4 +207,8 @@ p {
 }
 .page {
   min-height: calc(100vh - (20vh + 10rem));
+}
+
+.stencil{
+  font-family: "Allerta Stencil";
 }

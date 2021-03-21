@@ -6,12 +6,12 @@ import Sidebar from './Sidebar'
 import Footer from './Footer'
 
 const Layout = ({ children }) => (
-  <>
+  <React.Fragment>
     <Navbar />
     <Sidebar />
     {children}
     <Footer />
-  </>
+  </React.Fragment>
 )
 
 Layout.propTypes = {

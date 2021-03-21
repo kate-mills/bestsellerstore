@@ -95,6 +95,7 @@ const NavContainer = styled.nav`
         letter-spacing: var(--spacing);
         padding: 0.5rem;
         &:hover {
+          cursor: pointer;
           border-bottom: 2px solid var(--clr-primary-7);
         }
       }

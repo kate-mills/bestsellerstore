@@ -8,11 +8,17 @@ const CheckoutPage = () => {
       <main>
         <PageHero title="checkout" />
         <Wrapper className="page">
-          <h1>checkout here</h1>
+          <h1 className="stencil">Checkout Here</h1>
         </Wrapper>
       </main>
     </Layout>
   )
 }
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  h1{
+    text-align: center;
+  }
+  
+`
 export default CheckoutPage
+

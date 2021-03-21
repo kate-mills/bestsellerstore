@@ -1,14 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from "gatsby"
+import Img from 'gatsby-image'
 import { Layout, PageHero, SEO } from '../components'
 
-const AboutPage = () => {
+const AboutPage = ({data:{img:{childImageSharp:{fluid}}}}) => {
   return (
     <Layout>
       <SEO/>
       <main>
+        <PageHero title="about"/>
         <Wrapper className="page section section-center">
-
+          <Img fluid={fluid} alt="Display of random makeup products on pink background."/>
+          <article>
+            <div className='title'>
+              <h2>our story</h2>
+              <div className='underline'></div>
+              <p>Something about why I am starting this store</p>
+            </div>
+          </article>
         </Wrapper>
       </main>
     </Layout>
@@ -18,12 +28,11 @@ const AboutPage = () => {
 const Wrapper = styled.section`
   display: grid;
   gap: 4rem;
-  img {
-    width: 100%;
-    display: block;
-    border-radius: var(--radius);
-    height: 500px;
-    object-fit: cover;
+  .gatsby-image-wrapper {
+      display: block;
+      border-radius: var(--radius);
+      height: 500px;
+      object-fit: contain;
   }
   p {
     line-height: 2;
@@ -42,4 +51,21 @@ const Wrapper = styled.section`
     grid-template-columns: 1fr 1fr;
   }
 `
+
+
+
+export const query = graphql`
+  {
+    img:file(relativePath: {eq: "hero-bcg-portrait.jpg"}) {
+      childImageSharp {
+        fluid (maxHeight: 300){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 export default AboutPage
+
+
+

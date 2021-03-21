@@ -4,9 +4,10 @@ const Footer = () => {
   return (
     <Wrapper>
       <h5>
-        &copy; {new Date().getFullYear()} <span>Skincare Webstore</span> All rights
-        reserved
+        &copy;{new Date().getFullYear() }
+        <span className="stencil">SkincareWebstore</span>
       </h5>
+      <h5>All rights reserved</h5>
     </Wrapper>
   )
 }
@@ -17,16 +18,16 @@ const Wrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid var(--clr-black);
+  background: var(--clr-black);
   text-align: center;
-  span {
-    color: var(--clr-primary-5);
+  & span.stencil {
+    color: var(--clr-primary-9);
+    letter-spacing: 0px;
+    text-transform: capitalize;
   }
   h5 {
-    color: var(--clr-black);
+    color: var(--clr-white);
     margin: 0.1rem;
-
-    font-weight: 400;
     text-transform: none;
     line-height: 1.25;
   }
