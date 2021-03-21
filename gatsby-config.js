@@ -10,7 +10,7 @@ module.exports = {
     author: `kate-mills`,
     altUrl: `${netlifyUrl}`,
     dateModified: `${new Date().toISOString()}`,
-    image: `/images/default-image.jpg`, // ./static/images/default-image.jpg
+    image: `/images/default-image.png`, // ./static/images/default-image.png
     siteUrl: `${siteUrl}`,
     title: `${companyName}`,
     twitterUsername: `@gatsbyjs`,
