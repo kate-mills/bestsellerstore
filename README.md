@@ -5,5 +5,5 @@
   </a>
 </p>
 <h1 align="center">
-  Hide And Wild - App for Hilary Molloy
+ SKINCARE WEBSTORE, BEST SELLERS
 </h1>
