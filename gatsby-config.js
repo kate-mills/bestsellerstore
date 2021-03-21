@@ -66,7 +66,7 @@ module.exports = {
         theme_color: `#ffb1b1`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
-        crossOrigin: `Access-Control-Allow-*`,
+        crossOrigin: `use-credentials`,  // use-credentials or anonymous
         icon_options: { purpose: `any`, },
       },
     },
