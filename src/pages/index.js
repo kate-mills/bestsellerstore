@@ -9,7 +9,6 @@ const HomePage = () => {
           <Hero/>
           <FeaturedProducts/>
           <Services/>
-         HomePage
           <Contact/>
       </main>
     </Layout>

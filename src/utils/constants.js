@@ -1,5 +1,5 @@
 import React from 'react'
-import { GiPrayerBeads, GiEarrings, GiPowerRing } from 'react-icons/gi'
+import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
 
 export const links = [
   {
@@ -17,29 +17,30 @@ export const links = [
     text: 'shop',
     url: '/shop',
   },
-]
+];
+
 
 export const services = [
   {
     id: 1,
-    icon: <GiPrayerBeads />,
-    title: 'SHINE',
+    icon: <GiCompass />,
+    title: 'mission',
     text:
-      'Make your own DIY Cleaner!  I am just making this up, Hil. And maybe a little recipe.',
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
   },
   {
     id: 2,
-    icon: <GiPowerRing />,
-    title: 'STORE',
+    icon: <GiDiamondHard />,
+    title: 'vision',
     text:
-      'My favorite way to store earrings is ...blah. Or, wrap in a microfiber cloth. Again, just making this up.',
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
   },
   {
     id: 3,
-    icon: <GiEarrings />,
-    title: 'GIFTS',
+    icon: <GiStabbedNote />,
+    title: 'history',
     text:
-      'Sizing can be difficult, but we sell gift certificates!! And, everyone loves one of those! Something else here... Not this.',
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
   },
 ]
 
