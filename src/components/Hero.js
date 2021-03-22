@@ -32,8 +32,7 @@ const Hero = () => {
           best sellers
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti iure
-          quasi odit tenetur unde officiis repudiandae quod deserunt quia eum?
+         Master Estheticians bring you the best-selling products from their favorite beauty lines.
         </p>
         <Link to='/products' className='btn hero-btn'>
           shop now
