@@ -4,56 +4,27 @@ import styled from 'styled-components'
 const Contact = () => {
   return (
     <Wrapper>
-      <div className="section-center">
-        <h3>Hilary wants to hear from you!</h3>
-        <div className="content">
+      <div className='section-center'>
+        <h3>Join our newsletter and get 20% off</h3>
+        <div className='content'>
           <p>
-            Leave your information and Hilary will get back to you as soon as
-            she can. Thank you!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+            veniam repudiandae vel ab id, fuga praesentium nobis natus ipsam
+            vero?
           </p>
           <form
-            method="post"
-            netlify-honeypot="bot-field"
-            data-netlify="true"
-            name="contact"
-            className="contact-form"
-            action="/success"
+            className='contact-form'
+            action='your form spree id'
+            method='POST'
           >
-            <input type="hidden" name="bot-field" />
-            <input type="hidden" name="form-name" value="contact" />
             <input
-              type="text"
-              name="name"
-              id="name"
-              className="form-input"
-              placeholder="Your Name"
-              required
+              type='email'
+              className='form-input'
+              placeholder='enter email'
+              name='_replyto'
             />
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="form-input"
-              placeholder="Your Email"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              className="form-input"
-              placeholder="Your Phone"
-            />
-            <textarea
-              name="message"
-              id="message"
-              rows="7"
-              className="form-input"
-              placeholder="Hello there..."
-              required
-            />
-            <button type="submit" className="submit-btn">
-              send
+            <button type='submit' className='submit-btn'>
+              subscribe
             </button>
           </form>
         </div>
@@ -73,12 +44,10 @@ const Wrapper = styled.section`
   }
   .contact-form {
     width: 90vw;
-    margin: 0 auto;
     max-width: 500px;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr auto;
   }
-
   .form-input,
   .submit-btn {
     font-size: 1rem;
@@ -86,19 +55,18 @@ const Wrapper = styled.section`
     border: 2px solid var(--clr-black);
   }
   .form-input {
+    border-right: none;
     color: var(--clr-grey-3);
     border-top-left-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
-    display: block;
-    margin-bottom: 10px;
   }
   .submit-btn {
     border-top-right-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
-    margin-top: 10px;
   }
   .form-input::placeholder {
     color: var(--clr-black);
+    text-transform: capitalize;
   }
   .submit-btn {
     background: var(--clr-primary-5);

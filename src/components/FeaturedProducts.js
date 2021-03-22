@@ -1,23 +1,15 @@
 import React from 'react'
-import { useProductsContext } from '../context/products_context'
 import styled from 'styled-components'
-import Product from './Product'
+//import { useProductsContext } from '../context/products_context'
+//import { Link } from 'gatsby'
+//import Error from './Error'
+//import Loading from './Loading'
+//import Product from './Product'
 
 const FeaturedProducts = () => {
-  const { featured_items: items } = useProductsContext()
   return (
-    <Wrapper className="section">
-      <div className="title">
-        <h2>Featured Jewelry</h2>
-        <div className="underline" />
-      </div>
-      <div className="section-center featured">
-        {items.map(({ node }) => {
-          return (
-            <Product key={node.id} {...node} />
-          )
-        })}
-      </div>
+    <Wrapper>
+      <h4>featured products</h4>
     </Wrapper>
   )
 }

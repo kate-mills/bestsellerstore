@@ -1,44 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-import Image from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
-export const query = graphql`
+const query = graphql`
   {
-    fashion: file(relativePath: { eq: "index-hero.png" }) {
+    accent: file(relativePath: {eq: "home/bottle-accent.png"}) {
       childImageSharp {
-        fluid(cropFocus: SOUTHWEST, fit: CONTAIN){
-          ...GatsbyImageSharpFluid
+        fluid {
+          src
+        }
+      }
+    }
+    main: file(relativePath: {eq: "home/bottle-main.jpg"}) {
+      childImageSharp {
+        fluid {
+          src
         }
       }
     }
   }
 `
+
 const Hero = () => {
-  const { fashion } = useStaticQuery(query)
+  const data = useStaticQuery(query)
   return (
-    <Wrapper className="section-center">
-      <article className="content">
+    <Wrapper className='section-center'>
+      <article className='content'>
         <h1>
-          Designs by
-          <br />
-          Hilary Molloy
+          skincare webstore<br />
+          best sellers
         </h1>
         <p>
-          Hand cut designs made with love and natural elements by yours truly,
-          in the beautiful Napa Valley. *coming soon* hideandwild.com
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti iure
+          quasi odit tenetur unde officiis repudiandae quod deserunt quia eum?
         </p>
-        <Link to="/shop" className="btn hero-btn">
-          Shop now
+        <Link to='/products' className='btn hero-btn'>
+          shop now
         </Link>
       </article>
-      <article className="img-container">
-        <Image 
-          objectFit="contain"
-          fluid={fashion.childImageSharp.fluid} alt="Compilation of 2 images, of women wearing Hide and Wild jewelry."
-          className="main-img"
-        />
+      <article className='img-container'>
+        <img src={data.main.childImageSharp.fluid.src} alt='nice table' className='main-img' />
+        <img src={data.accent.childImageSharp.fluid.src} alt='person working' className='accent-img' />
       </article>
     </Wrapper>
   )
@@ -48,8 +51,9 @@ const Wrapper = styled.section`
   min-height: 60vh;
   display: grid;
   place-items: center;
-  .img-container { display: none; }
-
+  .img-container {
+    display: none;
+  }
   p {
     line-height: 2;
     max-width: 45em;
@@ -72,38 +76,36 @@ const Wrapper = styled.section`
       font-size: 1rem;
     }
     .img-container {
-      width: 100%;
       display: block;
       position: relative;
     }
-    .gatsby-image-wrapper{
+    .main-img {
       width: 100%;
       height: 550px;
       position: relative;
       border-radius: var(--radius);
-      object-fit: contain;
       display: block;
+      object-fit: cover;
     }
-    .gatsby-image-wrapper img{
-      object-fit: contain;
-    }
-    .main-img {
+    .accent-img {
       position: absolute;
       bottom: 0;
       left: 0;
-      transform: translateX(-10%);
+      width: 250px;
+      transform: translateX(-50%);
       border-radius: var(--radius);
-      object-fit: contain;
     }
     .img-container::before {
       content: '';
       position: absolute;
-      width: 0%;
+      width: 10%;
       height: 80%;
       background: var(--clr-primary-9);
       bottom: 0%;
+      left: -8%;
       border-radius: var(--radius);
     }
   }
 `
+
 export default Hero

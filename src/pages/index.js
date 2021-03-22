@@ -1,14 +1,17 @@
 import React from 'react'
-//import { SEO, Layout, FeaturedProducts, Hero, Services, Contact, } from '../components'
-import {
-  Layout,
-  SEO
-} from '../components'
+import { Layout, SEO, FeaturedProducts, Hero, Services, Contact} from '../components'
 
 const HomePage = () => {
   return (
-    <Layout> <SEO title="Home" />
-      HomePage
+    <Layout>
+      <SEO title="Home"/>
+        <main>
+          <Hero/>
+          <FeaturedProducts/>
+          <Services/>
+         HomePage
+          <Contact/>
+      </main>
     </Layout>
   )
 }

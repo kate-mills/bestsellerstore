@@ -30,7 +30,6 @@ const Wrapper = styled.section`
   gap: 4rem;
   .gatsby-image-wrapper {
       display: block;
-      border-radius: var(--radius);
       height: 500px;
       object-fit: contain;
   }
@@ -56,7 +55,7 @@ const Wrapper = styled.section`
 
 export const query = graphql`
   {
-    img:file(relativePath: {eq: "hero-bcg-portrait.jpg"}) {
+    img:file(relativePath: {eq: "about/hm.jpg"}) {
       childImageSharp {
         fluid (maxHeight: 300){
           ...GatsbyImageSharpFluid

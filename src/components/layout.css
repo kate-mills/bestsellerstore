@@ -1,46 +1,59 @@
 /* =============== Font Options =============== */
+/* https://www.purahw.com/ */
 /* font-family: bree, sans-serif; adobe*/
-/* font-family: all-round-gothic, sans-serif; adobe*/
+/* font-family: proxima-nova, sans-serif; adobe*/
 /* font-family: "Allerta Stencil"; google*/
 /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 @import url("https://use.typekit.net/eqr6zee.css");
 
 :root {
   /* dark shades of primary color*/
-  --clr-primary-1: hsl(0deg 81% 77%);
-  --clr-primary-2: hsl(3deg 88% 80%);
-  --clr-primary-3: hsl(4deg 85% 81%);
-  --clr-primary-4: hsl(4deg 83% 82%);
+  --clr-primary-1:hsl(343deg 36% 47%);
+  --clr-primary-2: hsl(0deg 35% 62%);
+  --clr-primary-3: hsl(344deg 43% 61%);
+  --clr-primary-4: hsl(329deg 14% 63%);
   /* primary/main color */
-  --clr-primary-5: hsl(5deg 83% 82%);
+  --clr-primary-5: hsl(342deg 17% 57%);
   /* lighter shades of primary color */
-                  
-  --clr-primary-6: hsl(16deg 91% 82%);
-  --clr-primary-7: hsl(16deg 92% 85%);
-  --clr-primary-8: hsl(17deg 94% 86%);
-  --clr-primary-9: hsl(19deg 96% 89%);
-  --clr-primary-10:hsl(22deg 100% 92%);
-  --clr-primary-11: hsl(5deg 54% 96%);
-  /*--clr-primary-11:hsl(22deg 46% 91%);*/
+  --clr-primary-6: hsl(358deg 32% 76%);
+  --clr-primary-7: hsl(346deg 12% 63%);
+  --clr-primary-8:hsl(252deg 16% 94%);
+  --clr-primary-9:hsl(323deg 25% 86%);
+  --clr-primary-10:hsl(252deg 16% 94%);
+  --clr-primary-11: hsl(252deg 20% 95%);
+  /*
+    --clr-primary-1: hsl(343deg 36% 47%);
+    --clr-primary-2: hsl(0deg 35% 62%);
+    --clr-primary-3: hsl(344deg 43% 61%);
+    --clr-primary-4: hsl(344deg 41% 60%);
+    --clr-primary-5: hsl(328deg 12% 39%);
+    --clr-primary-6: hsl(331deg 18% 67%);
+    --clr-primary-7: hsl(344deg 41% 60%);
+    --clr-primary-8: hsl(330deg 15% 64%);
+    --clr-primary-9: hsl(323deg 25% 86%);
+    --clr-primary-10: hsl(252deg 16% 94%);
+    --clr-primary-11: hsl(252deg 20% 95%);
+*/
 
   /* darkest grey - used for headings */
-  --clr-grey-1: #212121;
-  --clr-grey-2: #424242;
-  --clr-grey-3: #616161;
-  --clr-grey-4: #757575; 
+  --clr-grey-1: #343a40; /* keep */
+  --clr-grey-2: #6c757d;
+  --clr-grey-3: #212529;;
+  --clr-grey-4: #616161; 
   /* grey used for paragraphs */
-  --clr-grey-5: #9E9E9E;
+  --clr-grey-5: #212529;
   --clr-grey-6: #BDBDBD; 
   --clr-grey-7: #E0E0E0;
   --clr-grey-8: #EEEEEE;
   --clr-grey-9: #f5f5f5;
   --clr-grey-10:#FAFAFA; 
-  --clr-white:  #fff;
-  --clr-red-dark: #F44336;
-  --clr-red-light:#e57373;
-  --clr-green-dark: hsl(125, 67%, 44%);
-  --clr-green-light: hsl(125, 71%, 66%);
-  --clr-black: #000;
+  --clr-white:#fff;
+
+  --clr-red-dark: hsl(0deg 29% 45%);
+  --clr-red-light: hsl(359deg 49% 61%);
+  --clr-green-dark: hsl(160deg 2% 27%);
+  --clr-green-light: hsl(164deg 33% 85%);
+  --clr-black: #171113;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -58,8 +71,8 @@
   box-sizing: border-box;
 }
 body {
-  font-family: bree, sans-serif;
-  font-weight: 200;
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400;
   font-style: normal;
   background: var(--clr-white);
   color: var(--clr-grey-1);
@@ -82,7 +95,7 @@ h3,
 h4,
 h5 {
   font-family: bree, sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: var(--spacing);
   text-transform: capitalize;

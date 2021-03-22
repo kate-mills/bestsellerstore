@@ -1,30 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { services } from '../utils/constants'
+//import { services } from '../utils/constants'
 
 const Services = () => {
   return (
     <Wrapper>
-      <div className="section-center">
-        <article className="header">
-          <h3>
-            Some of our favorite
-            <br />jewelry tips revealed!
-          </h3>
-          <p>Hilza, maybe some fun ways you recommend storing, cleaning, wearing, not wearing your jewelry items. </p>
-        </article>
-        <div className="services-center">
-          {services.map(service => {
-            return (
-              <article key={service.id} className="service">
-                <span className="icon">{service.icon}</span>
-                <h4>{service.title}</h4>
-                <p>{service.text}</p>
-              </article>
-            )
-          })}
-        </div>
-      </div>
+      <h4>services</h4>
     </Wrapper>
   )
 }
