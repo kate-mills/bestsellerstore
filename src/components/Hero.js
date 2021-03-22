@@ -40,8 +40,8 @@ const Hero = () => {
         </Link>
       </article>
       <article className='img-container'>
-        <img src={data.main.childImageSharp.fluid.src} alt='nice table' className='main-img' />
-        <img src={data.accent.childImageSharp.fluid.src} alt='person working' className='accent-img' />
+        <img src={data.main.childImageSharp.fluid.src} alt='Drop falls from a pipette into a cosmetic bottle,isolated on white background' className='main-img' />
+        <img src={data.accent.childImageSharp.fluid.src} alt='Cosmetic bottle with pipette isolated on transparent background' className='accent-img' />
       </article>
     </Wrapper>
   )
