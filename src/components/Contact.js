@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <Wrapper>
       <div className='section-center'>
-        <h3>Join our newsletter and get 20% off</h3>
+        <h3>Get the latest to your inbox.</h3>
         <div className='content'>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
@@ -24,7 +24,7 @@ const Contact = () => {
               name='_replyto'
             />
             <button type='submit' className='submit-btn'>
-              subscribe
+              send
             </button>
           </form>
         </div>
