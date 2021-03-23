@@ -5,7 +5,7 @@ const Footer = () => {
     <Wrapper>
       <h5>
         &copy;{new Date().getFullYear()}
-        <span className="stencil">SkincareWebstore</span>
+        <span className="proxima">SkincareWebstore</span>
       </h5>
       <h5>All rights reserved</h5>
     </Wrapper>
@@ -20,7 +20,8 @@ const Wrapper = styled.footer`
   align-items: center;
   background: var(--clr-black);
   text-align: center;
-  & span.stencil {
+  & span.proxima {
+    font-family: 'proxima-nova';
     color: var(--clr-primary-9);
     letter-spacing: 0px;
     text-transform: capitalize;

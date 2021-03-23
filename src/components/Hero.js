@@ -11,7 +11,7 @@ const query = graphql`{
       gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
     }
   }
-  main: file(relativePath: {eq: "home/bottle-main.jpg"}) {
+  main: file(relativePath: {eq: "home/bottle-main-web.jpg"}) {
     childImageSharp {
       gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
     }

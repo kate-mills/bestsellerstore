@@ -1,4 +1,4 @@
-/*const path = require('path')
+const path = require('path')
 
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
     data: { items },
   } = await graphql(`
     query {
-      items: allContentfulHilaryJewelry {
+      items: allContentfulMccProduct {
         edges {
           node {
             slug
@@ -26,4 +26,4 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-}*/
+}
