@@ -2,16 +2,13 @@
 
 import React, {useState } from 'react'
 import styled from 'styled-components'
-import Image from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const ProductImages = ({images=[],  description}) => {
   const [main, setMain ] = useState(images[0])
   return (
     <Wrapper>
-      <Image
-        fluid={main.fluid}
-        alt={description || ""}
-      />
+      <GatsbyImage image={main.gatsbyImageData} alt={description || ""} />
       <div className="gallery">
         {images.map((img, index)=>{
           return(
@@ -27,7 +24,7 @@ const ProductImages = ({images=[],  description}) => {
        })}
       </div>
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.section`

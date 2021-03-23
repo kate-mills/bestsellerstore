@@ -2,24 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage } from "gatsby-plugin-image";
 
-const query = graphql`
-  {
-    accent: file(relativePath: {eq: "home/bottle-accent.png"}) {
-      childImageSharp {
-        fluid {
-          src
-        }
-      }
-    }
-    main: file(relativePath: {eq: "home/bottle-main.jpg"}) {
-      childImageSharp {
-        fluid {
-          src
-        }
-      }
+
+const query = graphql`{
+  accent: file(relativePath: {eq: "home/bottle-accent.png"}) {
+    childImageSharp {
+      gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
     }
   }
+  main: file(relativePath: {eq: "home/bottle-main.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
+    }
+  }
+}
 `
 
 const Hero = () => {
@@ -39,11 +36,11 @@ const Hero = () => {
         </Link>
       </article>
       <article className='img-container'>
-        <img src={data.main.childImageSharp.fluid.src} alt='Drop falls from a pipette into a cosmetic bottle,isolated on white background' className='main-img' />
-        <img src={data.accent.childImageSharp.fluid.src} alt='Cosmetic bottle with pipette isolated on transparent background' className='accent-img' />
+        <GatsbyImage image={data.main.childImageSharp.gatsbyImageData} alt='Drop falls from a pipette into a cosmetic bottle,isolated on white background' className='main-img' />
+        <GatsbyImage image={data.accent.childImageSharp.gatsbyImageData} alt='Cosmetic bottle with pipette isolated on transparent background' className='accent-img' />
       </article>
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.section`

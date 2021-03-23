@@ -10,9 +10,7 @@ const Services = () => {
           <h3>some of our favorite<br/>
             skin tips revealed!
           </h3>
-          <p> Lorem ipsum dolar sit amet consectetur adipisicing elit. Atque
-            quisquam seepe id reiciedis sunt, reqdiandae libero amet rem quia quod? 
-          </p>
+          <p>Three steps to glowing skin. Protection, Prevention & Correction.< /p>
         </article>
         <div className="services-center">
           {services.map((service)=>{
@@ -46,7 +44,7 @@ const Wrapper = styled.section`
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--clr-primary-3);
   }
   .services-center {
@@ -62,6 +60,9 @@ const Wrapper = styled.section`
     p {
       color: var(--clr-primary-11);
       font-size: 1rem;
+    }
+    h4{
+      color: var(--clr-primary-9);
     }
   }
   span {

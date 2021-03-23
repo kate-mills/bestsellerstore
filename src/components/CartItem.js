@@ -4,7 +4,7 @@ import { formatWholePrice } from '../utils/helpers'
 import QuantityButtons from './QuantityButtons'
 import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
   const {removeItem, toggleQuantity} = useCartContext()
@@ -18,7 +18,7 @@ const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
   return (
     <Wrapper>
       <div className='title'>
-        <Img fluid={image} src={name}/>
+        <GatsbyImage image={image} src={name} />
         <div>
           <h5 className="name">{name}</h5>
           <p className="color"> color :<span style={{background:color}}></span></p>
@@ -32,7 +32,7 @@ const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
         <FaTrash/>
       </button>
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.article`

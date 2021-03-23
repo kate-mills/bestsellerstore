@@ -1,5 +1,5 @@
 import React from 'react'
-import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
+import { GiSparkles } from 'react-icons/gi'
 
 export const links = [
   {
@@ -23,24 +23,24 @@ export const links = [
 export const services = [
   {
     id: 1,
-    icon: <GiCompass />,
-    title: 'mission',
+    icon: <GiSparkles />,
+    title: 'SPF',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'For UVA protection, use an SPF that contains Zinc Oxide or Titanium Dioxide.',
   },
   {
     id: 2,
-    icon: <GiDiamondHard />,
-    title: 'vision',
+    icon: <GiSparkles />,
+    title: 'Thinnest to Thickest',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'Apply your products thinnest to thickest for maximum absorption. Toners & serums go before moisturizer & SPF.',
   },
   {
     id: 3,
-    icon: <GiStabbedNote />,
-    title: 'history',
+    icon: <GiSparkles />,
+    title: 'Exfoliation',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'Be gentle. Follow with a moisturzer. Be consistent!',
   },
 ]
 

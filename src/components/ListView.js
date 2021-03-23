@@ -2,15 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import {Link} from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const ListView = ({items}) => {
-  return(
+  return (
     <Wrapper>
       {items.map(({node})=>{
         return (
           <article key={node.id}>
-            <Img fluid={node.images[0].fluid} alt={node.name}/>
+            <GatsbyImage image={node.images.childImageSharp.gatsbyImageData} alt={node.name} />
             <div>
               <h4>{node.name}</h4>
               <h5 className="price">{formatPrice(node.price)}</h5>
@@ -18,10 +18,10 @@ const ListView = ({items}) => {
               <Link to={`/shop/${node.slug}`} className="btn">Details</Link>
             </div>
           </article>
-        )
+        );
       })}
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.section`

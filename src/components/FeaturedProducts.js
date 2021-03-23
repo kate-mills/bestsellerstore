@@ -1,15 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { useProductsContext } from '../context/products_context'
+import { useProductsContext } from '../context/products_context'
 //import { Link } from 'gatsby'
-//import Error from './Error'
-//import Loading from './Loading'
-//import Product from './Product'
+import Loading from './Loading'
+import Product from './Product'
 
 const FeaturedProducts = () => {
+  const {products_loading, products_error,  featured_products } = useProductsContext()
+  console.log('products_loading', products_loading)
+
+  if(products_loading || products_error) {
+    return <Loading/>
+  }
   return (
-    <Wrapper>
-      <h4>featured products</h4>
+    <Wrapper className="section">
+      <div className="title">
+        <h2>featured products</h2>
+        <div className="underline"/>
+        <div className="section-center featured">
+          {
+            featured_products.map((item)=>{
+              return <Product key={item.id} {...item}/>
+          })
+          }
+        </div>
+      </div>
     </Wrapper>
   )
 }

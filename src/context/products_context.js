@@ -8,7 +8,6 @@ import {
 
 import {allData} from '../utils/data'
 
-
 // import axios from 'axios'
 // import { products_url as url } from '../utils/constants'
 /*

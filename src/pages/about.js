@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from "gatsby"
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Layout, PageHero, SEO } from '../components'
 
 const AboutPage = ({data:{img:{childImageSharp:{fluid}}}}) => {
@@ -11,7 +11,7 @@ const AboutPage = ({data:{img:{childImageSharp:{fluid}}}}) => {
       <main>
         <PageHero title="about"/>
         <Wrapper className="page section section-center">
-          <Img fluid={fluid} alt="Display of random makeup products on pink background."/>
+          <GatsbyImage image={fluid} alt="Display of random makeup products on pink background." />
           <article>
             <div className='title'>
               <h2>our story</h2>
@@ -22,7 +22,7 @@ const AboutPage = ({data:{img:{childImageSharp:{fluid}}}}) => {
         </Wrapper>
       </main>
     </Layout>
-  )
+  );
 }
 
 const Wrapper = styled.section`
@@ -53,16 +53,13 @@ const Wrapper = styled.section`
 
 
 
-export const query = graphql`
-  {
-    img:file(relativePath: {eq: "about/hm.jpg"}) {
-      childImageSharp {
-        fluid (maxHeight: 300){
-          ...GatsbyImageSharpFluid
-        }
-      }
+export const query = graphql`{
+  img: file(relativePath: {eq: "about/hm.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(height: 300, layout: FULL_WIDTH)
     }
   }
+}
 `
 export default AboutPage
 

@@ -4,21 +4,21 @@ import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import {Link} from 'gatsby'
 
-import Image from 'gatsby-image'
+//import { GatsbyImage } from "gatsby-plugin-image";
 
 const Product = (props) => {
   const {
-    description:{ description },
-    images,
+    desc,
+    imageUrl,
     name,
     price,
-    slug,
   } = props
+  let slug = name.toLowerCase().replace(' ', '')
   return (
     <Wrapper>
       <div className="container">
         <Link to={`/shop/${slug}`}>
-          <Image fluid={images[0].fluid} alt={description}/>
+          <img src={imageUrl} alt={desc}/>
         </Link>
         <Link to={`/shop/${slug}`} className="link"><FaSearch/></Link>
       </div>
