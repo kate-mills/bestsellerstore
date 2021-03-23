@@ -1,48 +1,64 @@
+import { graphql, useStaticQuery } from 'gatsby'
+
 import React, { useContext, useReducer } from 'react'
 import reducer from '../reducers/products_reducer'
 import {
-  GET_PRODUCTS_SUCCESS,
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
 } from '../actions'
 
-import {allData} from '../utils/data'
+const query = graphql`
+  {
+    allItems: allContentfulMccProduct(sort: {fields: name, order: ASC}) {
+      nodes {
+        id
+        category
+        description {
+          description
+        }
+        retailPrice
+        slug
+        featured
+        skinType
+        name
+        imgRetail {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+          fluid {
+            src
+          }
+        }
+      }
+    }
+    featuredItems: allContentfulMccProduct(filter: {featured: {eq: true}}) {
+      nodes {
+        id
+        category
+        description {
+          description
+        }
+        retailPrice
+        slug
+        featured
+        skinType
+        name
+        imgRetail {
+        gatsbyImageData(placeholder: TRACED_SVG)
+        }
+      }
+    }
+  }`
 
-// import axios from 'axios'
-// import { products_url as url } from '../utils/constants'
-/*
-  GET_PRODUCTS_BEGIN,
-  GET_PRODUCTS_ERROR,
-  GET_SINGLE_PRODUCT_BEGIN,
-  GET_SINGLE_PRODUCT_SUCCESS,
-  GET_SINGLE_PRODUCT_ERROR,
-*/
-
-const initialState = {
-  isSidebarOpen: false,
-  products_loading: false,
-  products: [],
-  featured_products: [],
-  products_error: false,
-}
 
 
-const ProductsContext = React.createContext()
+const initialState = { isSidebarOpen: false, products_loading: false, products_error: false, all_items: [], featured_items: [] };
+
+const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
-
-  const openSidebar = () => {dispatch({type: SIDEBAR_OPEN})} 
-  const closeSidebar = () => {dispatch({type: SIDEBAR_CLOSE})} 
-
-  const fetchProducts = () => {
-    const products = allData
-    dispatch({type: GET_PRODUCTS_SUCCESS, payload: products})
-  }
-  React.useEffect(()=>{
-    fetchProducts()
-  }, [])
-
+  const { allItems, featuredItems } = useStaticQuery(query);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const openSidebar =  () => { dispatch({ type: SIDEBAR_OPEN }) };
+  const closeSidebar = () => { dispatch({ type: SIDEBAR_CLOSE }) };
 
   return (
     <ProductsContext.Provider
@@ -50,14 +66,12 @@ export const ProductsProvider = ({ children }) => {
         ...state,
         openSidebar,
         closeSidebar,
-      }}
-    >
+        all_items: allItems,
+        featured_items: featuredItems,
+      }}>
       {children}
     </ProductsContext.Provider>
   )
-}
+};
 
-export const useProductsContext = () => {
-  return useContext(ProductsContext)
-}
-
+export const useProductsContext=()=>{return useContext(ProductsContext)};

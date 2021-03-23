@@ -8,9 +8,7 @@ const Contact = () => {
         <h3>Get the latest to your inbox.</h3>
         <div className='content'>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-            veniam repudiandae vel ab id, fuga praesentium nobis natus ipsam
-            vero?
+            Become a Best Sellers Beauty insider!  Get the latest on products, monthly specials, and more.
           </p>
           <form
             className='contact-form'

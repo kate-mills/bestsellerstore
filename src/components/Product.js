@@ -4,28 +4,27 @@ import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import {Link} from 'gatsby'
 
-//import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Product = (props) => {
   const {
-    desc,
-    imageUrl,
+    imgRetail,
     name,
-    price,
+    retailPrice,
+    slug,
   } = props
-  let slug = name.toLowerCase().replace(' ', '')
   return (
     <Wrapper>
       <div className="container">
         <Link to={`/shop/${slug}`}>
-          <img src={imageUrl} alt={desc}/>
+          <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='225' fit='contain'/>
         </Link>
         <Link to={`/shop/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
         <h5>{name.substring(0, 21)}...</h5>
         {/* Reminder: Use cents for safer calculations */}
-        <p>{formatPrice(price)}</p>
+        <p>{formatPrice(retailPrice/100)}</p>
       </footer>
     </Wrapper>
   )
@@ -40,7 +39,7 @@ const Wrapper = styled.article`
   img {
     width: 100%;
     display: block;
-    object-fit: contain;
+    object-fit: contain !important;
     background: var(--clr-white);
     border-radius: var(--radius);
     transition: var(--transition);

@@ -6,8 +6,8 @@ import Loading from './Loading'
 import Product from './Product'
 
 const FeaturedProducts = () => {
-  const {products_loading, products_error,  featured_products } = useProductsContext()
-  console.log('products_loading', products_loading)
+  const {products_loading, products_error,  featured_items } = useProductsContext()
+  console.log('products_loading', featured_items)
 
   if(products_loading || products_error) {
     return <Loading/>
@@ -19,7 +19,7 @@ const FeaturedProducts = () => {
         <div className="underline"/>
         <div className="section-center featured">
           {
-            featured_products.map((item)=>{
+            featured_items.nodes.map((item)=>{
               return <Product key={item.id} {...item}/>
           })
           }
