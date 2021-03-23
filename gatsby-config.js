@@ -78,20 +78,15 @@ module.exports = {
         icon_options: { purpose: `any`, },
       },
     },
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        host: `${siteUrl}`,
-        sitemap: `${siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: "*", allow: "/" }],
-      },
-    },
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-sitemap`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
+
+    //{ resolve: "gatsby-plugin-robots-txt", options: { host: `${siteUrl}`, sitemap: `${siteUrl}/sitemap.xml`, policy: [{ userAgent: "*", allow: "/" }], }, },
+
+    //`gatsby-plugin-sitemap`,
+    
     // `gatsby-plugin-offline`,
 
-    `gatsby-plugin-netlify`, //keep last
+    //`gatsby-plugin-netlify`, //keep last
+
   ],
 }

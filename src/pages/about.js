@@ -4,14 +4,14 @@ import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Layout, PageHero, SEO } from '../components'
 
-const AboutPage = ({data:{img:{childImageSharp:{fluid}}}}) => {
+const AboutPage = ({data:{img:{childImageSharp:{gatsbyImageData}}}}) => {
   return (
     <Layout>
       <SEO/>
       <main>
         <PageHero title="about"/>
         <Wrapper className="page section section-center">
-          <GatsbyImage image={fluid} alt="Display of random makeup products on pink background." />
+          <GatsbyImage image={gatsbyImageData} alt="Display of random makeup products on pink background." />
           <article>
             <div className='title'>
               <h2>our story</h2>
@@ -56,7 +56,7 @@ const Wrapper = styled.section`
 export const query = graphql`{
   img: file(relativePath: {eq: "about/hm.jpg"}) {
     childImageSharp {
-      gatsbyImageData(height: 300, layout: FULL_WIDTH)
+      gatsbyImageData(height: 300)
     }
   }
 }
