@@ -33,7 +33,7 @@ const Product = (props) => {
 const Wrapper = styled.article`
   .container {
     position: relative;
-    background: var(--clr-black);
+    background: var(--clr-primary-10);
     border-radius: var(--radius);
   }
   img {
