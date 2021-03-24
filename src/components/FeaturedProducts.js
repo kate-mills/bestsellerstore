@@ -7,7 +7,6 @@ import Product from './Product'
 
 const FeaturedProducts = () => {
   const {products_loading, products_error,  featured_items } = useProductsContext()
-  console.log('products_loading', featured_items)
 
   if(products_loading || products_error) {
     return <Loading/>

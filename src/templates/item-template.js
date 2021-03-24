@@ -1,25 +1,50 @@
 import React  from 'react'
-//import { useParams, useHistory } from 'react-router-dom'
-import { useProductsContext } from '../context/products_context'
-import { single_product_url as url } from '../utils/constants'
-import { formatPrice } from '../utils/helpers'
-import {
-  Loading,
-  Error,
-  ProductImages,
-  AddToCart,
-  Stars,
-  PageHero,
-} from '../components'
 
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import { formatPrice } from '../utils/helpers'
 
-const SingleProductPage = () => {
+import {
+  SEO,
+  Layout,
+  PageHero,
+  Stars,
+  ProductImages,
+  //AddToCart
+} from '../components'
+
+const SingleProductPage = ({data}) => {
+  const {
+    name,
+    description:{description},
+    imgRetail,
+    stars,
+    retailPrice,
+    reviewCount,
+  } = data.item
   return (
-    <Wrapper>
-      <h4>single product page</h4>
-    </Wrapper>
+    <Layout>
+      <SEO/>
+      <Wrapper className="page section item-center">
+      <PageHero title={name} shop />
+      <div className="section section-center page">
+        <Link to="/shop" className="btn">back to all products</Link>
+         <div className="item-center">
+           <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
+          <section
+              className="content"
+              itemScope
+              itemType="https://schema.org/Product"
+            >
+              <h2>{name}</h2>
+              <Stars stars={stars} reviewCount={reviewCount} />
+              <h5 className="price">{formatPrice(retailPrice/100)}</h5>
+          </section>
+         </div>
+      </div> 
+      </Wrapper>
+    </Layout>
   )
 }
 
@@ -59,3 +84,41 @@ const Wrapper = styled.main`
 
 export default SingleProductPage
 
+
+
+export const query = graphql`
+  query($slug: String) {
+    item: contentfulMccProduct(slug: { eq: $slug }) {
+      id
+      stars
+      reviewCount
+      retailPrice
+      category
+      slug
+      name
+      featured
+      skinTypeBadge
+      skinType
+      retailPrice
+      description {
+        description
+      }
+      imgRetail {
+        gatsbyImageData(placeholder: TRACED_SVG)
+      }
+      video
+      keyIngredients {
+        id
+        benefit
+        name {
+          formatted
+        }
+        benefit
+      }
+      award
+      awardImage {
+        gatsbyImageData(width: 100, height: 100)
+      }
+    }
+  }
+`

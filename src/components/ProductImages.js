@@ -8,17 +8,17 @@ const ProductImages = ({images=[],  description}) => {
   const [main, setMain ] = useState(images[0])
   return (
     <Wrapper>
-      <GatsbyImage image={main.gatsbyImageData} alt={description || ""} />
+      <GatsbyImage image={main} alt={description || ""} />
       <div className="gallery">
         {images.map((img, index)=>{
           return(
-            <img
+            <GatsbyImage
               onKeyPress={()=>setMain(images[index])}
               key={index}
               onClick={()=> setMain(images[index])}
-              src={img.fluid.src}
+              image={main || img.images.src}
               alt={`View ${index} of ${description}`}
-              className={`${img.fluid.src===main.fluid.src ? 'active': null}`}
+              className={`mini ${main ? 'active': null}`}
             />
           )  
        })}
@@ -31,6 +31,14 @@ const Wrapper = styled.section`
   .gatsby-image-wrapper {
     height: 600px;
     object-fit: contain !important;
+  }
+  .gatsby-image-wrapper.mini{
+    height: 100%;
+    max-width: 100px;
+    object-fit: contain !important;
+    img{
+      padding: 0.25rem;
+    }
   }
   img {
     width: 100%;
@@ -58,7 +66,7 @@ const Wrapper = styled.section`
     }
     .gallery {
       img {
-        height: 50px;
+        height: 500px;
       }
     }
   }

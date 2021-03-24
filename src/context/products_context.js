@@ -9,40 +9,48 @@ import {
 
 const query = graphql`
   {
-    allItems: allContentfulMccProduct(sort: {fields: name, order: ASC}) {
+    allItems: allContentfulMccProduct (sort: {fields: name, order: ASC}) {
       nodes {
         id
+        retailPrice
         category
+        slug
+        name
+        featured
+        skinTypeBadge
+        skinType
         description {
           description
         }
-        retailPrice
-        slug
-        featured
-        skinType
-        name
         imgRetail {
-          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-          fluid {
-            src
+          gatsbyImageData(placeholder: TRACED_SVG)
+        }
+        video
+        keyIngredients {
+          id
+          benefit
+          name {
+            formatted
           }
+          benefit
+        }
+        award
+        awardImage {
+          gatsbyImageData(width: 100, height: 100)
         }
       }
     }
-    featuredItems: allContentfulMccProduct(filter: {featured: {eq: true}}) {
+    featuredItems: allContentfulMccProduct(filter: {featured: {eq: true}}, limit:3) {
       nodes {
         id
+        stars
+        reviewCount
         category
-        description {
-          description
-        }
         retailPrice
         slug
-        featured
-        skinType
         name
         imgRetail {
-        gatsbyImageData(placeholder: TRACED_SVG)
+          gatsbyImageData(placeholder: TRACED_SVG)
         }
       }
     }
