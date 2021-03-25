@@ -45,14 +45,13 @@ const SingleProductPage = ({data}) => {
           <section className="content" itemScope itemType="https://schema.org/Product">
             <h2 className="product-name">{name}</h2>
             <h3 className="product-company">Michele Corley Clinical Skincare</h3>
-            <div className="underline"/>
+            <Stars stars={stars} reviewCount={reviewCount} />
             <h4 className="product-skintypes">
               {skinType.map((item, index) => {
                 return (
                   <span key={index} className="skintype">{item}</span>
               )})}
             </h4>
-            <Stars stars={stars} reviewCount={reviewCount} />
             <h5 className="price">{formatPrice(retailPrice/100)}</h5>
             <p className="desc">{description}</p>
             <hr/>

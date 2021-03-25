@@ -17,6 +17,7 @@ const Stars = ({stars=3.9, reviewCount=12}) => {
 }
 
 const Wrapper = styled.div`
+  margin-top: 20px;
   display: flex;
   align-items: center;
   span {
@@ -24,10 +25,7 @@ const Wrapper = styled.div`
     font-size: 1rem;
     margin-right: 0.25rem;
   }
-  .reviews{
-    position: relative;
-    bottom: 3px;
-  }
+  .reviews{ position: relative; bottom: 3px; }
   .review-count{
     color: var(--clr-black);
     margin-right: 2px;
