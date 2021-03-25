@@ -10,8 +10,7 @@ const Contact = () => {
           <p>
             Become a Best Sellers Beauty insider!  Get the latest on products, monthly specials, and more.
           </p>
-          <form className='contact-form' name="contact" netlify netlify-honeypot="bot-field" data-netlify="true" action='/success'  >
-            {/*<form  className="contact-form" name="contact" netlify method="post" data-netlify="true" action="/success" netlify-honeypot="bot-field" hidden>*/}
+          <form className='contact-form' name="contact" netlify-honeypot="bot-field" data-netlify="true" action='/success'>
             <input
               type='email'
               className='form-input'
