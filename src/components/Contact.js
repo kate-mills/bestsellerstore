@@ -10,16 +10,13 @@ const Contact = () => {
           <p>
             Become a Best Sellers Beauty insider!  Get the latest on products, monthly specials, and more.
           </p>
-          <form
-            className='contact-form'
-            action='your form spree id'
-            method='POST'
-          >
+          <form className='contact-form' name="contact" netlify netlify-honeypot="bot-field" data-netlify="true" action='/success'  >
+            {/*<form  className="contact-form" name="contact" netlify method="post" data-netlify="true" action="/success" netlify-honeypot="bot-field" hidden>*/}
             <input
               type='email'
               className='form-input'
-              placeholder='enter email'
-              name='_replyto'
+              placeholder='your email'
+              name='email'
             />
             <button type='submit' className='submit-btn'>
               send

@@ -8,8 +8,9 @@ const SuccessPage = () => {
     <Layout>
       <Wrapper className="page-100">
         <section>
-          <h1>Thank You!</h1>
-          <h3>Hilary will get back to you as soon as she can.</h3>
+          <h1>Success!</h1>
+          <h2>You're a Best Sellers Beauty Insider!</h2>
+          <h3>You'll get the latest on new products, specials, and much more!</h3>
           <Link to="/" className="btn">
             Back to Homepage
           </Link>
@@ -26,11 +27,15 @@ const Wrapper = styled.main`
   align-items: center;
   text-align: center;
   h1 {
-    font-size: 8rem;
+    font-size: 7rem;
+    margin-bottom: 1.5rem;
   }
-  h3 {
+  h2, h3 {
     text-transform: none;
     margin-bottom: 2rem;
+  }
+  h3 {
+    margin-bottom: 3.5rem;
   }
 `
 

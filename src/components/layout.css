@@ -200,7 +200,7 @@ p {
   border-color: transparent;
 }
 .btn:hover {
-  color: var(--clr-primary-1);
+  color: var(--clr-primary-11);
   background: var(--clr-primary-7);
 }
 .title {

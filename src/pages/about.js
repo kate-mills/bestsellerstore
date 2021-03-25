@@ -54,7 +54,7 @@ const Wrapper = styled.section`
 
 
 export const query = graphql`{
-  img: file(relativePath: {eq: "about/hm.jpg"}) {
+  img: file(relativePath: {eq: "about/bubbles.png"}) {
     childImageSharp {
       gatsbyImageData(height: 300)
     }
