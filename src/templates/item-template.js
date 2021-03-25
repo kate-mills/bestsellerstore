@@ -11,11 +11,12 @@ import {
   PageHero,
   Stars,
   ProductImages,
-  //AddToCart
+  AddToCart
 } from '../components'
 
 const SingleProductPage = ({data}) => {
   const {
+    id,
     stars,
     reviewCount,
     retailPrice,
@@ -34,17 +35,27 @@ const SingleProductPage = ({data}) => {
   } = data.item
   return (
     <Layout>
-      <SEO image={imgRetail.fixed.src} title={name}/>
-      <Wrapper className="page section item-center">
+      <SEO image={imgRetail.fixed.src} title={name} description={description}/>
+    <Wrapper>
       <PageHero title={name} shop />
-      <div className="section section-center page">
+      <div className='section section-center page'>
         <Link to="/shop" className="btn">back to all products</Link>
-         <div className="item-center">
+        <div className='product-center'>
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
           <section className="content" itemScope itemType="https://schema.org/Product">
-              <h2>{name}</h2>
-              <Stars stars={stars} reviewCount={reviewCount} />
-              <h5 className="price">{formatPrice(retailPrice/100)}</h5>
+            <h2 className="product-name">{name}</h2>
+            <h3 className="product-company">Michele Corley Clinical Skincare</h3>
+            <h4 className="product-skintypes">
+              {skinType.map((item, index) => {
+                return (
+                  <span key={index} className="skintype">{item}</span>
+              )})}
+            </h4>
+            <Stars stars={stars} reviewCount={reviewCount} />
+            <h5 className="price">{formatPrice(retailPrice/100)}</h5>
+            <p className="desc">{description}</p>
+            <hr/>
+            <AddToCart id={id} item={{...data.item}} />
           </section>
          </div>
       </div> 
@@ -59,18 +70,40 @@ const Wrapper = styled.main`
     gap: 4rem;
     margin-top: 2rem;
   }
+  .product-name{
+    color: var(--clr-primary-3);
+  }
+  .product-company{
+    background: var(--clr-primary-11);/*hsl(358deg 32% 76% / 28%);*/
+    color: var(--clr-black);
+    font-size: 1.5rem;
+    width: fit-content;
+  }
+  
   .price {
-    color: var(--clr-primary-5);
+    color: var(--clr-primary-1);
   }
   .desc {
     line-height: 2;
     max-width: 45em;
   }
+  .product-skintypes{
+    font-size: 1.25rem;
+    .skintype:first-of-type{
+      padding-left: 0;
+    }
+    .skintype{
+      padding-left: 8px;
+    }
+    .skintype::after{
+      content: ','
+    }
+    .skintype:last-of-type::after{
+      content: ''
+    }
+  }
   .info {
     text-transform: capitalize;
-    width: 300px;
-    display: grid;
-    grid-template-columns: 125px 1fr;
     span {
       font-weight: 700;
     }

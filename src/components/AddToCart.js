@@ -2,11 +2,11 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 import { FaCheck } from 'react-icons/fa'
-import { useCartContext } from '../context/cart_context'
+//import { useCartContext } from '../context/cart_context'
 import QuantityButtons from './QuantityButtons'
 
-const AddToCart = ({item, id, colors, stockQuantity}) => {
-  const {addToCart} = useCartContext()
+const AddToCart = ({item, id, colors=[], stockQuantity=12}) => {
+  //const {addToCart} = useCartContext()
 
   const [mainColor, setMainColor] = useState(colors[0])
   const [quantity, setQuantity] = useState(1)
@@ -56,7 +56,8 @@ const AddToCart = ({item, id, colors, stockQuantity}) => {
         />
         <Link
           to="/cart"
-          onClick={()=>addToCart(id, mainColor, quantity, item)}
+          //onClick={()=>addToCart(id, mainColor, quantity, item)}
+          onClick={()=>console.log('click')}
           className="btn"
         >add to cart</Link>
       </div>
