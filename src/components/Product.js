@@ -14,6 +14,7 @@ const Product = (props) => {
     slug,
   } = props
   return (
+    <Link to={`/shop/${slug}`}>
     <Wrapper>
       <div className="container">
         <Link to={`/shop/${slug}`}>
@@ -27,13 +28,14 @@ const Product = (props) => {
         <p>{formatPrice(retailPrice/100)}</p>
       </footer>
     </Wrapper>
+    </Link>
   )
 }
 
 const Wrapper = styled.article`
   .container {
     position: relative;
-    background: var(--clr-primary-10);
+    background: var(--clr-white);
     border-radius: var(--radius);
   }
   img {
@@ -79,6 +81,7 @@ const Wrapper = styled.article`
   footer h5,
   footer p {
     margin-bottom: 0;
+    color: var(--clr-black);
     font-weight: 400;
   }
 
