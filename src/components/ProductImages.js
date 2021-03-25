@@ -61,24 +61,12 @@ const Wrapper = styled.section`
     border: 2px solid var(--clr-primary-5);
   }
   @media (max-width: 576px) {
-    .gatsby-image-wrapper {
-      height: 300px;
-    }
-    .gallery {
-      img {
-        height: 500px;
-      }
-    }
+    .gatsby-image-wrapper { height: 300px; }
+    .gallery { img { height: 75px; } }
   }
   @media (min-width: 992px) {
-    .gatsby-image-wrapper {
-      height: 500px;
-    }
-    .gallery {
-      img {
-        height: 75px;
-      }
-    }
+    .gatsby-image-wrapper { height: 500px; }
+    .gallery { img { height: 75px; } }
   }
 `
 export default ProductImages

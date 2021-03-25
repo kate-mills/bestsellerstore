@@ -11,7 +11,7 @@ const Stars = ({stars=3.9, reviewCount=12}) => {
       <div className="stars">
         {starArray}
       </div>
-      <div className="reviews">({reviewCount} customer reviews)</div>
+      <div className="reviews">(<span className="review-count"><span className="count">{reviewCount}</span>customer reviews</span>)</div>
     </Wrapper>
   )
 }
@@ -20,9 +20,23 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   span {
-    color: #ffb900;
+    color: var(--clr-red-light);
     font-size: 1rem;
     margin-right: 0.25rem;
+  }
+  .reviews{
+    position: relative;
+    bottom: 3px;
+  }
+  .review-count{
+    color: var(--clr-black);
+    margin-right: 2px;
+    .count{
+      color: var(--clr-black);
+      margin-left: 2px;
+      position: relative;
+      top: 1.5px;
+    }
   }
   p {
     margin-left: 0.5rem;

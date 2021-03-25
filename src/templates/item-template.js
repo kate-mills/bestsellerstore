@@ -45,6 +45,7 @@ const SingleProductPage = ({data}) => {
           <section className="content" itemScope itemType="https://schema.org/Product">
             <h2 className="product-name">{name}</h2>
             <h3 className="product-company">Michele Corley Clinical Skincare</h3>
+            <div className="underline"/>
             <h4 className="product-skintypes">
               {skinType.map((item, index) => {
                 return (
@@ -74,12 +75,15 @@ const Wrapper = styled.main`
     color: var(--clr-primary-3);
   }
   .product-company{
-    background: var(--clr-primary-11);/*hsl(358deg 32% 76% / 28%);*/
     color: var(--clr-black);
     font-size: 1.5rem;
     width: fit-content;
   }
-  
+  .underline{
+    height: 10px;
+    width: 75%;
+    background: var(--clr-primary-11);
+  }
   .price {
     color: var(--clr-primary-1);
   }
@@ -87,7 +91,15 @@ const Wrapper = styled.main`
     line-height: 2;
     max-width: 45em;
   }
+  .product-skintypes::before{
+    content: 'Skin Types:';
+    margin-right: 1rem;
+    font-weight: 400;
+    font-family: 'bree';
+  }
   .product-skintypes{
+    font-family: 'proxima-nova';
+    line-height: 30px;
     font-size: 1.25rem;
     .skintype:first-of-type{
       padding-left: 0;
