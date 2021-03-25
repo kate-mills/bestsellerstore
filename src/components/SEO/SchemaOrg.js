@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 
 export default React.memo(
   ({
-    url,
+    currentUrl,
     pageTitle,
     image,
     description,
@@ -32,19 +32,17 @@ export default React.memo(
         email: organization.email,
         image: image,
         logo: organization.logo,
-        name: organization.name,
+        name: pageTitle,
         priceRange: organization.priceRange,
         sameAs: organization.otherUrls,
         telephone: organization.phone,
-        url: organization.url,
+        url: currentUrl,
         address: {
           "@type": "PostalAddress",
           addressCountry: organization.address.country,
           addressLocality: organization.address.city,
           addressRegion: organization.address.state,
           name: organization.name,
-          postalCode: organization.address.zip,
-          streetAddress: organization.address.street,
         },
         geo: {
           "@type": "GeoCoordinates",

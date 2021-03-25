@@ -17,11 +17,12 @@ const SEO = ({ title, description, image, article, lang }) => {
     dateModified,
     altUrl,
   } = site.siteMetadata
+  //console.log(`${altUrl}${pathname}`)
 
   const seo = {
     title: title ? `${title} | ${organization.name}`: organization.name,
     description: description || organization.description,
-    image: `${baseUrl}${image || defaultImage}`,
+    image: `${image || defaultImage}`,
     url: `${baseUrl}${pathname}`,
     altUrl: altUrl || false,
   }
@@ -74,7 +75,7 @@ const SEO = ({ title, description, image, article, lang }) => {
         defaultTitle={organization.name}
         pageTitle={seo.title}
         description={seo.description}
-        url={seo.url}
+        currentUrl={seo.url}
         baseUrl={baseUrl}
         image={seo.image}
         dateModified={dateModified}

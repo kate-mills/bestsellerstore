@@ -16,27 +16,32 @@ import {
 
 const SingleProductPage = ({data}) => {
   const {
+    stars,
+    reviewCount,
+    retailPrice,
+    category,
+    slug,
     name,
+    featured,
+    skinTypeBadge,
+    skinType,
     description:{description},
     imgRetail,
-    stars,
-    retailPrice,
-    reviewCount,
+    video,
+    keyIngredients,
+    award, //integer
+    awardImage,
   } = data.item
   return (
     <Layout>
-      <SEO/>
+      <SEO image={imgRetail.fixed.src} title={name}/>
       <Wrapper className="page section item-center">
       <PageHero title={name} shop />
       <div className="section section-center page">
         <Link to="/shop" className="btn">back to all products</Link>
          <div className="item-center">
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
-          <section
-              className="content"
-              itemScope
-              itemType="https://schema.org/Product"
-            >
+          <section className="content" itemScope itemType="https://schema.org/Product">
               <h2>{name}</h2>
               <Stars stars={stars} reviewCount={reviewCount} />
               <h5 className="price">{formatPrice(retailPrice/100)}</h5>
@@ -105,6 +110,9 @@ export const query = graphql`
       }
       imgRetail {
         gatsbyImageData(placeholder: TRACED_SVG)
+        fixed(height: 200, width: 200, cropFocus: CENTER, quality: 100) {
+          src
+        }
       }
       video
       keyIngredients {
