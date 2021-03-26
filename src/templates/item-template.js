@@ -48,16 +48,16 @@ const SingleProductPage = (props) => {
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
           <section className="content" itemScope itemType="https://schema.org/Product">
             <h2 className={`${isLongName? 'long-name product-name':'product-name'}`}>{name}</h2>
-            <h3 className="product-company">Michele Corley Clinical Skincare</h3>
             <Stars stars={stars} reviewCount={reviewCount} />
-            <h4 className="product-skintypes">
+            <h5 className="price">{formatPrice(retailPrice/100)}</h5>
+            <p className="product-skintypes info">
               { skinTypeBadge ?
                   skinTypeBadge.map((type, id)=>{
                     return(<span key={id} className="skintype">{type}</span>
                     )}):<span className="skintype">No badge</span>
               }
-            </h4>
-            <h5 className="price">{formatPrice(retailPrice/100)}</h5>
+            </p>
+            <p className="product-company">Michele Corley Clinical Skincare</p>
             <p className="desc">{description}</p>
             <hr/>
             <AddToCart id={id} item={{...props.data.item}} />
@@ -76,39 +76,35 @@ const Wrapper = styled.main`
     margin-top: 2rem;
   }
   .product-name{
-    color: var(--clr-primary-3);
+    color: var(--clr-black);
     font-size: 1.75rem;
   }
   .long-name{
     font-size: 1.25rem;
   }
-  .product-company{
-    color: var(--clr-black);
-    font-size: 1.5rem;
-    width: fit-content;
-  }
-  .underline{
-    height: 10px;
-    width: 75%;
-    background: var(--clr-primary-11);
-  }
   .price {
-    color: var(--clr-primary-1);
+    color: var(--color-black);
   }
-  .desc {
-    line-height: 2;
-    max-width: 45em;
+  .product-company{
+    color: var(--clr-primary-3);
+    font-family: 'bree';
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: unset;
+    width: fit-content;
   }
   .product-skintypes::before{
     content: 'Skin Types:';
-    margin-right: 1rem;
-    font-weight: 400;
     font-family: 'bree';
+    font-size: 1rem;
+    font-weight: 300;
+    margin-right: 0.5rem;
   }
   .product-skintypes{
     font-family: 'proxima-nova';
     line-height: 30px;
-    font-size: 1.25rem;
+    max-width: 45em;
+    text-transform: capitalize;
     .skintype:first-of-type{
       padding-left: 0;
     }
@@ -121,6 +117,10 @@ const Wrapper = styled.main`
     .skintype:last-of-type::after{
       content: ''
     }
+  }
+  .desc {
+    line-height: 2;
+    max-width: 45em;
   }
   .info {
     text-transform: capitalize;
@@ -136,6 +136,8 @@ const Wrapper = styled.main`
     }
     .price {
       font-size: 1.25rem;
+    }
+    .product-skintypes::before{
     }
   }
 `
