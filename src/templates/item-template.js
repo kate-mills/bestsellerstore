@@ -41,7 +41,7 @@ const SingleProductPage = (props) => {
     <Layout>
       <SEO image={imgRetail.fixed.src} title={shortName || name} description={description}/>
     <Wrapper>
-      <PageHero title={shortName || name} shop />
+      <PageHero title={shortName || name} isLongName={isLongName} shop />
       <div className='section section-center page'>
         <Link to="/shop" className="btn">back to all products</Link>
         <div className='product-center'>
@@ -51,11 +51,11 @@ const SingleProductPage = (props) => {
             <h3 className="product-company">Michele Corley Clinical Skincare</h3>
             <Stars stars={stars} reviewCount={reviewCount} />
             <h4 className="product-skintypes">
-              { skinTypeBadge.map((type, id)=>{
-                return(
-                  <span key={id} className="skintype">{type}</span>
-                )
-              })}
+              { skinTypeBadge ?
+                  skinTypeBadge.map((type, id)=>{
+                    return(<span key={id} className="skintype">{type}</span>
+                    )}):<span className="skintype">No badge</span>
+              }
             </h4>
             <h5 className="price">{formatPrice(retailPrice/100)}</h5>
             <p className="desc">{description}</p>

@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 
-const PageHero = ({ title, shop }) => {
+const PageHero = ({ title, shop, isLongName=false }) => {
   return (
     <Wrapper>
       <div className="section-center">
         <h3><Link to="/">Home</Link>
           {shop && <Link to="/shop">/ Shop</Link> }
-          / {title}
+          /<span className={`${isLongName? 'title long': 'title'}`}> {title}</span>
         </h3>
       </div>
     </Wrapper>
@@ -31,6 +31,12 @@ const Wrapper = styled.section`
   }
   a:hover {
     color: var(--clr-primary-1);
+  }
+  .title{
+    font-size: inherit;
+  }
+  .long{
+    font-size: 1.5rem;
   }
 `
 
