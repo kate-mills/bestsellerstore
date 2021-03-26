@@ -33,24 +33,26 @@ const SingleProductPage = ({data}) => {
     award, //integer
     awardImage,
   } = data.item
+  const shortName = slug.replaceAll('-', ' ')
   return (
     <Layout>
-      <SEO image={imgRetail.fixed.src} title={name} description={description}/>
+      <SEO image={imgRetail.fixed.src} title={shortName} description={description}/>
     <Wrapper>
-      <PageHero title={name} shop />
+      <PageHero title={shortName} shop />
       <div className='section section-center page'>
         <Link to="/shop" className="btn">back to all products</Link>
         <div className='product-center'>
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
           <section className="content" itemScope itemType="https://schema.org/Product">
-            <h2 className="product-name">{name}</h2>
+            <h2 className="product-name">{shortName}</h2>
             <h3 className="product-company">Michele Corley Clinical Skincare</h3>
             <Stars stars={stars} reviewCount={reviewCount} />
             <h4 className="product-skintypes">
-              {skinType.map((item, index) => {
-                return (
-                  <span key={index} className="skintype">{item}</span>
-              )})}
+              { skinTypeBadge.map((type, id)=>{
+                return(
+                  <span key={id}>{type} </span>
+                )
+              })}
             </h4>
             <h5 className="price">{formatPrice(retailPrice/100)}</h5>
             <p className="desc">{description}</p>

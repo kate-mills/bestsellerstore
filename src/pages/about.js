@@ -16,7 +16,7 @@ const AboutPage = ({data:{img:{childImageSharp:{gatsbyImageData}}}}) => {
             <div className='title'>
               <h2>our story</h2>
               <div className='underline'></div>
-              <p>Something about why I am starting this store</p>
+              <p>Dad, this is where your paragraph goes.  We need to write something about us, and why we're starting the store.</p>
             </div>
           </article>
         </Wrapper>
