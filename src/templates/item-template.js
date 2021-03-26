@@ -33,18 +33,17 @@ const SingleProductPage = ({data}) => {
     award, //integer
     awardImage,
   } = data.item
-  const shortName = slug.replaceAll('-', ' ')
   return (
     <Layout>
-      <SEO image={imgRetail.fixed.src} title={shortName} description={description}/>
+      <SEO image={imgRetail.fixed.src} title={slug.replaceAll('-', ' ')} description={description}/>
     <Wrapper>
-      <PageHero title={shortName} shop />
+      <PageHero title={slug.replaceAll('-', ' ')} shop />
       <div className='section section-center page'>
         <Link to="/shop" className="btn">back to all products</Link>
         <div className='product-center'>
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
           <section className="content" itemScope itemType="https://schema.org/Product">
-            <h2 className="product-name">{shortName}</h2>
+            <h2 className="product-name">{slug.replaceAll('-', ' ')}</h2>
             <h3 className="product-company">Michele Corley Clinical Skincare</h3>
             <Stars stars={stars} reviewCount={reviewCount} />
             <h4 className="product-skintypes">
