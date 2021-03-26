@@ -1,6 +1,5 @@
 const path = require('path')
 
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -12,6 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            name
           }
         }
       }
@@ -22,7 +22,10 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/shop/${item.node.slug}`,
       component: path.resolve(`src/templates/item-template.js`),
-      context: { slug: item.node.slug },
+      context: {
+        slug: item.node.slug,
+        isLongName: item.node.name.split(' ').length >=4,
+      },
     })
   })
 

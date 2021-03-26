@@ -14,7 +14,6 @@ const Product = (props) => {
     slug,
   } = props
   return (
-    <Link to={`/shop/${slug}`}>
     <Wrapper>
       <div className="container">
         <Link to={`/shop/${slug}`}>
@@ -28,7 +27,6 @@ const Product = (props) => {
         <p>{formatPrice(retailPrice/100)}</p>
       </footer>
     </Wrapper>
-    </Link>
   )
 }
 

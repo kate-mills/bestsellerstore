@@ -14,9 +14,10 @@ import {
   AddToCart
 } from '../components'
 
-const SingleProductPage = ({data}) => {
+const SingleProductPage = (props) => {
   const {
     id,
+    shortName,
     stars,
     reviewCount,
     retailPrice,
@@ -32,31 +33,34 @@ const SingleProductPage = ({data}) => {
     keyIngredients,
     award, //integer
     awardImage,
-  } = data.item
+  } = props.data.item
+
+  const {isLongName} = props.pageContext // words >= 4
+
   return (
     <Layout>
-      <SEO image={imgRetail.fixed.src} title={slug.replaceAll('-', ' ')} description={description}/>
+      <SEO image={imgRetail.fixed.src} title={shortName || name} description={description}/>
     <Wrapper>
-      <PageHero title={slug.replaceAll('-', ' ')} shop />
+      <PageHero title={shortName || name} shop />
       <div className='section section-center page'>
         <Link to="/shop" className="btn">back to all products</Link>
         <div className='product-center'>
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
           <section className="content" itemScope itemType="https://schema.org/Product">
-            <h2 className="product-name">{slug.replaceAll('-', ' ')}</h2>
+            <h2 className={`${isLongName? 'long-name product-name':'product-name'}`}>{name}</h2>
             <h3 className="product-company">Michele Corley Clinical Skincare</h3>
             <Stars stars={stars} reviewCount={reviewCount} />
             <h4 className="product-skintypes">
               { skinTypeBadge.map((type, id)=>{
                 return(
-                  <span key={id}>{type} </span>
+                  <span key={id} className="skintype">{type}</span>
                 )
               })}
             </h4>
             <h5 className="price">{formatPrice(retailPrice/100)}</h5>
             <p className="desc">{description}</p>
             <hr/>
-            <AddToCart id={id} item={{...data.item}} />
+            <AddToCart id={id} item={{...props.data.item}} />
           </section>
          </div>
       </div> 
@@ -73,6 +77,10 @@ const Wrapper = styled.main`
   }
   .product-name{
     color: var(--clr-primary-3);
+    font-size: 1.75rem;
+  }
+  .long-name{
+    font-size: 1.25rem;
   }
   .product-company{
     color: var(--clr-black);
@@ -140,6 +148,7 @@ export const query = graphql`
   query($slug: String) {
     item: contentfulMccProduct(slug: { eq: $slug }) {
       id
+      shortName
       stars
       reviewCount
       retailPrice

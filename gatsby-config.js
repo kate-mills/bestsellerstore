@@ -89,4 +89,12 @@ module.exports = {
     //`gatsby-plugin-netlify`, //keep last
 
   ],
+  flags: {
+    FAST_DEV: true,
+    DEV_SSR: true,
+    LAZY_IMAGES: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    FAST_REFRESH: true,
+    PRESERVE_WEBPACK_CACHE: true,
+  },
 }

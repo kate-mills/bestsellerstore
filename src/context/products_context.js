@@ -40,7 +40,7 @@ const query = graphql`
         }
       }
     }
-    featuredItems: allContentfulMccProduct(filter: {featured: {eq: true}}, limit:3) {
+    featuredItems: allContentfulMccProduct(filter: {featured: {eq: true}}, limit:6) {
       nodes {
         id
         stars
