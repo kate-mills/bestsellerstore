@@ -1,8 +1,12 @@
-/*
-import React, { useEffect, useContext, useReducer } from 'react'
+import React from 'react'
 import reducer from '../reducers/filter_reducer'
-import {
+import { useProductsContext } from './products_context'
+
+import{
   LOAD_PRODUCTS,
+} from '../actions'
+
+/*import {
   SET_GRIDVIEW,
   SET_LISTVIEW,
   UPDATE_SORT,
@@ -10,14 +14,25 @@ import {
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
-} from '../actions'
-import { useProductsContext } from './products_context'
+} from '../actions'*/
 
-//const initialState = {}
+
+const initialState = {
+  filtered_items:[],
+  all_items:[],
+}
 
 const FilterContext = React.createContext()
 
 export const FilterProvider = ({ children }) => {
+  const {all_items} = useProductsContext()
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+
+  React.useEffect(()=>{
+    dispatch({type:LOAD_PRODUCTS, payload:all_items})
+  }, [all_items])
+
   return (
     <FilterContext.Provider value='filter context'>
       {children}
@@ -28,4 +43,4 @@ export const FilterProvider = ({ children }) => {
 export const useFilterContext = () => {
   return React.useContext(FilterContext)
 } 
-*/
+

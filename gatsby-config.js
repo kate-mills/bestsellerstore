@@ -46,13 +46,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,9 +54,8 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -78,7 +71,16 @@ module.exports = {
         icon_options: { purpose: `any`, },
       },
     },
+    `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+
 
     //{ resolve: "gatsby-plugin-robots-txt", options: { host: `${siteUrl}`, sitemap: `${siteUrl}/sitemap.xml`, policy: [{ userAgent: "*", allow: "/" }], }, },
 
@@ -90,11 +92,8 @@ module.exports = {
 
   ],
   flags: {
-    FAST_DEV: true,
     DEV_SSR: true,
-    LAZY_IMAGES: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    FAST_REFRESH: true,
     PRESERVE_WEBPACK_CACHE: true,
   },
 }

@@ -17,25 +17,26 @@ import {
 const SingleProductPage = (props) => {
   const {
     id,
+    sizes,
     shortName,
     stars,
     reviewCount,
     retailPrice,
-    category,
-    slug,
+    //category,
+    //slug,
     name,
-    featured,
+    //featured,
     skinTypeBadge,
-    skinType,
+    //skinType,
     description:{description},
     imgRetail,
-    video,
-    keyIngredients,
+    //video,
+    //keyIngredients,
     award, //integer
-    awardImage,
+    //awardImage,
   } = props.data.item
 
-  const {isLongName} = props.pageContext // words >= 4
+  const {isLongName} = props.pageContext
 
   return (
     <Layout>
@@ -57,10 +58,11 @@ const SingleProductPage = (props) => {
                     )}):<span className="skintype">No badge</span>
               }
             </p>
+            <p className="info award">{award && `Dermascope Aestheticians Choice Award - ${award}`}</p>
             <p className="product-company">Michele Corley Clinical Skincare</p>
             <p className="desc">{description}</p>
             <hr/>
-            <AddToCart id={id} item={{...props.data.item}} />
+            <AddToCart id={id} sizes={sizes} item={{...props.data.item}} />
           </section>
          </div>
       </div> 
@@ -99,6 +101,14 @@ const Wrapper = styled.main`
     font-size: 1rem;
     font-weight: 300;
     margin-right: 0.5rem;
+  }
+  .info.award{
+    background: var(--clr-primary-11);
+    color: var(--clr-grey-4);/* #00626f; bluish*/
+    font-style: italic;
+    width: fit-content;
+    padding-left: 0.10rem;
+    padding-right: 0.20rem;
   }
   .product-skintypes{
     font-family: 'proxima-nova';
@@ -150,6 +160,7 @@ export const query = graphql`
   query($slug: String) {
     item: contentfulMccProduct(slug: { eq: $slug }) {
       id
+      sizes
       shortName
       stars
       reviewCount
