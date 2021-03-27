@@ -1,15 +1,44 @@
-import React  from 'react'
-//import reducer from '../reducers/cart_reducer'
 //import { ADD_TO_CART, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, CLEAR_CART, COUNT_CART_TOTALS, } from '../actions'
 
-//const initialState = {}
+import React  from 'react'
+
+import reducer from '../reducers/cart_reducer'
+
+import {ADD_TO_CART,} from '../actions'
+
+import {checkWindow} from '../utils/helpers'
+
+const getLocalStorage = () => {
+  if(checkWindow()){
+    let cart = localStorage.getItem('beststorecart');
+    if(cart){
+      return JSON.parse(localStorage.getItem('beststorecart'));
+    }else{
+      return [];
+    }
+  }
+  return [];
+}
+
+const initialState = {
+  cart: getLocalStorage(),
+  total_quantity: 0,
+  total_price: 0,
+  shipping_fee: 534,
+}
 
 const CartContext = React.createContext()
-const addToCart = ()=>{console.log('addToCart')}
+
 
 export const CartProvider = ({ children }) => {
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  const addToCart = (id, size, quantity, item)=>{
+    dispatch({type: ADD_TO_CART, payload:{id, size, quantity, item}})
+  }
+
   return (
-    <CartContext.Provider value={addToCart}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{...state, addToCart}}>{children}</CartContext.Provider>
   )
 }
 // make sure use

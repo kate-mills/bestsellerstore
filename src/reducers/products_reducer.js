@@ -10,9 +10,9 @@ import {
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
-  GET_PRODUCTS_BEGIN,
-  GET_PRODUCTS_SUCCESS,
-  GET_PRODUCTS_ERROR,
+  GET_ITEMS_BEGIN,
+  GET_ITEMS_SUCCESS,
+  GET_ITEMS_ERROR,
 
 } from '../actions'
 
@@ -26,16 +26,16 @@ const products_reducer = (state, action) => {
     return{...state, isSidebarOpen:false};
   }
 
-  if(action.type === GET_PRODUCTS_BEGIN){
+  if(action.type === GET_ITEMS_BEGIN){
     return{...state, products_loading: true}
   }
-  if(action.type === GET_PRODUCTS_SUCCESS){
+  if(action.type === GET_ITEMS_SUCCESS){
     const featured_products = action.payload.filter((product, id)=>{
       return product.featured === true
     })
     return{...state, products_loading: false, products: action.payload, featured_products}
   }
-  if(action.type === GET_PRODUCTS_ERROR){
+  if(action.type === GET_ITEMS_ERROR){
     return{...state, products_loading: false, products_error: true}
 
   }
