@@ -9,57 +9,63 @@ import {
 
 const query = graphql`
   {
-    allItems: allContentfulMccProduct(filter: {removeFromActiveLists:{eq: false}} sort:{fields: name, order: ASC}) {
-      nodes {
-        id
-        retailPrice
-        category
-        slug
-        name
-        featured
-        skinTypeBadge
-        skinType
-        description {
-          description
-        }
-        imgRetail {
-          gatsbyImageData(placeholder: TRACED_SVG)
-        }
-        video
-        keyIngredients {
+    allItems: allContentfulMccProduct(
+      filter: {removeFromActiveLists: {eq: true}}
+      sort: {fields: name, order: ASC}
+    ) {
+      edges {
+        node {
           id
-          benefit
-          name {
-            formatted
+          sizes
+          stars
+          reviewCount
+          retailPrice
+          category
+          slug
+          name
+          featured
+          skinTypeBadge
+          skinType
+          description {
+            description
           }
-          benefit
-        }
-        award
-        awardImage {
-          gatsbyImageData(width: 100, height: 100)
-        }
-      }
-    }
-    featuredItems: allContentfulMccProduct(filter: {featured: {eq: true}}, limit:6) {
-      nodes {
-        id
-        stars
-        reviewCount
-        category
-        retailPrice
-        slug
-        name
-        imgRetail {
-          gatsbyImageData(placeholder: TRACED_SVG)
+          imgRetail {
+            gatsbyImageData(placeholder: TRACED_SVG)
+          }
+          video
+          keyIngredients {
+            name {
+              formatted
+            }
+            benefit
+          }
+          award
+          awardImage {
+            gatsbyImageData(width: 100, height: 100)
+          }
         }
       }
     }
-  }`
-
-
+    featuredItems: allContentfulMccProduct(
+      filter: {featured: {eq: true}}
+      sort: {fields: name, order: ASC}
+    ) {
+      edges {
+        node {
+          id
+          retailPrice
+          slug
+          name
+          imgRetail {
+            gatsbyImageData(placeholder: TRACED_SVG)
+          }
+        }
+      }
+    }
+  }
+`
 
 const initialState = { isSidebarOpen: false, products_loading: false, products_error: false, all_items: [], featured_items: [] };
-
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
@@ -74,8 +80,8 @@ export const ProductsProvider = ({ children }) => {
         ...state,
         openSidebar,
         closeSidebar,
-        all_items: allItems,
-        featured_items: featuredItems,
+        all_items: allItems.edges,
+        featured_items: featuredItems.edges,
       }}>
       {children}
     </ProductsContext.Provider>

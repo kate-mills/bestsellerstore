@@ -16,8 +16,8 @@ const ProductsPage = () => {
   return (
     <Layout>
       <SEO
-        title="Shop Jewelry"
-        description="Shop all of our hand cut designs that Hilary Molloy makes with love and natural elements in the beautiful Napa Valley."
+        title="Shop Products"
+        description="Shop all skincare products by Michele Corley Clinical Skincare."
       />
       <main>
         <Wrapper className="page">

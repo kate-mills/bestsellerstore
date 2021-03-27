@@ -18,8 +18,8 @@ const FeaturedProducts = () => {
         <div className="underline"/>
         <div className="section-center featured">
           {
-            featured_items.nodes.map((item)=>{
-              return <Product key={item.id} {...item}/>
+            featured_items.map(({node})=>{
+              return <Product key={node.id} {...node}/>
           })
           }
         </div>

@@ -10,7 +10,7 @@ const cart_reducer = (state, action) => {
     if(!tempItem){
       console.log('no tempItem', id, size, quantity, item)
     } else{
-      console.log('found tempItem')
+      console.log('found tempItem', tempItem)
     }
     return {...state}
   }
