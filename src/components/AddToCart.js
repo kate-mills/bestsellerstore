@@ -6,12 +6,13 @@ import {useProductsContext} from '../context/products_context'
 import QuantityButtons from './QuantityButtons'
 
 const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}) => {
-  const {focus_price, setFocusPrice} = useProductsContext()
+
   const {addToCart} = useCartContext()
+  const {setFocusPrice} = useProductsContext()
+
   const [quantity, setQuantity] = useState(1)
-  const [mainId, setMainId] = useState(id)
+  const [focusId, setFocusId] = useState(id)
   const [mainSize, setMainSize] = useState(sizes[0])
-  const [mainPrice, setMainPrice] = useState(focus_price)
 
   const increase = () => {
     setQuantity((prevQuantity)=>{
@@ -46,6 +47,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
                 onClick={()=>{
                   setMainSize(size)
                   setFocusPrice(price/100)
+                  setFocusId(id)
                 }}>
                 {size}
               </button>
@@ -73,7 +75,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
         />
         <Link
           to="/cart"
-          onClick={()=>addToCart(id, mainSize, quantity, item, priceMap!==null)}
+          onClick={()=>addToCart(id, focusId, mainSize, quantity, item)}
           className="btn"
         >add to cart</Link>
       </div>

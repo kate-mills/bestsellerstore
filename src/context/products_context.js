@@ -24,6 +24,7 @@ const query = graphql`
           category
           slug
           name
+          shortName
           featured
           skinTypeBadge
           skinType

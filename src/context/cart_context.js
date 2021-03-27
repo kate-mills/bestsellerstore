@@ -33,9 +33,9 @@ const CartContext = React.createContext()
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
-  const addToCart = (id, size, quantity, item, usePriceMap)=>{
-    console.log('usePriceMap', usePriceMap)
-    dispatch({type: ADD_TO_CART, payload:{id, size, quantity, item, usePriceMap}})
+  const addToCart = (id, focusId, size, quantity, item)=>{
+    console.log('there is a priceMap if focusId', focusId)
+    dispatch({type: ADD_TO_CART, payload:{id, focusId, size, quantity, item}})
   }
 
   return (

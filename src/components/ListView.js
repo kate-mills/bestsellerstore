@@ -13,7 +13,7 @@ const ListView = ({items}) => {
           <article key={node.id}>
             <GatsbyImage image={node.imgRetail.gatsbyImageData} alt={node.name} />
             <div>
-              <h4>{node.name}</h4>
+              <h4>{node.shortName || node.name}</h4>
               <h5 className="price">{formatPrice(node.retailPrice/100)}</h5>
               <p>{node.description.description.substring(0, 150)}...</p>
               <Link to={`/shop/${node.slug}`} className="btn">Details</Link>
