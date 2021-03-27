@@ -2,13 +2,16 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 import { useCartContext } from '../context/cart_context'
+import {useProductsContext} from '../context/products_context'
 import QuantityButtons from './QuantityButtons'
 
-const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12}) => {
+const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}) => {
+  const {focus_price, setFocusPrice} = useProductsContext()
   const {addToCart} = useCartContext()
-
-  const [mainSize, setMainSize] = useState(sizes[0])
   const [quantity, setQuantity] = useState(1)
+  const [mainId, setMainId] = useState(id)
+  const [mainSize, setMainSize] = useState(sizes[0])
+  const [mainPrice, setMainPrice] = useState(focus_price)
 
   const increase = () => {
     setQuantity((prevQuantity)=>{
@@ -31,15 +34,31 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12}) => {
   return (
     <Wrapper>
       <div className="sizes">
-        <span>size:</span>
+        <span className="heading">size:</span>
         <div>{
+          priceMap ? 
+            priceMap.map(({size, price, id})=>{
+            return(
+              <button
+                key={id}
+                className={`${mainSize === size? 'size-btn active': 'size-btn'}`}
+                style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
+                onClick={()=>{
+                  setMainSize(size)
+                  setFocusPrice(price/100)
+                }}>
+                {size}
+              </button>
+            )}):
           sizes.map((size, index)=>{
             return(
               <button
                 key={index}
                 className={`${mainSize === size? 'size-btn active': 'size-btn'}`}
                 style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
-                onClick={()=>setMainSize(size)}>
+                onClick={()=>{
+                  setMainSize(size)
+                }}>
                 {size}
               </button>
             )})
@@ -54,7 +73,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12}) => {
         />
         <Link
           to="/cart"
-          onClick={()=>addToCart(id, mainSize, quantity, item)}
+          onClick={()=>addToCart(id, mainSize, quantity, item, priceMap!==null)}
           className="btn"
         >add to cart</Link>
       </div>
@@ -66,12 +85,17 @@ const Wrapper = styled.section`
   margin-top: 2rem;
   .sizes {
     display: grid;
-    grid-template-columns: 125px 1fr;
+    grid-template-columns: 70px 1fr;
     align-items: center;
     margin-bottom: 1rem;
-    span {
+    span.heading{
+      font-family: 'bree';
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 28px;
+      height: 2.5rem;
+      padding: 0.25rem;
       text-transform: capitalize;
-      font-weight: 700;
     }
     div {
       display: flex;
@@ -79,11 +103,12 @@ const Wrapper = styled.section`
   }
   .size-btn {
     align-items: center;
-    font-size: 1.20rem;
     border: 1.5px solid transparent;
     border-bottom: 4.5px solid transparent;
     cursor: pointer;
     display: flex;
+    font-size: 1rem;
+    font-weight: 300;
     height: 2.5rem;
     justify-content: center;
     margin-right: 1.5rem;

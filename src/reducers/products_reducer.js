@@ -1,19 +1,12 @@
 /* eslint-disable no-unreachable */
 
-/* 
-import {
-  GET_SINGLE_PRODUCT_BEGIN,
-  GET_SINGLE_PRODUCT_SUCCESS,
-  GET_SINGLE_PRODUCT_ERROR,
-} from '../actions' */
-
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
   GET_ITEMS_BEGIN,
   GET_ITEMS_SUCCESS,
   GET_ITEMS_ERROR,
-
+  SET_FOCUS_PRICE,
 } from '../actions'
 
 
@@ -24,6 +17,9 @@ const products_reducer = (state, action) => {
 
   if(action.type === SIDEBAR_CLOSE){
     return{...state, isSidebarOpen:false};
+  }
+  if(action.type === SET_FOCUS_PRICE){
+    return {...state, focus_price: action.payload.price}
   }
 
   if(action.type === GET_ITEMS_BEGIN){

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import { formatPrice } from '../utils/helpers'
+import {useProductsContext} from '../context/products_context'
 
 import {
   SEO,
@@ -30,6 +31,7 @@ const SingleProductPage = (props) => {
     //skinType,
     description:{description},
     imgRetail,
+    priceMap,
     //video,
     //keyIngredients,
     award, //integer
@@ -37,6 +39,11 @@ const SingleProductPage = (props) => {
   } = props.data.item
 
   const {isLongName} = props.pageContext
+  const {focus_price, setFocusPrice} = useProductsContext()
+
+  React.useEffect(()=>{ 
+    setFocusPrice(retailPrice/100)
+  }, [])
 
   return (
     <Layout>
@@ -50,7 +57,7 @@ const SingleProductPage = (props) => {
           <section className="content" itemScope itemType="https://schema.org/Product">
             <h2 className={`${isLongName? 'long-name product-name':'product-name'}`}>{name}</h2>
             <Stars stars={stars} reviewCount={reviewCount} />
-            <h5 className="price">{formatPrice(retailPrice/100)}</h5>
+            <h5 className="price">{formatPrice(focus_price)}</h5>
             <p className="product-skintypes info">
               { skinTypeBadge ?
                   skinTypeBadge.map((type, id)=>{
@@ -62,7 +69,7 @@ const SingleProductPage = (props) => {
             <p className="product-company">Michele Corley Clinical Skincare</p>
             <p className="desc">{description}</p>
             <hr/>
-            <AddToCart id={id} sizes={sizes} item={{...props.data.item}} />
+            <AddToCart id={id} sizes={sizes} item={{...props.data.item}} priceMap={priceMap ? priceMap:null} />
           </section>
          </div>
       </div> 
@@ -193,6 +200,12 @@ export const query = graphql`
       award
       awardImage {
         gatsbyImageData(width: 100, height: 100)
+      }
+      priceMap {
+        id
+        name
+        size
+        price
       }
     }
   }

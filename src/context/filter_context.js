@@ -20,6 +20,7 @@ import{
 const initialState = {
   filtered_items:[],
   all_items:[],
+  grid_view: false,
 }
 
 const FilterContext = React.createContext()
