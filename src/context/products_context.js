@@ -9,7 +9,7 @@ import {
 
 const query = graphql`
   {
-    allItems: allContentfulMccProduct (sort: {fields: name, order: ASC}) {
+    allItems: allContentfulMccProduct(filter: {removeFromActiveLists:{eq: false}} sort:{fields: name, order: ASC}) {
       nodes {
         id
         retailPrice

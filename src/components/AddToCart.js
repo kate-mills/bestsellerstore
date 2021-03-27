@@ -4,7 +4,7 @@ import {Link} from 'gatsby'
 import { useCartContext } from '../context/cart_context'
 import QuantityButtons from './QuantityButtons'
 
-const AddToCart = ({item, id, sizes=[], stockQuantity=12}) => {
+const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12}) => {
   const {addToCart} = useCartContext()
 
   const [mainSize, setMainSize] = useState(sizes[0])
