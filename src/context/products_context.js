@@ -10,7 +10,7 @@ import {
 const query = graphql`
   {
     allItems: allContentfulMccProduct(
-      filter: {removeFromActiveLists: {eq: true}}
+      filter: {removeFromActiveLists: {ne: true}}
       sort: {fields: name, order: ASC}
     ) {
       edges {

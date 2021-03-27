@@ -4,13 +4,10 @@ import {
   SEO,
   Layout,
   PageHero,
-} from '../components'
-
-/*import {
   Filters,
   ProductList,
   Sort,
-} from '../components'*/
+} from '../components'
 
 const ShopPage = () => {
   return (
@@ -23,8 +20,10 @@ const ShopPage = () => {
         <PageHero title="Shop" />
         <Wrapper className="page">
           <div className="section-center items">
+            <Filters/>
             <div>
-              Shop Page
+              <Sort/>
+              <ProductList/>
             </div>
           </div>
         </Wrapper>
