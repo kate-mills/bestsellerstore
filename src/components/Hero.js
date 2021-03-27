@@ -31,7 +31,7 @@ const Hero = () => {
         <p>
          Master Estheticians bring you the best-selling products from their favorite beauty lines.
         </p>
-        <Link to='/products' className='btn hero-btn'>
+        <Link to='/shop' className='btn hero-btn'>
           shop now
         </Link>
       </article>

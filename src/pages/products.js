@@ -1,9 +1,11 @@
+/* DONT USE THIS PAGE USE SHOP NOW */
 import React from 'react'
 import styled from 'styled-components'
 import {
   SEO,
   Layout,
 } from '../components'
+/* DONT USE THIS PAGE USE SHOP NOW */
 
 /*import {
   Filters,
@@ -11,6 +13,7 @@ import {
   Sort,
   PageHero,
 } from '../components'*/
+/* DONT USE THIS PAGE USE SHOP NOW */
 
 const ProductsPage = () => {
   return (
@@ -31,6 +34,7 @@ const ProductsPage = () => {
     </Layout>
   )
 }
+/* DONT USE THIS PAGE USE SHOP NOW */
 
 const Wrapper = styled.div`
   .items {
@@ -44,5 +48,7 @@ const Wrapper = styled.div`
     }
   }
 `
+/* DONT USE THIS PAGE USE SHOP NOW */
 
 export default ProductsPage
+/* DONT USE THIS PAGE USE SHOP NOW */

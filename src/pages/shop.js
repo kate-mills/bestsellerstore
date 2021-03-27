@@ -3,23 +3,24 @@ import styled from 'styled-components'
 import {
   SEO,
   Layout,
+  PageHero,
 } from '../components'
 
 /*import {
   Filters,
   ProductList,
   Sort,
-  PageHero,
 } from '../components'*/
 
 const ShopPage = () => {
   return (
     <Layout>
       <SEO
-        title="Shop Jewelry"
-        description="Shop all of our hand cut designs that Hilary Molloy makes with love and natural elements in the beautiful Napa Valley."
+        title="Shop Products"
+        description="Shop all skincare products by Michele Corley Clinical Skincare."
       />
       <main>
+        <PageHero title="Shop" />
         <Wrapper className="page">
           <div className="section-center items">
             <div>
