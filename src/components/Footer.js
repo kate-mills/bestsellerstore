@@ -3,11 +3,11 @@ import styled from 'styled-components'
 const Footer = () => {
   return (
     <Wrapper>
-      <h5>
+      <h6>
         &copy;{new Date().getFullYear()}
         <span className="proxima">SkincareWebstore</span>
-      </h5>
-      <h5>All rights reserved</h5>
+      </h6>
+      <h6>All rights reserved</h6>
     </Wrapper>
   )
 }
@@ -26,11 +26,15 @@ const Wrapper = styled.footer`
     letter-spacing: 0px;
     text-transform: capitalize;
   }
-  h5 {
+  h6 {
     color: var(--clr-white);
     margin: 0.1rem;
     text-transform: none;
+    letter-spacing: var(--spacing);
     line-height: 1.25;
+    font-family: 'bree';
+    font-size: 1rem;
+    font-weight: 300;
   }
   @media (min-width: 776px) {
     flex-direction: row;

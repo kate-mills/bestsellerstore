@@ -68,7 +68,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
         crossOrigin: `use-credentials`,  // use-credentials or anonymous
-        icon_options: { purpose: `any`, },
+        icon_options: { purpose: `any maskable`, },
       },
     },
     `gatsby-plugin-gatsby-cloud`,
