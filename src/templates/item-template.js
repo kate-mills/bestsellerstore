@@ -94,6 +94,7 @@ const Wrapper = styled.main`
   }
   .price {
     color: var(--color-black);
+    font-size: 1.5rem;
   }
   .product-company{
     color: var(--clr-primary-3);
@@ -151,11 +152,6 @@ const Wrapper = styled.main`
     .product-center {
       grid-template-columns: 1fr 1fr;
       align-items: center;
-    }
-    .price {
-      font-size: 1.25rem;
-    }
-    .product-skintypes::before{
     }
   }
 `

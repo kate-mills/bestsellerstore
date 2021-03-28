@@ -17,8 +17,8 @@ const ListView = ({items}) => {
                 {formatPrice(node.retailPrice/100)}
               </span>
               </h4>
-              <Link to={`/shop/${node.slug}`} className="btn">Details</Link>
               <p>{node.description.description.substring(0, 150)}...</p>
+              <Link to={`/shop/${node.slug}`} className="btn">Details</Link>
             </div>
           </article>
         );
@@ -32,13 +32,12 @@ const Wrapper = styled.section`
   row-gap: 3rem;
   div.gatsby-image-wrapper{
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 300px;
     border-radius: var(--radius);
     margin-bottom: 1rem;
-
     img{
       object-fit: contain !important;
+      object-position: center bottom;
     }
   }
   h4 {
@@ -53,9 +52,9 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
   }
   .btn {
-    font-size: 0.65rem;
+    font-size: 0.85rem;
     padding: 0.25rem 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   @media (min-width: 992px) {
     article {

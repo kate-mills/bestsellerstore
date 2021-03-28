@@ -43,6 +43,7 @@ const Wrapper = styled.article`
   img {
     display: block;
     object-fit: contain !important;
+    object-position: center bottom;
     background: var(--clr-white);
     border-radius: var(--radius);
     transition: var(--transition);
@@ -77,9 +78,7 @@ const Wrapper = styled.article`
     margin-top: 0;
     display: flex;
     justify-content: space-around;
-    align-items: baseline;
-    position: relative;
-    bottom: 3rem;
+    align-items: center;
   }
   footer h5,
   footer p {
@@ -87,7 +86,6 @@ const Wrapper = styled.article`
     color: var(--clr-black);
     font-weight: 400;
   }
-
   footer p {
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
