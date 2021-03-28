@@ -19,7 +19,11 @@ const Product = (props) => {
         <Link to={`/shop/${slug}`}>
           <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='225' fit='contain'/>
         </Link>
-        <Link to={`/shop/${slug}`} className="link"><FaSearch/></Link>
+        <Link to={`/shop/${slug}`} className="link"
+          onClick={()=>{
+
+          }}
+        ><FaSearch/></Link>
       </div>
       <footer>
         <h5>{name.substring(0, 21)}...</h5>
@@ -37,7 +41,6 @@ const Wrapper = styled.article`
     border-radius: var(--radius);
   }
   img {
-    width: 100%;
     display: block;
     object-fit: contain !important;
     background: var(--clr-white);
@@ -71,10 +74,12 @@ const Wrapper = styled.article`
     opacity: 1;
   }
   footer {
-    margin-top: 1rem;
+    margin-top: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+    align-items: baseline;
+    position: relative;
+    bottom: 3rem;
   }
   footer h5,
   footer p {

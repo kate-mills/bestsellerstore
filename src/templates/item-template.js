@@ -172,7 +172,6 @@ export const query = graphql`
       shortName
       stars
       reviewCount
-      retailPrice
       category
       slug
       name

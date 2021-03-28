@@ -1,16 +1,49 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import React from 'react'
+import { useFilterContext } from '../context/filter_context'
+import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
+
 const Sort = () => {
+  console.log('sort sort');
+  const {filtered_items:items, grid_view, setGridView, setListView, sort, updateSort} = useFilterContext()
+
   return (
     <Wrapper>
       <div className="btn-container">
-        Sort
+        <button
+          type="button"
+          className={`${grid_view ? 'active': null}`}
+          onClick={setGridView}
+        ><BsFillGridFill />
+        </button>
+        <button
+          type="button"
+          className={`${!grid_view ? 'active': null}`}
+          onClick={setListView}
+        > <BsList/>
+        </button>
       </div>
+      <p>{items.length} items found</p>
+      <hr/>
+      <form>
+        <label htmlFor='sort'>sort by</label>
+        <select
+          name="sort"
+          id="sort"
+          className="sort-input"
+          value={sort}
+          onChange={updateSort}
+        >
+          <option value="name-a"> name (a-z)</option>
+          <option value="name-z"> name (z-a)</option>
+          <option value="price-highest"> price (highest)</option>
+          <option value="price-lowest"> price (lowest)</option>
+        </select>
+      </form>
     </Wrapper>
   )
 }
-
 const Wrapper = styled.section`
   display: grid;
   grid-template-columns: auto auto 1fr auto;
@@ -36,7 +69,6 @@ const Wrapper = styled.section`
     text-transform: capitalize;
     margin-bottom: 0;
   }
-
   .btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -61,7 +93,6 @@ const Wrapper = styled.section`
       color: var(--clr-white);
     }
   }
-
   .sort-input {
     border-color: transparent;
     font-size: 1rem;

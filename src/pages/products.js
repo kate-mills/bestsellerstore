@@ -1,19 +1,14 @@
-/* DONT USE THIS PAGE USE SHOP NOW */
 import React from 'react'
 import styled from 'styled-components'
 import {
   SEO,
   Layout,
-} from '../components'
-/* DONT USE THIS PAGE USE SHOP NOW */
-
-/*import {
   Filters,
   ProductList,
   Sort,
   PageHero,
-} from '../components'*/
-/* DONT USE THIS PAGE USE SHOP NOW */
+} from '../components'
+
 
 const ProductsPage = () => {
   return (
@@ -23,10 +18,13 @@ const ProductsPage = () => {
         description="Shop all skincare products by Michele Corley Clinical Skincare."
       />
       <main>
+        <PageHero title="Shop" />
         <Wrapper className="page">
           <div className="section-center items">
+            <Filters />
             <div>
-              Products Page
+              <Sort />
+              <ProductList />
             </div>
           </div>
         </Wrapper>
