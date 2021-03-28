@@ -71,6 +71,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [],
+  title: 'Skincare Webstore',
 }
 
 SEO.propTypes = {
