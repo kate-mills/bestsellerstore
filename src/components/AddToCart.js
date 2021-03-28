@@ -87,7 +87,7 @@ const Wrapper = styled.section`
   margin-top: 2rem;
   .sizes {
     display: grid;
-    grid-template-columns: 70px 1fr;
+    grid-template-columns: 50px 1fr;
     align-items: center;
     margin-bottom: 1rem;
     span.heading{
@@ -96,11 +96,11 @@ const Wrapper = styled.section`
       font-weight: 300;
       line-height: 28px;
       height: 2.5rem;
-      padding: 0.25rem;
       text-transform: capitalize;
     }
     div {
       display: flex;
+      flex-wrap: wrap;
     }
   }
   .size-btn {
@@ -118,6 +118,8 @@ const Wrapper = styled.section`
     padding: 0.25rem;
     min-width: fit-content;
     width: 3.5rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
   }
   .active {
     border-bottom: 4.5px solid var(--clr-primary-1);
