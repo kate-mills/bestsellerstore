@@ -52,7 +52,7 @@ const SingleProductPage = (props) => {
     <Wrapper>
       <PageHero title={shortName || name} isLongName={isLongName} shop />
       <div className='section section-center page'>
-        <Link to="/shop" className="btn">back to all products</Link>
+        <Link to="/shop" className="back btn">back to all products</Link>
         <div className='product-center'>
            <ProductImages images={[imgRetail.gatsbyImageData]}description={description}/>
           <section className="content" itemScope itemType="https://schema.org/Product">
@@ -80,6 +80,9 @@ const SingleProductPage = (props) => {
 }
 
 const Wrapper = styled.main`
+    .back.btn{
+      padding:0.85rem 0.75rem;
+  }
   .product-center {
     display: grid;
     gap: 4rem;

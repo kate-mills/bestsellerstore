@@ -1,22 +1,35 @@
 /* eslint-disable no-unreachable */
 import {
   LOAD_ITEMS,
-  SET_LISTVIEW,
   SET_GRIDVIEW,
+  SET_LISTVIEW,
   UPDATE_SORT,
   SORT_ITEMS,
+  UPDATE_FILTERS,
+  FILTER_ITEMS,
 } from '../actions'
 
 const filter_reducer = (state, action) => {
-
+  if(action.type === LOAD_ITEMS){
+    let maxPrice = action.payload.map(({node})=>{
+      return node.retailPrice
+    })
+    maxPrice = Math.max(...maxPrice)
+    return{
+      ...state,
+      all_items:[...action.payload],
+      filtered_items:[...action.payload],
+      filters:{
+        ...state.filters,
+        max_price: maxPrice,
+      },
+    }
+  }
   if(action.type === SET_GRIDVIEW){
     return {...state, grid_view: true}
   }
   if(action.type === SET_LISTVIEW){
     return {...state, grid_view: false}
-  }
-  if(action.type === LOAD_ITEMS){
-    return{...state, all_items:[...action.payload], filtered_items:[...action.payload]}
   }
   if(action.type === UPDATE_SORT){
     return {...state, sort: action.payload}
@@ -24,8 +37,6 @@ const filter_reducer = (state, action) => {
   if(action.type === SORT_ITEMS){
     const {sort, filtered_items} = state
     let tempItems = [...filtered_items]
-    console.log('tempItems', tempItems)
-
     if(sort === 'price-highest'){
       tempItems = tempItems.sort((a, b) => b.node.retailPrice - a.node.retailPrice)
     }
@@ -44,8 +55,15 @@ const filter_reducer = (state, action) => {
     }
     return {...state, filtered_items:tempItems}
   }
-  return state
-  //throw new Error(`No Matching "${action.type}" - action type`)
+  if(action.type === UPDATE_FILTERS){
+    const {name, value} = action.payload
+    return {...state, filters:{...state.filters, [name]:value}}
+  }
+  if(action.type === FILTER_ITEMS){
+    console.log('filtering items')
+    return {...state}
+  }
+  throw new Error(`No Matching "${action.type}" - action type`)
 }
 
 export default filter_reducer

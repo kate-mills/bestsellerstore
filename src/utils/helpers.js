@@ -11,16 +11,16 @@ export const formatWholePrice = (number) => {
   }).format(number / 100)
 }
 
-export const getUniqueValues = (items, filter, isArray=false) => {
-  let unique = ["all", ...new Set(
-    items.map(({node}) => {
-      return node[filter]
-    })
-  )];
+export const getUniqueValues = (items, filter, addAll=true,  isArray=false) => {
+  let unique = items.map(({node}) => node[filter])
+  if(addAll){
+    unique.push('all')
+  }
   if(isArray){
     unique = unique.flat();
   }
-  return unique 
+  unique = unique.sort((a, b) => a.localeCompare(b))
+  return [...new Set(unique)]
 }
 
 
