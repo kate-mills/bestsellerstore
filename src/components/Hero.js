@@ -29,7 +29,7 @@ const Hero = () => {
           best sellers
         </h1>
         <p>
-         Master Estheticians bring you the best-selling products from their favorite beauty lines.
+          Shop the best selling products from <span className="mcc">Michele Corley Clinical Skincare</span>.
         </p>
         <Link to='/shop' className='btn hero-btn'>
           shop now

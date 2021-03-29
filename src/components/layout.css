@@ -248,9 +248,4 @@ p {
 .page {
   min-height: calc(100vh - (20vh + 10rem));
 }
-
-.flexible-row{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+.mcc{ text-transform: uppercase; color: rebeccapurple; }
