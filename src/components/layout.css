@@ -210,7 +210,6 @@ p {
 .btn:hover {
   color: var(--clr-primary-11);
   background: var(--clr-primary-7);
-  background: var(--clr-primary-6);
 }
 .title {
   text-align: center;
