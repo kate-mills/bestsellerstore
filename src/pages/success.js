@@ -27,7 +27,7 @@ const Wrapper = styled.main`
   align-items: center;
   text-align: center;
   h1 {
-    font-size: 7rem;
+    font-size: 5rem;
     margin-bottom: 1.5rem;
   }
   h2, h3 {
