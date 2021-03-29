@@ -28,6 +28,7 @@ const query = graphql`
           featured
           skinTypeBadge
           skinType
+          onSale
           description {
             description
           }

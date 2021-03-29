@@ -5,7 +5,6 @@ import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 
 const Sort = () => {
-  console.log('sort sort');
   const {filtered_items:items, grid_view, setGridView, setListView, sort, updateSort} = useFilterContext()
 
   return (

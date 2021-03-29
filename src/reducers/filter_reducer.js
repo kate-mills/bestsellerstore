@@ -7,6 +7,7 @@ import {
   SORT_ITEMS,
   UPDATE_FILTERS,
   FILTER_ITEMS,
+  CLEAR_FILTERS,
 } from '../actions'
 
 const filter_reducer = (state, action) => {
@@ -22,6 +23,7 @@ const filter_reducer = (state, action) => {
       filters:{
         ...state.filters,
         max_price: maxPrice,
+        price: maxPrice,
       },
     }
   }
@@ -37,11 +39,11 @@ const filter_reducer = (state, action) => {
   if(action.type === SORT_ITEMS){
     const {sort, filtered_items} = state
     let tempItems = [...filtered_items]
-    if(sort === 'price-highest'){
-      tempItems = tempItems.sort((a, b) => b.node.retailPrice - a.node.retailPrice)
-    }
     if(sort === 'price-lowest'){
       tempItems = tempItems.sort((a, b) => a.node.retailPrice - b.node.retailPrice)
+    }
+    if(sort === 'price-highest'){
+      tempItems = tempItems.sort((a, b) => b.node.retailPrice - a.node.retailPrice)
     }
     if(sort === 'name-a'){
       tempItems = tempItems.sort((a, b)=>{
@@ -57,26 +59,61 @@ const filter_reducer = (state, action) => {
   }
   if(action.type === UPDATE_FILTERS){
     const {name, value} = action.payload
-    return {...state, filters:{...state.filters, [name]:value}}
+    return {...state, filters: {...state.filters, [name]:value}}
   }
   if(action.type === FILTER_ITEMS){
-    console.log('filtering items')
-    return {...state}
+    const {all_items} = state
+    const {category, max_price, onSale, price, skintype, text}= state.filters
+    let tempItems = [...all_items]
+
+    // SEARCH BOX
+    if(text){
+      tempItems = tempItems.filter(({node})=>{
+        return (node.name.toLowerCase().indexOf(text.toLowerCase()) >= 0); // fuzzy search
+      })
+    }
+
+    // CATEGORIES
+    if(category !== 'all'){
+      tempItems = tempItems.filter(({node}) =>{
+        return (node.category.toLowerCase() === category)
+      })
+    }
+
+    // SKINTYPES
+    if(skintype !== '---Select---'){
+
+      tempItems = tempItems.filter(({node})=>{
+        return node.skinTypeBadge.find((s) => s === skintype)
+      })
+    }
+
+    // PRICE
+    if(price < max_price){
+      tempItems = tempItems.filter(({node}) => node.retailPrice <= price)
+    }
+
+    // ON SALE
+    if(onSale){
+      tempItems = tempItems.filter(({node}) => node.onSale === true)
+    }
+
+    return {...state, filtered_items: tempItems}
+  }
+  if(action.type === CLEAR_FILTERS){
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        text:'',
+        category: 'all',
+        onSale: false,
+        price: state.filters.max_price,
+        skintype: '---Select---',
+      }
+    }
   }
   throw new Error(`No Matching "${action.type}" - action type`)
 }
 
 export default filter_reducer
-
-
-
-
-/*
-
-  UPDATE_FILTERS,
-  FILTER_ITEMS,
-  CLEAR_FILTERS,
-
-*/
-
-

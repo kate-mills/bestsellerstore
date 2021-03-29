@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useReducer, useContext, createContext, useEffect} from 'react'
 import reducer from '../reducers/filter_reducer'
 import { useProductsContext } from './products_context'
 
@@ -15,31 +15,31 @@ import{
 } from '../actions'
 
 const initialState = {
-  filtered_items:[],
-  all_items:[],
+  all_items: [],
+  filtered_items: [],
   grid_view: true,
   sort: 'name-a',
-  filters:{
-    text:'',
+  filters: {
     category: 'all',
-    skintype: '---Select---',
-    min_price: 0,
     max_price: 0,
+    min_price: 0,
+    onSale: false,
     price: 0,
-    shipping: false,
+    skintype: '---Select---',
+    text: '',
   }
 }
 
-const FilterContext = React.createContext()
+
+const FilterContext = createContext()
 
 export const FilterProvider = ({ children }) => {
-  const {all_items} = useProductsContext()
+  const {all_items} = useProductsContext();
 
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(()=>{
-    dispatch({type:LOAD_ITEMS, payload:all_items})
+    dispatch({type: LOAD_ITEMS, payload: all_items})
   }, [all_items])
 
   useEffect(()=>{
@@ -47,36 +47,50 @@ export const FilterProvider = ({ children }) => {
     dispatch({type: SORT_ITEMS})
   }, [all_items, state.sort, state.filters])
 
-
-  const setGridView = ()=>{
+  const setGridView = () => {
     dispatch({type: SET_GRIDVIEW})
   }
-  const setListView = ()=>{
+  const setListView = () => {
     dispatch({type: SET_LISTVIEW})
   }
-  const updateSort = (e) =>{
-    //const name = e.target.name
-    const value = e.target.value// 'price-highest'
-    dispatch({type: UPDATE_SORT, payload: value})
+
+  const updateSort = (e) => {
+    const value = e.target.value;
+    dispatch({type:  UPDATE_SORT, payload: value})
   }
-  const updateFilters = (e)=>{
+  const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;
     if(name==='category'){
       value = e.target.textContent
     }
-    dispatch({type: UPDATE_FILTERS, payload:{name, value}})
+    //if(name==='skintype'){ value = e.target.dataset.skintype }
+    if(name==='price'){
+      value = Number(value)
+    }
+    if(name==='onSale'){
+      value = e.target.checked
+    }
+    dispatch({type: UPDATE_FILTERS, payload: {name, value}})
   }
-  const clearFilters = ()=>{}
+  const clearFilters = () => {
+    dispatch({type: CLEAR_FILTERS})
+  }
 
   return (
-    <FilterContext.Provider value={{...state, setGridView, setListView, updateSort, updateFilters, clearFilters}}>
+    <FilterContext.Provider value={{
+      ...state,
+      setGridView,
+      setListView,
+      updateSort,
+      updateFilters,
+      clearFilters,
+      }}>
       {children}
     </FilterContext.Provider>
   )
 }
-
 // make sure use
 export const useFilterContext = () => {
-  return React.useContext(FilterContext)
-} 
+  return useContext(FilterContext)
+}
