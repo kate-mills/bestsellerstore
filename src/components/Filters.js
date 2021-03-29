@@ -24,7 +24,7 @@ const Filters = ()=>{
           {/* search input */}
           <div className="form-control">
             <input
-              autocomplete="off"
+              autoComplete="off"
               type="text"
               name="text"
               placeholder="search"
