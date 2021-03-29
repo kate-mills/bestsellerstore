@@ -24,6 +24,7 @@ const Filters = ()=>{
           {/* search input */}
           <div className="form-control">
             <input
+              autocomplete="off"
               type="text"
               name="text"
               placeholder="search"
@@ -99,6 +100,8 @@ const Wrapper = styled.section`
     border-color: transparent;
     letter-spacing: var(--spacing);
     color: var(--clr-black);
+    outline-color: var(--clr-primary-5);
+    font-family: 'proxima-nova';
   }
   .search-input::placeholder {
     text-transform: capitalize;
@@ -117,9 +120,11 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
     cursor: pointer;
     font-family: 'proxima-nova';
+    outline-color: var(--clr-primary-5);
   }
   .active {
     border-color: var(--clr-grey-5);
+    outline-color: var(--clr-primary-5);
   }
   .skintype {
     background: var(--clr-grey-10);
@@ -129,10 +134,12 @@ const Wrapper = styled.section`
     padding: 0.25rem;
     text-transform: capitalize;
     font-family: 'proxima-nova';
+    outline-color: var(--clr-primary-5);
   }
   .colors {
     display: flex;
     align-items: center;
+    outline-color: var(--clr-primary-5);
   }
   .color-btn {
     display: inline-block;
@@ -150,6 +157,7 @@ const Wrapper = styled.section`
     svg {
       font-size: 0.5rem;
       color: var(--clr-white);
+      outline-color: var(--clr-primary-5);
     }
   }
   .all-btn {
@@ -158,12 +166,15 @@ const Wrapper = styled.section`
     justify-content: center;
     margin-right: 0.5rem;
     opacity: 0.5;
+    outline-color: var(--clr-primary-5);
   }
   .active {
     opacity: 1;
+    outline-color: var(--clr-primary-5);
   }
   .all-btn .active {
     text-decoration: underline;
+    outline-color: var(--clr-primary-5);
   }
   .price {
     margin-bottom: 0.25rem;

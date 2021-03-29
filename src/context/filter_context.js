@@ -22,7 +22,7 @@ const initialState = {
   filters:{
     text:'',
     category: 'all',
-    skintype: 'all',
+    skintype: '---Select---',
     min_price: 0,
     max_price: 0,
     price: 0,
