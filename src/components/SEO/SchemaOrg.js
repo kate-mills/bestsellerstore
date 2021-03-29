@@ -2,6 +2,40 @@ import React from "react"
 import {links} from "../../utils/constants"
 import { Helmet } from "react-helmet"
 
+export const createProductSchema = (p, pageTitle, baseUrl)=>{
+  const rating = p.rating || '4.9'
+  const count = p.reviewCount || '12'
+  let productSchema = {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "brand":{
+      "@type": "Brand",
+      "name": "Michele Corley Clinical Skincare",
+      "url": `${baseUrl}/shop`,
+    },
+    "sku": p.id,
+    "description": p.description.description,
+    "name": pageTitle,
+    "image": p.imgRetail.fixed.src,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "price": p.retailPrice/100,
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": rating,
+        "reviewCount": count,
+    },
+  }
+  if (p.award){
+    productSchema['award'] = `Dermascope Aestheticians Choice Award - ${p.award}`
+  }
+  return productSchema
+};
+
+
 export default React.memo(
   ({
     currentUrl,
@@ -13,7 +47,11 @@ export default React.memo(
     author,
     organization,
     dateModified,
+    product,
   }) => {
+    if(product){
+      console.log('is a product page', product)
+    }
     const linkCrumbs = links.map((link) => {
       return {
         type: "ListItem",
@@ -22,7 +60,6 @@ export default React.memo(
         item: `${baseUrl}${link.url}`,
       }
     })
-
     const baseSchema = [
       {
         "@context": "http://schema.org",
@@ -56,6 +93,7 @@ export default React.memo(
         name: `navigation`,
         itemListElement: linkCrumbs,
       },
+      product && createProductSchema(product, pageTitle, baseUrl),
     ]
 
     return (

@@ -48,7 +48,12 @@ const SingleProductPage = (props) => {
 
   return (
     <Layout>
-      <SEO image={imgRetail.fixed.src} title={shortName || name} description={description}/>
+      <SEO 
+        image={imgRetail.file.url}
+        title={`Michele Corley ${shortName || name}`}
+        description={description}
+        product={props.data.item}
+      />
     <Wrapper>
       <PageHero title={shortName || name} isLongName={isLongName} shop />
       <div className='section section-center page'>
@@ -185,6 +190,9 @@ export const query = graphql`
         gatsbyImageData(placeholder: TRACED_SVG)
         fixed(height: 200, width: 200, cropFocus: CENTER, quality: 100) {
           src
+        }
+        file{
+          url
         }
       }
       video
