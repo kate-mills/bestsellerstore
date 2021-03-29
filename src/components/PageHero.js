@@ -16,7 +16,7 @@ const PageHero = ({ title, shop, isLongName=false }) => {
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-primary-11);
+  background: var(--clr-primary-9);
   margin-top: 0.125rem;
   width: 100%;
   min-height: 20vh;
@@ -25,7 +25,7 @@ const Wrapper = styled.section`
 
   color: var(--clr-primary-1);
   a {
-    color: var(--clr-primary-5);
+    color: var(--clr-primary-4d);
     padding: 0.5rem;
     transition: var(--transition);
   }

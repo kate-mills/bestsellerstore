@@ -10,9 +10,11 @@ const Product = (props) => {
   const {
     imgRetail,
     name,
+    shortName,
     retailPrice,
     slug,
   } = props
+  const nm = shortName || name
   return (
     <Wrapper>
       <div className="container">
@@ -26,7 +28,11 @@ const Product = (props) => {
         ><FaSearch/></Link>
       </div>
       <footer>
-        <h5>{name.substring(0, 21)}...</h5>
+        {nm.length > 19 ?
+          <h5>{nm.slice(0, 19)}...</h5>:
+          <h5>{nm}</h5>
+        }
+        
         {/* Reminder: Use cents for safer calculations */}
         <p>{formatPrice(retailPrice/100)}</p>
       </footer>
@@ -85,10 +91,12 @@ const Wrapper = styled.article`
     margin-bottom: 0;
     color: var(--clr-black);
     font-weight: 400;
+    font-size: 1.15rem;
   }
   footer p {
-    color: var(--clr-primary-5);
+    color: var(--clr-primary-4d);
     letter-spacing: var(--spacing);
+    font-size: 1.2rem;
   }
 `
 export default Product

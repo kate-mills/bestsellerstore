@@ -7,23 +7,8 @@
 @import url("https://use.typekit.net/eqr6zee.css" rel="preconnect");
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1:hsl(343deg 36% 47%);
-  --clr-primary-2: hsl(0deg 35% 62%);
-  --clr-primary-3: hsl(344deg 43% 61%);
-  --clr-primary-4: hsl(329deg 14% 63%);
-  /* primary/main color */
-  --clr-primary-5: hsl(342deg 17% 57%);
-  /* lighter shades of primary color */
-  --clr-primary-6: hsl(358deg 32% 76%);
-  --clr-primary-7: hsl(329deg 25% 41%); /*hsl(346deg 12% 63%);*/
-  --clr-primary-8:hsl(252deg 16% 94%);
-  --clr-primary-9:hsl(323deg 25% 86%);
-  --clr-primary-10:hsl(252deg 16% 94%);
-  --clr-primary-11: hsl(252deg 20% 95%);
-  --clr-primary-btn-bg: hsl(252deg 1% 19%);
-  /*
-    --clr-primary-1: hsl(343deg 36% 47%);
+
+  /*--clr-primary-1: hsl(343deg 36% 47%);
     --clr-primary-2: hsl(0deg 35% 62%);
     --clr-primary-3: hsl(344deg 43% 61%);
     --clr-primary-4: hsl(344deg 41% 60%);
@@ -33,8 +18,39 @@
     --clr-primary-8: hsl(330deg 15% 64%);
     --clr-primary-9: hsl(323deg 25% 86%);
     --clr-primary-10: hsl(252deg 16% 94%);
-    --clr-primary-11: hsl(252deg 20% 95%);
-*/
+    --clr-primary-11: hsl(252deg 20% 95%); */
+
+  /* dark shades of primary color*/
+  /*--clr-primary-1:hsl(343deg 36% 47%);*/
+  /*--clr-primary-2: hsl(0deg 35% 62%);*/
+  /*--clr-primary-3: hsl(344deg 43% 61%);*/
+  /*--clr-primary-4: hsl(329deg 14% 63%);*/
+  /*--clr-primary-5: hsl(342deg 17% 57%);*/
+  /*--clr-primary-6: hsl(358deg 32% 76%);*/
+  /*--clr-primary-7: hsl(329deg 25% 41%);/* /*hsl(346deg 12% 63%);*/
+
+  /*--clr-primary-8:hsl(252deg 16% 94%);*/
+  /*--clr-primary-9:hsl(323deg 25% 86%);*/
+
+
+  /* dark shades of primary color*/
+  /*--clr-primary-1: hsl(256deg 28% 69%);*/
+  --clr-primary-1: hsl(254deg 14% 29%);
+  --clr-primary-2:  hsl(253deg 13% 51%); /*hsl(256deg 28% 69%);*/
+  --clr-primary-3:   hsl(253deg 15% 51%);/* hsl(220deg 22% 87%);*/
+  --clr-primary-4:  hsl(256deg 29% 69%);
+  --clr-primary-4d:  hsl(259deg 21% 59%);/* hsl(256deg 22% 63%);
+  /* primary/main color */
+  --clr-primary-5: hsl(201deg 31% 69%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(252deg 16% 94%);
+  --clr-primary-7: hsl(323deg 25% 86%);
+  --clr-primary-8: hsl(232deg 17% 83%);
+  --clr-primary-9: hsl(226deg 22% 88%);
+  --clr-primary-10:hsl(252deg 16% 94%);
+  --clr-primary-11: hsl(252deg 20% 95%);
+  --clr-primary-btn-bg: hsl(252deg 1% 19%);
+
 
   /* darkest grey - used for headings */
   --clr-grey-1: #343a40; /* keep */
@@ -50,11 +66,14 @@
   --clr-grey-10:#FAFAFA; 
   --clr-white:#fff;
 
-  --clr-red-dark: hsl(0deg 29% 45%);
-  --clr-red-light: hsl(359deg 49% 61%);
+  --clr-red-dark: hsl(343deg 36% 47%);
+  --clr-red-light: hsl(342deg 17% 57%);/*  hsl(359deg 49% 61%); hsl(0deg 29% 45%);*/
+
   --clr-green-dark: hsl(160deg 2% 27%);
   --clr-green-light: hsl(164deg 33% 85%);
-  --clr-black: #171113;
+
+  /*--clr-black: #171113;*/
+  --clr-black: hsl(240deg 67% 1%);
   --transition: all 0.3s linear;
   --easyTransition: all 100ms ease 0s;
   --spacing: 0.1rem;
@@ -208,8 +227,8 @@ p {
   border-color: transparent;
 }
 .btn:hover {
-  color: var(--clr-primary-11);
-  background: var(--clr-primary-7);
+  color: var(--clr-primary-9);
+  background: var(--clr-primary-5);
 }
 .title {
   text-align: center;

@@ -26,6 +26,7 @@ const Contact = () => {
               className='form-input'
               placeholder='your email'
               name='email'
+              required
             />
             <button type='submit' className='submit-btn'>
               send
@@ -82,6 +83,32 @@ const Wrapper = styled.section`
   }
   .submit-btn:hover {
     color: var(--clr-white);
+  }
+  input {
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 0.25rem;
+    min-width: 125px;
+    padding: 0.5rem;
+    transition: border-color 0.5s ease-out;
+  }
+  input:optional {
+    border-color: gray;
+  }
+  input:required:valid {
+    border-color: lightblue;
+  }
+  input:invalid:focus {
+    border-color: pink;
+  }
+  input:required:focus:valid {
+    background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% hsl(201deg 37% 87%);
+    background-size: 25px;
+  }
+  input:focus:invalid {
+    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% pink;
+    background-size: 25px;
   }
   @media (min-width: 992px) {
     .content {
