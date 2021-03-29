@@ -12,7 +12,8 @@ const Contact = () => {
           </p>
 
           <form
-            method="post"
+            method="POST"
+            netlify
             netlify-honeypot="bot-field"
             data-netlify="true"
             name="contact"
