@@ -2,7 +2,7 @@ import React from "react"
 import {links, seoData} from "../../utils/constants"
 import { Helmet } from "react-helmet"
 
-export const createProductSchema = (p, baseUrl, mccLogo)=>{
+export const createProductSchema = (p, baseUrl)=>{
 
   let productSchema = {
     "@context": "http://schema.org",
@@ -50,7 +50,6 @@ export default React.memo(
     organization,
     dateModified,
     product,
-    mccLogo,
   }) => {
     const linkCrumbs = links.map((link) => {
       return {
@@ -81,9 +80,8 @@ export default React.memo(
         name: `navigation`,
         itemListElement: linkCrumbs,
       },
-      product && createProductSchema(product, baseUrl, mccLogo),
+      product && createProductSchema(product, baseUrl),
     ]
-
     return (
       <Helmet>
         {/* Schema.org tags */}

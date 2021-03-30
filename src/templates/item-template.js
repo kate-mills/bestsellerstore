@@ -41,8 +41,6 @@ const SingleProductPage = (props) => {
 
   const {isLongName} = props.pageContext
   const {focus_price, setFocusPrice} = useProductsContext()
-  console.log('template data', props.data.logo.logoImages[0].images[1])
-  const mccLogo = props.data.logo.logoImages[0].images[1].fixed.src
 
   React.useEffect(()=>{ 
     setFocusPrice(retailPrice/100)
@@ -55,7 +53,6 @@ const SingleProductPage = (props) => {
         title={`Michele Corley ${shortName || name}`}
         description={description}
         product={props.data.item}
-        mccLogo={mccLogo}
       />
     <Wrapper>
       <PageHero title={shortName || name} isLongName={isLongName} shop />
@@ -216,14 +213,6 @@ export const query = graphql`
         name
         size
         price
-      }
-    }
-    logo:allContentfulMccMediaImg(filter: {slug: {eq: "mcc-logo"}}) {
-      logoImages:nodes {
-        images {
-          file { url }
-          fixed { src }
-        }
       }
     }
   }
