@@ -249,3 +249,15 @@ p {
   min-height: calc(100vh - (20vh + 10rem));
 }
 .mcc{ text-transform: uppercase; color: rebeccapurple; }
+.ally{
+  background: var(--clr-black);
+  color: var(--clr-white);
+  font-family: 'bree';
+  font-weight: 200;
+  font-size: 0.8rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.ally a{
+  color: var(--clr-primary-9);
+}

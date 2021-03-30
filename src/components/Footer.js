@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 const Footer = () => {
   return (
+    <>
     <Wrapper>
       <h6>
         &copy;{new Date().getFullYear()}
@@ -9,6 +10,8 @@ const Footer = () => {
       </h6>
       <h6>All rights reserved</h6>
     </Wrapper>
+      <p className="ally">Built by <a href="https://allydigitalsolutions.com">Ally Digital Solutions</a></p>
+    </>
   )
 }
 
