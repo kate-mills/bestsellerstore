@@ -71,6 +71,7 @@ const SEO = ({ title, description, image, article, lang, product}) => {
         )}
 
         {seo.image && <meta name="twitter:image" content={seo.image} />}
+        <meta name="google-site-verification" content="7UnvE8-rOXz_Hkv5wBdV1R3iszP71jXVr4ah0ENCwwE" />
       </Helmet>
       <SchemaOrg
         defaultTitle={organization.name}
