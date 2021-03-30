@@ -80,11 +80,11 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    `gatsby-plugin-sitemap`,
 
 
     //{ resolve: "gatsby-plugin-robots-txt", options: { host: `${siteUrl}`, sitemap: `${siteUrl}/sitemap.xml`, policy: [{ userAgent: "*", allow: "/" }], }, },
 
-    //`gatsby-plugin-sitemap`,
     
     // `gatsby-plugin-offline`,
 
