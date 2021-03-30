@@ -7,13 +7,21 @@ import QuantityButtons from './QuantityButtons'
 
 const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}) => {
 
+
   const {addToCart} = useCartContext()
   const {setFocusPrice} = useProductsContext()
 
   const [quantity, setQuantity] = useState(1)
-  const [focusId, setFocusId] = useState(id)
   const [mainSize, setMainSize] = useState(sizes[0])
+  const [localId, setLocalId] = useState('')
 
+  React.useEffect(()=>{
+    if(priceMap!== null){
+      let cid = priceMap[0].cid || priceMap[0].name
+      setMainSize(priceMap[0].size)
+      setLocalId(cid)
+    }
+  }, [priceMap])
   const increase = () => {
     setQuantity((prevQuantity)=>{
       let tempQuantity = prevQuantity + 1
@@ -38,7 +46,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
         <span className="heading">size:</span>
         <div>{
           priceMap ? 
-            priceMap.map(({size, price, id})=>{
+            priceMap.map(({name, size, price, id, cid})=>{
             return(
               <button
                 key={id}
@@ -46,21 +54,19 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
                 style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
                 onClick={()=>{
                   setMainSize(size)
+                  setLocalId(cid || name)
                   setFocusPrice(price/100)
-                  setFocusId(id)
                 }}>
                 {size}
               </button>
-            )}):
+            )}): // IF NO PRICE MAP
           sizes.map((size, index)=>{
             return(
               <button
                 key={index}
                 className={`${mainSize === size? 'size-btn active': 'size-btn'}`}
                 style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
-                onClick={()=>{
-                  setMainSize(size)
-                }}>
+                onClick={()=>{setMainSize(size)}}>
                 {size}
               </button>
             )})
@@ -75,7 +81,9 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
         />
         <Link
           to="/cart"
-          onClick={()=>addToCart(id, focusId, mainSize, quantity, item)}
+          onClick={()=>{
+            addToCart(id, mainSize, quantity, item, localId)
+          }}
           className="btn"
         >add to cart</Link>
       </div>

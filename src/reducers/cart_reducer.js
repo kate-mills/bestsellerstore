@@ -4,11 +4,11 @@ import { ADD_TO_CART, } from '../actions'
 
 const cart_reducer = (state, action) => {
   if(action.type === ADD_TO_CART){
-    const { id, size, quantity, item } = action.payload
-    const tempItem = state.cart.find(i => i.id === id + size)
+    const { id, size, quantity, item, localId } = action.payload
+    const tempItem = state.cart.find(i => i.id === id + size.replace(' ', '-'))
 
     if(!tempItem){
-      console.log('no tempItem', id, size, quantity, item)
+      console.log('NO tempItem')
     } else{
       console.log('found tempItem', tempItem)
     }

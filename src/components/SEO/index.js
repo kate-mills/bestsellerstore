@@ -17,7 +17,6 @@ const SEO = ({ title, description, image, article, lang, product}) => {
     dateModified,
     altUrl,
   } = site.siteMetadata
-  //console.log(`${altUrl}${pathname}`)
 
   const seo = {
     title: title ? `${title} | ${organization.name}`: organization.name,

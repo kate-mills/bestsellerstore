@@ -210,6 +210,7 @@ export const query = graphql`
       }
       priceMap {
         id
+        cid
         name
         size
         price

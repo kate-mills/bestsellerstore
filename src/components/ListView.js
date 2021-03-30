@@ -8,7 +8,6 @@ const ListView = ({items}) => {
   return (
     <Wrapper>
       {items.map(({node})=>{
-        console.log('List View node', node)
         return (
           <article key={node.id}>
             <GatsbyImage image={node.imgRetail.gatsbyImageData} alt={node.name} />

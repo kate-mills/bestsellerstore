@@ -27,6 +27,7 @@ const query = graphql`
           shortName
           featured
           skinTypeBadge
+          priceMap{ id name size price }
           skinType
           onSale
           description {
