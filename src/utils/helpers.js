@@ -31,3 +31,9 @@ export const checkWindow = ()=>{
     return true
   }
 }
+
+
+export const getSafeCount = (max, q) =>{
+  let n = (q < 1) ? 1: q
+  return (n > max) ? max: n;
+}

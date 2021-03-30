@@ -9,7 +9,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
 
 
   const {addToCart} = useCartContext()
-  const {setFocusPrice} = useProductsContext()
+  const {focus_price, setFocusPrice} = useProductsContext()
 
   const [quantity, setQuantity] = useState(1)
   const [mainSize, setMainSize] = useState(sizes[0])
@@ -82,7 +82,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
         <Link
           to="/cart"
           onClick={()=>{
-            addToCart(id, mainSize, quantity, item, localId)
+            addToCart(id, mainSize, quantity, focus_price,  item, localId)
           }}
           className="btn"
         >add to cart</Link>

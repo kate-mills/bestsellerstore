@@ -8,6 +8,7 @@ import {ADD_TO_CART,} from '../actions'
 
 import {checkWindow} from '../utils/helpers'
 
+
 const getLocalStorage = () => {
   if(checkWindow()){
     let cart = localStorage.getItem('beststorecart');
@@ -25,6 +26,7 @@ const initialState = {
   total_quantity: 0,
   total_price: 0,
   shipping_fee: 534,
+  fixed_max:12,
 }
 
 const CartContext = React.createContext()
@@ -33,8 +35,8 @@ const CartContext = React.createContext()
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
-  const addToCart = (id, size, quantity, item, localId)=>{
-    dispatch({type: ADD_TO_CART, payload:{id, size, quantity, item, localId}})
+  const addToCart = (id, size, quantity, price, item, localId)=>{
+    dispatch({type: ADD_TO_CART, payload:{id, size, quantity, price, item, localId}})
   }
 
   return (
