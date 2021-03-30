@@ -13,8 +13,14 @@ export const createProductSchema = (p, baseUrl)=>{
     "name": name,
     "description": p.description.description,
     "image": p.imgRetail.fixed.src,
+    "itemCondition": 'New',
     "sku": p.id,
     "url": `${baseUrl}/shop/${p.slug}`,
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": rating,
+        "reviewCount": count,
+    },
     "brand":{
       "@type": "Brand",
       "name": "Michele Corley Clinical Skincare",
@@ -22,19 +28,14 @@ export const createProductSchema = (p, baseUrl)=>{
       "url": `${baseUrl}/shop`,
     },
     "offers": {
-      "name": name,
-      "image": p.imgRetail.fixed.src,
       "@type": "Offer",
-      "url": `${baseUrl}/shop/${p.slug}`,
       "availability": "https://schema.org/InStock",
+      "name": name,
       "price": p.retailPrice/100,
       "priceCurrency": "USD",
       "priceValidUntil": `${yr}-12-31`,
-    },
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": rating,
-        "reviewCount": count,
+      "image": p.imgRetail.fixed.src,
+      "url": `${baseUrl}/shop/${p.slug}`,
     },
   }
   if (p.award){
