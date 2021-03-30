@@ -212,7 +212,7 @@ const Wpr = styled.section`
   .clear-btn {
     background: var(--clr-primary-2);
     color: var(--clr-white);
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.5rem;
     border-radius: var(--radius);
   }
   @media (min-width: 768px) {

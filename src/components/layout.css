@@ -35,6 +35,8 @@
 
   /* dark shades of primary color*/
   /*--clr-primary-1: hsl(256deg 28% 69%);*/
+  --clr-blue-txt: hsl(201deg 14% 46%);
+  --clr-purple-txt: hsl(259deg 15% 51%);
   --clr-primary-1: hsl(254deg 14% 29%);
   --clr-primary-2:  hsl(253deg 13% 51%); /*hsl(256deg 28% 69%);*/
   --clr-primary-3:   hsl(253deg 15% 51%);/* hsl(220deg 22% 87%);*/
@@ -213,9 +215,9 @@ p {
 
 .btn {
   text-transform: uppercase;
-  background: var(--clr-primary-btn-bg);
-  color: var(--clr-primary-10);
-  padding: 0.375rem 0.75rem;
+  background: var(--clr-primary-1);
+  color: var(--clr-white);
+  padding: 0.475rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 300;
@@ -227,8 +229,8 @@ p {
   border-color: transparent;
 }
 .btn:hover {
-  color: var(--clr-primary-9);
-  background: var(--clr-primary-5);
+  color: var(--clr-white);
+  background: var(--clr-primary-3);
 }
 .title {
   text-align: center;

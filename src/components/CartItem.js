@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { formatWholePrice } from '../utils/helpers'
+import { formatPrice } from '../utils/helpers'
 import QuantityButtons from './QuantityButtons'
 import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
+const CartItem = ({id, image, name, size, price, quantity}) => {
   const {removeItem, toggleQuantity} = useCartContext()
   const increase = () => {
     toggleQuantity(id, 'inc')
@@ -21,13 +21,13 @@ const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
         <GatsbyImage image={image} src={name} />
         <div>
           <h5 className="name">{name}</h5>
-          <p className="color"> color :<span style={{background:color}}></span></p>
-          <h5 className="price-small">{formatWholePrice(wholePrice)}</h5>
+          <p className="color">size: <span>{size}</span></p>
+          <h5 className="price-small">{formatPrice(price)}</h5>
         </div>
       </div>
-      <h5 className="price">{formatWholePrice(wholePrice)}</h5> 
+      <h5 className="price">{formatPrice(price)}</h5> 
       <QuantityButtons quantity={quantity} increase={increase} decrease={decrease}/>
-      <h5 className='subtotal'>{formatWholePrice(wholePrice * quantity)}</h5>
+      <h5 className='subtotal'>{formatPrice(price * quantity)}</h5>
       <button type="button" className="remove-btn" onClick={()=>removeItem(id)}>
         <FaTrash/>
       </button>
@@ -67,30 +67,33 @@ const Wrapper = styled.article`
     object-fit: contain !important;
   }
   h5 {
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin-bottom: 0;
   }
 
   .color {
-    color: var(--clr-grey-5);
-    font-size: 0.75rem;
-    letter-spacing: var(--spacing);
-    text-transform: capitalize;
-    margin-bottom: 0;
-    display: flex;
     align-items: center;
+    color: var(--clr-black);
+    display: flex;
+    font-size: 0.75rem;
+    font-family: 'bree';
+    font-weight: 200;
     justify-content: flex-start;
+    letter-spacing: var(--spacing);
+    margin-bottom: 0;
+    padding: 0;
+    padding-left:0.123rem; 
+    padding-right:0.123rem; 
+    text-transform: capitalize;
+    width: fit-content;
     span {
-      display: inline-block;
-      width: 0.5rem;
-      height: 0.5rem;
-      background: red;
+      text-transform: none;
       margin-left: 0.5rem;
       border-radius: var(--radius);
     }
   }
   .price-small {
-    color: var(--clr-primary-5);
+    color: var(--clr-purple-txt);
   }
   .quantity-btns,
   .amount-btns {
@@ -109,7 +112,7 @@ const Wrapper = styled.article`
     background: transparent;
     border: transparent;
     letter-spacing: var(--spacing);
-    background: var(--clr-primary-1);
+    background: var(--clr-primary-2);
     width: 1.5rem;
     height: 1.5rem;
     display: flex;
@@ -123,8 +126,8 @@ const Wrapper = styled.article`
     .subtotal {
       display: block;
       margin-bottom: 0;
-      color: var(--clr-grey-5);
-      font-weight: 400;
+      color: var(--clr-blue-txt);
+      font-weight: 400 !important;
       font-size: 1rem;
     }
     .price-small {
@@ -133,18 +136,14 @@ const Wrapper = styled.article`
     .price {
       display: block;
       font-size: 1rem;
-      color: var(--clr-primary-5);
-      font-weight: 400;
+      color: var(--clr-purple-txt);
+      font-weight: 400 !important;
     }
     .name {
-      font-size: 0.85rem;
+      font-size: 1rem;
     }
     .color {
       font-size: 0.85rem;
-      span {
-        width: 0.75rem;
-        height: 0.75rem;
-      }
     }
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
     align-items: center;
