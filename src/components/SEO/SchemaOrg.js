@@ -1,41 +1,34 @@
 import React from "react"
-import {links} from "../../utils/constants"
+import {links, seoData} from "../../utils/constants"
 import { Helmet } from "react-helmet"
 
-export const createProductSchema = (p, baseUrl)=>{
-  const rating = p.rating || '4.9'
-  const count = p.reviewCount || '12'
-  const name = `Michele Corley ${p.name}`
-  const yr = new Date().getFullYear()
+export const createProductSchema = (p, baseUrl, mccLogo)=>{
+
   let productSchema = {
     "@context": "http://schema.org",
     "@type": "Product",
-    "name": name,
-    "description": p.description.description,
+    "name": seoData.formatName(p.name),
     "image": p.imgRetail.fixed.src,
-    "itemCondition": 'New',
+    "description": p.description.description,
     "sku": p.id,
-    "url": `${baseUrl}/shop/${p.slug}`,
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": rating,
-        "reviewCount": count,
-    },
     "brand":{
       "@type": "Brand",
-      "name": "Michele Corley Clinical Skincare",
-      "description": p.description.description,
-      "url": `${baseUrl}/shop`,
+       "name": "Michele Corley Clinical Skincare",
+       "url": `${baseUrl}/shop/${p.slug}`,
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": seoData.formatRating(p.rating),
+      "reviewCount": seoData.formatCount(p.reviewCount),
     },
     "offers": {
       "@type": "Offer",
-      "availability": "https://schema.org/InStock",
-      "name": name,
-      "price": p.retailPrice/100,
-      "priceCurrency": "USD",
-      "priceValidUntil": `${yr}-12-31`,
-      "image": p.imgRetail.fixed.src,
       "url": `${baseUrl}/shop/${p.slug}`,
+      "priceCurrency": "USD",
+      "price": p.retailPrice/100,
+      "priceValidUntil": seoData.formatEndOfYr(),
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
     },
   }
   if (p.award){
@@ -57,6 +50,7 @@ export default React.memo(
     organization,
     dateModified,
     product,
+    mccLogo,
   }) => {
     const linkCrumbs = links.map((link) => {
       return {
@@ -80,18 +74,6 @@ export default React.memo(
         sameAs: organization.otherUrls,
         telephone: organization.phone,
         url: currentUrl,
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: organization.address.country,
-          addressLocality: organization.address.city,
-          addressRegion: organization.address.state,
-          name: organization.name,
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: organization.geo.lat,
-          longitude: organization.geo.long,
-        },
       },
       {
         "@context": "https://schema.org",
@@ -99,7 +81,7 @@ export default React.memo(
         name: `navigation`,
         itemListElement: linkCrumbs,
       },
-      product && createProductSchema(product, baseUrl),
+      product && createProductSchema(product, baseUrl, mccLogo),
     ]
 
     return (

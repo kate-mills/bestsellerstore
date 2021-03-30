@@ -5,7 +5,7 @@ import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 import SchemaOrg from "./SchemaOrg"
 
-const SEO = ({ title, description, image, article, lang, product }) => {
+const SEO = ({ title, description, image, article, lang, product, mccLogo }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -26,6 +26,7 @@ const SEO = ({ title, description, image, article, lang, product }) => {
     url: `${baseUrl}${pathname}`,
     altUrl: altUrl || false,
     product: product || false,
+    mccLogo: mccLogo || false,
   }
 
   return (
@@ -82,6 +83,7 @@ const SEO = ({ title, description, image, article, lang, product }) => {
         dateModified={dateModified}
         organization={organization}
         product={seo.product}
+        mccLogo={seo.mccLogo}
       />
     </React.Fragment>
   )

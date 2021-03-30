@@ -44,6 +44,50 @@ export const services = [
   },
 ]
 
+
 export const products_url = 'https://course-api.com/react-store-products'
 
 export const single_product_url = `https://course-api.com/react-store-single-product?id=`
+
+
+
+
+export const seoData = {
+  formatRating: (rating)=>(rating|| '4.9'),
+  formatCount: (reviewCount)=>(reviewCount || '11'),
+  formatName: (productNm)=>(`Michele Corley ${productNm}`),
+  formatEndOfYr: ()=> `${new Date().getFullYear()}-12-31`,
+  mccReview: [ // List because - Multiline support is limited to browsers supporting ES5 only  no-multi-str
+    "I have been using the incredible product line from Michele Corley Clinical Skin Care for about two years now.",
+    "I researched several different product lines for months before deciding on this line.",
+    " Being able to have personal attention from Michele Corley herself is rare to find and so important to me, however, the products ingredients and effectiveness are most important.",
+    "I have a range of clients that I have been serving for over 11 years and they have all been very pleased with the results from their treatments that they receive from me, as well as the very thorough home care regimen that they purchase.",
+    "I love the printed resources that accompany the products as well as being able to order one product or a year’s worth any time I need them and have them be delivered usually the next day.",
+    "Thank you Michele!"
+  ],
+  mccReviewAuthor: "~ Rebecca Siemens, LE, Proprietor, Rebecca Siemens Skin Care",
+}
+
+
+
+
+/*
+      "brand":{
+        "@type": "Brand",
+        "logo": mccLogo,
+        "slogan": 'Beautifully Healthy Skin Starts Here',
+        "name": "Michele Corley Clinical Skincare",
+        "url": `${baseUrl}/shop`,
+
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": 201,
+          "review": {
+            "@type": "Review",
+            "reviewBody": seoData.mccReview.join(' '),
+            "author": seoData.mccReviewAuthor,
+          },
+        },
+      },
+      */
