@@ -2,9 +2,10 @@ import React from "react"
 import {links} from "../../utils/constants"
 import { Helmet } from "react-helmet"
 
-export const createProductSchema = (p, pageTitle, baseUrl)=>{
+export const createProductSchema = (p, baseUrl)=>{
   const rating = p.rating || '4.9'
   const count = p.reviewCount || '12'
+  const name = `Michele Corley ${p.name}`
   let productSchema = {
     "@context": "http://schema.org",
     "@type": "Product",
@@ -15,10 +16,13 @@ export const createProductSchema = (p, pageTitle, baseUrl)=>{
     },
     "sku": p.id,
     "description": p.description.description,
-    "name": pageTitle,
+    "name": name,
     "image": p.imgRetail.fixed.src,
     "offers": {
+      "name": name,
+      "image": p.imgRetail.fixed.src,
       "@type": "Offer",
+      "url": `${baseUrl}/shop/${p.slug}`,
       "availability": "https://schema.org/InStock",
       "price": p.retailPrice/100,
       "priceCurrency": "USD"
@@ -49,9 +53,6 @@ export default React.memo(
     dateModified,
     product,
   }) => {
-    if(product){
-      console.log('is a product page', product)
-    }
     const linkCrumbs = links.map((link) => {
       return {
         type: "ListItem",
@@ -93,7 +94,7 @@ export default React.memo(
         name: `navigation`,
         itemListElement: linkCrumbs,
       },
-      product && createProductSchema(product, pageTitle, baseUrl),
+      product && createProductSchema(product, baseUrl),
     ]
 
     return (
