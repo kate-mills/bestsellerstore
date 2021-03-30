@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Contact = () => {
+  //FinalForm - get info
   return (
     <Wrapper>
       <div className='section-center'>
