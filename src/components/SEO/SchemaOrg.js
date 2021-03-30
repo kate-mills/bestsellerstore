@@ -6,18 +6,21 @@ export const createProductSchema = (p, baseUrl)=>{
   const rating = p.rating || '4.9'
   const count = p.reviewCount || '12'
   const name = `Michele Corley ${p.name}`
+  const yr = new Date().getFullYear()
   let productSchema = {
     "@context": "http://schema.org",
     "@type": "Product",
+    "name": name,
+    "description": p.description.description,
+    "image": p.imgRetail.fixed.src,
+    "sku": p.id,
+    "url": `${baseUrl}/shop/${p.slug}`,
     "brand":{
       "@type": "Brand",
       "name": "Michele Corley Clinical Skincare",
+      "description": p.description.description,
       "url": `${baseUrl}/shop`,
     },
-    "sku": p.id,
-    "description": p.description.description,
-    "name": name,
-    "image": p.imgRetail.fixed.src,
     "offers": {
       "name": name,
       "image": p.imgRetail.fixed.src,
@@ -25,7 +28,8 @@ export const createProductSchema = (p, baseUrl)=>{
       "url": `${baseUrl}/shop/${p.slug}`,
       "availability": "https://schema.org/InStock",
       "price": p.retailPrice/100,
-      "priceCurrency": "USD"
+      "priceCurrency": "USD",
+      "priceValidUntil": `${yr}-12-31`,
     },
     "aggregateRating": {
         "@type": "AggregateRating",
