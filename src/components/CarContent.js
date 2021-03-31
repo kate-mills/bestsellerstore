@@ -8,22 +8,15 @@ import CartTotals from './CartTotals'
 
 const CartContent = () => {
   const {cart, clearCart} = useCartContext()
+
   return (
     <Wrapper className="section section-center">
       <CartColumns/>
       {cart.map((item)=><CartItem key={item.id} {...item}/>)}
       <hr/>
       <div className="link-container">
-        <Link to="/shop" className='link-btn'>
-          continue shopping
-        </Link>
-        <button
-          onClick={clearCart}
-          className="link-btn clear-btn"
-          type="button"
-          >
-          clear shopping cart
-        </button>
+        <button onClick={clearCart} className="link-btn clear-btn" type="button" > clear shopping cart </button>
+        <Link to="/shop" className='link-btn'> continue shopping </Link>
       </div>
       <CartTotals/>
     </Wrapper>
