@@ -1,10 +1,14 @@
-import { ADD_TO_CART, } from '../actions'
+import {
+  ADD_TO_CART,
+  CLEAR_CART,
+  TOGGLE_CART_ITEM_QUANTITY,
+} from '../actions'
 
 import {getSafeCount} from '../utils/helpers'
 export const getSafeQty = getSafeCount.bind(this, 12) // Always returns a number between 1-12
 
 
-/*import { CLEAR_CART, COUNT_CART_TOTALS, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, } from '../actions'*/
+/*import {  COUNT_CART_TOTALS, REMOVE_CART_ITEM, } from '../actions'*/
 
 const cart_reducer = (state, action) => {
 
@@ -25,7 +29,6 @@ const cart_reducer = (state, action) => {
     }
     else {
       let nmSz = `${item.shortName || item.name} - ${sizeName}`
-
       const newItem = {
         id: TARGET_ID,
         image: item.imgRetail.gatsbyImageData, 
@@ -36,7 +39,27 @@ const cart_reducer = (state, action) => {
       }
       return {...state, cart: [...state.cart, newItem]}
     }
-  } // END ADD_TO_CART
+  }// END ADD_TO_CART
+
+  if(action.type === CLEAR_CART){
+    return {...state, cart:[]}
+  }// END CLEAR_CART
+
+  if(action.type === TOGGLE_CART_ITEM_QUANTITY){
+    const {id, value} = action.payload
+    const tempCart = state.cart.map((item) =>{
+      if(item.id === id){
+        if(value === 'inc'){
+          return {...item, quantity: getSafeQty(item.quantity + 1)}
+        }
+        if(value === 'dec'){
+          return {...item, quantity: getSafeQty(item.quantity - 1)}
+        }
+      }
+      return item
+    })
+    return { ...state, cart: tempCart }
+  }// END TOGGLE_CART_ITEM_QUANTITY
 
   throw new Error(`No Matching "${action.type}" - action type`)//return state
 }

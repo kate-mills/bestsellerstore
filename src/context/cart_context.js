@@ -1,10 +1,14 @@
-//import { ADD_TO_CART, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, CLEAR_CART, COUNT_CART_TOTALS, } from '../actions'
+//import { ADD_TO_CART, REMOVE_CART_ITEM,   COUNT_CART_TOTALS, } from '../actions'
 
 import React, {useEffect, createContext, useContext, useReducer}  from 'react'
 
 import reducer from '../reducers/cart_reducer'
 
-import {ADD_TO_CART,} from '../actions'
+import {
+  ADD_TO_CART,
+  TOGGLE_CART_ITEM_QUANTITY,
+  CLEAR_CART,
+} from '../actions'
 
 import {checkWindow} from '../utils/helpers'
 
@@ -38,15 +42,22 @@ export const CartProvider = ({ children }) => {
     dispatch({type: ADD_TO_CART, payload:{id, size, sizeName, quantity, price, item}})
   }
   const removeItem = (id) =>{}
-  const toggleQty = (id, value)=>{}
-  const clearCart = ()=>{}
+
+  const toggleQuantity = (id, value)=>{
+    console.log('id', id)
+    console.log('value', value)
+    dispatch({type: TOGGLE_CART_ITEM_QUANTITY, payload: {id: id, value:value}})
+  }
+  const clearCart = ()=>{
+    dispatch({type: CLEAR_CART})
+  }
 
   useEffect(()=>{
     localStorage.setItem('skincarewebstorecart', JSON.stringify(state.cart))
   }, [state.cart])
 
   return (
-    <CartContext.Provider value={{...state, addToCart, removeItem, toggleQty, clearCart}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{...state, addToCart, removeItem, toggleQuantity, clearCart}}>{children}</CartContext.Provider>
   )
 }
 // make sure use
