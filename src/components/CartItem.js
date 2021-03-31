@@ -39,7 +39,7 @@ const CartItem = ({id, image, name, size, price, quantity}) => {
 
 const Wrapper = styled.article`
   .sz{
-    background: hsl(240deg 67% 94% / 32%);
+    background: var(--clr-primary-5-lt);
     display: inline-block;
     font-family: 'proxima-nova';
     padding: 0.1rem;
@@ -131,7 +131,7 @@ const Wrapper = styled.article`
     background: transparent;
     border: transparent;
     letter-spacing: var(--spacing);
-    background: var(--clr-primary-2);
+    background: var(--clr-primary-3);
     width: 1.5rem;
     height: 1.5rem;
     display: flex;

@@ -48,18 +48,18 @@ export const shopTypes = [
   {
     id: 1,
     icon: <GiSparkles />,
-    title: 'SHOP By Skin Types',
+    title: 'Skin Type',
     url: '/shop/skin-type',
     text:
-      'CLICK HERE to shop Michele Corley Clinical Skincare Products by skin type.',
+      'to shop Michele Corley Clinical Skincare by skin type.',
   },
   {
     id: 2,
     icon: <GiSparkles />,
     url: '/shop/category',
-    title: 'SHOP By Category',
+    title: 'Category',
     text:
-      'CLICK HERE to shop Michele Corley Clinical Skincare Products by product category.',
+      'to shop Michele Corley Clinical Skincare by product category.',
   },
   {
     id: 3,
@@ -67,7 +67,7 @@ export const shopTypes = [
     title: 'Advanced Filter',
     url: '/shop',
     text:
-      'CLICK HERE to shop by skin condition, product type, price, & sales.',
+      'to shop by skin condition, product type, price, & sales.',
   },
 ]
 

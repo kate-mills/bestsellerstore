@@ -1,14 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { useCartContext } from '../context/cart_context'
+import { useCartContext } from '../context/cart_context'
 //import { useUserContext } from '../context/user_context'
-//import { formatPrice } from '../utils/helpers'
-//import { Link } from 'react-router-dom'
+import { formatPrice } from '../utils/helpers'
+import { Link } from 'gatsby'
 
 const CartTotals = () => {
-  return(
+  const {total_price, shipping_fee} = useCartContext()
+  return (
     <Wrapper>
-      cart totals 
+      <div>
+        <article>
+          <h5>subtotal : <span>{formatPrice(total_price/100)}</span></h5>
+          <p>shipping fee : <span>{formatPrice(shipping_fee/100)}</span></p>
+          <hr/>
+          <h4>Order total : <span>{formatPrice((total_price + shipping_fee)/100)}</span></h4>
+        </article>
+        <Link fade to="/checkout" className="btn">proceed to checkout</Link>
+      </div>
     </Wrapper>
   )
 }
@@ -38,6 +47,7 @@ const Wrapper = styled.section`
     justify-content: flex-end;
   }
   .btn {
+    background: var(--clr-primary-5d);
     width: 100%;
     margin-top: 1rem;
     text-align: center;

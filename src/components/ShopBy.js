@@ -8,8 +8,8 @@ const ShopBy = () => {
     <Wrapper>
       <div className="section-center">
         <article className="header">
-          <h3>Shop Products<br/>
-            Three ways to filter & find
+          <h3>Shop Smarter<br/>
+            Three ways to find products
           </h3>
           <p>
             Shop by skin condition, product type, or use an advanced filter to get you to glowing skin.
@@ -21,8 +21,8 @@ const ShopBy = () => {
             return(
               <article key={id} className="service">
                 <span className="icon">{icon}</span>
-                <h4><Link to={url}>{title}</Link></h4>
-                <p><Link to={url}>{text}</Link></p>
+                <h4>shop by <Link to={url}>{title}</Link></h4>
+                <p><Link to={url}>Click here {text}</Link></p>
               </article>
             )
           })}
@@ -33,12 +33,16 @@ const ShopBy = () => {
 }
 
 const Wrapper = styled.section`
-  h3,
-  h4 {
-    text-transform: none;
+  h3 {
     color: var(--clr-primary-1);
+  }
+  h4{
+    font-size: 1.4rem;
+    color: var(--clr-primary-11);
     a {
       color: var(--clr-primary-11);
+      margin-left: 0.1rem;
+      font-size: 1.55rem;
     }
   }
   h3{ line-height: 2.35rem; text-transform: none;}
@@ -54,7 +58,7 @@ const Wrapper = styled.section`
     line-height: 1.8;
     font-family: 'proxima-nova';
     font-size: 1.2rem;
-    color: var(--clr-primary-3);
+    color: var(--clr-primary-1);
     a {
       color: var(--clr-primary-11);
     }
