@@ -16,7 +16,7 @@ const CartTotals = () => {
           <hr/>
           <h4>Order total : <span>{formatPrice((total_price + shipping_fee)/100)}</span></h4>
         </article>
-        <Link fade to="/checkout" className="btn">proceed to checkout</Link>
+        <Link to="/checkout" className="btn">proceed to checkout</Link>
       </div>
     </Wrapper>
   )
