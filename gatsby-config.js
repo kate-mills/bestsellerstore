@@ -3,7 +3,7 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, })
 const siteUrl = `https://skincarewebstore.com` // change to .com url
 const netlifyUrl = `https://bestsellerstore.netlify.app`
 const companyName = `Skincare Webstore, Best Sellers`
-const description = `${companyName} - Master Medical Estheticians bring you their latest top beauty products and skincare. We specialize in Acne, Anti-Aging and Sensitive skin.`
+const description = `${companyName} - Shop the latest beauty products and skincare from Michele Corley Clinical Skincare. Consult with Master Estheticians about acne, anti-aging and sensitive skin concerns.`
 
 module.exports = {
   siteMetadata: {
