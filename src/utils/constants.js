@@ -44,6 +44,33 @@ export const services = [
   },
 ]
 
+export const shopTypes = [
+  {
+    id: 1,
+    icon: <GiSparkles />,
+    title: 'SHOP By Skin Types',
+    url: '/shop-skin-types',
+    text:
+      'CLICK HERE to shop Michele Corley Clinical Skincare Products by skin type.',
+  },
+  {
+    id: 2,
+    icon: <GiSparkles />,
+    url: '/shop',
+    title: 'SHOP By Category',
+    text:
+      'CLICK HERE to shop Michele Corley Clinical Skincare Products by product category.',
+  },
+  {
+    id: 3,
+    icon: <GiSparkles />,
+    title: 'Advanced Filter',
+    url: '/shop',
+    text:
+      'CLICK HERE to shop by skin condition, product type, price, & sales.',
+  },
+]
+
 
 export const products_url = 'https://course-api.com/react-store-products'
 
@@ -67,27 +94,3 @@ export const seoData = {
   ],
   mccReviewAuthor: "~ Rebecca Siemens, LE, Proprietor, Rebecca Siemens Skin Care",
 }
-
-
-
-
-/*
-      "brand":{
-        "@type": "Brand",
-        "logo": mccLogo,
-        "slogan": 'Beautifully Healthy Skin Starts Here',
-        "name": "Michele Corley Clinical Skincare",
-        "url": `${baseUrl}/shop`,
-
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": 201,
-          "review": {
-            "@type": "Review",
-            "reviewBody": seoData.mccReview.join(' '),
-            "author": seoData.mccReviewAuthor,
-          },
-        },
-      },
-      */
