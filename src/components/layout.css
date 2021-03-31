@@ -250,7 +250,10 @@ p {
 .page {
   min-height: calc(100vh - (20vh + 10rem));
 }
-.mcc{ text-transform: uppercase; color: rebeccapurple; }
+.mcc{
+  text-transform: uppercase;
+  color: hsl(201deg 14% 46%);
+}
 .ally{
   background: var(--clr-black);
   color: var(--clr-white);

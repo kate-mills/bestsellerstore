@@ -29,7 +29,7 @@ const Hero = () => {
           best sellers
         </h1>
         <p>
-          Shop the best selling products from <span className="mcc">Michele Corley Clinical Skincare</span>.
+          Shop the best selling products from <span className="mcc">Michele Corley Clinical Skincare</span>. Consult with Master Estheticians about products for acne, anti-aging and sensitive skin concerns.
         </p>
         <Link to='/shop' className='btn hero-btn'>
           shop now
