@@ -11,6 +11,7 @@ import Error from './Error'
 import ProductImages from './ProductImages'
 import AddToCart from './AddToCart'
 import Filters from './Filters'
+import SkinTypeFilter from './SkinTypeFilter'
 import ProductList from './ProductList'
 import Sort from './Sort'
 import Stars from './Stars'
@@ -35,6 +36,7 @@ export {
   ProductImages,
   AddToCart,
   Filters,
+  SkinTypeFilter,
   ProductList,
   Sort,
   Stars,

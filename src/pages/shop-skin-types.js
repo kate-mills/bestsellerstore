@@ -4,7 +4,7 @@ import {
   SEO,
   Layout,
   PageHero,
-  Filters,
+  SkinTypeFilter,
   ProductList,
   Sort,
 } from '../components'
@@ -20,7 +20,7 @@ const ShopPage = () => {
         <PageHero title="Shop By Skin Type" />
         <Wrapper className="page">
           <div className="section-center items">
-            <Filters/>
+            <SkinTypeFilter/>
             <div>
               <Sort/>
               <ProductList/>

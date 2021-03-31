@@ -59,16 +59,19 @@ export const FilterProvider = ({ children }) => {
     dispatch({type:  UPDATE_SORT, payload: value})
   }
   const updateFilters = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
+    var name = e.target.name;
+    var value = e.target.value;
     if(name==='category'){
       value = e.target.textContent
     }
-    //if(name==='skintype'){ value = e.target.dataset.skintype }
-    if(name==='price'){
+    else if(name==='skintype_btn'){
+      name  = 'skintype'
+      value = e.target.textContent
+    }
+    else if(name==='price'){
       value = Number(value)
     }
-    if(name==='onSale'){
+    else if(name==='onSale'){
       value = e.target.checked
     }
     dispatch({type: UPDATE_FILTERS, payload: {name, value}})

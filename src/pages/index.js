@@ -4,7 +4,7 @@ import { Layout, SEO, FeaturedProducts, Hero, Services, Contact} from '../compon
 const HomePage = () => {
   return (
     <Layout>
-      <SEO title="Home"/>
+      <SEO />
         <main>
           <Hero/>
           <FeaturedProducts/>
