@@ -20,11 +20,11 @@ const Filters = ()=>{
           {/* search input */}
           <div className="form-control">
             <input
-              tabIndex="0"
+              tabIndex={0}
               autoComplete="off"
               type="text"
               name="text"
-              placeholder="search"
+              placeholder="search filtered products"
               className="search-input"
               value={text}
               onChange={updateFilters}
@@ -83,6 +83,7 @@ const Wpr = styled.section`
   }
   .search-input::placeholder {
     text-transform: capitalize;
+    font-size: .73rem;
   }
   button {
     background: transparent;
