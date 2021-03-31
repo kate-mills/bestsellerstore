@@ -188,7 +188,7 @@ export const query = graphql`
       }
       imgRetail {
         gatsbyImageData(placeholder: TRACED_SVG)
-        fixed(height: 200, width: 200, cropFocus: CENTER, quality: 100) {
+        fixed(height: 500, width: 500, cropFocus: CENTER, quality: 100) {
           src
         }
         file{

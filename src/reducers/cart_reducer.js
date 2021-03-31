@@ -25,8 +25,8 @@ const cart_reducer = (state, action) => {
     else {
       const newItem = {
         id: TARGET_ID,
-        image: item.imgRetail.file.url, 
-        name: item.name,
+        image: item.imgRetail.gatsbyImageData, 
+        name: item.shortName || item.name,
         price,
         quantity: getSafeQty(quantity),
         size,

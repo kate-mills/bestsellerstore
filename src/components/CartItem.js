@@ -18,7 +18,7 @@ const CartItem = ({id, image, name, size, price, quantity}) => {
   return (
     <Wrapper>
       <div className='title'>
-        <GatsbyImage image={image} src={name} />
+        <GatsbyImage image={image} alt={name} />
         <div>
           <h5 className="name">{name}</h5>
           <p className="color">size: <span>{size}</span></p>
@@ -73,6 +73,7 @@ const Wrapper = styled.article`
 
   .color {
     align-items: center;
+    background: lavender;
     color: var(--clr-black);
     display: flex;
     font-size: 0.75rem;
@@ -80,6 +81,7 @@ const Wrapper = styled.article`
     font-weight: 200;
     justify-content: flex-start;
     letter-spacing: var(--spacing);
+    margin-top: 0.123rem;
     margin-bottom: 0;
     padding: 0;
     padding-left:0.123rem; 
@@ -87,9 +89,9 @@ const Wrapper = styled.article`
     text-transform: capitalize;
     width: fit-content;
     span {
-      text-transform: none;
-      margin-left: 0.5rem;
       border-radius: var(--radius);
+      margin-left: 0.5rem;
+      text-transform: none;
     }
   }
   .price-small {
