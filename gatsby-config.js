@@ -1,6 +1,6 @@
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, })
 
-const siteUrl = `https://bestsellerstore.netlify.app` // change to .com url
+const siteUrl = `https://skincarewebstore.com` // change to .com url
 const netlifyUrl = `https://bestsellerstore.netlify.app`
 const companyName = `Skincare Webstore, Best Sellers`
 const description = `${companyName} - Master Medical Estheticians bring you their latest top beauty products and skincare. We specialize in Acne, Anti-Aging and Sensitive skin.`
