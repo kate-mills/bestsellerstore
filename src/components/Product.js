@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import {Link} from 'gatsby'
+import {navigate} from '@reach/router'
 
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -15,17 +16,17 @@ const Product = (props) => {
     slug,
   } = props
   const nm = shortName || name
+  const go = async (e)=>{
+    await navigate(`/shop/${slug}`)
+    console.log('hi there')
+  }
   return (
-    <Wrapper>
+    <Wrapper onClick={go}>
       <div className="container">
         <Link to={`/shop/${slug}`}>
           <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='225' fit='contain'/>
         </Link>
-        <Link to={`/shop/${slug}`} className="link"
-          onClick={()=>{
-
-          }}
-        ><FaSearch/></Link>
+        <Link to={`/shop/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
         {nm.length > 19 ?
@@ -41,6 +42,9 @@ const Product = (props) => {
 }
 
 const Wrapper = styled.article`
+  &:hover{
+    cursor: pointer;
+  }
   .container {
     position: relative;
     background: var(--clr-white);
