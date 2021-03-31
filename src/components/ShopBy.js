@@ -9,10 +9,10 @@ const ShopBy = () => {
       <div className="section-center">
         <article className="header">
           <h3>Shop Smarter<br/>
-            Three ways to find products
+            Three ways to filter products
           </h3>
           <p>
-            Shop by skin condition, product type, or use an advanced filter to get you to glowing skin.
+            Shop by Skin Condition, Product Type, or use an Advanced Filter to get you to glowing skin.
           < /p>
         </article>
         <div className="services-center">
@@ -21,7 +21,7 @@ const ShopBy = () => {
             return(
               <article key={id} className="service">
                 <span className="icon">{icon}</span>
-                <h4>shop by <Link to={url}>{title}</Link></h4>
+                <h4><Link to={url}>{title}</Link></h4>
                 <p><Link to={url}>Click here {text}</Link></p>
               </article>
             )
