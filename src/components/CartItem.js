@@ -15,13 +15,15 @@ const CartItem = ({id, image, name, size, price, quantity}) => {
     toggleQuantity(id, 'dec')
   }
 
+  const [nm, sz] = name.split(' - ')
+
   return (
     <Wrapper>
       <div className='title'>
         <GatsbyImage image={image} alt={name} />
         <div>
-          <h5 className="name">{name}</h5>
-          <p className="color">size: <span>{size}</span></p>
+          <h5 className="name">{nm} - <p className="sz"> {sz} <span className="notxt">{size}</span></p></h5>
+          <p className="color"></p>
           <h5 className="price-small">{formatPrice(price)}</h5>
         </div>
       </div>
@@ -36,6 +38,21 @@ const CartItem = ({id, image, name, size, price, quantity}) => {
 }
 
 const Wrapper = styled.article`
+  .sz{
+    background: hsl(240deg 67% 94% / 32%);
+    display: inline-block;
+    font-family: 'proxima-nova';
+    padding: 0.1rem;
+    padding-left:0.23rem; 
+    padding-right:0.23rem; 
+    margin: unset !important;
+    text-transform: capitalize;
+    width: fit-content;
+    .notxt{
+      text-transform: lowercase;
+      font-family: 'bree';
+    }
+  }
   .subtotal {
     display: none;
   }

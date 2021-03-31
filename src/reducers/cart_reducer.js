@@ -3,12 +3,13 @@ import { ADD_TO_CART, } from '../actions'
 import {getSafeCount} from '../utils/helpers'
 export const getSafeQty = getSafeCount.bind(this, 12) // Always returns a number between 1-12
 
+
 /*import { CLEAR_CART, COUNT_CART_TOTALS, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, } from '../actions'*/
 
 const cart_reducer = (state, action) => {
 
   if(action.type === ADD_TO_CART){
-    const { id, size, quantity, price, item} = action.payload
+    const { id, size, sizeName, quantity, price, item} = action.payload
     const TARGET_ID = id + size.replace(' ', '-')
     const tempItem = state.cart.find(i => i.id === TARGET_ID)
 
@@ -23,10 +24,12 @@ const cart_reducer = (state, action) => {
       return {...state, cart:tempCart}
     }
     else {
+      let nmSz = `${item.shortName || item.name} - ${sizeName}`
+
       const newItem = {
         id: TARGET_ID,
         image: item.imgRetail.gatsbyImageData, 
-        name: item.shortName || item.name,
+        name: nmSz || item.shortName || item.name,
         price,
         quantity: getSafeQty(quantity),
         size,

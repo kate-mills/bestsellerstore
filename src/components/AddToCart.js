@@ -13,13 +13,12 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
 
   const [quantity, setQuantity] = useState(1)
   const [mainSize, setMainSize] = useState(sizes[0])
-  const [localId, setLocalId] = useState('')
+  const [sizeName, setSizeName] = useState('')
 
   React.useEffect(()=>{
     if(priceMap!== null){
-      let cid = priceMap[0].cid || priceMap[0].name
-      setMainSize(priceMap[0].size)
-      setLocalId(cid)
+      setMainSize(priceMap[0].size) // 1.7 oz or 0.25 oz
+      setSizeName(priceMap[0].name) // retail or travel
     }
   }, [priceMap])
   const increase = () => {
@@ -54,7 +53,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
                 style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
                 onClick={()=>{
                   setMainSize(size)
-                  setLocalId(cid || name)
+                  setSizeName(name)
                   setFocusPrice(price/100)
                 }}>
                 {size}
@@ -82,7 +81,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
         <Link
           to="/cart"
           onClick={()=>{
-            addToCart(id, mainSize, quantity, focus_price,  item, localId)
+            addToCart(id, mainSize, sizeName, quantity, focus_price,  item)
           }}
           className="btn"
         >add to cart</Link>
