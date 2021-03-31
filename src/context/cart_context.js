@@ -6,7 +6,7 @@ import {
   TOGGLE_CART_ITEM_QUANTITY,
   CLEAR_CART,
   REMOVE_CART_ITEM,
-  //COUNT_CART_TOTALS,
+  COUNT_CART_TOTALS,
 } from '../actions'
 
 import {checkWindow} from '../utils/helpers'
@@ -50,6 +50,7 @@ export const CartProvider = ({ children }) => {
     dispatch({type: CLEAR_CART})
   }
   useEffect(()=>{
+    dispatch({type:COUNT_CART_TOTALS})
     localStorage.setItem('skincarewebstorecart', JSON.stringify(state.cart))
   }, [state.cart])
 

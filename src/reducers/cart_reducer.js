@@ -3,13 +3,11 @@ import {
   CLEAR_CART,
   TOGGLE_CART_ITEM_QUANTITY,
   REMOVE_CART_ITEM,
+  COUNT_CART_TOTALS,
 } from '../actions'
 
 import {getSafeCount} from '../utils/helpers'
 export const getSafeQty = getSafeCount.bind(this, 12) // Always returns a number between 1-12
-
-
-/*import {  COUNT_CART_TOTALS, REMOVE_CART_ITEM, } from '../actions'*/
 
 const cart_reducer = (state, action) => {
 
@@ -63,11 +61,21 @@ const cart_reducer = (state, action) => {
   }// END TOGGLE_CART_ITEM_QUANTITY
 
   if(action.type === REMOVE_CART_ITEM){
-    const tempCart = state.cart.filter(
-      item => item.id !== action.payload
-    )
+    const tempCart = state.cart.filter(item => item.id !== action.payload)
     return { ...state, cart: tempCart }
   }// END REMOVE_CART_ITEM
+
+  if(action.type === COUNT_CART_TOTALS){
+    const {total_price, total_quantity} = state.cart.reduce(
+      (total, item) =>{
+        const {price, quantity} = item;
+        total.total_price += (price * quantity) * 100
+        total.total_quantity += quantity
+        return total
+    },{total_price: 0, total_quantity: 0})
+
+    return {...state, total_price, total_quantity}
+  }// END COUNT_CART_TOTALS
 
   throw new Error(`No Matching "${action.type}" - action type`)//return state
 }

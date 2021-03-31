@@ -4,11 +4,12 @@ import { FaShoppingCart, FaUserPlus} from 'react-icons/fa'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
-//import { useCartContext } from '../context/cart_context'
+import { useCartContext } from '../context/cart_context'
 //import { useUserContext } from '../context/user_context'
 
 const CartButtons = () => {
   const {closeSidebar} = useProductsContext()
+  const {total_quantity} = useCartContext()
   return(
     <Wrapper className="cart-btn-wrapper">
 
@@ -19,7 +20,7 @@ const CartButtons = () => {
         onClick={closeSidebar}>Cart
         <span className="cart-container">
           <FaShoppingCart/>
-          <span className='cart-value'>12</span>
+          <span className='cart-value'>{total_quantity}</span>
         </span>
       </Link>
 
