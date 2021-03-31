@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   CLEAR_CART,
   TOGGLE_CART_ITEM_QUANTITY,
+  REMOVE_CART_ITEM,
 } from '../actions'
 
 import {getSafeCount} from '../utils/helpers'
@@ -60,6 +61,13 @@ const cart_reducer = (state, action) => {
     })
     return { ...state, cart: tempCart }
   }// END TOGGLE_CART_ITEM_QUANTITY
+
+  if(action.type === REMOVE_CART_ITEM){
+    const tempCart = state.cart.filter(
+      item => item.id !== action.payload
+    )
+    return { ...state, cart: tempCart }
+  }// END REMOVE_CART_ITEM
 
   throw new Error(`No Matching "${action.type}" - action type`)//return state
 }
