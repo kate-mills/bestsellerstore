@@ -4,10 +4,10 @@ import {
   SEO,
   Layout,
   PageHero,
-  Filters,
+  SkinTypeFilter,
   ProductList,
   Sort,
-} from '../components'
+} from '../../components'
 
 const ShopPage = () => {
   return (
@@ -20,7 +20,7 @@ const ShopPage = () => {
         <PageHero title="Shop By Skin Type" />
         <Wrapper className="page">
           <div className="section-center items">
-            <Filters/>
+            <SkinTypeFilter/>
             <div>
               <Sort/>
               <ProductList/>

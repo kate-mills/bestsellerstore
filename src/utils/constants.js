@@ -49,14 +49,14 @@ export const shopTypes = [
     id: 1,
     icon: <GiSparkles />,
     title: 'SHOP By Skin Types',
-    url: '/shop-skin-types',
+    url: '/shop/skin-type',
     text:
       'CLICK HERE to shop Michele Corley Clinical Skincare Products by skin type.',
   },
   {
     id: 2,
     icon: <GiSparkles />,
-    url: '/shop',
+    url: '/shop/category',
     title: 'SHOP By Category',
     text:
       'CLICK HERE to shop Michele Corley Clinical Skincare Products by product category.',

@@ -13,6 +13,7 @@ import ProductImages from './ProductImages'
 import AddToCart from './AddToCart'
 import Filters from './Filters'
 import SkinTypeFilter from './SkinTypeFilter'
+import CategoryFilter from './CategoryFilter'
 import ProductList from './ProductList'
 import Sort from './Sort'
 import Stars from './Stars'
@@ -39,6 +40,7 @@ export {
   AddToCart,
   Filters,
   SkinTypeFilter,
+  CategoryFilter,
   ProductList,
   Sort,
   Stars,

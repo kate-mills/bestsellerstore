@@ -3,27 +3,27 @@ import styled from 'styled-components'
 import {
   SEO,
   Layout,
-  Filters,
+  PageHero,
+  CategoryFilter,
   ProductList,
   Sort,
-  PageHero,
-} from '../components'
+} from '../../components'
 
-const ProductsPage = () => {
+const ShopPage = () => {
   return (
     <Layout>
       <SEO
-        title="Shop Jewelry"
-        description="Shop all of our hand cut designs that Hilary Molloy makes with love and natural elements in the beautiful Napa Valley."
+        title="Shop Category"
+        description="Shop Michele Corley Clinical Skincare Products by product category."
       />
       <main>
-        <PageHero title="Shop" />
+        <PageHero title="Shop By Product Category" />
         <Wrapper className="page">
           <div className="section-center items">
-            <Filters />
+            <CategoryFilter/>
             <div>
-              <Sort />
-              <ProductList />
+              <Sort/>
+              <ProductList/>
             </div>
           </div>
         </Wrapper>
@@ -45,4 +45,5 @@ const Wrapper = styled.div`
   }
 `
 
-export default ProductsPage
+export default ShopPage
+

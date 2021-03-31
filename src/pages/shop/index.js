@@ -4,23 +4,23 @@ import {
   SEO,
   Layout,
   PageHero,
-  SkinTypeFilter,
+  Filters,
   ProductList,
   Sort,
-} from '../components'
+} from '../../components'
 
 const ShopPage = () => {
   return (
     <Layout>
       <SEO
-        title="Shop Skin Types"
-        description="Shop Michele Corley Clinical Skincare Products by skin type."
+        title="Shop Products"
+        description="Shop all skincare products by Michele Corley Clinical Skincare."
       />
       <main>
-        <PageHero title="Shop By Skin Type" />
+        <PageHero title="Shop" />
         <Wrapper className="page">
           <div className="section-center items">
-            <SkinTypeFilter/>
+            <Filters/>
             <div>
               <Sort/>
               <ProductList/>
@@ -46,4 +46,3 @@ const Wrapper = styled.div`
 `
 
 export default ShopPage
-

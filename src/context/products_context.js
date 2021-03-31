@@ -11,7 +11,7 @@ import {
 const query = graphql`
   {
     allItems: allContentfulMccProduct(
-      filter: {removeFromActiveLists: {ne: true}}
+      filter: {removeFromActiveLists: {ne: true}},
       sort: {fields: name, order: ASC}
     ) {
       edges {
@@ -52,6 +52,7 @@ const query = graphql`
     }
     featuredItems: allContentfulMccProduct(
       filter: {featured: {eq: true}}
+      limit:3,
       sort: {fields: name, order: ASC}
     ) {
       edges {
