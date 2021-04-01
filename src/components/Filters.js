@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues, formatPrice } from '../utils/helpers'
@@ -14,12 +14,16 @@ const Filters = ()=>{
       onSale,
     },
     updateFilters, clearFilters, all_items } = useFilterContext()
+  const [showCategory, setShowCategory] = useState(false)
 
   const skintypes = getUniqueValues(all_items, 'skinTypeBadge','---Select---', true)
   const categories = getUniqueValues(all_items, 'category', 'all')
+  const tglCategory = ()=>{setShowCategory(!showCategory)}
+
   return (
     <Wpr>
       <div className='content'>
+
         <form onSubmit={(e)=>e.preventDefault()}>
           {/* search input */}
           <div className="form-control">
@@ -37,24 +41,31 @@ const Filters = ()=>{
           {/* end search input */}
           {/* categories */}
           <div className="form-control">
-            <h5>Category</h5>
+            <h5>
+              <button className="toggle-filter" type="button" onClick={tglCategory}>show categories</button>
+            </h5>
+            {showCategory &&(
             <div>
-              {categories.map((c, i)=>{
+              { categories.map((c, i)=>{
                 return(
                   <button
-                    tabIndex={i}
+                    tabIndex="0"
                     key={i}
                     name="category"
                     type="button"
                     className={`${
                       category === c.toLowerCase() ? 'active': null
                     }`}
-                    onClick={updateFilters}>
-                    {c}
-                  </button>
+                    onClick={(e)=>{
+                      tglCategory()
+                      updateFilters(e)
+                    }}>
+                  {c}</button>
                 )
               })}
             </div>
+            )}
+            <div className="current-cat">{category}</div>
           </div>
           {/* end categories */}
           {/* skintypes */}
@@ -79,7 +90,6 @@ const Filters = ()=>{
             </select>
           </div>
           {/* end skintypes */}
-
           {/* price */}
           <div className="form-control">
             <h5>price</h5>
@@ -120,9 +130,24 @@ const Wpr = styled.section`
     margin-bottom: 1.25rem;
     h5 {
       color: var(--clr-primary-1);
-      font-size: 1.5rem;
+      font-size: 1rem;
       margin-bottom: 0.5rem;
     }
+  }
+  .toggle-filter{
+    font-family: 'bree';
+    font-size: 1rem;
+    background: white;
+    font-weight: 200;
+    margin-left: -1rem;
+    padding: 0.35rem 0.5rem;
+  }
+  .toggle-filter:hover{
+  }
+  .current-cat{
+    background: lavender;
+    width: fit-content;
+    text-transform: capitalize;
   }
   .search-input {
     background: var(--clr-grey-10);
