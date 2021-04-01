@@ -5,7 +5,6 @@ import { getUniqueValues, formatPrice } from '../utils/helpers'
 
 const Filters = ()=>{
   const { filters:{
-      text,
       category,
       skintype,
       min_price,
@@ -23,22 +22,7 @@ const Filters = ()=>{
   return (
     <Wpr>
       <div className='content'>
-
         <form onSubmit={(e)=>e.preventDefault()}>
-          {/* search input */}
-          <div className="form-control">
-            <input
-              tabIndex="0"
-              autoComplete="off"
-              type="text"
-              name="text"
-              placeholder="search"
-              className="search-input"
-              value={text}
-              onChange={updateFilters}
-            />
-          </div>
-          {/* end search input */}
           {/* categories */}
           <div className="form-control">
             <h5>

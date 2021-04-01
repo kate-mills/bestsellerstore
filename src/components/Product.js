@@ -17,16 +17,16 @@ const Product = (props) => {
   } = props
   const nm = shortName || name
   const go = async (e)=>{
-    await navigate(`/shop/${slug}`)
+    await navigate(`/products/${slug}`)
     console.log('hi there')
   }
   return (
     <Wrapper onClick={go}>
       <div className="container">
-        <Link to={`/shop/${slug}`}>
+        <Link to={`/products/${slug}`}>
           <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='225' fit='contain'/>
         </Link>
-        <Link to={`/shop/${slug}`} className="link"><FaSearch/></Link>
+        <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
         {nm.length > 19 ?

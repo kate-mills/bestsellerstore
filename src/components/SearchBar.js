@@ -3,12 +3,19 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 
 import ProductList from './ProductList'
+import { useLocation } from "@reach/router"
 
 
 const SearchBar = ()=>{
+  const textRef = React.useRef()
   const {updateFilters, clearFilters, filters:{
     text
   }} = useFilterContext()
+  const {pathname} = useLocation()
+  //const [currentPage, setCurrentPage] = React.useState(null)
+  //const [isFilterPage, setIsFilterPage] = React.useState(null)
+  const notShopPage = pathname.slice(1, 5) !== 'shop'
+  //React.useEffect(()=>{ setCurrentPage(pathname) setIsFilterPage(hasShopInPage) }, [pathname])
 
   return(
     <>
@@ -17,6 +24,7 @@ const SearchBar = ()=>{
           {/* search input */}
           <div className='form-control'>
             <input
+              ref={textRef}
               type='text'
               name='text'
               autoComplete="off"
@@ -28,8 +36,8 @@ const SearchBar = ()=>{
             <button tabIndex="0" type="button"
               className={`${text.length>0? 'show-btn clear-btn':'hide-btn clear-btn'}`} 
               onClick={(e)=>{
-                console.log('e', e)
                 clearFilters()
+                textRef.current.focus()
               }}
             >clear</button>
 
@@ -37,7 +45,7 @@ const SearchBar = ()=>{
           {/* end search input */}
         </form>
         {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
-        {(!!text.length) &&<div tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters} className="list">
+        {(!!text.length && notShopPage) &&<div tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters} className="list">
         <ProductList/>
       </div>}
     </Wrapper>
@@ -50,12 +58,14 @@ const SearchBar = ()=>{
 const Wrapper = styled.aside`
 
   .form-control {
-    margin-left: 2rem;
+    margin-left: 2.5rem;
     margin-top: 0.5rem;
+    display: flex;
   }
   .search-input {
     color: #212529;
     background: var(--clr-grey-10);
+    border: 1px solid var(--clr-primary-5);
     border-radius: var(--radius);
     border-color: transparent;
     font-family: 'proxima-nova';
@@ -76,7 +86,7 @@ const Wrapper = styled.aside`
     font-family: 'proxima-nova';
     font-size: 1rem;
     outline-color: transparent;
-    padding: 0.50rem 0.5rem;
+    padding: 0.45rem 5px;
     transition: var(--transition);
     cursor-events: disabled;
   }
@@ -102,6 +112,14 @@ const Wrapper = styled.aside`
     width: 75%;
     padding: 1rem;
     border: 3px solid var(--clr-primary-5);
+  }
+  @media(max-width: 400px){
+    .form-control{
+      margin-left: 0;
+    }
+    .list{
+      width: 90%;
+    }
   }
 `
 export default SearchBar 

@@ -14,7 +14,7 @@ export const createProductSchema = (p, baseUrl)=>{
     "brand":{
       "@type": "Brand",
        "name": "Michele Corley Clinical Skincare",
-       "url": `${baseUrl}/shop/${p.slug}`,
+       "url": `${baseUrl}/products/${p.slug}`,
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -23,7 +23,7 @@ export const createProductSchema = (p, baseUrl)=>{
     },
     "offers": {
       "@type": "Offer",
-      "url": `${baseUrl}/shop/${p.slug}`,
+      "url": `${baseUrl}/products/${p.slug}`,
       "priceCurrency": "USD",
       "price": p.retailPrice/100,
       "priceValidUntil": seoData.formatEndOfYr(),
