@@ -58,14 +58,11 @@ const Wrapper = styled.aside`
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;
-    border-color: var(--clr-primary-5d);
     font-family: 'proxima-nova';
     font-size: 1rem;
     letter-spacing: var(--spacing);
     line-height: 24px;
     padding: .5rem;
-  }
-  .search-input::placeholder {
   }
   .search-input:active,
   .search-input:focus{
