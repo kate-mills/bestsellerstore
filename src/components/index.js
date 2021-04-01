@@ -13,6 +13,7 @@ import ProductImages from './ProductImages'
 import AddToCart from './AddToCart'
 import Filters from './Filters'
 import SkinTypeFilter from './SkinTypeFilter'
+import SearchBar from './SearchBar'
 import CategoryFilter from './CategoryFilter'
 import ProductList from './ProductList'
 import Sort from './Sort'
@@ -40,6 +41,7 @@ export {
   AddToCart,
   Filters,
   SkinTypeFilter,
+  SearchBar,
   CategoryFilter,
   ProductList,
   Sort,

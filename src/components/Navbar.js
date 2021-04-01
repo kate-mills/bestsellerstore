@@ -6,6 +6,7 @@ import { Link } from 'gatsby'
 import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
+import {SearchBar} from '../components'
 //import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
@@ -13,8 +14,13 @@ const Nav = () => {
   return (
     <NavContainer>
       <div className="nav-center">
+
         <div className='nav-header'>
-          <Link to="/"><img src={logo} alt="Logo"/>{/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}</Link>
+          <Link to="/"><img src={logo} alt="Logo"/>
+
+          {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}</Link>
+          <SearchBar/>
+
           <button type="button" className="nav-toggle"
             onClick={openSidebar}
             onKeyPress={openSidebar}
@@ -31,8 +37,10 @@ const Nav = () => {
             })
           }
         </ul>
+
         <CartButtons/>
       </div> {/* close nav-center */}
+
     </NavContainer>
   )
 }
