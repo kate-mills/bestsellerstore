@@ -72,10 +72,17 @@ const Wrapper = styled.aside`
     line-height: 24px;
     padding: .5rem;
     z-index: 1;
+    transition: width 0.4s ease-in-out;
+    -webkit-transition: width 0.4s ease-in-out;
+    width: 40%;
   }
+  .search-input:visited,
+  .search-input:focus-within,
+  .search-input:focus-visible,
   .search-input:active,
   .search-input:focus{
     background: hsl(201deg 55% 38% / 7%);
+    width: 100%;
   }
   .clear-btn{
     background: var(--clr-white);
