@@ -71,6 +71,7 @@ const Wrapper = styled.aside`
     letter-spacing: var(--spacing);
     line-height: 24px;
     padding: .5rem;
+    z-index: 1;
   }
   .search-input:active,
   .search-input:focus{
@@ -87,6 +88,7 @@ const Wrapper = styled.aside`
     padding: 0.45rem 5px;
     transition: var(--transition);
     cursor-events: disabled;
+    margin-left: 3px;
   }
   .show-btn{
     border-color: var(--clr-primary-5d);
