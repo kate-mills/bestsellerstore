@@ -20,6 +20,7 @@ const filter_reducer = (state, action) => {
       ...state,
       all_items:[...action.payload],
       filtered_items:[...action.payload],
+      filtered_count: action.payload.length,
       filters:{
         ...state.filters,
         max_price: maxPrice,
@@ -74,7 +75,7 @@ const filter_reducer = (state, action) => {
     }
 
     // CATEGORIES
-    if(category !== 'all'){
+    if(category !== '---Select---'){
       tempItems = tempItems.filter(({node}) =>{
         return (node.category.toLowerCase() === category)
       })
@@ -98,15 +99,16 @@ const filter_reducer = (state, action) => {
       tempItems = tempItems.filter(({node}) => node.onSale === true)
     }
 
-    return {...state, filtered_items: tempItems}
+    return {...state, filtered_items: tempItems, filtered_count: tempItems.length}
   }
   if(action.type === CLEAR_FILTERS){
     return {
       ...state,
+      filtered_count: 0,
       filters: {
         ...state.filters,
         text:'',
-        category: 'all',
+        category: '---Select---',
         onSale: false,
         price: state.filters.max_price,
         skintype: '---Select---',

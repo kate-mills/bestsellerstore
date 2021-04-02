@@ -17,7 +17,7 @@ const ShopPage = () => {
         description="Shop all skincare products by Michele Corley Clinical Skincare."
       />
       <main>
-        <PageHero title="Shop" />
+        <PageHero title="Shop" showCount={true}/>
         <Wrapper className="page">
           <div className="section-center items">
             <Filters/>
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   .items {
     display: grid;
     gap: 3rem 1.5rem;
-    margin: 4rem auto;
+    margin: 0.2rem auto;
   }
   @media (min-width: 768px) {
     .items {

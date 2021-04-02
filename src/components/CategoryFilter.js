@@ -4,34 +4,15 @@ import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues } from '../utils/helpers'
 
 const Filters = ()=>{
-  const { filters:{
-      text,
-      category,
-    },
+  const { filters:{ category },
     updateFilters, clearFilters, all_items } = useFilterContext()
 
   const categories = getUniqueValues(all_items, 'category', 'all')
 
   return (
-    <Wpr>
+    <Wrapper>
       <div className='content'>
         <form onSubmit={(e)=>e.preventDefault()}>
-
-          {/* search input */}
-          <div className="form-control">
-            <input
-              tabIndex={0}
-              autoComplete="off"
-              type="text"
-              name="text"
-              placeholder="search filtered products"
-              className="search-input"
-              value={text}
-              onChange={updateFilters}
-            />
-          </div>
-          {/* end search input */}
-
           {/* category btn filters */}
           <div className="form-control">
             <h5>Category</h5>
@@ -57,11 +38,11 @@ const Filters = ()=>{
         </form>
         <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
       </div>
-    </Wpr>
+    </Wrapper>
   )
 }
 
-const Wpr = styled.section`
+const Wrapper = styled.section`
   .form-control {
     margin-bottom: 1.25rem;
     h5 {

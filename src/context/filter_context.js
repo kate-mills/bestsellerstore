@@ -17,10 +17,11 @@ import{
 const initialState = {
   all_items: [],
   filtered_items: [],
+  filtered_count: 0,
   grid_view: true,
   sort: 'name-a',
   filters: {
-    category: 'all',
+    category: '---Select---',
     max_price: 0,
     min_price: 0,
     onSale: false,
@@ -61,10 +62,8 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     var name = e.target.name;
     var value = e.target.value;
-    if(name==='category'){
-      value = e.target.textContent
-    }
-    else if(name==='skintype_btn'){
+    //if(name==='category'){ value = e.target.textContent }
+    if(name==='skintype_btn'){
       name  = 'skintype'
       value = e.target.textContent
     }

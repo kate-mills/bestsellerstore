@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues, formatPrice } from '../utils/helpers'
@@ -12,44 +12,35 @@ const Filters = ()=>{
       price,
       onSale,
     },
-    updateFilters, clearFilters, all_items } = useFilterContext()
-  const [showCategory, setShowCategory] = useState(false)
-
+    updateFilters, clearFilters, all_items, filtered_count } = useFilterContext()
   const skintypes = getUniqueValues(all_items, 'skinTypeBadge','---Select---', true)
-  const categories = getUniqueValues(all_items, 'category', 'all')
-  const tglCategory = ()=>{setShowCategory(!showCategory)}
+  const categories = getUniqueValues(all_items, 'category', '---Select---')
 
   return (
     <Wpr>
+
       <div className='content'>
         <form onSubmit={(e)=>e.preventDefault()}>
           {/* categories */}
+          <div className="flexible-div">{/* start flexible div */}
           <div className="form-control">
-            <h5>
-              <button className="toggle-filter" type="button" onClick={tglCategory}>show categories</button>
-            </h5>
-            {showCategory &&(
-            <div>
-              { categories.map((c, i)=>{
+            <h5>Category</h5>
+            <select
+              name="category"
+              value={category}
+              onBlur={updateFilters}
+              onChange={updateFilters}
+              className="select">
+              {
+                categories.map((c, i)=>{
                 return(
-                  <button
-                    tabIndex="0"
-                    key={i}
-                    name="category"
-                    type="button"
-                    className={`${
-                      category === c.toLowerCase() ? 'active': null
-                    }`}
-                    onClick={(e)=>{
-                      tglCategory()
-                      updateFilters(e)
-                    }}>
-                  {c}</button>
+                  <option key={i} value={c}>
+                    {c}
+                  </option>
                 )
-              })}
-            </div>
-            )}
-            <div className="current-cat">{category}</div>
+                })
+              }
+            </select>
           </div>
           {/* end categories */}
           {/* skintypes */}
@@ -60,7 +51,7 @@ const Filters = ()=>{
               value={skintype}
               onBlur={updateFilters}
               onChange={updateFilters}
-              className="skintype"
+              className="select"
             >
               {
                 skintypes.map((st, i)=>{
@@ -76,8 +67,7 @@ const Filters = ()=>{
           {/* end skintypes */}
           {/* price */}
           <div className="form-control">
-            <h5>price</h5>
-            <p className="price">{formatPrice(price/100)}</p>
+            <h5 className="price">Max price <span> {formatPrice(price/100)}</span></h5>
             <input
               tabIndex="0"
               type="range"
@@ -101,9 +91,11 @@ const Filters = ()=>{
               onChange={updateFilters}
             />
           </div>
+        <span className="count">{filtered_count} Found</span>
+        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
+          </div> {/* end flexible div */}
           {/* end onSale */}
         </form>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
       </div>
     </Wpr>
   )
@@ -117,35 +109,6 @@ const Wpr = styled.section`
       font-size: 1rem;
       margin-bottom: 0.5rem;
     }
-  }
-  .toggle-filter{
-    font-family: 'bree';
-    font-size: 1rem;
-    background: white;
-    font-weight: 200;
-    margin-left: -1rem;
-    padding: 0.35rem 0.5rem;
-  }
-  .toggle-filter:hover{
-  }
-  .current-cat{
-    background: lavender;
-    width: fit-content;
-    text-transform: capitalize;
-  }
-  .search-input {
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
-    border-color: transparent;
-    color: var(--clr-black);
-    font-size: 1rem;
-    letter-spacing: var(--spacing);
-    padding: 0.5rem;
-    position: relative;
-    right: 1rem;
-  }
-  .search-input::placeholder {
-    text-transform: capitalize;
   }
   button {
     background: transparent;
@@ -165,50 +128,15 @@ const Wpr = styled.section`
   .active {
     border-color: var(--clr-grey-5);
   }
-  .skintype {
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
-    border-color: transparent;
-    padding: 0.25rem;
-  }
-  .colors {
-    display: flex;
-    align-items: center;
-  }
-  .color-btn {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: #222;
-    margin-right: 0.5rem;
-    border: none;
-    cursor: pointer;
-    opacity: 0.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      font-size: 0.5rem;
-      color: var(--clr-white);
-    }
-  }
-  .all-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5rem;
-    opacity: 0.5;
-  }
-  .active {
-    opacity: 1;
-  }
-  .all-btn .active {
-    text-decoration: underline;
-  }
+  .active { opacity: 1; }
   .price {
     letter-spacing: var(--spacing);
     margin-bottom: 0.25rem;
+    >span{
+      font-family: 'proxima-nova';
+      margin-left: 20px;
+      color: hsl(256deg 14% 51%);
+    }
   }
   .onSale {
     display: grid;
@@ -224,12 +152,69 @@ const Wpr = styled.section`
     padding: 0.35rem 0.5rem;
     border-radius: var(--radius);
   }
+  .select{
+    background: var(--clr-grey-10);
+    border-radius: var(--radius);
+    border-color: transparent;
+    font-family: 'proxima-nova';
+    letter-spacing: var(--spacing);
+    font-size: 1rem;
+    padding: 0.25rem;
+    text-transform: capitalize;
+  }
+  .select:active,
+  .select:focus {
+    background: hsl(201deg 55% 38% / 7%);
+  }
   @media (min-width: 768px) {
     .content {
       position: sticky;
-      top: 1rem;
+      top: .1rem;
+    }
+    .select {
+      width: 100%;
     }
   }
+  .count{
+    background: hsl(253deg 13% 51% / 13%);
+    display: inherit;
+    padding: 0.1rem 0 0.35rem;
+    letter-spacing: var(--spacing);
+    font-family: 'bree';
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  @media(max-width: 767px){
+    .flexible-div{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 100px;
+      grid-column-gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  @media(max-width: 650px){
+    .flexible-div{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .count{
+      margin-bottom: unset;
+    }
+  }
+  @media(max-width: 550px){
+    .flexible-div{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media(max-width: 400px){
+    .flexible-div{
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: .5rem;
+    }
+  }
+
 `
 
 export default Filters
