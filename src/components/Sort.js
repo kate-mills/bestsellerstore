@@ -23,7 +23,7 @@ const Sort = () => {
         > <BsList/>
         </button>
       </div>
-      <p>{items.length} items found</p>
+      <p className="items-found">{items.length} items found</p>
       <hr/>
       <form>
         <label htmlFor='sort'>sort by</label>
@@ -47,6 +47,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: auto auto 1fr auto;
   align-items: center;
+  margin-top: 0;
   margin-bottom: 0;
   column-gap: 2rem;
   @media (max-width: 576px) {
@@ -101,6 +102,15 @@ const Wrapper = styled.section`
   label {
     font-size: 1rem;
     text-transform: capitalize;
+  }
+  .items-found{
+    display: content;
+  }
+
+  @media(max-width: 767px){
+    .items-found{
+      display: none;
+    }
   }
 `
 

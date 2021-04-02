@@ -21,7 +21,8 @@ const Filters = ()=>{
 
   return (
     <Wrapper>
-      <button className="btn toggle-btn" onClick={toggleDisplay}>
+      <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
+      <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
         {displayContent?
           <><BsCaretUp className="up-icon icon"/> Filters <BsCaretUp className="up-icon icon"/></>:
           <><BsCaretDown className="down-icon icon"/> Filters <BsCaretDown className="down-icon icon"/></>
@@ -87,12 +88,10 @@ const Filters = ()=>{
               onChange={updateFilters}
             />
           </div>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
           </div> {/* end flexible div */}
           {/* end onSale */}
         </form>
       </div>
-
       )}
     </Wrapper>
   )
@@ -165,6 +164,7 @@ const Wrapper = styled.section`
     color: var(--clr-white);
     padding: 0.35rem 0.5rem;
     border-radius: var(--radius);
+    width: 100%;
   }
   .toggle-btn{
       width: 100%;

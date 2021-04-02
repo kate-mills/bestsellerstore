@@ -34,13 +34,14 @@ const ShopPage = () => {
 
 const Wrapper = styled.div`
   .items {
-    display: grid;
-    gap: 3rem 1.5rem;
-    margin: 4rem auto;
+    margin: 0 auto;
   }
   @media (min-width: 768px) {
     .items {
+      display: grid;
+      gap: 3rem 1.5rem;
       grid-template-columns: 200px 1fr;
+      margin: 4rem auto;
     }
   }
 `
