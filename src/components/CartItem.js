@@ -131,7 +131,7 @@ const Wrapper = styled.article`
     background: transparent;
     border: transparent;
     letter-spacing: var(--spacing);
-    background: var(--clr-primary-3);
+    background: var(--clr-primary-1);
     width: 1.5rem;
     height: 1.5rem;
     display: flex;

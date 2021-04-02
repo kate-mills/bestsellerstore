@@ -41,7 +41,7 @@ const Wrapper = styled.section`
     cursor: pointer;
   }
   .clear-btn {
-    background: var(--clr-primary-3);
+    background: var(--clr-primary-1);
   }
 `
 export default CartContent
