@@ -10,7 +10,7 @@ const Footer = () => {
       </h6>
       <h6>All rights reserved</h6>
     </Wrapper>
-      <p className="ally">Built by <a href="https://allydigitalsolutions.com">Ally Digital Solutions</a></p>
+      <div className="ally">Built by <a href="https://allydigitalsolutions.com">Ally Digital Solutions</a></div>
     </>
   )
 }
