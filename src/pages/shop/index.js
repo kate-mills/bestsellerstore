@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   .items {
     display: grid;
     gap: 3rem 1.5rem;
-    margin: 0.2rem auto;
+    margin: 4rem auto;
   }
   @media (min-width: 768px) {
     .items {

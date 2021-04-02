@@ -1,25 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
+import {
+  BsCaretDown,
+  BsCaretUp,
+} from 'react-icons/bs'
 import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
+import { getUniqueValues} from '../utils/helpers'
 
 const Filters = ()=>{
   const { filters:{
       category,
       skintype,
-      min_price,
-      max_price,
-      price,
       onSale,
     },
     updateFilters, clearFilters, all_items, filtered_count } = useFilterContext()
   const skintypes = getUniqueValues(all_items, 'skinTypeBadge','---Select---', true)
   const categories = getUniqueValues(all_items, 'category', '---Select---')
+  const [displayContent, setDisplayContent] = React.useState(false)
+  const toggleDisplay =()=>{setDisplayContent(!displayContent)}
 
   return (
     <Wpr>
-
-      <div className='content'>
+      <button className="btn toggle-btn" onClick={toggleDisplay}>
+        {displayContent?
+          <><BsCaretUp className="up-icon icon"/> Filters <BsCaretUp className="up-icon icon"/></>:
+          <><BsCaretDown className="down-icon icon"/> Filters <BsCaretDown className="down-icon icon"/></>
+        }
+      </button>
+      <span style={{display: 'block', textAlign: 'center', color: 'var(--clr-primary-3)'}}>{filtered_count} Found</span>
+      {
+        displayContent && (<div className='content'>
         <form onSubmit={(e)=>e.preventDefault()}>
           {/* categories */}
           <div className="flexible-div">{/* start flexible div */}
@@ -65,20 +75,6 @@ const Filters = ()=>{
             </select>
           </div>
           {/* end skintypes */}
-          {/* price */}
-          <div className="form-control">
-            <h5 className="price">Max price <span> {formatPrice(price/100)}</span></h5>
-            <input
-              tabIndex="0"
-              type="range"
-              name="price"
-              onChange={updateFilters}
-              min={min_price}
-              max={max_price}
-              value={price}
-            />
-          </div>
-          {/* end price */}
           {/* onSale */}
           <div className="form-control onSale">
             <label htmlFor="onSale">on sale</label>
@@ -91,22 +87,39 @@ const Filters = ()=>{
               onChange={updateFilters}
             />
           </div>
-        <span className="count">{filtered_count} Found</span>
         <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
           </div> {/* end flexible div */}
           {/* end onSale */}
         </form>
       </div>
+
+      )}
     </Wpr>
   )
 }
 
 const Wpr = styled.section`
+  transition: var(--transition) !important;
+  .icon {
+    margin: 0 .2rem;
+    position: relative;
+  }
+  .up-icon{
+    top: .1rem;
+  }
+  .down-icon{
+    top: .3rem;
+  }
+
   .form-control {
     margin-bottom: 1.25rem;
-    h5 {
+    h5, label{
       color: var(--clr-primary-1);
-      font-size: 1rem;
+      font-family: 'bree';
+      font-size: 1.1rem;
+      font-weight: 200;
+    }
+    h5 {
       margin-bottom: 0.5rem;
     }
   }
@@ -146,11 +159,15 @@ const Wpr = styled.section`
     column-gap: 0.5rem;
     font-size: 1rem;
   }
+  .toggle-btn,
   .clear-btn {
     background: var(--clr-primary-2);
     color: var(--clr-white);
     padding: 0.35rem 0.5rem;
     border-radius: var(--radius);
+  }
+  .toggle-btn{
+      width: 100%;
   }
   .select{
     background: var(--clr-grey-10);
@@ -198,10 +215,12 @@ const Wpr = styled.section`
   @media(max-width: 650px){
     .flexible-div{
       grid-template-columns: repeat(2, 1fr);
+      .clear-btn{ margin-right: 1rem; }
     }
     .count{
       margin-bottom: unset;
     }
+
   }
   @media(max-width: 550px){
     .flexible-div{
@@ -210,8 +229,16 @@ const Wpr = styled.section`
   }
   @media(max-width: 400px){
     .flexible-div{
-      grid-template-columns: repeat(1, 1fr);
-      grid-column-gap: .5rem;
+      grid-template-columns: 1fr;
+      margin: 0 auto;
+      text-align:center;
+      justify-content: center;
+      align: items: center;
+      .form-control{
+        text-align: center;
+        margin: 1rem auto;
+        .clear-btn{ margin: 0 auto;}
+      } 
     }
   }
 

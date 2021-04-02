@@ -1,19 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-import { useFilterContext } from '../context/filter_context'
 
 const PageHero = ({ title, shop, isLongName=false, showCount }) => {
-  const {filtered_count} = useFilterContext()
-  const [msg, setMsg] = React.useState('')
 
-  React.useEffect(()=>{
-    if(filtered_count === 1){
-      setMsg(` ${filtered_count} Item Found`)
-    } else{
-      setMsg(` ${filtered_count} Items Found`)
-    }
-  }, [filtered_count])
   return (
     <>
     <Wrapper>
@@ -21,10 +11,8 @@ const PageHero = ({ title, shop, isLongName=false, showCount }) => {
         <h3><Link to="/">Home</Link>
           {shop && <Link to="/shop">/ Shop</Link> }
           /<span className={`${isLongName? 'title long': 'title'}`}> {title}
-            { showCount && <span className="count">{msg}</span> }
           </span>
         </h3>
-
       </div>
     </Wrapper>
     </>
@@ -56,9 +44,7 @@ const Wrapper = styled.section`
   }
   .count{ margin-left: 1rem; }
   @media(max-width: 500px){
-    .count{
-      display: block;
-    }
+    min-height: 15vh;
   }
 `
 

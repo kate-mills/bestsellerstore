@@ -9,7 +9,7 @@ import {
   Sort,
 } from '../../components'
 
-const ShopPage = () => {
+const CategoryPage = () => {
   return (
     <Layout>
       <SEO
@@ -44,6 +44,4 @@ const Wrapper = styled.div`
     }
   }
 `
-
-export default ShopPage
-
+export default CategoryPage

@@ -9,7 +9,7 @@ import {
   Sort,
 } from '../../components'
 
-const ShopPage = () => {
+const SkintypePage = () => {
   return (
     <Layout>
       <SEO
@@ -45,5 +45,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default ShopPage
-
+export default SkintypePage
