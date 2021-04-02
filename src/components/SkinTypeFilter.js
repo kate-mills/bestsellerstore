@@ -13,7 +13,7 @@ const Filters = ()=>{
   const skintypes = getUniqueValues(all_items, 'skinTypeBadge', '', true)
 
   return (
-    <Wpr>
+    <Wrapper>
       <div className='content'>
         <form onSubmit={(e)=>e.preventDefault()}>
 
@@ -57,11 +57,11 @@ const Filters = ()=>{
         </form>
         <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
       </div>
-    </Wpr>
+    </Wrapper>
   )
 }
 
-const Wpr = styled.section`
+const Wrapper = styled.section`
   .form-control {
     margin-bottom: 1.25rem;
     h5 {

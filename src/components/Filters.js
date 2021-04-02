@@ -20,7 +20,7 @@ const Filters = ()=>{
   const toggleDisplay =()=>{setDisplayContent(!displayContent)}
 
   return (
-    <Wpr>
+    <Wrapper>
       <button className="btn toggle-btn" onClick={toggleDisplay}>
         {displayContent?
           <><BsCaretUp className="up-icon icon"/> Filters <BsCaretUp className="up-icon icon"/></>:
@@ -94,11 +94,11 @@ const Filters = ()=>{
       </div>
 
       )}
-    </Wpr>
+    </Wrapper>
   )
 }
 
-const Wpr = styled.section`
+const Wrapper = styled.section`
   transition: var(--transition) !important;
   .icon {
     margin: 0 .2rem;
