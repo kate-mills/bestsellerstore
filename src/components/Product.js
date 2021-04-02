@@ -17,7 +17,7 @@ const Product = (props) => {
 
   return (
     <Wrapper>
-      <Link to={`/products/${slug}`}>
+      <Link to={`/products/${slug}`} title={`Go to ${nm} detail page`}>
       <div className="container">
           <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='225' fit='contain'/>
         <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
@@ -27,8 +27,6 @@ const Product = (props) => {
           <h5>{nm.slice(0, 19)}...</h5>:
           <h5>{nm}</h5>
         }
-        
-        {/* Reminder: Use cents for safer calculations */}
         <p>{formatPrice(retailPrice/100)}</p>
       </footer>
       </Link>
