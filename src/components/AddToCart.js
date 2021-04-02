@@ -50,7 +50,7 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
               <button
                 key={id}
                 className={`${mainSize === size? 'size-btn active': 'size-btn'}`}
-                style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
+                style={{background: `${mainSize===size? 'var(--clr-primary-11)': 'white'}`}}
                 onClick={()=>{
                   setMainSize(size)
                   setSizeName(name)

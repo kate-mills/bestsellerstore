@@ -13,6 +13,7 @@ const Contact = () => {
           </p>
 
           <form
+            autoComplete="off"
             method="POST"
             netlify="true"
             netlify-honeypot="bot-field"
@@ -87,7 +88,7 @@ const Wrapper = styled.section`
     color: var(--clr-white);
   }
   input {
-    border: 2px solid;
+    border: 2px solid var(--clr-primary-5);
     border-radius: 4px;
     font-size: 1rem;
     margin: 0.25rem;
@@ -99,17 +100,17 @@ const Wrapper = styled.section`
     border-color: gray;
   }
   input:required:valid {
-    border-color: lightblue;
+    border-color: var(--clr-primary-5);
   }
   input:invalid:focus {
-    border-color: pink;
+    border-color: lavenderblush;
   }
   input:required:focus:valid {
-    background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% hsl(201deg 37% 87%);
-    background-size: 25px;
+    background: url("https://assets.digitalocean.com/labs/icons/star.svg") no-repeat 95% 50%  aliceblue;
+    background-size: 24px;
   }
   input:focus:invalid {
-    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% pink;
+    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% hsl(229deg 44% 97%);
     background-size: 25px;
   }
   @media (min-width: 992px) {

@@ -54,34 +54,37 @@ const SearchBar = ()=>{
 
 
 const Wrapper = styled.aside`
-
+  color: #000;
   .form-control {
+    color: #000;
     margin-left: 2.5rem;
     margin-top: 0.5rem;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .search-input {
-    color: #212529;
     background: var(--clr-grey-10);
     border: 1px solid var(--clr-primary-5);
     border-radius: var(--radius);
     border-color: transparent;
+    color: #000;
     font-family: 'proxima-nova';
     font-size: 1rem;
     letter-spacing: var(--spacing);
     line-height: 24px;
-    padding: .5rem;
+    padding: 12px 20px 12px 20px;
     z-index: 1;
     transition: width 0.4s ease-in-out;
     -webkit-transition: width 0.4s ease-in-out;
-    width: 40%;
+    width: 45%;
   }
   .search-input:visited,
   .search-input:focus-within,
   .search-input:focus-visible,
   .search-input:active,
   .search-input:focus{
-    background: hsl(201deg 55% 38% / 7%);
+    background: var(--clr-primary-11);
     width: 100%;
   }
   .clear-btn{
