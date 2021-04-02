@@ -13,9 +13,7 @@ const SearchBar = ()=>{
   }} = useFilterContext()
   const {pathname} = useLocation()
   const notShopPage = pathname.slice(1, 5) !== 'shop'
-  React.useEffect(()=>{
-    clearFilters()
-  }, [clearFilters])
+  React.useEffect(()=>{ clearFilters() }, [])
   return(
     <>
     <Wrapper>
