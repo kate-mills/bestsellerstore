@@ -256,7 +256,7 @@ p {
   text-transform: uppercase;
   color: hsl(201deg 14% 46%);
 }
-.ally{
+footer + div.ally{
   background: var(--clr-black);
   color: var(--clr-white);
   font-family: 'bree';
@@ -264,8 +264,8 @@ p {
   font-size: 0.8rem;
   padding-bottom: 2rem;
   text-align: center;
-  margin-bottom: unset;
+  margin-bottom: 0;
 }
-.ally a{
+footer+ div.ally a{
   color: var(--clr-primary-9);
 }
