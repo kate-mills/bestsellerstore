@@ -171,7 +171,7 @@ const Wrapper = styled.section`
     width: 100%;
   }
   .clear-btn{
-    background: var(--clr-red-dark);
+    background: var(--clr-black);
   }
   .toggle-btn{
     display: grid;
