@@ -21,14 +21,16 @@ const Filters = ()=>{
 
   return (
     <Wrapper>
-      <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
-      <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
-        {displayContent?
-          <><BsCaretUp className="up-icon icon"/> Filters <BsCaretUp className="up-icon icon"/></>:
-          <><BsCaretDown className="down-icon icon"/> Filters <BsCaretDown className="down-icon icon"/></>
-        }
-      </button>
-      <span style={{display: 'block', textAlign: 'center', color: 'var(--clr-primary-3)'}}>{filtered_count} Found</span>
+      <div className="top-btn-div">
+        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
+        <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
+          {displayContent?
+            <><span className="btn-content">Hide Filters</span><BsCaretUp className="up-icon icon"/></>:
+            <><span className="btn-content">Show Filters</span><BsCaretDown className="down-icon icon"/></>
+          }
+        </button>
+      </div>
+      <span style={{display: 'block', textAlign: 'center', color: 'var(--clr-primary-3)', fontSize: '1rem', background: 'var(--clr-grey-10)'}}>{filtered_count} Found</span>
       {
         displayContent && (<div className='content'>
         <form onSubmit={(e)=>e.preventDefault()}>
@@ -100,7 +102,6 @@ const Filters = ()=>{
 const Wrapper = styled.section`
   transition: var(--transition) !important;
   .icon {
-    margin: 0 .2rem;
     position: relative;
   }
   .up-icon{
@@ -109,7 +110,10 @@ const Wrapper = styled.section`
   .down-icon{
     top: .3rem;
   }
-
+  .btn-content{
+    position:relative;
+    left: 5px;
+  }
   .form-control {
     margin-bottom: 1.25rem;
     h5, label{
@@ -166,8 +170,12 @@ const Wrapper = styled.section`
     border-radius: var(--radius);
     width: 100%;
   }
+  .clear-btn{
+    background: var(--clr-red-dark);
+  }
   .toggle-btn{
-      width: 100%;
+    display: grid;
+    grid-template-columns: 150px auto;
   }
   .select{
     background: var(--clr-grey-10);
@@ -183,13 +191,14 @@ const Wrapper = styled.section`
   .select:focus {
     background: hsl(201deg 55% 38% / 7%);
   }
+  .select {
+      width: 100%;
+  }
+
   @media (min-width: 768px) {
     .content {
       position: sticky;
       top: .1rem;
-    }
-    .select {
-      width: 100%;
     }
   }
   .count{
@@ -210,6 +219,26 @@ const Wrapper = styled.section`
       grid-column-gap: 1.5rem;
       align-items: center;
       justify-content: center;
+    }
+    .top-btn-div{
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .toggle-btn,
+    .clear-btn {
+    }
+    .toggle-btn{
+      max-width: 200px;
+      min-width: 200px;
+      width: 50%;
+      display: grid;
+      grid-template-columns: 150px auto;
+    }
+    .clear-btn{
+      max-width: 200px;
+      min-width: 200px;
+      width: 40%;
     }
   }
   @media(max-width: 650px){
