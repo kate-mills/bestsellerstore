@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {Link} from 'gatsby'
 import { useFilterContext } from '../context/filter_context'
 
-
 const PageHero = ({ title, shop, isLongName=false, showCount }) => {
   const {filtered_count} = useFilterContext()
   const [msg, setMsg] = React.useState('')

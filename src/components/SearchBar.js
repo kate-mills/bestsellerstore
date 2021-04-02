@@ -12,11 +12,10 @@ const SearchBar = ()=>{
     text
   }} = useFilterContext()
   const {pathname} = useLocation()
-  //const [currentPage, setCurrentPage] = React.useState(null)
-  //const [isFilterPage, setIsFilterPage] = React.useState(null)
   const notShopPage = pathname.slice(1, 5) !== 'shop'
-  //React.useEffect(()=>{ setCurrentPage(pathname) setIsFilterPage(hasShopInPage) }, [pathname])
-
+  React.useEffect(()=>{
+    clearFilters()
+  }, [clearFilters])
   return(
     <>
     <Wrapper>
