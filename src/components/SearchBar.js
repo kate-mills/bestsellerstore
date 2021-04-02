@@ -61,7 +61,6 @@ const Wrapper = styled.aside`
     margin-top: 0.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
   .search-input {
     background: var(--clr-grey-10);
