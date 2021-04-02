@@ -21,16 +21,16 @@ const Filters = ()=>{
 
   return (
     <Wrapper>
+        <span className='filtered-count'>{filtered_count} Items Found</span>
       <div className="top-btn-div">
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
         <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
           {displayContent?
             <><span className="btn-content">Hide Filters</span><BsCaretUp className="up-icon icon"/></>:
             <><span className="btn-content">Show Filters</span><BsCaretDown className="down-icon icon"/></>
           }
         </button>
+        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear</button>
       </div>
-      <span style={{display: 'block', textAlign: 'center', color: 'var(--clr-primary-3)', fontSize: '1rem', background: 'var(--clr-grey-10)'}}>{filtered_count} Found</span>
       {
         displayContent && (<div className='content'>
         <form onSubmit={(e)=>e.preventDefault()}>
@@ -100,16 +100,14 @@ const Filters = ()=>{
 }
 
 const Wrapper = styled.section`
-  transition: var(--transition) !important;
-  .icon {
-    position: relative;
-  }
-  .up-icon{
-    top: .1rem;
-    margin-left: 10px;
-  }
-  .down-icon{
-    top: .3rem;
+  .filtered-count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-black);
+    font-weight: 600;
+    font-size: 1.2rem;
+    background: var(--clr-grey-10);
   }
   .form-control {
     margin-bottom: 1.25rem;
@@ -140,8 +138,8 @@ const Wrapper = styled.section`
   }
   .active {
     border-color: var(--clr-grey-5);
+    opacity: 1; 
   }
-  .active { opacity: 1; }
   .price {
     letter-spacing: var(--spacing);
     margin-bottom: 0.25rem;
@@ -159,20 +157,21 @@ const Wrapper = styled.section`
     column-gap: 0.5rem;
     font-size: 1rem;
   }
+  .icon{
+    min-width: 20px;
+    max-width: 20px;
+  }
   .toggle-btn,
   .clear-btn {
-    background: var(--clr-primary-2);
+    background: var(--clr-primary-1);
     color: var(--clr-white);
     padding: 0.35rem 0.5rem;
     border-radius: var(--radius);
     width: 100%;
   }
-  .clear-btn{
-    background: var(--clr-primary-1);
-  }
   .toggle-btn{
     display: grid;
-    grid-template-columns: 150px auto 0;
+    grid-template-columns: 150px auto;
   }
   .select{
     background: var(--clr-grey-10);
@@ -208,20 +207,20 @@ const Wrapper = styled.section`
   @media(max-width: 767px){
     .top-btn-div{
       display:flex;
-      flex-wrap: wrap;
+      flex-wrap: wrap-reverse;
       justify-content: space-around;
-      >.toggle-btn{
-        max-width: 200px;
-        min-width: 200px;
+      .toggle-btn{
+        max-width: 180px;
+        min-width: 180px;
         align-items: center;
         width: 50%;
         display: grid;
-        grid-template-columns: 3fr 1fr; 
+        grid-template-columns: 3fr 20px; 
         grid-column-gap: 1rem;
       }
-      >.clear-btn{
-        max-width: 100px;
-        min-width: 100px;
+      .clear-btn{
+        max-width: 90px;
+        min-width: 90px;
         width: 40%;
       }
     }
