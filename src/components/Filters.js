@@ -106,13 +106,10 @@ const Wrapper = styled.section`
   }
   .up-icon{
     top: .1rem;
+    margin-left: 10px;
   }
   .down-icon{
     top: .3rem;
-  }
-  .btn-content{
-    position:relative;
-    left: 5px;
   }
   .form-control {
     margin-bottom: 1.25rem;
@@ -175,7 +172,7 @@ const Wrapper = styled.section`
   }
   .toggle-btn{
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 150px auto 0;
   }
   .select{
     background: var(--clr-grey-10);
@@ -186,15 +183,12 @@ const Wrapper = styled.section`
     font-size: 1rem;
     padding: 0.25rem;
     text-transform: capitalize;
+    width: 100%;
   }
   .select:active,
   .select:focus {
     background: hsl(201deg 55% 38% / 7%);
   }
-  .select {
-      width: 100%;
-  }
-
   @media (min-width: 768px) {
     .content {
       position: sticky;
@@ -212,33 +206,32 @@ const Wrapper = styled.section`
     text-align: center;
   }
   @media(max-width: 767px){
-    .flexible-div{
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 100px;
-      grid-column-gap: 1.5rem;
-      align-items: center;
-      justify-content: center;
-    }
     .top-btn-div{
       display:flex;
       flex-wrap: wrap;
       justify-content: space-around;
+      >.toggle-btn{
+        max-width: 200px;
+        min-width: 200px;
+        align-items: center;
+        width: 50%;
+        display: grid;
+        grid-template-columns: 3fr 1fr; 
+        grid-column-gap: 1rem;
+      }
+      >.clear-btn{
+        max-width: 100px;
+        min-width: 100px;
+        width: 40%;
+      }
     }
-    .toggle-btn,
-    .clear-btn {
-    }
-    .toggle-btn{
-      max-width: 200px;
-      min-width: 200px;
-      width: 50%;
+    .flexible-div{
       display: grid;
-      grid-template-columns: 150px auto;
-    }
-    .clear-btn{
-      max-width: 200px;
-      min-width: 200px;
-      width: 40%;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 100px;
+      grid-column-gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
     }
   }
   @media(max-width: 650px){
