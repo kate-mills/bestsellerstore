@@ -47,17 +47,16 @@ const SidebarContainer = styled.div`
     padding: 1rem 1.5rem;
   }
   .close-btn {
-    font-size: 2rem;
     background: transparent;
     border-color: transparent;
-    color: var(--clr-primary-5);
-    transition: var(--transition);
+    color: var(--clr-primary-3);
     cursor: pointer;
-    color: var(--clr-primary-5);
+    font-size: 2rem;
     margin-top: 0.2rem;
+    transition: var(--transition);
   }
   .close-btn:hover {
-    color: var(--clr-red-light);
+    color: var(--clr-primary-5);
   }
   .logo {
     justify-self: center;
