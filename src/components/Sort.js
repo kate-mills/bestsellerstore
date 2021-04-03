@@ -24,7 +24,7 @@ const Sort = () => {
         </button>
       </div>
       <p className="items-found">{items.length} items found</p>
-      <hr/>
+      <hr className="line"/>
       <form>
         <label htmlFor='sort'>sort by</label>
         <select
@@ -50,18 +50,21 @@ const Wrapper = styled.section`
   margin-top: 0;
   margin-bottom: 0;
   column-gap: 2rem;
-  @media (max-width: 576px) {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 0.75rem;
-    .btn-container {
-      width: 50px;
-    }
+
+  @media (max-width: 767px) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    text-align: center;
     label {
       display: inline-block;
       margin-right: 0.5rem;
     }
+    .btn-container { width: 50px; }
+    .line{display:inline; width: 10%;}
   }
+
   @media (min-width: 768px) {
     column-gap: 2rem;
   }
