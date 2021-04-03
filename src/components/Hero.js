@@ -44,7 +44,7 @@ const Hero = () => {
 }
 
 const Wrapper = styled.section`
-  min-height: 40vh;
+  min-height: 60vh;
   display: grid;
   place-items: center;
   .img-container {
