@@ -64,6 +64,7 @@ const Wrapper = styled.div`
     font-size: 1rem;
     line-height: 24px;
     margin: 0 auto;
+    outline-color: transparent;
     padding: 12px 5px 12px 25px;
     width: 85%;
     z-index: 1;
@@ -76,7 +77,6 @@ const Wrapper = styled.div`
   & .search-input:focus-visible,
   & .search-input:active,
   & .search-input:focus{
-    outline-color: transparent !important;
     background: var(--clr-grey-10);
     color: #212529;
   }
