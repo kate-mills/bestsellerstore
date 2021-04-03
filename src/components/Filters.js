@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-  BsCaretDown,
-  BsCaretUp,
-} from 'react-icons/bs'
+  TiDelete,
+} from 'react-icons/ti'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues} from '../utils/helpers'
 
@@ -13,7 +12,7 @@ const Filters = ()=>{
       skintype,
       onSale,
     },
-    updateFilters, clearFilters, all_items, filtered_count } = useFilterContext()
+    updateFilters, clearFilters, all_items } = useFilterContext()
   const skintypes = getUniqueValues(all_items, 'skinTypeBadge','---Select---', true)
   const categories = getUniqueValues(all_items, 'category', '---Select---')
   const [displayContent, setDisplayContent] = React.useState(false)
@@ -21,15 +20,14 @@ const Filters = ()=>{
 
   return (
     <Wrapper>
-        <span className='filtered-count'>{filtered_count} Items Found</span>
       <div className="top-btn-div">
         <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
           {displayContent?
-            <><span className="btn-content">Hide Filters</span><BsCaretUp className="up-icon icon"/></>:
-            <><span className="btn-content">Show Filters</span><BsCaretDown className="down-icon icon"/></>
+            <span className="btn-content">Hide Filters</span>:
+            <span className="btn-content">Show Filters</span>
           }
         </button>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear</button>
+        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}><TiDelete/></button>
       </div>
       {
         displayContent && (<div className='content'>
@@ -108,6 +106,7 @@ const Wrapper = styled.section`
     font-weight: 600;
     font-size: 1.2rem;
     background: var(--clr-grey-10);
+    position-relative: bottom: 1rem;
   }
   .form-control {
     margin-bottom: 1.25rem;
@@ -163,10 +162,11 @@ const Wrapper = styled.section`
   }
   .toggle-btn,
   .clear-btn {
-    background: var(--clr-primary-1);
-    color: var(--clr-white);
+    background: var(--clr-primary-9);
+    color: var(--clr-primary-1);
     padding: 0.35rem 0.5rem;
     border-radius: var(--radius);
+    border: 2px solid var(--clr-primary-9);
     width: 100%;
   }
   .toggle-btn{

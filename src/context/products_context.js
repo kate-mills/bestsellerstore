@@ -61,6 +61,7 @@ const query = graphql`
           retailPrice
           slug
           name
+          shortName
           imgRetail {
             gatsbyImageData(placeholder: TRACED_SVG)
           }

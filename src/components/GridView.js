@@ -4,7 +4,7 @@ import Product from './Product'
 
 const GridView = ({ items }) => {
   return (
-    <Wrapper>
+    <Wrapper className="section-center">
       <div className='items-container'>
         {items.map(({node}) => {
           return <Product key={node.id} {...node} />
@@ -15,25 +15,57 @@ const GridView = ({ items }) => {
 }
 
 const Wrapper = styled.section`
+  width: 100%;
   img {
-    height: 375px;
+    width: 175px;
   }
 
   .items-container {
+    background: white;
     display: grid;
-    gap: 2rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
   }
 
-  @media (min-width: 992px) {
+  /*phone*/
+  @media (min-width: 300px) and (max-width: 480px){
+    .items-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  /*tablet - sm*/
+  @media (min-width:481px) and (max-width: 767px){
     .items-container {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media (min-width: 1170px) {
+
+  /*tablet - landscape*/
+  @media (min-width:768px) and (max-width:1024px) and (orientation:landscape){
     .items-container {
       grid-template-columns: repeat(3, 1fr);
     }
   }
+  /*tablet - md*/
+  @media (min-width:768px) and (max-width:1024px){
+    .items-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  /*tablet - lg*/
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .items-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  /*desktop*/
+  @media (min-width: 1281px) {
+    .items-container {
+      grid-template-columns: repeat(5, 1fr);
+    }
+ }
+
 `
 
 export default GridView

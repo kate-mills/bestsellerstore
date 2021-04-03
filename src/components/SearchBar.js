@@ -9,12 +9,15 @@ import { useLocation } from "@reach/router"
 
 const SearchBar = ()=>{
   const textRef = React.useRef()
-  const {updateFilters, clearFilters, filters:{
+  const {updateFilters, clearFilters, setGridView, filters:{
     text
   }} = useFilterContext()
   const {pathname} = useLocation()
   const notShopPage = pathname.slice(1, 5) !== 'shop'
-  React.useEffect(()=>{ clearFilters() }, [])
+  React.useEffect(()=>{
+    clearFilters()
+    setGridView()
+  }, [])
   return(
     <>
     <Wrapper>
@@ -26,7 +29,7 @@ const SearchBar = ()=>{
               type='text'
               name='text'
               autoComplete="off"
-              placeholder='Search'
+              placeholder='Search the store'
               className='search-input'
               value={text}
               onChange={updateFilters}
@@ -43,48 +46,47 @@ const SearchBar = ()=>{
           {/* end search input */}
         </form>
         {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
-        {(!!text.length && notShopPage) &&<div tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters} className="list">
-        <ProductList/>
-      </div>}
     </Wrapper>
+      {
+        (!!text.length && notShopPage) &&< ProductList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters} className="list"/>
+      }
+          </>
 
-    </>
   )
 }
 
 
 const Wrapper = styled.aside`
-  color: #000;
   .form-control {
-    color: #000;
-    margin-left: 2.5rem;
-    margin-top: 0.5rem;
-    display: flex;
-    align-items: center;
+    text-align: center;
+    margin: 0 auto;
   }
   .search-input {
     background: var(--clr-grey-10);
-    border: 1px solid var(--clr-primary-5);
+    border: 1px solid var(--clr-grey-1);
     border-radius: var(--radius);
     border-color: transparent;
-    color: #000;
-    font-family: 'proxima-nova';
     font-size: 1rem;
-    letter-spacing: var(--spacing);
     line-height: 24px;
-    padding: 12px 20px 12px 20px;
-    z-index: 1;
+    margin: 0 auto;
+    padding: 12px 25px;
     transition: width 0.4s ease-in-out;
+    width: 90%;
+    z-index: 1;
     -webkit-transition: width 0.4s ease-in-out;
-    width: 45%;
+  }
+  .search-input::placeholder{
+    color: #bdbdbd;
   }
   .search-input:visited,
   .search-input:focus-within,
   .search-input:focus-visible,
   .search-input:active,
   .search-input:focus{
-    background: var(--clr-primary-11);
-    width: 100%;
+    outline-color: transparent !important;
+    background: var(--clr-grey-10);
+    color: #212529;
+    width: 90%;
   }
   .clear-btn{
     background: var(--clr-white);
@@ -95,39 +97,26 @@ const Wrapper = styled.aside`
     font-size: 1rem;
     outline-color: transparent;
     padding: 0.45rem 5px;
+    margin: 0 auto 0 0;
     transition: var(--transition);
     cursor-events: disabled;
-    margin-left: 3px;
   }
   .show-btn{
-    border-color: var(--clr-primary-5d);
+    border-color:hsl(0deg 0% 87% / 83%);
     color: #212529;
+    background: white;
   }
   .hide-btn{
     cursor-events: disabled;
+    background: transparent;
     color: transparent;
   }
   .hideList{
     display: none;
   }
-  .list{
-    cursor: default;
-    opacity: 1;
-    z-index: 100000;
-    background: white;
-    position: absolute;
-    left: 1rem;
-    top: 5.68rem;
-    width: 75%;
-    padding: 1rem;
-    border: 3px solid var(--clr-primary-5);
-  }
   @media(max-width: 400px){
-    .form-control{
-      margin-left: 0;
-    }
-    .list{
-      width: 90%;
+    .search-input{
+      width: 80%;
     }
   }
 `

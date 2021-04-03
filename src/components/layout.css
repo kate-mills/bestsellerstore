@@ -95,7 +95,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline-color: var(--clr-primary-5);
+  /*outline-color: var(--clr-primary-5);*/
+  outline-color: hsl(0deg 0% 87% / 83%); /* #dfdfdf; linen  oldlace lemonchiffon;*/
 }
 body {
   font-family: proxima-nova, sans-serif;
@@ -178,6 +179,10 @@ p {
   h4 {
     line-height: 1;
   }
+}
+input{
+  font-family: 'proxima-nova';
+  letter-spacing: var(--spacing);
 }
 /*  global classes */
 

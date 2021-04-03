@@ -19,7 +19,7 @@ const Product = (props) => {
     <Wrapper>
       <Link to={`/products/${slug}`} title={`Go to ${nm} detail page`}>
       <div className="container">
-          <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='225' fit='contain'/>
+        <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='175' width='175' fit='contain'/>
         <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
@@ -35,31 +35,41 @@ const Product = (props) => {
 }
 
 const Wrapper = styled.article`
+  &{
+    margin: 0 auto;
+    padding: 0 0.2rem;
+    text-align: center;
+  }
   &:hover{
     cursor: pointer;
   }
   .container {
+    max-width: 300px;
     position: relative;
     background: var(--clr-white);
     border-radius: var(--radius);
+    text-align: center;
+    margin: 0 auto;
   }
   img {
     display: block;
     object-fit: contain !important;
-    object-position: center bottom;
+    object-position: center center;
     background: var(--clr-white);
     border-radius: var(--radius);
+    margin: 0 auto;
     transition: var(--transition);
   }
   .link {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--clr-primary-5);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -77,23 +87,21 @@ const Wrapper = styled.article`
   .container:hover .link {
     opacity: 1;
   }
-  footer {
-    margin-top: 0;
-    display: flex;
-    justify-content: space-around;
+  & footer {
     align-items: center;
-  }
-  footer h5,
-  footer p {
-    margin-bottom: 0;
-    color: var(--clr-black);
-    font-weight: 400;
-    font-size: 1.15rem;
-  }
-  footer p {
-    color: var(--clr-primary-4d);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: center;
     letter-spacing: var(--spacing);
-    font-size: 1.2rem;
+  }
+  & footer h5 {
+    color: var(--clr-black);
+    white-space: pre;
+  }
+  & footer p {
+    color: var(--clr-primary-4d);
   }
 `
 export default Product
