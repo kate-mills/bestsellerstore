@@ -58,13 +58,14 @@ const Wrapper = styled.div`
   }
   & .search-input {
     background: var(--clr-grey-10);
-    border: 1px solid var(--clr-grey-1);
+    border: 1px solid transparent;
     border-radius: var(--radius);
-    border-color: transparent;
+    border-color: transparent !important;
+    color: var(--clr-black);
     font-size: 1rem;
     line-height: 24px;
     margin: 0 auto;
-    outline-color: transparent;
+    outline-color: transparent !transparent;
     padding: 12px 5px 12px 25px;
     width: 85%;
     z-index: 1;
