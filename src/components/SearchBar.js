@@ -85,7 +85,6 @@ const Wrapper = styled.aside`
   .search-input:focus{
     background: var(--clr-primary-11);
     width: 100%;
-    min-width: 167px;
   }
   .clear-btn{
     background: var(--clr-white);
