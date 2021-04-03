@@ -50,19 +50,19 @@ const Wrapper = styled.section`
   /*tablet - md*/
   @media (min-width:768px) and (max-width:1024px){
     .items-container {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   /*tablet - lg*/
   @media (min-width: 1025px) and (max-width: 1280px) {
     .items-container {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
   /*desktop*/
   @media (min-width: 1281px) {
     .items-container {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
  }
 
