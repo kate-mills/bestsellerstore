@@ -11,7 +11,7 @@ const SearchBar = ()=>{
   const {searchStr, updateSearch, clearSearch} = useFilterContext()
   return(
     <>
-    <Wrapper>
+      <Wrapper className={`${(searchStr.length >0) ? 'add-margin':''}`}>
         <form onSubmit={(e) => e.preventDefault()}>
           {/* search input */}
           <div className='form-control'>
@@ -38,16 +38,20 @@ const SearchBar = ()=>{
         </form>
         {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
     </Wrapper>
-      {
-        ((!!searchStr.length) &&<SearchList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearSearch}/>)
-      }
+      { (!!searchStr.length)?<SearchList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearSearch}/>:null }
     </>
   )
 }
 
 
-const Wrapper = styled.aside`
-  
+const Wrapper = styled.div`
+  &{
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  &.add-margin{
+    margin-bottom: 3rem;
+  }
   & .form-control {
     text-align: center;
     margin: 0 auto;
