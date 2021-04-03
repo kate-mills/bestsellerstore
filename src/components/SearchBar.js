@@ -48,20 +48,20 @@ const SearchBar = ()=>{
         {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
     </Wrapper>
       {
-        (!!text.length && notShopPage) &&< ProductList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters} className="list"/>
+        ((!!text.length && notShopPage) &&< ProductList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters}/>)
       }
-          </>
-
+    </>
   )
 }
 
 
 const Wrapper = styled.aside`
-  .form-control {
+  
+  & .form-control {
     text-align: center;
     margin: 0 auto;
   }
-  .search-input {
+  & .search-input {
     background: var(--clr-grey-10);
     border: 1px solid var(--clr-grey-1);
     border-radius: var(--radius);
@@ -70,54 +70,47 @@ const Wrapper = styled.aside`
     line-height: 24px;
     margin: 0 auto;
     padding: 12px 25px;
-    transition: width 0.4s ease-in-out;
-    width: 90%;
+    width: 80%;
     z-index: 1;
-    -webkit-transition: width 0.4s ease-in-out;
   }
-  .search-input::placeholder{
+  & .search-input::placeholder{
     color: #bdbdbd;
   }
-  .search-input:visited,
-  .search-input:focus-within,
-  .search-input:focus-visible,
-  .search-input:active,
-  .search-input:focus{
+  & .search-input:visited,
+  & .search-input:focus-within,
+  & .search-input:focus-visible,
+  & .search-input:active,
+  & .search-input:focus{
     outline-color: transparent !important;
     background: var(--clr-grey-10);
     color: #212529;
-    width: 90%;
   }
-  .clear-btn{
-    background: var(--clr-white);
-    border-color: transparent;
+  & .clear-btn{
+    background: var(--clr-grey-10);
+    border: 1px solid var(--clr-grey-1);
     border-radius: var(--radius);
+    border-color: transparent;
+    font-size: 1rem;
     color: transparent;
     font-family: 'proxima-nova';
     font-size: 1rem;
+    line-height: 24px;
     outline-color: transparent;
-    padding: 0.45rem 5px;
+    padding: 12px 25px;
     margin: 0 auto 0 0;
     transition: var(--transition);
-    cursor-events: disabled;
   }
-  .show-btn{
+  & .show-btn{
     border-color:hsl(0deg 0% 87% / 83%);
+    background: var(--clr-grey-10);
     color: #212529;
-    background: white;
   }
-  .hide-btn{
+  & .hide-btn{
     cursor-events: disabled;
-    background: transparent;
     color: transparent;
   }
-  .hideList{
+  & .hideList{
     display: none;
-  }
-  @media(max-width: 400px){
-    .search-input{
-      width: 80%;
-    }
   }
 `
 export default SearchBar 
