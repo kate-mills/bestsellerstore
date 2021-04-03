@@ -3,21 +3,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 
-import ProductList from './ProductList'
-import { useLocation } from "@reach/router"
+import SearchList from './SearchListView'
 
 
 const SearchBar = ()=>{
   const textRef = React.useRef()
-  const {updateFilters, clearFilters, setGridView, filters:{
-    text
-  }} = useFilterContext()
-  const {pathname} = useLocation()
-  const notShopPage = pathname.slice(1, 5) !== 'shop'
-  React.useEffect(()=>{
-    clearFilters()
-    setGridView()
-  }, [])
+  const {searchStr, updateSearch, clearSearch} = useFilterContext()
   return(
     <>
     <Wrapper>
@@ -27,17 +18,17 @@ const SearchBar = ()=>{
             <input
               ref={textRef}
               type='text'
-              name='text'
+              name='searchStr'
               autoComplete="off"
               placeholder='Search the store'
               className='search-input'
-              value={text}
-              onChange={updateFilters}
+              value={searchStr}
+              onChange={updateSearch}
             />
             <button tabIndex="0" type="button"
-              className={`${text.length>0? 'show-btn clear-btn':'hide-btn clear-btn'}`} 
+              className={`${searchStr.length>0? 'show-btn clear-btn':'hide-btn clear-btn'}`} 
               onClick={(e)=>{
-                clearFilters()
+                clearSearch()
                 textRef.current.focus()
               }}
             >clear</button>
@@ -48,7 +39,7 @@ const SearchBar = ()=>{
         {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
     </Wrapper>
       {
-        ((!!text.length && notShopPage) &&< ProductList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearFilters}/>)
+        ((!!searchStr.length) &&<SearchList tabIndex="0" role="button" aria-label='Clear search filter' onClick={clearSearch}/>)
       }
     </>
   )

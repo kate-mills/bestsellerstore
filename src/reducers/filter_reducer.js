@@ -8,6 +8,9 @@ import {
   UPDATE_FILTERS,
   FILTER_ITEMS,
   CLEAR_FILTERS,
+  UPDATE_SEARCH,
+  SEARCH_ITEM_LIST,
+  CLEAR_SEARCH,
 } from '../actions'
 
 const filter_reducer = (state, action) => {
@@ -20,6 +23,7 @@ const filter_reducer = (state, action) => {
       ...state,
       all_items:[...action.payload],
       filtered_items:[...action.payload],
+      search_items:[...action.payload],
       filtered_count: action.payload.length,
       filters:{
         ...state.filters,
@@ -27,7 +31,7 @@ const filter_reducer = (state, action) => {
         price: maxPrice,
       },
     }
-  }
+  }// END LOAD_ITEMS
   if(action.type === SET_GRIDVIEW){
     return {...state, grid_view: true}
   }
@@ -115,6 +119,27 @@ const filter_reducer = (state, action) => {
       }
     }
   }
+  if(action.type === SEARCH_ITEM_LIST){
+    const {all_items, searchStr} = state
+    let tempItems = [...all_items]
+    if(searchStr){
+      tempItems = tempItems.filter(({node})=>{
+        return (node.name.toLowerCase().indexOf(searchStr.toLowerCase()) >= 0); // fuzzy search
+      })
+    }
+    return {...state, search_items: tempItems}
+  }
+  if(action.type === UPDATE_SEARCH){
+    const {name, value} = action.payload
+    return {...state, [name]:value}
+  }
+  if(action.type === CLEAR_SEARCH){
+    return{
+      ...state,
+      searchStr: '',
+    }
+  }
+
   throw new Error(`No Matching "${action.type}" - action type`)
 }
 

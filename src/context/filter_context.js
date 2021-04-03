@@ -12,11 +12,16 @@ import{
   UPDATE_FILTERS,
   FILTER_ITEMS,
   CLEAR_FILTERS,
+  SEARCH_ITEM_LIST,
+  UPDATE_SEARCH,
+  CLEAR_SEARCH,
 } from '../actions'
 
 const initialState = {
   all_items: [],
   filtered_items: [],
+  search_items: [],
+  searchStr: '',
   filtered_count: 0,
   grid_view: true,
   sort: 'name-a',
@@ -48,13 +53,16 @@ export const FilterProvider = ({ children }) => {
     dispatch({type: SORT_ITEMS})
   }, [all_items, state.sort, state.filters])
 
+  useEffect(()=>{
+    dispatch({type: SEARCH_ITEM_LIST})
+  }, [all_items, state.searchStr])
+
   const setGridView = () => {
     dispatch({type: SET_GRIDVIEW})
   }
   const setListView = () => {
     dispatch({type: SET_LISTVIEW})
   }
-
   const updateSort = (e) => {
     const value = e.target.value;
     dispatch({type:  UPDATE_SORT, payload: value})
@@ -78,6 +86,14 @@ export const FilterProvider = ({ children }) => {
   const clearFilters = () => {
     dispatch({type: CLEAR_FILTERS})
   }
+  const updateSearch = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    dispatch({type: UPDATE_SEARCH, payload: {name, value}})
+  }
+  const clearSearch = ()=>{
+    dispatch({type: CLEAR_SEARCH})
+  }
 
   return (
     <FilterContext.Provider value={{
@@ -87,6 +103,8 @@ export const FilterProvider = ({ children }) => {
       updateSort,
       updateFilters,
       clearFilters,
+      updateSearch,
+      clearSearch,
       }}>
       {children}
     </FilterContext.Provider>
