@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     margin-bottom: 0;
   }
   &.add-margin{
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   & .form-control {
     text-align: center;
@@ -64,8 +64,8 @@ const Wrapper = styled.div`
     font-size: 1rem;
     line-height: 24px;
     margin: 0 auto;
-    padding: 12px 25px;
-    width: 80%;
+    padding: 12px 5px 12px 25px;
+    width: 85%;
     z-index: 1;
   }
   & .search-input::placeholder{
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
     font-size: 1rem;
     line-height: 24px;
     outline-color: transparent;
-    padding: 12px 25px;
+    padding: 12px 2px;
     margin: 0 auto 0 0;
     transition: var(--transition);
   }
@@ -106,6 +106,11 @@ const Wrapper = styled.div`
   }
   & .hideList{
     display: none;
+  }
+  @media(max-width: 450px){
+    .search-input{
+      width: 70%;
+    }
   }
 `
 export default SearchBar 
