@@ -16,7 +16,6 @@ const Nav = () => {
 
         <div className='nav-header'>
           <Link to="/"><img src={logo} alt="Logo"/>
-
           {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}</Link>
 
           <button type="button" className="nav-toggle"
@@ -102,7 +101,7 @@ const NavContainer = styled.nav`
         padding: 0.5rem;
         &:hover {
           cursor: pointer;
-          border-bottom: 2px solid var(--clr-primary-7);
+          border-bottom: 2px solid var(--clr-primary-9);
         }
       }
     }

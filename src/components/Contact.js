@@ -63,7 +63,6 @@ const Wrapper = styled.section`
     border: 2px solid var(--clr-black);
   }
   .form-input {
-    border-right: none;
     color: var(--clr-grey-3);
     border-top-left-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
@@ -77,7 +76,7 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
   .submit-btn {
-    background: var(--clr-primary-5);
+    background: var(--clr-primary-6);
     text-transform: capitalize;
     letter-spacing: var(--spacing);
     cursor: pointer;
@@ -88,7 +87,7 @@ const Wrapper = styled.section`
     color: var(--clr-white);
   }
   input {
-    border: 2px solid var(--clr-primary-5);
+    border: 2px solid var(--clr-grey-4);
     border-radius: 4px;
     font-size: 1rem;
     margin: 0.25rem;
@@ -97,20 +96,20 @@ const Wrapper = styled.section`
     transition: border-color 0.5s ease-out;
   }
   input:optional {
-    border-color: gray;
+    border-color: var(--clr-primary-11);
   }
   input:required:valid {
-    border-color: var(--clr-primary-5);
+    border-color: var(--clr-primary-11);
   }
   input:invalid:focus {
-    border-color: lavenderblush;
+    border-color: var(--clr-primary-11);
   }
   input:required:focus:valid {
-    background: url("https://assets.digitalocean.com/labs/icons/star.svg") no-repeat 95% 50%  aliceblue;
+    background: url("https://assets.digitalocean.com/labs/icons/star.svg") no-repeat 95% 50% ghostwhite;
     background-size: 24px;
   }
   input:focus:invalid {
-    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% hsl(229deg 44% 97%);
+    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% whitesmoke;
     background-size: 25px;
   }
   @media (min-width: 992px) {
