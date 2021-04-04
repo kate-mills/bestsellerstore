@@ -41,7 +41,8 @@ const Wrapper = styled.article`
   .sz{
     background: var(--clr-primary-5-lt);
     display: inline-block;
-    font-family: 'proxima-nova';
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-title);
     padding: 0.1rem;
     padding-left:0.23rem; 
     padding-right:0.23rem; 
@@ -50,7 +51,8 @@ const Wrapper = styled.article`
     width: fit-content;
     .notxt{
       text-transform: lowercase;
-      font-family: 'bree';
+      font-family: var(--font-title);
+      font-weight: var(--font-weight-title);
     }
   }
   .subtotal {
@@ -142,11 +144,10 @@ const Wrapper = styled.article`
   }
   @media (min-width: 776px) {
     .subtotal {
-      display: block;
-      margin-bottom: 0;
       color: var(--clr-blue-txt);
-      font-weight: 400 !important; /*bree*/
+      display: block;
       font-size: 1rem;
+      margin-bottom: 0;
     }
     .price-small {
       display: none;

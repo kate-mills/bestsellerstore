@@ -60,7 +60,7 @@ const Wrapper = styled.section`
   h1 {
     font-family: var(--font-cursive);
     font-size: 4rem;
-    font-weight: var(--font-cursive-weight);
+    font-weight: var(--font-weight-cursive);
     line-height: 4.8rem;
     margin: 2rem auto 1rem 1rem;
     text-transform: capitalize;

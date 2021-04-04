@@ -35,7 +35,7 @@ const Wrapper = styled.footer`
     color: var(--clr-white);
     font-family: var(--font-title);
     font-size: 0.8rem;
-    font-weight: var(--font-title-weight); /* h6 */
+    font-weight: var(--font-weight-title); /* h6 */
     letter-spacing: var(--spacing);
     line-height: 1.25;
     margin: 0.1rem;

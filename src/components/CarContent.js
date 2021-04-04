@@ -26,21 +26,30 @@ const Wrapper = styled.section`
   .link-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
   .link-btn {
-    background: transparent;
-    border-color: transparent;
-    text-transform: capitalize;
-    padding: 0.25rem 0.5rem;
-    background: var(--clr-primary-5d);
-    color: var(--clr-white);
+    background: var(--clr-grey-9);
+    border: 2px solid var(--clr-grey-6);
     border-radius: var(--radius);
-    letter-spacing: var(--spacing);
+    box-sizing: border-box;
+    color: var(--clr-black);
     cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-title);
+    letter-spacing: var(--spacing);
+    line-height: normal;
+    padding: 0.15rem 0.5rem;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .link-btn:hover{
+    border-color: var(--clr-black);
   }
   .clear-btn {
-    background: var(--clr-primary-1);
+    background: var(--clr-black);
+    color: var(--clr-white);
   }
 `
 export default CartContent
