@@ -100,10 +100,10 @@ const Wrapper = styled.div`
     transition: var(--transition);
   }
   & .clear-btn:focus{
-    border-color: var(--clr-grey-11);
+    border-color:hsl(0deg 0% 87% / 83%);
   }
   & .show-btn{
-    border-color:hsl(0deg 0% 87% / 83%);
+    border-color: var(--clr-grey-11);
     background: var(--clr-grey-10);
     outline: none;
     color: #212529;
