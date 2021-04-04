@@ -95,7 +95,7 @@
 ::after,
 ::before {
   font-family: var(--font-body);
-  font-weight: 400; /*proxima*/
+  font-weight: 400; /*proxima - *after, before */
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -105,7 +105,7 @@
 }
 body {
   font-family: var(--font-body);
-  font-weight: 400;/*proxima*/
+  font-weight: 400;/*proxima - body*/
   font-style: normal;
   background: var(--clr-white);
   color: var(--clr-grey-1);
@@ -133,7 +133,7 @@ h4,
 h5 {
   font-family: var(--font-title);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 700; /* beloved-sans - h1, h2...*/
   line-height: 2rem;
   margin-bottom: 0.75rem;
 }
@@ -234,7 +234,7 @@ input{
   font-family: beloved-sans, sans-serif;
   font-size: 0.875rem;
   letter-spacing: unset;
-  font-weight: 700;
+  font-weight: 700; /* beloved-sans - btn*/
   padding: 0.475rem 0.75rem;
   text-transform: uppercase;
   transition: var(--transition);
@@ -269,7 +269,7 @@ footer + div.ally{
   background: var(--clr-black);
   color: var(--clr-white);
   font-family: 'bree';
-  font-weight: 300;
+  font-weight: 300; /*bree - footer+div*/
   font-size: 0.8rem;
   padding-bottom: 2rem;
   text-align: center;

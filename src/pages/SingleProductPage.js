@@ -38,7 +38,6 @@ const Wrapper = styled.main`
     display: grid;
     grid-template-columns: 125px 1fr;
     span {
-      font-weight: 400;
     }
   }
 
