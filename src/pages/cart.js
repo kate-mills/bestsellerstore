@@ -29,20 +29,20 @@ const CartPage = () => {
       <SEO title="Cart" />
       <PageHero title="cart" />
         <Wrapper className={`${cartIsEmpty?'page-100':'page'}`}>
-          <div className="empty">
+          <div className="cart">
             <h2>{msgH2}</h2>
             {cartIsEmpty && (
               <Link to='/shop' className={`${cartIsEmpty?'empty-cart':'full-cart'} btn`}>Start Shopping</Link>
             )}
           </div>
-          {((!cartIsEmpty) && <CartContent/>)}
+          {((!cartIsEmpty)&&<CartContent/>)}
         </Wrapper>
     </Layout>
   )
 }
 
 const Wrapper = styled.main`
-  .empty {
+  .cart {
     text-align: center;
     h2 {
       margin-top: 1rem;
@@ -50,7 +50,11 @@ const Wrapper = styled.main`
       text-transform: none;
     }
   }
-  .empty-cart{display: inline-block; margin-top: 1rem; padding: 0.575rem .75rem;}
+  .empty-cart{
+    line-height: normal;
+    margin-top: 1rem;
+    padding: .65rem 1rem .55rem;
+  }
   .full-cart{ display: none;}
 `
 export default CartPage

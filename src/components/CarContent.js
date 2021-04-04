@@ -29,11 +29,11 @@ const Wrapper = styled.section`
     margin-top: 3rem;
   }
   .link-btn {
-    background: var(--clr-grey-9);
-    border: 2px solid var(--clr-grey-6);
+    background: var(--clr-primary-5);
+    border: 2px solid transparent;
     border-radius: var(--radius);
     box-sizing: border-box;
-    color: var(--clr-black);
+    color: var(--clr-white);
     cursor: pointer;
     font-family: var(--font-title);
     font-size: 0.8rem;
@@ -45,7 +45,7 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
   .link-btn:hover{
-    border-color: var(--clr-green-dark);
+    border-color: darkgrey;
   }
   .clear-btn {
     background: var(--clr-black);
@@ -53,7 +53,7 @@ const Wrapper = styled.section`
     color: var(--clr-white);
   }
   .clear-btn:hover{
-    border-color: var(--clr-red-dark);
+    border-color: darksalmon;
   }
 `
 export default CartContent
