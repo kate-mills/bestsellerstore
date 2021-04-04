@@ -50,9 +50,9 @@ const Wrapper = styled.article`
     text-transform: capitalize;
     width: fit-content;
     .notxt{
-      text-transform: lowercase;
       font-family: var(--font-title);
       font-weight: var(--font-weight-title);
+      text-transform: lowercase;
     }
   }
   .subtotal {

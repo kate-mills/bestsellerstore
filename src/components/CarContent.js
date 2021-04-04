@@ -45,11 +45,15 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
   .link-btn:hover{
-    border-color: var(--clr-black);
+    border-color: var(--clr-green-dark);
   }
   .clear-btn {
     background: var(--clr-black);
+    border-color: var(--clr-black);
     color: var(--clr-white);
+  }
+  .clear-btn:hover{
+    border-color: var(--clr-red-dark);
   }
 `
 export default CartContent
