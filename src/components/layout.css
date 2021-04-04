@@ -55,9 +55,13 @@
   --clr-primary-11: hsl(252deg 20% 95%);
   --clr-primary-12: hsl(201deg 55% 38% / 7%);
   --clr-primary-btn-bg: hsl(252deg 1% 19%);
-  --font-title: beloved-sans, sans-serif;
+  /* fonts */
   --font-body: proxima-nova, sans-serif;
-
+  --font-cursive: beloved-script, sans-serif;
+  --font-title: beloved-sans, sans-serif;
+  --font-body-weight: 400;
+  --font-cursive-weight: 700;
+  --font-title-weight: 700;
 
   /* darkest grey - used for headings */
   --clr-grey-1: #343a40; /* keep */
@@ -95,7 +99,7 @@
 ::after,
 ::before {
   font-family: var(--font-body);
-  font-weight: 400; /*proxima - *after, before */
+  font-weight:var(--font-body-weight); /*proxima - *after, before */
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -105,7 +109,7 @@
 }
 body {
   font-family: var(--font-body);
-  font-weight: 400;/*proxima - body*/
+  font-weight: var(--font-body-weight);/*proxima - body*/
   font-style: normal;
   background: var(--clr-white);
   color: var(--clr-grey-1);
@@ -133,7 +137,7 @@ h4,
 h5 {
   font-family: var(--font-title);
   font-style: normal;
-  font-weight: 700; /* beloved-sans - h1, h2...*/
+  font-weight: var(--font-title-weight); /* beloved-sans - h1, h2...*/
   line-height: 2rem;
   margin-bottom: 0.75rem;
 }
@@ -231,10 +235,10 @@ input{
   color: var(--clr-white);
   cursor: pointer;
   display: inline-block;
-  font-family: beloved-sans, sans-serif;
+  font-family: var(--font-title);
   font-size: 0.875rem;
   letter-spacing: unset;
-  font-weight: 700; /* beloved-sans - btn*/
+  font-weight: var(--font-title-weight); /* beloved-sans - btn*/
   padding: 0.475rem 0.75rem;
   text-transform: uppercase;
   transition: var(--transition);

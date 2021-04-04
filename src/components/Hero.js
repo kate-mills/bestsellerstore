@@ -58,7 +58,12 @@ const Wrapper = styled.section`
     max-width: 45em;
   }
   h1 {
-    margin-top: 2rem;
+    font-family: var(--font-cursive);
+    font-size: 4rem;
+    font-weight: var(--font-cursive-weight);
+    line-height: 4.8rem;
+    margin: 2rem auto 1rem 1rem;
+    text-transform: capitalize;
   }
   @media (min-width: 992px) {
     gap: 8rem;

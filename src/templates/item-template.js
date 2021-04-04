@@ -94,7 +94,6 @@ const Wrapper = styled.main`
     margin-top: 2rem;
   }
   .product-name{
-    font-family: omnes-narrow, sans-serif;
     color: var(--clr-black);
     font-size: 1.75rem;
   }
@@ -107,11 +106,9 @@ const Wrapper = styled.main`
   }
   .product-company{
     color: var(--clr-primary-3);
-    font-family: omnes-narrow, sans-serif;
     font-size: 1.2rem;
     letter-spacing: var(--spacing);
     margin-bottom: unset;
-    width: fit-content;
   }
   .product-skintypes::before{
     content: 'Skin Types:';
@@ -150,8 +147,8 @@ const Wrapper = styled.main`
   .info {
     text-transform: capitalize;
     span {
-      font-family: 'bree';
-      font-weight: 300; /*bree*/
+      font-family: var(--font-title);
+      font-weight: 700; /* font-title - span */
     }
   }
 
