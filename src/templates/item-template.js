@@ -71,8 +71,9 @@ const SingleProductPage = (props) => {
                     )}):<span className="skintype">No badge</span>
               }
             </p>
-            <p className="info award">{award && `Dermascope Aestheticians Choice Award - ${award}`}</p>
-            <p className="product-company">Michele Corley Clinical Skincare</p>
+            <p className="info award"><span>{award && `Dermascope Aestheticians Choice Award - ${award}`}</span></p>
+            <hr/>
+            <p className="product-company"><span>Michele Corley Clinical Skincare</span></p>
             <p className="desc">{description}</p>
             <hr/>
             <AddToCart id={id} sizes={sizes} item={{...props.data.item}} priceMap={priceMap ? priceMap:null} />
@@ -102,13 +103,18 @@ const Wrapper = styled.main`
   }
   .price {
     color: var(--color-black);
+    letter-spacing: var(--spacing) !important;
     font-size: 1.5rem;
+    margin-top: 1rem;
   }
   .product-company{
-    color: var(--clr-primary-3);
-    font-size: 1.2rem;
-    letter-spacing: var(--spacing);
-    margin-bottom: unset;
+    color: var(--clr-primary-4d);
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+    margin-top: 1.25rem;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
   .product-skintypes::before{
     content: 'Skin Types:';
@@ -116,12 +122,13 @@ const Wrapper = styled.main`
     margin-right: 0.5rem;
   }
   .info.award{
-    background: var(--clr-primary-11);
-    color: var(--clr-grey-4);
-    font-style: italic;
-    width: fit-content;
-    padding-left: 0.10rem;
-    padding-right: 0.20rem;
+    >span{
+      background: var(--clr-primary-11);
+      color: var(--clr-black);
+      font-family: var(--font-body);
+      font-weight: var(--font-weight-body);
+      letter-spacing: 1px;
+    }
   }
   .product-skintypes{
     line-height: 30px;
