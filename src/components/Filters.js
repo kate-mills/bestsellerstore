@@ -103,7 +103,8 @@ const Wrapper = styled.section`
     margin-bottom: 1.25rem;
     h5, label{
       color: var(--clr-primary-1);
-      font-family: 'bree';
+      font-family: var(--font-title);
+      font-weight: var(--font-weight-title);
       font-size: 1.1rem;
     }
     h5 {
@@ -184,15 +185,6 @@ const Wrapper = styled.section`
       top: .1rem;
     }
   }
-  .count{
-    background: hsl(253deg 13% 51% / 13%);
-    display: inherit;
-    padding: 0.1rem 0 0.35rem;
-    letter-spacing: var(--spacing);
-    font-family: 'bree';
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
   @media(max-width: 767px){
     .top-btn-div{
       display:flex;
@@ -225,12 +217,8 @@ const Wrapper = styled.section`
   @media(max-width: 650px){
     .flexible-div{
       grid-template-columns: repeat(2, 1fr);
-      .clear-btn{ margin-right: 1rem; }
+      .clear-btn{margin-right: 1rem;}
     }
-    .count{
-      margin-bottom: unset;
-    }
-
   }
   @media(max-width: 550px){
     .flexible-div{

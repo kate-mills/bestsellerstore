@@ -1,40 +1,13 @@
 /* =============== Font Options =============== */
 /* https://www.purahw.com/ */
-/* font-family: bree, sans-serif; adobe*/
 /* font-family: proxima-nova, sans-serif; adobe*/
 /* font-family: "Allerta Stencil"; google*/
 /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+
 @import url("https://use.typekit.net/eqr6zee.css" rel="preconnect");
 
 :root {
-
-  /*--clr-primary-1: hsl(343deg 36% 47%);
-    --clr-primary-2: hsl(0deg 35% 62%);
-    --clr-primary-3: hsl(344deg 43% 61%);
-    --clr-primary-4: hsl(344deg 41% 60%);
-    --clr-primary-5: hsl(328deg 12% 39%);
-    --clr-primary-6: hsl(331deg 18% 67%);
-    --clr-primary-7: hsl(344deg 41% 60%);
-    --clr-primary-8: hsl(330deg 15% 64%);
-    --clr-primary-9: hsl(323deg 25% 86%);
-    --clr-primary-10: hsl(252deg 16% 94%);
-    --clr-primary-11: hsl(252deg 20% 95%); */
-
   /* dark shades of primary color*/
-  /*--clr-primary-1:hsl(343deg 36% 47%);*/
-  /*--clr-primary-2: hsl(0deg 35% 62%);*/
-  /*--clr-primary-3: hsl(344deg 43% 61%);*/
-  /*--clr-primary-4: hsl(329deg 14% 63%);*/
-  /*--clr-primary-5: hsl(342deg 17% 57%);*/
-  /*--clr-primary-6: hsl(358deg 32% 76%);*/
-  /*--clr-primary-7: hsl(329deg 25% 41%);/* /*hsl(346deg 12% 63%);*/
-
-  /*--clr-primary-8:hsl(252deg 16% 94%);*/
-  /*--clr-primary-9:hsl(323deg 25% 86%);*/
-
-
-  /* dark shades of primary color*/
-  /*--clr-primary-1: hsl(256deg 28% 69%);*/
   --clr-blue-txt: hsl(201deg 14% 46%);
   --clr-purple-txt: hsl(259deg 15% 51%);
   --clr-primary-1: hsl(254deg 14% 29%);
@@ -210,6 +183,11 @@ input{
 .text-center {
   text-align: center;
 }
+a, button {
+  font-family: var(--font-title);
+  letter-spacing: unset !important;
+  font-weight: var(--font-weight-title);
+}
 @keyframes spinner {
   to {
     transform: rotate(360deg);
@@ -271,7 +249,6 @@ input{
   color: hsl(201deg 14% 46%);
 }
 footer + div.ally{
-/* font-family is font-title must be inline script */
   background: var(--clr-black);
   color: var(--clr-primary-9);
   font-size: 0.8rem;

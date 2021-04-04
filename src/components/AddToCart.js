@@ -71,20 +71,17 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
             )})
           }</div>
       </div>
-
       <div className="btn-container">
         <QuantityButtons
           quantity={quantity}
           increase={increase}
-          decrease={decrease}
-        />
+          decrease={decrease}/>
         <Link
           to="/cart"
+          className="btn"
           onClick={()=>{
             addToCart(id, mainSize, sizeName, quantity, focus_price,  item)
-          }}
-          className="btn"
-        >add to cart</Link>
+          }}>add to cart</Link>
       </div>
     </Wrapper>
   )
@@ -93,16 +90,16 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
 const Wrapper = styled.section`
   margin-top: 2rem;
   .sizes {
+    align-items: center;
     display: grid;
     grid-template-columns: 50px 1fr;
-    align-items: center;
     margin-bottom: 1rem;
     span.heading{
-      font-family: 'bree';
+      font-family: var(--font-title);
       font-size: 1.1rem;
-      font-weight: 300; /*bree*/
-      line-height: 28px;
+      font-weight: var(--font-weight-title);
       height: 2.5rem;
+      line-height: normal;
       text-transform: capitalize;
     }
     div {
@@ -119,13 +116,11 @@ const Wrapper = styled.section`
     font-size: 1rem;
     height: 2.5rem;
     justify-content: center;
-    margin-right: 1.5rem;
+    margin: .5rem 1.5rem .5rem 0;
+    min-width: fit-content;
     outline-color: transparent;
     padding: 0.25rem;
-    min-width: fit-content;
     width: 3.5rem;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
   }
   .active {
     border-bottom: 4.5px solid var(--clr-primary-1);
@@ -133,7 +128,6 @@ const Wrapper = styled.section`
   .btn-container {
     margin-top: 2rem;
   }
-
   .btn {
     margin-top: 1rem;
     width: 140px;
