@@ -270,14 +270,13 @@ input{
   color: hsl(201deg 14% 46%);
 }
 footer + div.ally{
+/* font-family is font-title must be inline script */
   background: var(--clr-black);
-  color: var(--clr-white);
-  font-family: 'bree';
-  font-weight: 300; /*bree - footer+div*/
+  color: var(--clr-primary-9);
   font-size: 0.8rem;
+  margin-bottom: 0;
   padding-bottom: 2rem;
   text-align: center;
-  margin-bottom: 0;
 }
 footer+ div.ally a{
   color: var(--clr-primary-9);
