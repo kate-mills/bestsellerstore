@@ -41,7 +41,7 @@ const Filters = ()=>{
                   <button
                     tabIndex={0}
                     key={i}
-                    name="skintype_btn"
+                    name="skintype"
                     type="button"
                     className={`${
                       skintype === st.toLowerCase() ? 'active': null

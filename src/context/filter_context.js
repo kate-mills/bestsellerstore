@@ -33,6 +33,8 @@ const initialState = {
     price: 0,
     skintype: 'all',
     text: '',
+    categorySelect: '---Select---',
+    skintypeSelect: '---Select---',
   }
 }
 
@@ -72,12 +74,8 @@ export const FilterProvider = ({ children }) => {
     var value = e.target.value;
     if(name==='category'){
       value = e.target.textContent
-      if(value === '---Select---'){
-        value = 'all'
-      }
     }
-    if(name==='skintype_btn'){
-      name  = 'skintype'
+    if(name==='skintype'){
       value = e.target.textContent
     }
     else if(name==='price'){

@@ -68,41 +68,45 @@ const filter_reducer = (state, action) => {
   }
   if(action.type === FILTER_ITEMS){
     const {all_items} = state
-    const {category, max_price, onSale, price, skintype, text}= state.filters
-    let tempItems = [...all_items]
+    const {category, max_price, onSale, price, skintype, text, categorySelect, skintypeSelect}= state.filters
 
+    let tempItems = [...all_items]
     // SEARCH BOX
     if(text){
       tempItems = tempItems.filter(({node})=>{
         return (node.name.toLowerCase().indexOf(text.toLowerCase()) >= 0); // fuzzy search
       })
     }
-
     // CATEGORIES
     if(category !== 'all'){
       tempItems = tempItems.filter(({node}) =>{
         return (node.category.toLowerCase() === category)
       })
     }
-
+    else if(categorySelect !== '---Select---'){
+      tempItems = tempItems.filter(({node}) =>{
+        return (node.category.toLowerCase() === categorySelect)
+      })
+    }
     // SKINTYPES
     if(skintype !== 'all'){
-
       tempItems = tempItems.filter(({node})=>{
         return node.skinTypeBadge.find((s) => s === skintype)
       })
     }
-
-    // PRICE
+    else if(skintypeSelect !== '---Select---'){
+      tempItems = tempItems.filter(({node}) =>{
+        return node.skinTypeBadge.find((s) => s === skintypeSelect)
+      })
+    }
+    //PRICE
     if(price < max_price){
       tempItems = tempItems.filter(({node}) => node.retailPrice <= price)
     }
-
     // ON SALE
     if(onSale){
       tempItems = tempItems.filter(({node}) => node.onSale === true)
     }
-
     return {...state, filtered_items: tempItems, filtered_count: tempItems.length}
   }
   if(action.type === CLEAR_FILTERS){
@@ -116,6 +120,8 @@ const filter_reducer = (state, action) => {
         onSale: false,
         price: state.filters.max_price,
         skintype: 'all',
+        categorySelect: '---Select---',
+        skintypeSelect: '---Select---',
       }
     }
   }

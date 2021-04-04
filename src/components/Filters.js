@@ -9,8 +9,8 @@ import { getUniqueValues} from '../utils/helpers'
 
 const Filters = ()=>{
   const { filters:{
-      category,
-      skintype,
+      categorySelect,
+      skintypeSelect,
       onSale,
     },
     updateFilters, clearFilters, all_items } = useFilterContext()
@@ -38,8 +38,8 @@ const Filters = ()=>{
           <div className="form-control">
             <h5>Category</h5>
             <select
-              name="category"
-              value={category}
+              name="categorySelect"
+              value={categorySelect}
               onBlur={updateFilters}
               onChange={updateFilters}
               className="select">
@@ -59,8 +59,8 @@ const Filters = ()=>{
           <div className="form-control">
             <h5>Skin Type</h5>
             <select
-              name="skintype"
-              value={skintype}
+              name="skintypeSelect"
+              value={skintypeSelect}
               onBlur={updateFilters}
               onChange={updateFilters}
               className="select"
