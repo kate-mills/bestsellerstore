@@ -105,7 +105,6 @@ const Wrapper = styled.section`
       color: var(--clr-primary-1);
       font-family: 'bree';
       font-size: 1.1rem;
-      font-weight: 200; /*bree*/
     }
     h5 {
       margin-bottom: 0.5rem;
@@ -191,7 +190,6 @@ const Wrapper = styled.section`
     padding: 0.1rem 0 0.35rem;
     letter-spacing: var(--spacing);
     font-family: 'bree';
-    font-weight: 200; /*bree*/
     margin-bottom: 1.5rem;
     text-align: center;
   }

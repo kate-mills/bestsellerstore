@@ -267,7 +267,7 @@ footer + div.ally{
   background: var(--clr-black);
   color: var(--clr-white);
   font-family: 'bree';
-  font-weight: 200;/*bree*/
+  font-weight: 300;
   font-size: 0.8rem;
   padding-bottom: 2rem;
   text-align: center;
