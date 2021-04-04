@@ -21,21 +21,30 @@ const SuccessPage = () => {
 }
 
 const Wrapper = styled.main`
+  align-items: center;
   background: var(--clr-primary-10);
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 0 1rem;
   text-align: center;
   h1 {
-    font-size: 5rem;
+    font-family: var(--font-cursive);
+    font-weight: var(--font-weight-cursive);
+    font-size: 4rem;
+    line-height: normal;
     margin-bottom: 1.5rem;
+    padding: 0 2rem;
   }
   h2, h3 {
-    text-transform: none;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
   }
   h3 {
     margin-bottom: 3.5rem;
+  }
+  a{
+    line-height: normal;
+    margin-bottom: 1rem;
   }
 `
 

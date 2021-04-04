@@ -147,10 +147,6 @@ const Wrapper = styled.section`
     column-gap: 0.5rem;
     font-size: 1rem;
   }
-  .icon{
-    min-width: 20px;
-    max-width: 20px;
-  }
   .toggle-btn,
   .clear-btn {
     background: var(--clr-primary-9);
@@ -217,7 +213,9 @@ const Wrapper = styled.section`
   @media(max-width: 650px){
     .flexible-div{
       grid-template-columns: repeat(2, 1fr);
-      .clear-btn{margin-right: 1rem;}
+      .clear-btn{
+        margin-right: 1rem;
+      }
     }
   }
   @media(max-width: 550px){
