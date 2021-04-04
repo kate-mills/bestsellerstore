@@ -26,12 +26,12 @@ const initialState = {
   grid_view: true,
   sort: 'name-a',
   filters: {
-    category: '---Select---',
+    category: 'all',
     max_price: 0,
     min_price: 0,
     onSale: false,
     price: 0,
-    skintype: '---Select---',
+    skintype: 'all',
     text: '',
   }
 }
@@ -70,7 +70,12 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     var name = e.target.name;
     var value = e.target.value;
-    //if(name==='category'){ value = e.target.textContent }
+    if(name==='category'){
+      value = e.target.textContent
+      if(value === '---Select---'){
+        value = 'all'
+      }
+    }
     if(name==='skintype_btn'){
       name  = 'skintype'
       value = e.target.textContent

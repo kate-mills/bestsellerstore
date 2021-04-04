@@ -79,14 +79,14 @@ const filter_reducer = (state, action) => {
     }
 
     // CATEGORIES
-    if(category !== '---Select---'){
+    if(category !== 'all'){
       tempItems = tempItems.filter(({node}) =>{
         return (node.category.toLowerCase() === category)
       })
     }
 
     // SKINTYPES
-    if(skintype !== '---Select---'){
+    if(skintype !== 'all'){
 
       tempItems = tempItems.filter(({node})=>{
         return node.skinTypeBadge.find((s) => s === skintype)
@@ -112,10 +112,10 @@ const filter_reducer = (state, action) => {
       filters: {
         ...state.filters,
         text:'',
-        category: '---Select---',
+        category: 'all',
         onSale: false,
         price: state.filters.max_price,
-        skintype: '---Select---',
+        skintype: 'all',
       }
     }
   }
