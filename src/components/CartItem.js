@@ -22,8 +22,8 @@ const CartItem = ({id, image, name, size, price, quantity}) => {
       <div className='title'>
         <GatsbyImage image={image} alt={name} />
         <div>
-          <h5 className="name">{nm} - <p className="sz"> {sz} <span className="notxt">{size}</span></p></h5>
-          <p className="color"></p>
+          <h5 className="name">{nm}</h5>
+          <p className="color">{sz} {size}</p>
           <h5 className="price-small">{formatPrice(price)}</h5>
         </div>
       </div>
@@ -49,11 +49,6 @@ const Wrapper = styled.article`
     margin: unset !important;
     text-transform: capitalize;
     width: fit-content;
-    .notxt{
-      font-family: var(--font-title);
-      font-weight: var(--font-weight-title);
-      text-transform: lowercase;
-    }
   }
   .subtotal {
     display: none;
@@ -87,32 +82,31 @@ const Wrapper = styled.article`
   }
   h5 {
     font-size: 1rem;
+    line-height: 1rem; 
     margin-bottom: 0;
   }
-
+  .name{
+    font-size: 0.75rem;
+  }
   .color {
     align-items: center;
-    background: lavender;
+    background: var(--clr-grey-9);
     color: var(--clr-black);
     display: flex;
+    font-family: var(--font-title);
     font-size: 0.75rem;
-    font-family: 'bree';
+    font-weight: var(--font-weight-title);
     justify-content: flex-start;
-    letter-spacing: var(--spacing);
-    margin-top: 0.123rem;
-    margin-bottom: 0;
+    letter-spacing: unset;
+    line-height: 1.35rem;
+    margin: 0;
     padding: 0;
-    padding-left:0.123rem; 
-    padding-right:0.123rem; 
+    padding-top: 2px;
     text-transform: capitalize;
     width: fit-content;
-    span {
-      border-radius: var(--radius);
-      margin-left: 0.5rem;
-      text-transform: none;
-    }
   }
   .price-small {
+    line-height: 1.3rem;
     color: var(--clr-purple-txt);
   }
   .quantity-btns,
@@ -158,6 +152,7 @@ const Wrapper = styled.article`
       font-size: 1rem;
     }
     .name {
+      line-height: 1.2rem;
       font-size: 1rem;
     }
     .color {
