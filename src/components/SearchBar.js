@@ -69,6 +69,8 @@ const Wrapper = styled.div`
     padding: 12px 5px 12px 25px;
     width: 85%;
     z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
   }
   & .search-input::placeholder{
     color: #bdbdbd;
@@ -92,13 +94,18 @@ const Wrapper = styled.div`
     font-size: 1rem;
     line-height: 24px;
     outline-color: transparent;
+    outline: none;
     padding: 12px 2px;
     margin: 0 auto 0 0;
     transition: var(--transition);
   }
+  & .clear-btn:focus{
+    border-color: var(--clr-grey-11);
+  }
   & .show-btn{
     border-color:hsl(0deg 0% 87% / 83%);
     background: var(--clr-grey-10);
+    outline: none;
     color: #212529;
   }
   & .hide-btn{
