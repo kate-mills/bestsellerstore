@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Product from './Product'
+import { useFilterContext } from '../context/filter_context'
 
-const GridView = ({ items }) => {
+const SearchGrid = ({ items }) => {
+  const {clearSearch} = useFilterContext();
   return (
-    <Wrapper className="section-center">
+    <Wrapper className="section-center" onClick={clearSearch}>
       <div className='items-container'>
         {items.map(({node}) => {
           return <Product key={node.id} {...node} />
@@ -68,4 +70,4 @@ const Wrapper = styled.section`
 
 `
 
-export default GridView
+export default SearchGrid
