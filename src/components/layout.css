@@ -55,6 +55,8 @@
   --clr-primary-11: hsl(252deg 20% 95%);
   --clr-primary-12: hsl(201deg 55% 38% / 7%);
   --clr-primary-btn-bg: hsl(252deg 1% 19%);
+  --font-title: beloved-sans, sans-serif;
+  --font-body: proxima-nova, sans-serif;
 
 
   /* darkest grey - used for headings */
@@ -92,7 +94,7 @@
 *,
 ::after,
 ::before {
-  font-family: proxima-nova, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400; /*proxima*/
   font-style: normal;
   margin: 0;
@@ -102,7 +104,7 @@
   -webkit-tap-highlight-color: transparent !important;
 }
 body {
-  font-family: proxima-nova, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;/*proxima*/
   font-style: normal;
   background: var(--clr-white);
@@ -129,12 +131,10 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: bree, sans-serif;
-  font-weight: 300 !important; /*bree*/
+  font-family: var(--font-title);
   font-style: normal;
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 2rem;
   margin-bottom: 0.75rem;
 }
 h1 {
@@ -183,7 +183,7 @@ p {
   }
 }
 input{
-  font-family: 'proxima-nova';
+  font-family: var(--font-body);
   letter-spacing: var(--spacing);
 }
 /*  global classes */
@@ -224,18 +224,20 @@ input{
 }
 
 .btn {
-  text-transform: uppercase;
   background: var(--clr-primary-3);
-  color: var(--clr-white);
-  padding: 0.475rem 0.75rem;
-  letter-spacing: var(--spacing);
-  display: inline-block;
-  transition: var(--transition);
-  font-size: 0.875rem;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
   border-color: transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: var(--clr-white);
+  cursor: pointer;
+  display: inline-block;
+  font-family: beloved-sans, sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: unset;
+  font-weight: 700;
+  padding: 0.475rem 0.75rem;
+  text-transform: uppercase;
+  transition: var(--transition);
 }
 .btn:hover {
   color: var(--clr-white);
