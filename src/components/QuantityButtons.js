@@ -34,7 +34,6 @@ const Wrapper = styled.div`
   }
   h2 {
     margin-bottom: 0;
-    font-weight: 300;
   }
 `
 export default QuantityButtons

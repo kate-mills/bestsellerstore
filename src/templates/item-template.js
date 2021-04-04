@@ -35,7 +35,7 @@ const SingleProductPage = (props) => {
     priceMap,
     //video,
     //keyIngredients,
-    award, //integer
+    award,/*year*/
     //awardImage,
   } = props.data.item
 
@@ -94,11 +94,12 @@ const Wrapper = styled.main`
     margin-top: 2rem;
   }
   .product-name{
+    font-family: omnes-narrow, sans-serif;
     color: var(--clr-black);
     font-size: 1.75rem;
   }
   .long-name{
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   .price {
     color: var(--color-black);
@@ -106,29 +107,26 @@ const Wrapper = styled.main`
   }
   .product-company{
     color: var(--clr-primary-3);
-    font-family: 'bree';
-    font-size: 1rem;
-    font-weight: 300;
+    font-family: omnes-narrow, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: var(--spacing);
     margin-bottom: unset;
     width: fit-content;
   }
   .product-skintypes::before{
     content: 'Skin Types:';
-    font-family: 'bree';
     font-size: 1rem;
-    font-weight: 300;
     margin-right: 0.5rem;
   }
   .info.award{
     background: var(--clr-primary-11);
-    color: var(--clr-grey-4);/* #00626f; bluish*/
+    color: var(--clr-grey-4);
     font-style: italic;
     width: fit-content;
     padding-left: 0.10rem;
     padding-right: 0.20rem;
   }
   .product-skintypes{
-    font-family: 'proxima-nova';
     line-height: 30px;
     max-width: 45em;
     text-transform: capitalize;
@@ -139,10 +137,10 @@ const Wrapper = styled.main`
       padding-left: 8px;
     }
     .skintype::after{
-      content: ','
+      content: ',';
     }
     .skintype:last-of-type::after{
-      content: ''
+      content: '';
     }
   }
   .desc {
@@ -152,7 +150,8 @@ const Wrapper = styled.main`
   .info {
     text-transform: capitalize;
     span {
-      font-weight: 700;
+      font-family: 'bree';
+      font-weight: 300; /*bree*/
     }
   }
 

@@ -92,16 +92,18 @@
 *,
 ::after,
 ::before {
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400; /*proxima*/
+  font-style: normal;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline-color: transparent; /* hsl(0deg 0% 87% / 83%); #dfdfdf; linen  oldlace lemonchiffon;*/
-  outline: none;
+  outline-color: transparent;
   -webkit-tap-highlight-color: transparent !important;
 }
 body {
   font-family: proxima-nova, sans-serif;
-  font-weight: 400;
+  font-weight: 400;/*proxima*/
   font-style: normal;
   background: var(--clr-white);
   color: var(--clr-grey-1);
@@ -118,7 +120,6 @@ a {
   box-shadow: rgb(199 146 234) 0px -1px 0px inset;
   transition: var(--easyTransition);
 }*/
-
 hr {
   border: none;
   border-top: 1px solid var(--clr-grey-8);
@@ -129,7 +130,7 @@ h3,
 h4,
 h5 {
   font-family: bree, sans-serif;
-  font-weight: 300 !important;
+  font-weight: 300 !important; /*bree*/
   font-style: normal;
   letter-spacing: var(--spacing);
   text-transform: capitalize;
@@ -229,7 +230,6 @@ input{
   padding: 0.475rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
-  font-weight: 300;
   transition: var(--transition);
   font-size: 0.875rem;
   cursor: pointer;
@@ -267,7 +267,7 @@ footer + div.ally{
   background: var(--clr-black);
   color: var(--clr-white);
   font-family: 'bree';
-  font-weight: 200;
+  font-weight: 200;/*bree*/
   font-size: 0.8rem;
   padding-bottom: 2rem;
   text-align: center;

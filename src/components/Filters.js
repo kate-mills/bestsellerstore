@@ -99,23 +99,13 @@ const Filters = ()=>{
 }
 
 const Wrapper = styled.section`
-  .filtered-count{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--clr-black);
-    font-weight: 600;
-    font-size: 1.2rem;
-    background: var(--clr-grey-10);
-    position-relative: bottom: 1rem;
-  }
   .form-control {
     margin-bottom: 1.25rem;
     h5, label{
       color: var(--clr-primary-1);
       font-family: 'bree';
       font-size: 1.1rem;
-      font-weight: 200;
+      font-weight: 200; /*bree*/
     }
     h5 {
       margin-bottom: 0.5rem;
@@ -201,7 +191,7 @@ const Wrapper = styled.section`
     padding: 0.1rem 0 0.35rem;
     letter-spacing: var(--spacing);
     font-family: 'bree';
-    font-weight: 200;
+    font-weight: 200; /*bree*/
     margin-bottom: 1.5rem;
     text-align: center;
   }

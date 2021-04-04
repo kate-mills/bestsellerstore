@@ -100,7 +100,7 @@ const Wrapper = styled.section`
     span.heading{
       font-family: 'bree';
       font-size: 1.1rem;
-      font-weight: 300;
+      font-weight: 300; /*bree*/
       line-height: 28px;
       height: 2.5rem;
       text-transform: capitalize;
@@ -117,7 +117,6 @@ const Wrapper = styled.section`
     cursor: pointer;
     display: flex;
     font-size: 1rem;
-    font-weight: 300;
     height: 2.5rem;
     justify-content: center;
     margin-right: 1.5rem;

@@ -95,7 +95,6 @@ const Wrapper = styled.article`
     display: flex;
     font-size: 0.75rem;
     font-family: 'bree';
-    font-weight: 200;
     justify-content: flex-start;
     letter-spacing: var(--spacing);
     margin-top: 0.123rem;
@@ -146,17 +145,16 @@ const Wrapper = styled.article`
       display: block;
       margin-bottom: 0;
       color: var(--clr-blue-txt);
-      font-weight: 400 !important;
+      font-weight: 400 !important; /*bree*/
       font-size: 1rem;
     }
     .price-small {
       display: none;
     }
     .price {
+      color: var(--clr-blue-txt);
       display: block;
       font-size: 1rem;
-      color: var(--clr-purple-txt);
-      font-weight: 400 !important;
     }
     .name {
       font-size: 1rem;

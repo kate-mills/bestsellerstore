@@ -27,7 +27,7 @@ const Wrapper = styled.div`
       column-gap: 1rem;
       h5 {
         color: var(--clr-grey-5);
-        font-weight: 400;
+        font-size: 1.2rem;
       }
     }
 

@@ -25,6 +25,7 @@ const Wrapper = styled.footer`
   text-align: center;
   & span.proxima {
     font-family: 'proxima-nova';
+    font-weight: 400; /*proxima*/
     color: var(--clr-primary-9);
     letter-spacing: 0px;
     text-transform: capitalize;
@@ -36,8 +37,8 @@ const Wrapper = styled.footer`
     letter-spacing: var(--spacing);
     line-height: 1.25;
     font-family: 'bree';
+    font-weight: 300; /*bree*/
     font-size: 1rem;
-    font-weight: 300;
   }
   @media (min-width: 776px) {
     flex-direction: row;
