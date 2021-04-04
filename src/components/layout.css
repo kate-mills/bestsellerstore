@@ -16,9 +16,9 @@
   --clr-primary-4:  hsl(256deg 29% 69%);
   --clr-primary-4d:  hsl(259deg 21% 59%);/* hsl(256deg 22% 63%);
   /* primary/main color */
-  --clr-primary-5: hsl(201deg 31% 69%);
-  --clr-primary-5-lt:hsl(201deg 45% 65% / 5%);
-  --clr-primary-5d: hsl(201deg 45% 65%);
+  --clr-primary-5: rgb(101, 122, 134);/* hsl(201deg 31% 69%);*/
+  --clr-primary-5-lt: rgb(101, 122, 134);/* hsl(201deg 45% 65% / 5%);*/
+  --clr-primary-5d:rgb(101, 122, 134);/*hsl(201deg 45% 65%);*/
   /* lighter shades of primary color */
   --clr-primary-6: hsl(252deg 16% 94%);
   --clr-primary-7: hsl(323deg 25% 86%);
