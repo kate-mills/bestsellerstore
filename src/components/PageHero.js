@@ -40,7 +40,7 @@ const Wrapper = styled.section`
     > .title{
       font-family: var(--font-title);
       font-size: inherit;
-      font-weight: 700;/* font-title span */
+      font-weight: var(--font-weight-title);/* font-title span */
       line-height: normal;
     }
   }

@@ -155,7 +155,7 @@ const Wrapper = styled.main`
     text-transform: capitalize;
     span {
       font-family: var(--font-title);
-      font-weight: 700; /* font-title - span */
+      font-weight: var(--font-weight-title); /* font-title - span */
     }
   }
 
