@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
 import styled from 'styled-components'
-//import { TiDelete, } from 'react-icons/ti'
+import { GrClear } from 'react-icons/gr'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues} from '../utils/helpers'
 const defaultSelectValue = '---Select---'
@@ -20,14 +20,14 @@ const Filters = ()=>{
 
   return (
     <Wrapper>
-      <div className="top-btn-div" style={{background: 'whitesmoke' }}>
+      <div className="top-btn-div">
         <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
           {displayContent?<>Hide Filters</>:<>Show Filters</>}
         </button>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}><span className="clear">x</span></button>
+        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}><GrClear className="clear"/></button>
       </div>
       {
-        displayContent && (<div className='content'>
+        <div className={`${displayContent?'content filters-visible':'content filters-hidden'}`}>
         <form onSubmit={(e)=>e.preventDefault()}>
           {/* categories */}
           <div className="flexible-div">{/* start flexible div */}
@@ -87,63 +87,84 @@ const Filters = ()=>{
           {/* end onSale */}
         </form>
       </div>
-      )}
+      }
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
   & .top-btn-div{
+    align-items: center;
     background: whitesmoke;
+    border: 1px solid silver;
     display:flex;
-    width: 100%;
     flex-dirction: row;
     justify-content: space-around;
+    width: 100%;
     > button:focus, > button{
-      background: whitesmoke;
-      background: #f2f2f2;
+      border: none;
       box-shadow: unset;
       color: var(--clr-black);
-      border: none;
       cursor: pointer;
-      line-height: normal;
       font-family: var(--font-body);
       font-size: 1.15rem;
       font-weight: var(--font-weight-body);
       letter-spacing: var(--spacing);
+      line-height: normal;
       outline: none;
       outline-color: transparent;
-      text-align: center;
       text-transform: capitalize;
     }
     > .toggle-btn,
     > .toggle-btn:active,
-    > .toggle-btn:focus,
-    > .clear-btn,
-    > .clear-btn:active,
-    > .clear-btn:focus {
+    > .toggle-btn:focus{
       background: whitesmoke;
-      border: 1px solid silver;
-      color: var(--clr-primary-1);
-      border-radius: var(--radius);
+      border-right: 1px solid silver;
       padding: .25rem .5rem;
+      width: 80%;
+    }
+    >.clear-btn,
+    >.clear-btn:active,
+    >.clear-btn:focus,
+    >clear-btn:hover{
+      transition: var(--transition);
+      svg.clear{
+        position: relative;
+        top: 3px;
+        right: 2px;
+        > path{stroke:darkgrey;}
+      }
+    }
+    >.clear-btn:hover{
+      transform: rotateZ(45deg);
+    }
+  }/* END  & .TOP-BTN-DIV */
+
+  .flexible-div, form, .form-control, .content
+  .content.filters-hidden,.content.filters-visible{
+    background: var(--clr-grey-10);
+  }
+  .content.filters-visible{
+    height: 150px;
+    transition: var(--transition);
+    form{
+      min-height: fit-content;
     }
   }
-  form{
-    background: var(--clr-grey-10);
+  .content.filters-hidden{
+    height: 0;
+    transition: var(--transition);
+    form{
+      visibility: hidden;
+    }
   }
   .form-control {
-    background: var(--clr-grey-10);
     margin-bottom: 1.25rem;
     h5, label{
-      background: var(--clr-grey-10);
-      color: var(--clr-primary-1);
-      font-family: var(--font-title);
-      font-weight: var(--font-weight-title);
+      color: var(--clr-black);
+      text-transform: uppercase;
       font-size: 1.1rem;
       padding-right: 1rem;
-      padding-left: 0.7rem;
-      line-height: normal;
       margin-bottom: 0;
     }
   }
@@ -161,6 +182,7 @@ const Wrapper = styled.section`
     }
   }
   .onSale {
+    color: black;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -169,7 +191,6 @@ const Wrapper = styled.section`
     font-size: 1rem;
   }
   .select{
-    background: var(--clr-grey-10);
     border-color: silver;
     border-radius: var(--radius);
     outline-color: silver;
@@ -186,7 +207,6 @@ const Wrapper = styled.section`
   }
   .flexible-div{
     align-items: center;
-    background: whitesmoke;
     display: grid;
     grid-template-rows: 100px;
     place-items: center;
