@@ -93,6 +93,7 @@ const Filters = ()=>{
 }
 
 const Wrapper = styled.section`
+  margin-bottom: 3rem;
   & .top-btn-div{
     align-items: center;
     background: whitesmoke;
@@ -143,12 +144,19 @@ const Wrapper = styled.section`
   .flexible-div, form, .form-control, .content
   .content.filters-hidden,.content.filters-visible{
     background: var(--clr-grey-10);
+    background: whitesmoke;
+    width: 100%;
+    text-align: center;
   }
   .content.filters-visible{
-    height: 150px;
+    height: 100px;
+    min-height: fit-content;
+    max-height: fit-content;
     transition: var(--transition);
     form{
       min-height: fit-content;
+      max-height: fit-content;
+      height: fit-content;
     }
   }
   .content.filters-hidden{
@@ -159,45 +167,39 @@ const Wrapper = styled.section`
     }
   }
   .form-control {
-    margin-bottom: 1.25rem;
+    margin: 0.5rem auto;
+
     h5, label{
       color: var(--clr-black);
       text-transform: uppercase;
       font-size: 1.1rem;
-      padding-right: 1rem;
       margin-bottom: 0;
+      padding: 0 0.8rem;
     }
   }
   .active {
     border-color: var(--clr-grey-10);
-    opacity: 1; 
+    opacity: 1;
   }
-  .price {
-    letter-spacing: var(--spacing);
-    margin-bottom: 0.25rem;
-    >span{
-      font-family: 'proxima-nova';
-      margin-left: 20px;
-      color: hsl(256deg 14% 51%);
-    }
-  }
-  .onSale {
+  input.onSale {
+    align-items: center;
     color: black;
     display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
     text-transform: capitalize;
-    column-gap: 0.5rem;
-    font-size: 1rem;
+    width: 100%;
   }
   .select{
     border-color: silver;
     border-radius: var(--radius);
-    outline-color: silver;
     font-family: 'proxima-nova';
-    letter-spacing: var(--spacing);
     font-size: 1rem;
-    padding: 0.25rem;
+    letter-spacing: var(--spacing);
+    line-height: normal;
+    margin: 0 auto;
+    outline-color: silver;
+    padding: 0.45rem;
     text-transform: capitalize;
     width: 100%;
   }
@@ -208,10 +210,10 @@ const Wrapper = styled.section`
   .flexible-div{
     align-items: center;
     display: grid;
-    grid-template-rows: 100px;
-    place-items: center;
-    line-height: normal;
+    grid-template-rows: 50px;
     justify-content: center;
+    line-height: normal;
+    place-items: center;
   }
   @media (min-width: 768px) {
     .content {
@@ -244,7 +246,6 @@ const Wrapper = styled.section`
       align: items: center;
       .form-control{
         text-align: center;
-        margin: 1rem auto;
       } 
     }
   }
