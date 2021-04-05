@@ -71,9 +71,9 @@ const SingleProductPage = (props) => {
                     )}):<span className="skintype">No badge</span>
               }
             </p>
+            <p className="product-company">Brand: <span>Michele Corley Clinical Skincare</span></p>
             <p className="info award"><span>{award && `Dermascope Aestheticians Choice Award - ${award}`}</span></p>
             <hr/>
-            <p className="product-company"><span>Michele Corley Clinical Skincare</span></p>
             <p className="desc">{description}</p>
             <hr/>
             <AddToCart id={id} sizes={sizes} item={{...props.data.item}} priceMap={priceMap ? priceMap:null} />
@@ -108,13 +108,12 @@ const Wrapper = styled.main`
     margin-top: 1rem;
   }
   .product-company{
-    color: var(--clr-primary-4d);
-    font-size: 1.1rem;
-    font-family: var(--font-body);
-    font-weight: var(--font-weight-body);
-    margin-top: 1.25rem;
-    text-transform: uppercase;
-    text-decoration: underline;
+    font-size: 1rem;
+    > span{
+      font-size: 1rem;
+      font-family: var(--font-title);
+      font-weight: var(--font-weight-title);
+    }
   }
   .product-skintypes::before{
     content: 'Skin Types:';
@@ -149,6 +148,7 @@ const Wrapper = styled.main`
   }
   .desc {
     line-height: 2;
+    margin-top: 1.25rem;
     max-width: 45em;
   }
   .info {

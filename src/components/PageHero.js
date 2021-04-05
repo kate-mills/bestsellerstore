@@ -34,13 +34,14 @@ const Wrapper = styled.section`
     color: var(--clr-primary-5d);
   }
   h3{
+    line-height: normal;
     margin-bottom: unset;
     > a,
     > .title{
       font-family: var(--font-title);
       font-size: inherit;
       font-weight: 700;/* font-title span */
-      line-height: 2rem;
+      line-height: normal;
     }
   }
   @media(max-width: 500px){
