@@ -33,8 +33,8 @@ const initialState = {
     price: 0,
     skintype: 'all',
     text: '',
-    categorySelect: '---Select---',
-    skintypeSelect: '---Select---',
+    categorySelect: '---CATEGORY---',
+    skintypeSelect: '---SKIN TYPE---',
   }
 }
 

@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react'
 import styled from 'styled-components'
-import {
-  TiDelete,
-} from 'react-icons/ti'
+//import { TiDelete, } from 'react-icons/ti'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues} from '../utils/helpers'
+const defaultSelectValue = '---Select---'
 
 const Filters = ()=>{
   const { filters:{
@@ -14,21 +13,18 @@ const Filters = ()=>{
       onSale,
     },
     updateFilters, clearFilters, all_items } = useFilterContext()
-  const skintypes = getUniqueValues(all_items, 'skinTypeBadge','---Select---', true)
-  const categories = getUniqueValues(all_items, 'category', '---Select---')
+  const skintypes = getUniqueValues(all_items, 'skinTypeBadge','---SKIN TYPE---', true)
+  const categories = getUniqueValues(all_items, 'category', '---CATEGORY---')
   const [displayContent, setDisplayContent] = React.useState(false)
   const toggleDisplay =()=>{setDisplayContent(!displayContent)}
 
   return (
     <Wrapper>
-      <div className="top-btn-div">
+      <div className="top-btn-div" style={{background: 'whitesmoke' }}>
         <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
-          {displayContent?
-            <span className="btn-content">Hide Filters</span>:
-            <span className="btn-content">Show Filters</span>
-          }
+          {displayContent?<>Hide Filters</>:<>Show Filters</>}
         </button>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}><TiDelete/></button>
+        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}><span className="clear">x</span></button>
       </div>
       {
         displayContent && (<div className='content'>
@@ -36,13 +32,12 @@ const Filters = ()=>{
           {/* categories */}
           <div className="flexible-div">{/* start flexible div */}
           <div className="form-control">
-            <h5>Category</h5>
             <select
               name="categorySelect"
               value={categorySelect}
               onBlur={updateFilters}
               onChange={updateFilters}
-              className="select">
+              className={`${categorySelect !== defaultSelectValue? 'select hilight': 'select default'}`}>
               {
                 categories.map((c, i)=>{
                 return(
@@ -57,7 +52,6 @@ const Filters = ()=>{
           {/* end categories */}
           {/* skintypes */}
           <div className="form-control">
-            <h5>Skin Type</h5>
             <select
               name="skintypeSelect"
               value={skintypeSelect}
@@ -99,35 +93,62 @@ const Filters = ()=>{
 }
 
 const Wrapper = styled.section`
+  & .top-btn-div{
+    background: whitesmoke;
+    display:flex;
+    width: 100%;
+    flex-dirction: row;
+    justify-content: space-around;
+    > button:focus, > button{
+      background: whitesmoke;
+      background: #f2f2f2;
+      box-shadow: unset;
+      color: var(--clr-black);
+      border: none;
+      cursor: pointer;
+      line-height: normal;
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      font-weight: var(--font-weight-body);
+      letter-spacing: var(--spacing);
+      outline: none;
+      outline-color: transparent;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    > .toggle-btn,
+    > .toggle-btn:active,
+    > .toggle-btn:focus,
+    > .clear-btn,
+    > .clear-btn:active,
+    > .clear-btn:focus {
+      background: whitesmoke;
+      border: 1px solid silver;
+      color: var(--clr-primary-1);
+      border-radius: var(--radius);
+      padding: .25rem .5rem;
+    }
+  }
+  form{
+    background: var(--clr-grey-10);
+  }
   .form-control {
+    background: var(--clr-grey-10);
     margin-bottom: 1.25rem;
     h5, label{
+      background: var(--clr-grey-10);
       color: var(--clr-primary-1);
       font-family: var(--font-title);
       font-weight: var(--font-weight-title);
       font-size: 1.1rem;
+      padding-right: 1rem;
+      padding-left: 0.7rem;
+      line-height: normal;
+      margin-bottom: 0;
     }
-    h5 {
-      margin-bottom: 0.5rem;
-    }
-  }
-  button {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid transparent;
-    color: var(--clr-black);
-    cursor: pointer;
-    display: block;
-    font-family: 'proxima-nova';
-    font-size: 1.15rem;
-    letter-spacing: var(--spacing);
-    margin: 0.25em 0;
-    outline-color: transparent;
-    padding: 0.25rem 0;
-    text-transform: capitalize;
   }
   .active {
-    border-color: var(--clr-grey-5);
+    border-color: var(--clr-grey-10);
     opacity: 1; 
   }
   .price {
@@ -147,23 +168,11 @@ const Wrapper = styled.section`
     column-gap: 0.5rem;
     font-size: 1rem;
   }
-  .toggle-btn,
-  .clear-btn {
-    background: var(--clr-primary-9);
-    color: var(--clr-primary-1);
-    padding: 0.35rem 0.5rem;
-    border-radius: var(--radius);
-    border: 2px solid var(--clr-primary-9);
-    width: 100%;
-  }
-  .toggle-btn{
-    display: grid;
-    grid-template-columns: 150px auto;
-  }
   .select{
     background: var(--clr-grey-10);
+    border-color: silver;
     border-radius: var(--radius);
-    border-color: transparent;
+    outline-color: silver;
     font-family: 'proxima-nova';
     letter-spacing: var(--spacing);
     font-size: 1rem;
@@ -175,6 +184,15 @@ const Wrapper = styled.section`
   .select:focus {
     background: hsl(201deg 55% 38% / 7%);
   }
+  .flexible-div{
+    align-items: center;
+    background: whitesmoke;
+    display: grid;
+    grid-template-rows: 100px;
+    place-items: center;
+    line-height: normal;
+    justify-content: center;
+  }
   @media (min-width: 768px) {
     .content {
       position: sticky;
@@ -182,40 +200,14 @@ const Wrapper = styled.section`
     }
   }
   @media(max-width: 767px){
-    .top-btn-div{
-      display:flex;
-      flex-wrap: wrap-reverse;
-      justify-content: space-around;
-      .toggle-btn{
-        max-width: 180px;
-        min-width: 180px;
-        align-items: center;
-        width: 50%;
-        display: grid;
-        grid-template-columns: 3fr 20px; 
-        grid-column-gap: 1rem;
-      }
-      .clear-btn{
-        max-width: 90px;
-        min-width: 90px;
-        width: 40%;
-      }
-    }
     .flexible-div{
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 100px;
       grid-column-gap: 1.5rem;
-      align-items: center;
-      justify-content: center;
     }
   }
   @media(max-width: 650px){
     .flexible-div{
       grid-template-columns: repeat(2, 1fr);
-      .clear-btn{
-        margin-right: 1rem;
-      }
     }
   }
   @media(max-width: 550px){
@@ -233,7 +225,6 @@ const Wrapper = styled.section`
       .form-control{
         text-align: center;
         margin: 1rem auto;
-        .clear-btn{ margin: 0 auto;}
       } 
     }
   }
