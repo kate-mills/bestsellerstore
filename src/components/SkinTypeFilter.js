@@ -92,9 +92,11 @@ const Wrapper = styled.section`
     color: var(--clr-black);
     cursor: pointer;
     display: block;
-    font-family: 'proxima-nova';
+    font-family: var(--font-body);
     font-size: 1.15rem;
+    font-weight: var(--font-weight-body);
     letter-spacing: var(--spacing);
+    line-height: normal;
     margin: 0.25em 0;
     outline-color: transparent;
     padding: 0.25rem 0;

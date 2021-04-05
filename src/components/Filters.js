@@ -193,7 +193,6 @@ const Wrapper = styled.section`
   .select{
     border-color: silver;
     border-radius: var(--radius);
-    font-family: 'proxima-nova';
     font-size: 1rem;
     letter-spacing: var(--spacing);
     line-height: normal;

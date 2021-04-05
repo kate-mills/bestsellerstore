@@ -1,6 +1,5 @@
 /* =============== Font Options =============== */
 /* https://www.purahw.com/ */
-/* font-family: proxima-nova, sans-serif; adobe*/
 /* font-family: "Allerta Stencil"; google*/
 /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 
@@ -30,6 +29,7 @@
   --clr-primary-btn-bg: hsl(252deg 1% 19%);
   /* fonts */
   --font-body :  proxima-nova, sans-serif;
+  --font-body: alga, serif;
   --font-cursive:beloved-script, sans-serif;
   --font-title : beloved-sans, sans-serif;
   --font-weight-body: 400;
@@ -72,7 +72,7 @@
 ::after,
 ::before {
   font-family: var(--font-body);
-  font-weight:var(--font-weight-body); /*proxima - *after, before */
+  font-weight:var(--font-weight-body);
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -82,7 +82,7 @@
 }
 body {
   font-family: var(--font-body);
-  font-weight: var(--font-weight-body);/*proxima - body*/
+  font-weight: var(--font-weight-body);
   font-style: normal;
   background: var(--clr-white);
   color: var(--clr-grey-1);

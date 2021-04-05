@@ -56,7 +56,6 @@ const Wrapper = styled.section`
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    font-family: 'proxima-nova';
     font-size: 1.2rem;
     color: var(--clr-primary-1);
     a {

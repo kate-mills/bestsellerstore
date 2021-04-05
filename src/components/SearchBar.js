@@ -90,11 +90,12 @@ const Wrapper = styled.div`
     border-color: transparent;
     font-size: 1rem;
     color: transparent;
-    font-family: 'proxima-nova';
+    font-family: var(--font-body);
     font-size: 1rem;
+    font-weight: var(--font-weight-body);
     line-height: 24px;
-    outline-color: transparent;
     outline: none;
+    outline-color: transparent;
     padding: 12px 2px;
     margin: 0 auto 0 0;
     transition: var(--transition);
