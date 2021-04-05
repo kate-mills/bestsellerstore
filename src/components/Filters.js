@@ -93,7 +93,6 @@ const Filters = ()=>{
 }
 
 const Wrapper = styled.section`
-  margin-bottom: 3rem;
   & .top-btn-div{
     align-items: center;
     background: whitesmoke;
@@ -144,19 +143,12 @@ const Wrapper = styled.section`
   .flexible-div, form, .form-control, .content
   .content.filters-hidden,.content.filters-visible{
     background: var(--clr-grey-10);
-    background: whitesmoke;
-    width: 100%;
-    text-align: center;
   }
   .content.filters-visible{
-    height: 100px;
-    min-height: fit-content;
-    max-height: fit-content;
+    height: 150px;
     transition: var(--transition);
     form{
       min-height: fit-content;
-      max-height: fit-content;
-      height: fit-content;
     }
   }
   .content.filters-hidden{
@@ -167,14 +159,13 @@ const Wrapper = styled.section`
     }
   }
   .form-control {
-    margin: 0.5rem auto;
-
+    margin-bottom: 1.25rem;
     h5, label{
       color: var(--clr-black);
       text-transform: uppercase;
       font-size: 1.1rem;
+      padding-right: 1rem;
       margin-bottom: 0;
-      padding: 0 0.8rem;
     }
   }
   .active {
@@ -185,7 +176,7 @@ const Wrapper = styled.section`
     align-items: center;
     color: black;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: auto 1fr;
     justify-content: center;
     text-transform: capitalize;
     width: 100%;
@@ -193,6 +184,7 @@ const Wrapper = styled.section`
   .select{
     border-color: silver;
     border-radius: var(--radius);
+    font-family: 'proxima-nova';
     font-size: 1rem;
     letter-spacing: var(--spacing);
     line-height: normal;
@@ -209,10 +201,10 @@ const Wrapper = styled.section`
   .flexible-div{
     align-items: center;
     display: grid;
-    grid-template-rows: 50px;
-    justify-content: center;
-    line-height: normal;
+    grid-template-rows: 100px 50px;
     place-items: center;
+    line-height: normal;
+    justify-content: center;
   }
   @media (min-width: 768px) {
     .content {

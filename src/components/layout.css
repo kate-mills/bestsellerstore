@@ -74,6 +74,7 @@
   font-family: var(--font-body);
   font-weight:var(--font-weight-body);
   font-style: normal;
+  line-height: normal;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -87,13 +88,15 @@ body {
   background: var(--clr-white);
   color: var(--clr-grey-1);
   line-height: 1.5;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 ul {
   list-style-type: none;
 }
 a {
   text-decoration: none;
+  font-size: 1rem;
+  line-height: normal;
 }
 /*a:hover:not(.btn){
   box-shadow: rgb(199 146 234) 0px -1px 0px inset;
@@ -132,7 +135,7 @@ h5 {
   font-size: 0.875rem;
 }
 p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: var(--clr-grey-3);
 }
 @media screen and (min-width: 800px) {
@@ -186,9 +189,10 @@ input{
   text-align: center;
 }
 a, button {
-  font-family: var(--font-title);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
   letter-spacing: unset !important;
-  font-weight: var(--font-weight-title);
+  line-height:normal;
 }
 @keyframes spinner {
   to {

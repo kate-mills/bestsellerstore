@@ -95,10 +95,11 @@ const NavContainer = styled.nav`
       }
       a {
         color: var(--clr-grey-3);
-        font-size: 1rem;
-        text-transform: capitalize;
+        font-size: 1.3rem;
         letter-spacing: var(--spacing);
+        line-height: normal;
         padding: 0.5rem;
+        text-transform: capitalize;
         &:hover {
           cursor: pointer;
           border-bottom: 2px solid var(--clr-primary-9);
