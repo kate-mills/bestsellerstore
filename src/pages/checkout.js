@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SEO, Layout, PageHero } from '../components'
+import { MySeo, Layout, PageHero } from '../components'
 const CheckoutPage = () => {
   return (
     <Layout>
-      <SEO title="Checkout" />
+      <MySeo title="Checkout" />
       <main>
         <PageHero title="checkout" />
         <Wrapper className="page">

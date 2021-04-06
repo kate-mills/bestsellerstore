@@ -4,7 +4,7 @@ import { useCartContext } from "../context/cart_context"
 import {Link} from "gatsby"
 import {
   CartContent,
-  SEO,
+  MySeo,
   Layout,
   PageHero
 } from '../components'
@@ -26,7 +26,7 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <SEO title="Cart" />
+      <MySeo title="Cart" />
       <PageHero title="cart" />
         <Wrapper className={`${cartIsEmpty?'page-100':'page'}`}>
           <div className="cart">

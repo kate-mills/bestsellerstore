@@ -8,7 +8,7 @@ import { formatPrice } from '../utils/helpers'
 import {useProductsContext} from '../context/products_context'
 
 import {
-  SEO,
+  MySeo,
   Layout,
   PageHero,
   Stars,
@@ -48,7 +48,7 @@ const SingleProductPage = (props) => {
 
   return (
     <Layout>
-      <SEO 
+      <MySeo 
         image={imgRetail.file.url}
         title={`Michele Corley ${shortName || name}`}
         description={description}

@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
-import { Layout } from '../components'
+import { Layout, MySeo } from '../components'
 
 const SuccessPage = () => {
   return (
     <Layout>
+      <MySeo title="Success"/>
       <Wrapper className="page-100">
         <section>
           <h1>Success!</h1>

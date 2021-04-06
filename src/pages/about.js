@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Layout, PageHero, SEO } from '../components'
+import { Layout, PageHero, MySeo } from '../components'
 
 const AboutPage = ({data:{img:{childImageSharp:{gatsbyImageData}}}}) => {
   return (
     <Layout>
-      <SEO/>
+      <MySeo/>
       <main>
         <PageHero title="about"/>
         <Wrapper className="page section section-center">

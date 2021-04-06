@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-  SEO,
+  MySeo,
   Layout,
   PageHero,
   Filters,
@@ -12,7 +12,7 @@ import {
 const ShopPage = () => {
   return (
     <Layout>
-      <SEO
+      <MySeo
         title="Shop Products"
         description="Shop all skincare products by Michele Corley Clinical Skincare."
       />

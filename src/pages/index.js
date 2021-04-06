@@ -1,10 +1,10 @@
 import React from 'react'
-import { Layout, SEO, FeaturedProducts, Hero, ShopBy,Contact} from '../components'
+import { Layout, MySeo, FeaturedProducts, Hero, ShopBy,Contact} from '../components'
 
 const HomePage = () => {
   return (
     <Layout>
-      <SEO />
+      <MySeo />
         <main>
           <Hero/>
           <FeaturedProducts/>
