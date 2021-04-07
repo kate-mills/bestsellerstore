@@ -47,7 +47,6 @@ export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    alert('load_items')
     dispatch({ type: LOAD_ITEMS, payload: all_items })
   }, [all_items])
 
