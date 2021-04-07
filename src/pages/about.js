@@ -1,26 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import {StaticImage} from 'gatsby-plugin-image'
 import { Layout, PageHero, MySeo } from '../components'
 
-const AboutPage = ({
-  data: {
-    img: {
-      childImageSharp: { gatsbyImageData },
-    },
-  },
-}) => {
+const AboutPage = ({data}) => {
   return (
     <Layout>
       <MySeo />
       <main>
         <PageHero title="about" />
         <Wrapper className="page section section-center">
-          <GatsbyImage
-            image={gatsbyImageData}
-            alt="Display of random makeup products on pink background."
-          />
+          <StaticImage src="../images/about/bubbles.png" />
           <article>
             <div className="title">
               <h2>our story</h2>
@@ -63,13 +53,4 @@ const Wrapper = styled.section`
   }
 `
 
-export const query = graphql`
-  {
-    img: file(relativePath: { eq: "about/bubbles.png" }) {
-      childImageSharp {
-        gatsbyImageData(height: 300)
-      }
-    }
-  }
-`
 export default AboutPage
