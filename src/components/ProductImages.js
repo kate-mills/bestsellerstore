@@ -2,22 +2,29 @@
 
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const ProductImages = ({ images = [], description }) => {
+const ProductImages = ({ images = [], description, name }) => {
   const [main, setMain] = useState(images[0])
+
+  React.useEffect(()=>{
+    if(images.length>0){
+      setMain(getImage(images[0]))
+    }
+  }, [images])
+
   return (
     <Wrapper>
-      <GatsbyImage image={main} alt={description || ''} />
+      <GatsbyImage image={main} alt={name} />
       <div className="gallery">
         {images.map((img, index) => {
           return (
             <GatsbyImage
-              onKeyPress={() => setMain(images[index])}
+              onKeyPress={() => setMain(getImage(images[index]))}
               key={index}
               onClick={() => setMain(images[index])}
               image={main || img.images.src}
-              alt={`View ${index} of ${description}`}
+              alt={`View ${index} of ${name}`}
               className={`mini ${main ? 'active' : null}`}
             />
           )

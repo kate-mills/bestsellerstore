@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const query = graphql`
   {
@@ -41,12 +41,12 @@ const Hero = () => {
       </article>
       <article className="img-container">
         <GatsbyImage
-          image={data.main.childImageSharp.gatsbyImageData}
+          image={getImage(data.main.childImageSharp.gatsbyImageData)}
           alt="Drop falls from a pipette into a cosmetic bottle,isolated on white background"
           className="main-img"
         />
         <GatsbyImage
-          image={data.accent.childImageSharp.gatsbyImageData}
+          image={getImage(data.accent.childImageSharp.gatsbyImageData)}
           alt="Cosmetic bottle with pipette isolated on transparent background"
           className="accent-img"
         />

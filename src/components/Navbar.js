@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../images/beauty-icon.svg'
+//import { ReactComponent as Logo } from '../images/beauty-icon.svg'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
+import { StaticImage } from "gatsby-plugin-image"
 //import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
@@ -15,7 +16,12 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img src={logo} alt="Logo" />
+            <StaticImage
+              src="../images/icon.png"
+              alt="Logo"
+              height={65}
+              width={65}
+            />
             {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}
           </Link>
 

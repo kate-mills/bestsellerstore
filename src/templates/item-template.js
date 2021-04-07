@@ -63,6 +63,7 @@ const SingleProductPage = props => {
           <div className="product-center">
             <ProductImages
               images={[imgRetail.gatsbyImageData]}
+              name={name}
               description={description}
             />
             <section
@@ -220,11 +221,11 @@ export const query = graphql`
         description
       }
       imgRetail {
+        gatsbyImageData(placeholder: TRACED_SVG, quality:100)
         file{url}
         fixed{
           src
         }
-        gatsbyImageData(placeholder: TRACED_SVG, quality:100)
       }
       video
       keyIngredients {

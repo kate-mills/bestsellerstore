@@ -11,6 +11,7 @@ import {
   UPDATE_SEARCH,
   SEARCH_ITEM_LIST,
   CLEAR_SEARCH,
+  TOGGLE_FILTER_DISPLAY,
 } from '../actions'
 
 const filter_reducer = (state, action) => {
@@ -27,7 +28,6 @@ const filter_reducer = (state, action) => {
       search_items: [...edges],
       itemtype_list: ['---CATEGORY---', ...itemtypeList],
       skintype_list: ['---SKIN TYPE---', ...skintypeList],
-      filtered_count: action.payload.length,
       filters: {
         ...state.filters,
         max_price: maxPrice,
@@ -124,13 +124,11 @@ const filter_reducer = (state, action) => {
     return {
       ...state,
       filtered_items: tempItems,
-      filtered_count: tempItems.length,
     }
   }
   if (action.type === CLEAR_FILTERS) {
     return {
       ...state,
-      filtered_count: 0,
       filters: {
         ...state.filters,
         text: '',
@@ -161,6 +159,16 @@ const filter_reducer = (state, action) => {
     return {
       ...state,
       searchStr: '',
+    }
+  }
+  if (action.type === TOGGLE_FILTER_DISPLAY){
+    let displayContent = !state.filters.displayContent
+    return{
+      ...state,
+      filters:{
+        ...state.filters,
+        displayContent
+      }
     }
   }
 

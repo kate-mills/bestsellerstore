@@ -4,7 +4,7 @@ import { formatPrice } from '../utils/helpers'
 import QuantityButtons from './QuantityButtons'
 import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const CartItem = ({ id, image, name, size, price, quantity }) => {
   const { removeItem, toggleQuantity } = useCartContext()
@@ -20,7 +20,7 @@ const CartItem = ({ id, image, name, size, price, quantity }) => {
   return (
     <Wrapper>
       <div className="title">
-        <GatsbyImage image={image} alt={name} />
+        <GatsbyImage image={getImage(image)} alt={name} />
         <div>
           <h5 className="name">{nm}</h5>
           <p className="product-size">

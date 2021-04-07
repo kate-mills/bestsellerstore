@@ -1,11 +1,11 @@
 import React from 'react'
-import logo from '../images/beauty-icon.svg'
-import { Link } from 'gatsby'
+import {Link} from 'gatsby'
 import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
 import { links } from '../utils/constants'
 import styled from 'styled-components'
 import CartButtons from './CartButtons'
+import { StaticImage } from "gatsby-plugin-image"
 //import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
@@ -18,7 +18,12 @@ const Sidebar = () => {
       >
         <div className="sidebar-header">
           <Link to="/" onClick={closeSidebar}>
-            <img src={logo} className="logo" alt="skincare webstore logo" />
+            <StaticImage
+              src="../images/icon.png"
+              alt="Logo"
+              height={65}
+              width={65}
+            />
             {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}
           </Link>
           <button

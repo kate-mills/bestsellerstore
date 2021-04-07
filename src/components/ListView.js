@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const ListView = ({ items }) => {
   return (
@@ -11,7 +11,7 @@ const ListView = ({ items }) => {
         return (
           <article key={node.id}>
             <GatsbyImage
-              image={node.imgRetail.gatsbyImageData}
+              image={getImage(node.imgRetail)}
               alt={node.name}
             />
             <div>

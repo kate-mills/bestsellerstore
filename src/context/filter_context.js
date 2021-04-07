@@ -14,6 +14,7 @@ import {
   SEARCH_ITEM_LIST,
   UPDATE_SEARCH,
   CLEAR_SEARCH,
+  TOGGLE_FILTER_DISPLAY,
 } from '../actions'
 
 const initialState = {
@@ -23,10 +24,10 @@ const initialState = {
   itemtype_list: [],
   search_items: [],
   searchStr: '',
-  filtered_count: 0,
   grid_view: true,
   sort: 'name-a',
   filters: {
+    displayContent:false,
     category: 'all',
     max_price: 0,
     min_price: 0,
@@ -51,13 +52,14 @@ export const FilterProvider = ({ children }) => {
   }, [all_items])
 
   useEffect(() => {
-    dispatch({ type: FILTER_ITEMS })
-    dispatch({ type: SORT_ITEMS })
-  }, [all_items, state.sort, state.filters])
+    dispatch({ type: SEARCH_ITEM_LIST })
+  },[state.searchStr])
 
   useEffect(() => {
-    dispatch({ type: SEARCH_ITEM_LIST })
-  }, [all_items, state.searchStr])
+    dispatch({ type: FILTER_ITEMS })
+    dispatch({ type: SORT_ITEMS })
+  }, [state.sort, state.filters])
+
 
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW })
@@ -77,9 +79,11 @@ export const FilterProvider = ({ children }) => {
     }
     if (name === 'skintype') {
       value = e.target.textContent
-    } else if (name === 'price') {
+    }
+    if (name === 'price') {
       value = Number(value)
-    } else if (name === 'onSale') {
+    }
+    if (name === 'onSale') {
       value = e.target.checked
     }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
@@ -95,6 +99,10 @@ export const FilterProvider = ({ children }) => {
   const clearSearch = () => {
     dispatch({ type: CLEAR_SEARCH })
   }
+  const toggleFilters = () =>{
+    console.log('toggleFilters')
+    dispatch({type: TOGGLE_FILTER_DISPLAY})
+  }
 
   return (
     <FilterContext.Provider
@@ -107,6 +115,7 @@ export const FilterProvider = ({ children }) => {
         clearFilters,
         updateSearch,
         clearSearch,
+        toggleFilters,
       }}
     >
       {children}

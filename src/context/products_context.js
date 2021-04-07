@@ -34,23 +34,13 @@ const query = graphql`
           }
           skinType
           onSale
-          description {
-            description
-          }
+          description { description }
           imgRetail {
-            gatsbyImageData(placeholder: TRACED_SVG)
+            gatsbyImageData(placeholder: TRACED_SVG, quality:100)
           }
-          video
-          keyIngredients {
-            name {
-              formatted
-            }
-            benefit
-          }
+          keyIngredients { name { formatted } benefit }
           award
-          awardImage {
-            gatsbyImageData(width: 100, height: 100)
-          }
+          awardImage { gatsbyImageData(width: 100, height: 100) }
         }
       }
     }
@@ -72,10 +62,6 @@ const query = graphql`
         }
       }
     }
-    distinctList: allContentfulMccProduct {
-      itemtypeList: distinct(field: category)
-      skintypeList: distinct(field: skinType)
-    }
   }
 `
 const initialState = {
@@ -84,35 +70,19 @@ const initialState = {
   products_error: false,
   all_items: [],
   featured_items: [],
-  itemtype_list: [],
-  skintype_list: [],
   focus_price: 0,
 }
 
 const ProductsContext = createContext()
 
 export const ProductsProvider = ({ children }) => {
-  const {
-    allItems,
-    featuredItems,
-    distinctList: { itemtypeList, skintypeList },
-  } = useStaticQuery(query)
+  const { allItems, featuredItems, } = useStaticQuery(query)
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const openSidebar = () => {
-    dispatch({ type: SIDEBAR_OPEN })
-  }
-  const closeSidebar = () => {
-    dispatch({ type: SIDEBAR_CLOSE })
-  }
-
-  const setFocusPrice = price => {
-    dispatch({
-      type: SET_FOCUS_PRICE,
-      payload: { price },
-    })
-  }
+  const openSidebar = () => {dispatch({type:SIDEBAR_OPEN})}
+  const closeSidebar= () => {dispatch({type:SIDEBAR_CLOSE })}
+  const setFocusPrice = price => {dispatch({type:SET_FOCUS_PRICE,payload:{ price }})}
 
   return (
     <ProductsContext.Provider
@@ -123,8 +93,6 @@ export const ProductsProvider = ({ children }) => {
         setFocusPrice,
         all_items: allItems,
         featured_items: featuredItems.edges,
-        itemtypes: itemtypeList,
-        skintypes: skintypeList,
       }}
     >
       {children}
@@ -132,6 +100,4 @@ export const ProductsProvider = ({ children }) => {
   )
 }
 
-export const useProductsContext = () => {
-  return useContext(ProductsContext)
-}
+export const useProductsContext=()=>{return useContext(ProductsContext)}

@@ -7,16 +7,13 @@ import { useFilterContext } from '../context/filter_context'
 
 const Filters = () => {
   const {
-    filters: { categorySelect, skintypeSelect, onSale },
+    filters: { categorySelect, skintypeSelect, onSale, displayContent },
+    toggleFilters,
     updateFilters,
     clearFilters,
     skintype_list: skintypes,
     itemtype_list: categories,
   } = useFilterContext()
-  const [displayContent, setDisplayContent] = React.useState(false)
-  const toggleDisplay = () => {
-    setDisplayContent(!displayContent)
-  }
 
   return (
     <Wrapper>
@@ -24,7 +21,10 @@ const Filters = () => {
         <button
           className="btn toggle-btn"
           type="button"
-          onClick={toggleDisplay}
+          onClick={()=>{
+              toggleFilters()
+            }
+          }
         >
           {displayContent ? <>Hide Filters</> : <>Show Filters</>}
         </button>

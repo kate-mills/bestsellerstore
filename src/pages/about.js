@@ -10,7 +10,7 @@ const AboutPage = ({data}) => {
       <main>
         <PageHero title="about" />
         <Wrapper className="page section section-center">
-          <StaticImage src="../images/about/bubbles.png" />
+          <StaticImage src="../images/about/bubbles.png" alt="Clear stream of water with floating bubbles." />
           <article>
             <div className="title">
               <h2>our story</h2>
