@@ -224,7 +224,7 @@ export const query = graphql`
         fixed{
           src
         }
-        gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED, quality:10)
+        gatsbyImageData(placeholder: TRACED_SVG, quality:100)
       }
       video
       keyIngredients {
