@@ -19,10 +19,11 @@ const Sidebar = () => {
         <div className="sidebar-header">
           <Link to="/" onClick={closeSidebar}>
             <StaticImage
-              src="../images/icon.png"
+              src="../images/logo-icon.png"
+              layout="fixed"
+              placeholder="blurred"
               alt="Logo"
-              height={65}
-              width={65}
+              width={67}
             />
             {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}
           </Link>

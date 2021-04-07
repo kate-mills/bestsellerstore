@@ -17,10 +17,11 @@ const Nav = () => {
         <div className="nav-header">
           <Link to="/">
             <StaticImage
-              src="../images/icon.png"
+              placeholder="blurred"
+              layout="fixed"
+              src="../images/logo-icon.png"
               alt="Logo"
-              height={65}
-              width={65}
+              width={67}
             />
             {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}
           </Link>
@@ -68,9 +69,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      margin-left: -2px;
-      margin-top: 20px;
-      height: 65px;
+      height: 67px;
     }
   }
   .nav-toggle {

@@ -24,9 +24,7 @@ const CartItem = ({ id, image, name, size, price, quantity }) => {
         <div>
           <h5 className="name">{nm}</h5>
           <p className="product-size">
-            <span>
-              {sz} {size}
-            </span>
+            <span className="retail-travel">{sz}</span><span className="oz">{size}</span>
           </p>
           <h5 className="price-small">{formatPrice(price)}</h5>
         </div>
@@ -88,6 +86,9 @@ const Wrapper = styled.article`
   .product-size {
     > span {
       background: var(--clr-grey-9);
+    }
+    > span.oz{
+      padding-left: 7px;
     }
   }
   .price-small {
