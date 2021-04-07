@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
-import {Link} from 'gatsby'
+import {Link, navigate} from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const Product = (props) => {
@@ -17,9 +17,8 @@ const Product = (props) => {
 
   return (
     <Wrapper>
-      <Link to={`/products/${slug}`} title={`Go to ${nm} detail page`}>
       <div className="container">
-        <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='175' width='175' fit='contain'/>
+        <GatsbyImage image={imgRetail.gatsbyImageData} alt={name} height='175' width='175' fit='contain' onClick={()=>navigate(`/products/${slug}`)}/>
         <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
@@ -29,7 +28,6 @@ const Product = (props) => {
         }
         <p>{formatPrice(retailPrice/100)}</p>
       </footer>
-      </Link>
     </Wrapper>
   )
 }

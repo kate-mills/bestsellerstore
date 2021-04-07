@@ -2,7 +2,6 @@ import React, {useReducer, useContext, createContext, useEffect} from 'react'
 import reducer from '../reducers/filter_reducer'
 import { useProductsContext } from './products_context'
 
-/*eslint-disable-next-line no-unused-vars */
 import{
   LOAD_ITEMS,
   SET_GRIDVIEW,
@@ -20,6 +19,8 @@ import{
 const initialState = {
   all_items: [],
   filtered_items: [],
+  skintype_list:[],
+  itemtype_list:[],
   search_items: [],
   searchStr: '',
   filtered_count: 0,
@@ -47,6 +48,7 @@ export const FilterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(()=>{
+    alert('load_items');
     dispatch({type: LOAD_ITEMS, payload: all_items})
   }, [all_items])
 

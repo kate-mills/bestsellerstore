@@ -15,15 +15,18 @@ import {
 
 const filter_reducer = (state, action) => {
   if(action.type === LOAD_ITEMS){
-    let maxPrice = action.payload.map(({node})=>{
+    const {edges, itemtypeList, skintypeList} = action.payload
+    let maxPrice = action.payload.edges.map(({node})=>{
       return node.retailPrice
     })
     maxPrice = Math.max(...maxPrice)
     return{
       ...state,
-      all_items:[...action.payload],
-      filtered_items:[...action.payload],
-      search_items:[...action.payload],
+      all_items:[...edges],
+      filtered_items:[...edges],
+      search_items:[...edges],
+      itemtype_list:['---CATEGORY---', ...itemtypeList],
+      skintype_list:['---SKIN TYPE---', ...skintypeList],
       filtered_count: action.payload.length,
       filters:{
         ...state.filters,
@@ -96,7 +99,7 @@ const filter_reducer = (state, action) => {
     }
     else if(skintypeSelect !== '---SKIN TYPE---'){
       tempItems = tempItems.filter(({node}) =>{
-        return node.skinTypeBadge.find((s) => s === skintypeSelect)
+        return node.skinTypeList.find((s) => s === skintypeSelect)
       })
     }
     //PRICE

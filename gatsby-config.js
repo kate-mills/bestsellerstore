@@ -45,8 +45,6 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -54,8 +52,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -71,8 +67,6 @@ module.exports = {
         icon_options: { purpose: `any maskable`, },
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -80,19 +74,22 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    `gatsby-plugin-sitemap`,
-
-
-    //{ resolve: "gatsby-plugin-robots-txt", options: { host: `${siteUrl}`, sitemap: `${siteUrl}/sitemap.xml`, policy: [{ userAgent: "*", allow: "/" }], }, },
-
-    
+    {
+      resolve:`gatsby-plugin-styled-components`
+    },
+    //`gatsby-plugin-sitemap`,
+    `gatsby-plugin-transition-link`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
 
-    //`gatsby-plugin-netlify`, //keep last
-
   ],
-  flags: {
-    FAST_DEV: true,
-    DEV_SSR: true,
-  },
+  flags:{
+    FAST_REFRESH: false,
+    LAZY_IMAGES: false,
+  }
 }

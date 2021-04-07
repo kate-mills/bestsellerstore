@@ -1,5 +1,4 @@
 import React from 'react'
-import './layout.css'
 
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'

@@ -22,7 +22,7 @@ export const getUniqueValues = (items, filter, prependText='all',  isArray=false
 }
 
 
-const isBrowser = typeof window !== `undefined`
+export const isBrowser = typeof window !== `undefined`
 export const checkWindow = ()=>{
   if (!isBrowser){
     return false

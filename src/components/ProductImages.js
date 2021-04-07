@@ -45,7 +45,6 @@ const Wrapper = styled.section`
     display: block;
     border-radius: var(--radius);
     object-fit: contain !important;
-    cursor: pointer;
   }
   .gallery {
     margin-top: 1rem;
