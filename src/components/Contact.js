@@ -5,11 +5,12 @@ const Contact = () => {
   //FinalForm - get info
   return (
     <Wrapper>
-      <div className='section-center'>
+      <div className="section-center">
         <h3>Get the latest to your inbox.</h3>
-        <div className='content'>
+        <div className="content">
           <p>
-            Become a Best Sellers Beauty insider!  Get the latest on products, monthly specials, and more.
+            Become a Best Sellers Beauty insider! Get the latest on products,
+            monthly specials, and more.
           </p>
 
           <form
@@ -24,14 +25,14 @@ const Contact = () => {
           >
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
-             <input
-              type='email'
-              className='form-input'
-              placeholder='your email'
-              name='email'
+            <input
+              type="email"
+              className="form-input"
+              placeholder="your email"
+              name="email"
               required
             />
-            <button type='submit' className='submit-btn'>
+            <button type="submit" className="submit-btn">
               send
             </button>
           </form>
@@ -105,11 +106,13 @@ const Wrapper = styled.section`
     border-color: var(--clr-primary-11);
   }
   input:required:focus:valid {
-    background: url("https://assets.digitalocean.com/labs/icons/star.svg") no-repeat 95% 50% ghostwhite;
+    background: url('https://assets.digitalocean.com/labs/icons/star.svg')
+      no-repeat 95% 50% ghostwhite;
     background-size: 24px;
   }
   input:focus:invalid {
-    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% whitesmoke;
+    background: url('https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg')
+      no-repeat 95% 50% whitesmoke;
     background-size: 25px;
   }
   @media (min-width: 992px) {

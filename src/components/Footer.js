@@ -3,14 +3,21 @@ import styled from 'styled-components'
 const Footer = () => {
   return (
     <>
-    <Wrapper>
-      <h6>
-        &copy;{new Date().getFullYear()}
-        <span className="cursive"> SkincareWebstore</span>
-      </h6>
-      <h6>All rights reserved</h6>
-    </Wrapper>
-      <div className="ally"><a style={{fontFamily: 'var(--font-title)'}} href="https://allydigitalsolutions.com">Built By  Ally Digital Solutions</a></div>
+      <Wrapper>
+        <h6>
+          &copy;{new Date().getFullYear()}
+          <span className="cursive"> SkincareWebstore</span>
+        </h6>
+        <h6>All rights reserved</h6>
+      </Wrapper>
+      <div className="ally">
+        <a
+          style={{ fontFamily: 'var(--font-title)' }}
+          href="https://allydigitalsolutions.com"
+        >
+          Built By Ally Digital Solutions
+        </a>
+      </div>
     </>
   )
 }

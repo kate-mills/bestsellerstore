@@ -5,66 +5,98 @@ import styled from 'styled-components'
 import { GrClear } from 'react-icons/gr'
 import { useFilterContext } from '../context/filter_context'
 
-const Filters = ()=>{
-  const { filters:{
-      categorySelect,
-      skintypeSelect,
-      onSale,
-    }, updateFilters, clearFilters, skintype_list:skintypes, itemtype_list:categories } = useFilterContext()
+const Filters = () => {
+  const {
+    filters: { categorySelect, skintypeSelect, onSale },
+    updateFilters,
+    clearFilters,
+    skintype_list: skintypes,
+    itemtype_list: categories,
+  } = useFilterContext()
   const [displayContent, setDisplayContent] = React.useState(false)
-  const toggleDisplay =()=>{setDisplayContent(!displayContent)}
+  const toggleDisplay = () => {
+    setDisplayContent(!displayContent)
+  }
 
   return (
     <Wrapper>
       <div className="top-btn-div">
-        <button className="btn toggle-btn" type="button" onClick={toggleDisplay}>
-          {displayContent?<>Hide Filters</>:<>Show Filters</>}
+        <button
+          className="btn toggle-btn"
+          type="button"
+          onClick={toggleDisplay}
+        >
+          {displayContent ? <>Hide Filters</> : <>Show Filters</>}
         </button>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}><GrClear className="clear"/></button>
+        <button
+          tabIndex="0"
+          type="button"
+          className="clear-btn"
+          onClick={clearFilters}
+        >
+          <GrClear className="clear" />
+        </button>
       </div>
-      <div className={`${displayContent?'content filters-visible':'content filters-hidden'}`}>
-        <form onSubmit={(e)=>e.preventDefault()}>
+      <div
+        className={`${
+          displayContent ? 'content filters-visible' : 'content filters-hidden'
+        }`}
+      >
+        <form onSubmit={e => e.preventDefault()}>
           {/* categories */}
-          <div className="flexible-div">{/* start flexible div */}
+          <div className="flexible-div">
+            {/* start flexible div */}
             <div className="form-control">
               <select
                 name="categorySelect"
                 value={categorySelect}
                 onBlur={updateFilters}
                 onChange={updateFilters}
-                className='select'>
-                {categories.map((c, i)=><option key={i} value={c}>{c}</option>)}
+                className="select"
+              >
+                {categories.map((c, i) => (
+                  <option key={i} value={c}>
+                    {c}
+                  </option>
+                ))}
               </select>
             </div>
             {/* end categories */}
             {/* skintypes */}
             <div className="form-control">
-            <select
-              name="skintypeSelect"
-              value={skintypeSelect}
-              onBlur={updateFilters}
-              onChange={updateFilters}
-              className="select">
-              {skintypes.map((st, i)=><option key={i} value={st}>{st}</option>)}
-            </select>
-          </div>
-          {/* end skintypes */}
-          {/* onSale */}
-          <div className="form-control onSale">
-            <label htmlFor="onSale">on sale</label>
-            <input
-              tabIndex="0"
-              type='checkbox'
-              name='onSale'
-              id='onSale'
-              checked={onSale}
-              onChange={updateFilters}
-            />
-          </div> {/* end onSale */}
-        </div> {/* end flexible div */}
-      </form>
-    </div>
-  </Wrapper>
+              <select
+                name="skintypeSelect"
+                value={skintypeSelect}
+                onBlur={updateFilters}
+                onChange={updateFilters}
+                className="select"
+              >
+                {skintypes.map((st, i) => (
+                  <option key={i} value={st}>
+                    {st}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {/* end skintypes */}
+            {/* onSale */}
+            <div className="form-control onSale">
+              <label htmlFor="onSale">on sale</label>
+              <input
+                tabIndex="0"
+                type="checkbox"
+                name="onSale"
+                id="onSale"
+                checked={onSale}
+                onChange={updateFilters}
+              />
+            </div>{' '}
+            {/* end onSale */}
+          </div>{' '}
+          {/* end flexible div */}
+        </form>
+      </div>
+    </Wrapper>
   )
 }
 

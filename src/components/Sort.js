@@ -5,28 +5,38 @@ import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 
 const Sort = () => {
-  const {filtered_items:items, grid_view, setGridView, setListView, sort, updateSort} = useFilterContext()
+  const {
+    filtered_items: items,
+    grid_view,
+    setGridView,
+    setListView,
+    sort,
+    updateSort,
+  } = useFilterContext()
 
   return (
     <Wrapper>
       <div className="btn-container">
         <button
           type="button"
-          className={`${grid_view ? 'active': null}`}
+          className={`${grid_view ? 'active' : null}`}
           onClick={setGridView}
-        ><BsFillGridFill />
+        >
+          <BsFillGridFill />
         </button>
         <button
           type="button"
-          className={`${!grid_view ? 'active': null}`}
+          className={`${!grid_view ? 'active' : null}`}
           onClick={setListView}
-        > <BsList/>
+        >
+          {' '}
+          <BsList />
         </button>
       </div>
       <p className="items-found">{items.length} items found</p>
-      <hr className="line"/>
+      <hr className="line" />
       <form>
-        <label htmlFor='sort'>sort by</label>
+        <label htmlFor="sort">sort by</label>
         <select
           name="sort"
           id="sort"
@@ -61,8 +71,13 @@ const Wrapper = styled.section`
       display: inline-block;
       margin-right: 0.5rem;
     }
-    .btn-container { width: 50px; }
-    .line{display:inline; width: 10%;}
+    .btn-container {
+      width: 50px;
+    }
+    .line {
+      display: inline;
+      width: 10%;
+    }
   }
 
   @media (min-width: 768px) {
@@ -106,12 +121,12 @@ const Wrapper = styled.section`
     font-size: 1rem;
     text-transform: capitalize;
   }
-  .items-found{
+  .items-found {
     display: content;
   }
 
-  @media(max-width: 767px){
-    .items-found{
+  @media (max-width: 767px) {
+    .items-found {
       display: none;
     }
   }

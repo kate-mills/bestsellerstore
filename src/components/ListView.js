@@ -1,40 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
-import {Link} from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-const ListView = ({items}) => {
+const ListView = ({ items }) => {
   return (
     <Wrapper>
-      {items.map(({node})=>{
+      {items.map(({ node }) => {
         return (
           <article key={node.id}>
-            <GatsbyImage image={node.imgRetail.gatsbyImageData} alt={node.name} />
+            <GatsbyImage
+              image={node.imgRetail.gatsbyImageData}
+              alt={node.name}
+            />
             <div>
-              <h4>{node.shortName || node.name} <span className="price">
-                {formatPrice(node.retailPrice/100)}
-              </span>
+              <h4>
+                {node.shortName || node.name}{' '}
+                <span className="price">
+                  {formatPrice(node.retailPrice / 100)}
+                </span>
               </h4>
               <p>{node.description.description.substring(0, 150)}...</p>
-              <Link to={`/products/${node.slug}`} className="btn">Details</Link>
+              <Link to={`/products/${node.slug}`} className="btn">
+                Details
+              </Link>
             </div>
           </article>
-        );
+        )
       })}
     </Wrapper>
-  );
+  )
 }
 
 const Wrapper = styled.section`
   display: grid;
   row-gap: 3rem;
-  div.gatsby-image-wrapper{
+  div.gatsby-image-wrapper {
     display: block;
     width: 300px;
     border-radius: var(--radius);
     margin-bottom: 1rem;
-    img{
+    img {
       object-fit: contain !important;
       object-position: center bottom;
     }
@@ -63,7 +70,6 @@ const Wrapper = styled.section`
       align-items: center;
     }
   }
-
 `
 
 export default ListView

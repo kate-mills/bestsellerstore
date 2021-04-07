@@ -6,17 +6,26 @@ import { formatPrice } from '../utils/helpers'
 import { Link } from 'gatsby'
 
 const CartTotals = () => {
-  const {total_price, shipping_fee} = useCartContext()
+  const { total_price, shipping_fee } = useCartContext()
   return (
     <Wrapper>
       <div>
         <article>
-          <h5>subtotal : <span>{formatPrice(total_price/100)}</span></h5>
-          <p>shipping fee : <span>{formatPrice(shipping_fee/100)}</span></p>
-          <hr/>
-          <h4>Order total : <span>{formatPrice((total_price + shipping_fee)/100)}</span></h4>
+          <h5>
+            subtotal : <span>{formatPrice(total_price / 100)}</span>
+          </h5>
+          <p>
+            shipping fee : <span>{formatPrice(shipping_fee / 100)}</span>
+          </p>
+          <hr />
+          <h4>
+            Order total :{' '}
+            <span>{formatPrice((total_price + shipping_fee) / 100)}</span>
+          </h4>
         </article>
-        <Link to="/checkout" className="btn">proceed to checkout</Link>
+        <Link to="/checkout" className="btn">
+          proceed to checkout
+        </Link>
       </div>
     </Wrapper>
   )

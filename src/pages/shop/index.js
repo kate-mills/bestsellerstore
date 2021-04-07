@@ -17,13 +17,13 @@ const ShopPage = () => {
         description="Shop all skincare products by Michele Corley Clinical Skincare."
       />
       <main>
-        <PageHero title="Shop" showCount={true}/>
+        <PageHero title="Shop" showCount={true} />
         <Wrapper className="page">
           <div className="section-center items">
-            <Filters/>
+            <Filters />
             <div>
-              <Sort/>
-              <ProductList/>
+              <Sort />
+              <ProductList />
             </div>
           </div>
         </Wrapper>

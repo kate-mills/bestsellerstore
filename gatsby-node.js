@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/item-template.js`),
       context: {
         slug: item.node.slug,
-        isLongName: item.node.name.split(' ').length >=4,
+        isLongName: item.node.name.split(' ').length >= 4,
       },
     })
   })

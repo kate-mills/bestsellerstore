@@ -1,24 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import CartColumns from './CartColumns'
 import CartItem from './CartItem'
 import CartTotals from './CartTotals'
 
 const CartContent = () => {
-  const {cart, clearCart} = useCartContext()
+  const { cart, clearCart } = useCartContext()
 
   return (
     <Wrapper className="section section-center">
-      <CartColumns/>
-      {cart.map((item)=><CartItem key={item.id} {...item}/>)}
-      <hr/>
+      <CartColumns />
+      {cart.map(item => (
+        <CartItem key={item.id} {...item} />
+      ))}
+      <hr />
       <div className="link-container">
-        <button onClick={clearCart} className="link-btn clear-btn" type="button" > clear shopping cart </button>
-        <Link to="/shop" className='link-btn'> continue shopping </Link>
+        <button
+          onClick={clearCart}
+          className="link-btn clear-btn"
+          type="button"
+        >
+          {' '}
+          clear shopping cart{' '}
+        </button>
+        <Link to="/shop" className="link-btn">
+          {' '}
+          continue shopping{' '}
+        </Link>
       </div>
-      <CartTotals/>
+      <CartTotals />
     </Wrapper>
   )
 }
@@ -44,7 +56,7 @@ const Wrapper = styled.section`
     text-align: center;
     text-transform: capitalize;
   }
-  .link-btn:hover{
+  .link-btn:hover {
     border-color: darkgrey;
   }
   .clear-btn {
@@ -52,7 +64,7 @@ const Wrapper = styled.section`
     border-color: var(--clr-black);
     color: var(--clr-white);
   }
-  .clear-btn:hover{
+  .clear-btn:hover {
     border-color: darksalmon;
   }
 `

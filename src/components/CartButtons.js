@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaShoppingCart, FaUserPlus} from 'react-icons/fa'
+import { FaShoppingCart, FaUserPlus } from 'react-icons/fa'
 //import { FaShoppingCart, FaUserPlus, FaUserMinus} from 'react-icons/fa'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
@@ -8,27 +8,24 @@ import { useCartContext } from '../context/cart_context'
 //import { useUserContext } from '../context/user_context'
 
 const CartButtons = () => {
-  const {closeSidebar} = useProductsContext()
-  const {total_quantity} = useCartContext()
-  return(
+  const { closeSidebar } = useProductsContext()
+  const { total_quantity } = useCartContext()
+  return (
     <Wrapper className="cart-btn-wrapper">
-
       {/* Shopping Cart*/}
-      <Link
-        to="/cart"
-        className='cart-btn'
-        onClick={closeSidebar}>Cart
+      <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
+        Cart
         <span className="cart-container">
-          <FaShoppingCart/>
-          <span className='cart-value'>{total_quantity}</span>
+          <FaShoppingCart />
+          <span className="cart-value">{total_quantity}</span>
         </span>
       </Link>
 
       {/* Login/Logout */}
       <button type="button" className="auth-btn" onClick={closeSidebar}>
-        Login<FaUserPlus/>
+        Login
+        <FaUserPlus />
       </button>
-
     </Wrapper>
   )
 }
@@ -86,4 +83,3 @@ const Wrapper = styled.div`
   }
 `
 export default CartButtons
-

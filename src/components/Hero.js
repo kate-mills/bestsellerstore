@@ -1,46 +1,58 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-
-const query = graphql`{
-  accent: file(relativePath: {eq: "home/bottle-accent.png"}) {
-    childImageSharp {
-      gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
+const query = graphql`
+  {
+    accent: file(relativePath: { eq: "home/bottle-accent.png" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
+      }
+    }
+    main: file(relativePath: { eq: "home/bottle-main-web.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
+      }
     }
   }
-  main: file(relativePath: {eq: "home/bottle-main-web.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
-    }
-  }
-}
 `
 
 const Hero = () => {
   const data = useStaticQuery(query)
   return (
-    <Wrapper className='section-center'>
-      <article className='content'>
+    <Wrapper className="section-center">
+      <article className="content">
         <h1>
-          skincare webstore<br />
+          skincare webstore
+          <br />
           best sellers
         </h1>
         <p>
-          Shop the best selling products from <span className="mcc">Michele Corley Clinical Skincare</span>. Consult with Master Estheticians about products for acne, anti-aging and sensitive skin concerns.
+          Shop the best selling products from{' '}
+          <span className="mcc">Michele Corley Clinical Skincare</span>. Consult
+          with Master Estheticians about products for acne, anti-aging and
+          sensitive skin concerns.
         </p>
-        <Link to='/shop' className='btn hero-btn'>
+        <Link to="/shop" className="btn hero-btn">
           shop now
         </Link>
       </article>
-      <article className='img-container'>
-        <GatsbyImage image={data.main.childImageSharp.gatsbyImageData} alt='Drop falls from a pipette into a cosmetic bottle,isolated on white background' className='main-img' />
-        <GatsbyImage image={data.accent.childImageSharp.gatsbyImageData} alt='Cosmetic bottle with pipette isolated on transparent background' className='accent-img' />
+      <article className="img-container">
+        <GatsbyImage
+          image={data.main.childImageSharp.gatsbyImageData}
+          alt="Drop falls from a pipette into a cosmetic bottle,isolated on white background"
+          className="main-img"
+        />
+        <GatsbyImage
+          image={data.accent.childImageSharp.gatsbyImageData}
+          alt="Cosmetic bottle with pipette isolated on transparent background"
+          className="accent-img"
+        />
       </article>
     </Wrapper>
-  );
+  )
 }
 
 const Wrapper = styled.section`

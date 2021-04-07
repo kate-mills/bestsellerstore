@@ -1,4 +1,4 @@
-require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, })
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
 const siteUrl = `https://skincarewebstore.com` // change to .com url
 const netlifyUrl = `https://bestsellerstore.netlify.app`
@@ -55,7 +55,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name:  `${companyName}`,
+        name: `${companyName}`,
         short_name: `Bestsellers`,
         start_url: `/`,
         description: `${description}`,
@@ -63,8 +63,8 @@ module.exports = {
         theme_color: `#ffb1b1`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
-        crossOrigin: `use-credentials`,  // use-credentials or anonymous
-        icon_options: { purpose: `any maskable`, },
+        crossOrigin: `use-credentials`, // use-credentials or anonymous
+        icon_options: { purpose: `any maskable` },
       },
     },
     {
@@ -75,7 +75,7 @@ module.exports = {
       },
     },
     {
-      resolve:`gatsby-plugin-styled-components`
+      resolve: `gatsby-plugin-styled-components`,
     },
     //`gatsby-plugin-sitemap`,
     `gatsby-plugin-transition-link`,
@@ -86,10 +86,9 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-
   ],
-  flags:{
+  flags: {
     FAST_REFRESH: false,
     LAZY_IMAGES: false,
-  }
+  },
 }

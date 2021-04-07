@@ -7,7 +7,8 @@ const DATA = {
       {
         id: 101,
         name: 'Pore Clearing Cleansing Oil',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/MnJ7QV1/pccoil-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -18,7 +19,8 @@ const DATA = {
       {
         id: 102,
         name: 'Pore Purifying Cleanser',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/Z2WVxpL/ppc-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -28,7 +30,8 @@ const DATA = {
       {
         id: 103,
         name: 'Restorative Creamy Cleanser',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/tDvVWJD/rcc-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -38,7 +41,8 @@ const DATA = {
       {
         id: 104,
         name: 'Hydrating Face Wash',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/z5vTn96/hfw-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -48,7 +52,8 @@ const DATA = {
       {
         id: 105,
         name: 'Gentle Cleansing Mils',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/89TQ7hT/gcm-retail.jpg',
         price: 18,
         company: 'Michele Corley Clinical Skincare',
@@ -58,15 +63,15 @@ const DATA = {
       {
         id: 106,
         name: 'Corrective Salicylic Cleanser',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/Z1hj6hY/csc-retail-1.jpg',
         price: 18,
         company: 'Michele Corley Clinical Skincare',
         category: 'cleanser',
         sizes: ['1oz', '4oz', '8oz'],
       },
-
-    ]
+    ],
   },
   specialty: {
     id: 2,
@@ -76,7 +81,8 @@ const DATA = {
       {
         id: 101,
         name: 'Glycolic Cream',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/HBfL6wR/glycolic-cream.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -86,7 +92,8 @@ const DATA = {
       {
         id: 202,
         name: 'Purifying Oxygen Lotion',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/4RzBbLr/pur-Oxy-retail-3.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -96,7 +103,8 @@ const DATA = {
       {
         id: 203,
         name: 'Vitamin C Powder',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/wy1R7hV/vitpwd-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -106,7 +114,8 @@ const DATA = {
       {
         id: 204,
         name: 'Balance Essential Oil Blend',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/BfXxP8c/balance.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -116,7 +125,8 @@ const DATA = {
       {
         id: 205,
         name: 'Plump Me Up Hydrating Mist',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/zHw7Cbg/hmist-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -126,14 +136,15 @@ const DATA = {
       {
         id: 206,
         name: 'Pore Purifying Toner',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/m42BpKx/ppt-retail.jpg',
         price: 20,
         company: 'Michele Corley Clinical Skincare',
         category: 'toner',
         sizes: ['1oz', '4oz', '8oz'],
       },
-    ]
+    ],
   },
   serums: {
     id: 3,
@@ -143,7 +154,8 @@ const DATA = {
       {
         id: 301,
         name: 'Blemish Be Gone',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/HPPb2Wk/bbg-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -153,7 +165,8 @@ const DATA = {
       {
         id: 302,
         name: 'Brighten & Restore Complex',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/6Wnn5SK/bandr.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -163,7 +176,8 @@ const DATA = {
       {
         id: 303,
         name: 'Calm, Nourish & Repair Oil',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/4dLfnCX/cnr-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -173,7 +187,8 @@ const DATA = {
       {
         id: 304,
         name: 'Calming Serum',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/23MyR0w/calming-serum.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -183,7 +198,8 @@ const DATA = {
       {
         id: 305,
         name: 'Glycolic Age Defying Serum',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/74c3wb2/glycolic-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -193,7 +209,8 @@ const DATA = {
       {
         id: 306,
         name: 'Hyaluronic Plumping Serum',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/KKRSKPC/hyal-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -204,7 +221,8 @@ const DATA = {
       {
         id: 307,
         name: 'Licorice Root Additive',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/jvFYNcP/licorice.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -215,7 +233,8 @@ const DATA = {
       {
         id: 308,
         name: 'Lipid Replenishing Drops',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/Jr1nFwN/lipid-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -225,7 +244,8 @@ const DATA = {
       {
         id: 309,
         name: 'Prime & Protect Serum',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/3msMNHN/pprotect-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -235,7 +255,8 @@ const DATA = {
       {
         id: 310,
         name: 'Rejuvenating Peptide & Stem Cell Serum',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/LRQnDys/rejpepserum-retail.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
@@ -245,14 +266,15 @@ const DATA = {
       {
         id: 311,
         name: 'Vitamin C Serum Plus',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/QXDyN53/vit-c.jpg',
         price: 35,
         company: 'Michele Corley Clinical Skincare',
         category: 'serum',
         sizes: ['1oz', '4oz', '8oz'],
       },
-    ]
+    ],
   },
   eyeslips: {
     id: 4,
@@ -262,7 +284,8 @@ const DATA = {
       {
         id: 401,
         name: 'Peptide Rich & Radiant Eye Cream',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/Lvhxj9M/rareye-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -272,7 +295,8 @@ const DATA = {
       {
         id: 402,
         name: 'Plump & Renew Lip Balm',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/0JJcQjz/prlip-retail.jpg',
         price: 20,
         company: 'Michele Corley Clinical Skincare',
@@ -282,14 +306,15 @@ const DATA = {
       {
         id: 403,
         name: 'Revitalizing Peptide & Stem Cell Eye Gel',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/4KdScL9/reveyegel-dpr-pump.jpg',
         price: 20,
         company: 'Michele Corley Clinical Skincare',
         category: 'eye',
         sizes: ['1oz', '4oz', '8oz'],
       },
-    ]
+    ],
   },
   moisturizers: {
     id: 5,
@@ -299,7 +324,8 @@ const DATA = {
       {
         id: 501,
         name: 'Clarifying Moisturizer',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/QHfb3D9/clarifying-moisturizer.jpg',
         price: 20,
         company: 'Michele Corley Clinical Skincare',
@@ -309,7 +335,8 @@ const DATA = {
       {
         id: 502,
         name: 'Hydrating Moisture Cream',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/qnNpJ1w/hydrating-moisture-cream.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -319,7 +346,8 @@ const DATA = {
       {
         id: 503,
         name: 'Oil-Free Moisturizer',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/cN0dhJy/oil-free.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -329,7 +357,8 @@ const DATA = {
       {
         id: 504,
         name: 'Calming Moisture Cream',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/HCjMvPz/calming-moisture-cream-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -339,7 +368,8 @@ const DATA = {
       {
         id: 505,
         name: 'Ultra Rich Moisture Cream',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/cL07G8V/ultra-Rich-retail.jpg',
         price: 325,
         company: 'Michele Corley Clinical Skincare',
@@ -349,7 +379,8 @@ const DATA = {
       {
         id: 506,
         name: 'Ultimate Hydration Gel',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/TY4Wnnk/ulthyd.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -359,7 +390,8 @@ const DATA = {
       {
         id: 507,
         name: 'Moisturizing SPF 30',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/8bs6Y8J/spf30.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -369,7 +401,8 @@ const DATA = {
       {
         id: 508,
         name: 'Purifying Oxygen Lotion',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/4RzBbLr/pur-Oxy-retail-3.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -379,7 +412,8 @@ const DATA = {
       {
         id: 509,
         name: 'Vitamin A & E Hand & Body Lotion',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/SB19xMP/handbody-retail.jpg',
         price: 25,
         company: 'Michele Corley Clinical Skincare',
@@ -389,22 +423,23 @@ const DATA = {
       {
         id: 510,
         name: 'Moisturizing SPF 30 Complexion Corrector',
-        desc: 'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
+        desc:
+          'This refreshing, purifying gel cleanser helps balance acne-prone, oily and congested skin. The natural exfoliating properties of Willow Bark Extract unclog pores while pore purifying essential oils, Eucalyptus and Sage, stop problems before they start.',
         imageUrl: 'https://i.ibb.co/NF9ssw6/spf30-tints.jpg',
         price: 40,
         company: 'Michele Corley Clinical Skincare',
         category: 'moisturizer',
         sizes: ['4oz'],
       },
-    ]
-  }
-};
+    ],
+  },
+}
 
-const allData = [];
+const allData = []
 DATA.cleansers.items.forEach(item => allData.push(item))
 DATA.specialty.items.forEach(item => allData.push(item))
 DATA.serums.items.forEach(item => allData.push(item))
 DATA.eyeslips.items.forEach(item => allData.push(item))
 DATA.moisturizers.items.forEach(item => allData.push(item))
 
-export {DATA, allData}
+export { DATA, allData }

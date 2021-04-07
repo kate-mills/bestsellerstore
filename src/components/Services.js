@@ -7,15 +7,19 @@ const Services = () => {
     <Wrapper>
       <div className="section-center">
         <article className="header">
-          <h3>some of our favorite<br/>
+          <h3>
+            some of our favorite
+            <br />
             skin tips revealed!
           </h3>
-          <p>Three steps to glowing skin. Protection, Prevention & Correction.< /p>
+          <p>
+            Three steps to glowing skin. Protection, Prevention & Correction.
+          </p>
         </article>
         <div className="services-center">
-          {services.map((service)=>{
-            const {id, icon, title, text} = service
-            return(
+          {services.map(service => {
+            const { id, icon, title, text } = service
+            return (
               <article key={id} className="service">
                 <span className="icon">{icon}</span>
                 <h4>{title}</h4>
@@ -61,7 +65,7 @@ const Wrapper = styled.section`
       color: var(--clr-primary-11);
       font-size: 1rem;
     }
-    h4{
+    h4 {
       color: var(--clr-primary-9);
     }
   }

@@ -3,31 +3,36 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues } from '../utils/helpers'
 
-const Filters = ()=>{
-  const { filters:{ category },
-    updateFilters, clearFilters, all_items } = useFilterContext()
+const Filters = () => {
+  const {
+    filters: { category },
+    updateFilters,
+    clearFilters,
+    all_items,
+  } = useFilterContext()
 
   const categories = getUniqueValues(all_items, 'category', 'all')
 
   return (
     <Wrapper>
-      <div className='content'>
-        <form onSubmit={(e)=>e.preventDefault()}>
+      <div className="content">
+        <form onSubmit={e => e.preventDefault()}>
           {/* category btn filters */}
           <div className="form-control">
             <h5>Category</h5>
             <div>
-              {categories.map((c, i)=>{
-                return(
+              {categories.map((c, i) => {
+                return (
                   <button
                     tabIndex={0}
                     key={i}
                     name="category"
                     type="button"
                     className={`${
-                      category === c.toLowerCase() ? 'active': null
+                      category === c.toLowerCase() ? 'active' : null
                     }`}
-                    onClick={updateFilters}>
+                    onClick={updateFilters}
+                  >
                     {c}
                   </button>
                 )
@@ -36,7 +41,14 @@ const Filters = ()=>{
           </div>
           {/* end cateogory btn filters */}
         </form>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
+        <button
+          tabIndex="0"
+          type="button"
+          className="clear-btn"
+          onClick={clearFilters}
+        >
+          clear filters
+        </button>
       </div>
     </Wrapper>
   )
@@ -64,7 +76,7 @@ const Wrapper = styled.section`
   }
   .search-input::placeholder {
     text-transform: capitalize;
-    font-size: .73rem;
+    font-size: 0.73rem;
   }
   button {
     background: transparent;

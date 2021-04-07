@@ -9,35 +9,39 @@ import { useProductsContext } from '../context/products_context'
 //import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
-  const {openSidebar} = useProductsContext()
+  const { openSidebar } = useProductsContext()
   return (
     <NavContainer>
       <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+            {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}
+          </Link>
 
-        <div className='nav-header'>
-          <Link to="/"><img src={logo} alt="Logo"/>
-          {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}</Link>
-
-          <button type="button" className="nav-toggle"
+          <button
+            type="button"
+            className="nav-toggle"
             onClick={openSidebar}
             onKeyPress={openSidebar}
-            aria-label="Open sidebar"><FaBars/></button>
-        </div> {/* close nav-header */}
-
+            aria-label="Open sidebar"
+          >
+            <FaBars />
+          </button>
+        </div>{' '}
+        {/* close nav-header */}
         <ul className="nav-links">
-          { links.map(link =>{
+          {links.map(link => {
             return (
               <li key={link.id}>
                 <Link to={link.url}>{link.text}</Link>
               </li>
             )
-            })
-          }
+          })}
         </ul>
-
-        <CartButtons/>
-      </div> {/* close nav-center */}
-
+        <CartButtons />
+      </div>{' '}
+      {/* close nav-center */}
     </NavContainer>
   )
 }
@@ -113,4 +117,3 @@ const NavContainer = styled.nav`
 `
 
 export default Nav
-

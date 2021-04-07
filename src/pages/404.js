@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { MySeo, Layout } from '../components'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 
 const ErrorPage = () => {
   return (
@@ -11,7 +11,9 @@ const ErrorPage = () => {
         <section>
           <h1>Oops!</h1>
           <h3>Sorry, the page you tried cannot be found.</h3>
-          <Link to="/" className="btn">Back Home</Link>
+          <Link to="/" className="btn">
+            Back Home
+          </Link>
         </section>
       </Wrapper>
     </Layout>

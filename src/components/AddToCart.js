@@ -1,39 +1,43 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import { useCartContext } from '../context/cart_context'
-import {useProductsContext} from '../context/products_context'
+import { useProductsContext } from '../context/products_context'
 import QuantityButtons from './QuantityButtons'
 
-const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}) => {
-
-
-  const {addToCart} = useCartContext()
-  const {focus_price, setFocusPrice} = useProductsContext()
+const AddToCart = ({
+  item,
+  id,
+  sizes = ['retail'],
+  stockQuantity = 12,
+  priceMap = null,
+}) => {
+  const { addToCart } = useCartContext()
+  const { focus_price, setFocusPrice } = useProductsContext()
 
   const [quantity, setQuantity] = useState(1)
   const [mainSize, setMainSize] = useState(sizes[0])
   const [sizeName, setSizeName] = useState('')
 
-  React.useEffect(()=>{
-    if(priceMap!== null){
+  React.useEffect(() => {
+    if (priceMap !== null) {
       setMainSize(priceMap[0].size) // 1.7 oz or 0.25 oz
       setSizeName(priceMap[0].name) // retail or travel
     }
   }, [priceMap])
   const increase = () => {
-    setQuantity((prevQuantity)=>{
+    setQuantity(prevQuantity => {
       let tempQuantity = prevQuantity + 1
-      if(tempQuantity > stockQuantity){
+      if (tempQuantity > stockQuantity) {
         tempQuantity = stockQuantity
       }
       return tempQuantity
     })
   }
   const decrease = () => {
-    setQuantity((prevQuantity)=>{
+    setQuantity(prevQuantity => {
       let tempQuantity = prevQuantity - 1
-      if(tempQuantity < 1){
+      if (tempQuantity < 1) {
         tempQuantity = 1
       }
       return tempQuantity
@@ -43,45 +47,67 @@ const AddToCart = ({item, id, sizes=['retail'], stockQuantity=12, priceMap=null}
     <Wrapper>
       <div className="sizes">
         <span className="heading">size:</span>
-        <div>{
-          priceMap ? 
-            priceMap.map(({name, size, price, id, cid})=>{
-            return(
-              <button
-                key={id}
-                className={`${mainSize === size? 'size-btn active': 'size-btn'}`}
-                style={{background: `${mainSize===size? 'var(--clr-primary-11)': 'white'}`}}
-                onClick={()=>{
-                  setMainSize(size)
-                  setSizeName(name)
-                  setFocusPrice(price/100)
-                }}>
-                {size}
-              </button>
-            )}): // IF NO PRICE MAP
-          sizes.map((size, index)=>{
-            return(
-              <button
-                key={index}
-                className={`${mainSize === size? 'size-btn active': 'size-btn'}`}
-                style={{background: `${mainSize===size? 'lavenderblush': 'white'}`}}
-                onClick={()=>{setMainSize(size)}}>
-                {size}
-              </button>
-            )})
-          }</div>
+        <div>
+          {priceMap
+            ? priceMap.map(({ name, size, price, id, cid }) => {
+                return (
+                  <button
+                    key={id}
+                    className={`${
+                      mainSize === size ? 'size-btn active' : 'size-btn'
+                    }`}
+                    style={{
+                      background: `${
+                        mainSize === size ? 'var(--clr-primary-11)' : 'white'
+                      }`,
+                    }}
+                    onClick={() => {
+                      setMainSize(size)
+                      setSizeName(name)
+                      setFocusPrice(price / 100)
+                    }}
+                  >
+                    {size}
+                  </button>
+                )
+              }) // IF NO PRICE MAP
+            : sizes.map((size, index) => {
+                return (
+                  <button
+                    key={index}
+                    className={`${
+                      mainSize === size ? 'size-btn active' : 'size-btn'
+                    }`}
+                    style={{
+                      background: `${
+                        mainSize === size ? 'lavenderblush' : 'white'
+                      }`,
+                    }}
+                    onClick={() => {
+                      setMainSize(size)
+                    }}
+                  >
+                    {size}
+                  </button>
+                )
+              })}
+        </div>
       </div>
       <div className="btn-container">
         <QuantityButtons
           quantity={quantity}
           increase={increase}
-          decrease={decrease}/>
+          decrease={decrease}
+        />
         <Link
           to="/cart"
           className="btn"
-          onClick={()=>{
-            addToCart(id, mainSize, sizeName, quantity, focus_price,  item)
-          }}>add to cart</Link>
+          onClick={() => {
+            addToCart(id, mainSize, sizeName, quantity, focus_price, item)
+          }}
+        >
+          add to cart
+        </Link>
       </div>
     </Wrapper>
   )
@@ -94,7 +120,7 @@ const Wrapper = styled.section`
     display: grid;
     grid-template-columns: 50px 1fr;
     margin-bottom: 1rem;
-    span.heading{
+    span.heading {
       font-family: var(--font-title);
       font-size: 1.1rem;
       font-weight: var(--font-weight-title);
@@ -116,7 +142,7 @@ const Wrapper = styled.section`
     font-size: 1rem;
     height: 2.5rem;
     justify-content: center;
-    margin: .5rem 1.5rem .5rem 0;
+    margin: 0.5rem 1.5rem 0.5rem 0;
     min-width: fit-content;
     outline-color: transparent;
     padding: 0.25rem;

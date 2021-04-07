@@ -1,8 +1,8 @@
-import React, {useReducer, useContext, createContext, useEffect} from 'react'
+import React, { useReducer, useContext, createContext, useEffect } from 'react'
 import reducer from '../reducers/filter_reducer'
 import { useProductsContext } from './products_context'
 
-import{
+import {
   LOAD_ITEMS,
   SET_GRIDVIEW,
   SET_LISTVIEW,
@@ -19,8 +19,8 @@ import{
 const initialState = {
   all_items: [],
   filtered_items: [],
-  skintype_list:[],
-  itemtype_list:[],
+  skintype_list: [],
+  itemtype_list: [],
   search_items: [],
   searchStr: '',
   filtered_count: 0,
@@ -36,81 +36,80 @@ const initialState = {
     text: '',
     categorySelect: '---CATEGORY---',
     skintypeSelect: '---SKIN TYPE---',
-  }
+  },
 }
-
 
 const FilterContext = createContext()
 
 export const FilterProvider = ({ children }) => {
-  const {all_items} = useProductsContext();
+  const { all_items } = useProductsContext()
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  useEffect(()=>{
-    alert('load_items');
-    dispatch({type: LOAD_ITEMS, payload: all_items})
+  useEffect(() => {
+    alert('load_items')
+    dispatch({ type: LOAD_ITEMS, payload: all_items })
   }, [all_items])
 
-  useEffect(()=>{
-    dispatch({type: FILTER_ITEMS})
-    dispatch({type: SORT_ITEMS})
+  useEffect(() => {
+    dispatch({ type: FILTER_ITEMS })
+    dispatch({ type: SORT_ITEMS })
   }, [all_items, state.sort, state.filters])
 
-  useEffect(()=>{
-    dispatch({type: SEARCH_ITEM_LIST})
+  useEffect(() => {
+    dispatch({ type: SEARCH_ITEM_LIST })
   }, [all_items, state.searchStr])
 
   const setGridView = () => {
-    dispatch({type: SET_GRIDVIEW})
+    dispatch({ type: SET_GRIDVIEW })
   }
   const setListView = () => {
-    dispatch({type: SET_LISTVIEW})
+    dispatch({ type: SET_LISTVIEW })
   }
-  const updateSort = (e) => {
-    const value = e.target.value;
-    dispatch({type:  UPDATE_SORT, payload: value})
+  const updateSort = e => {
+    const value = e.target.value
+    dispatch({ type: UPDATE_SORT, payload: value })
   }
-  const updateFilters = (e) => {
-    var name = e.target.name;
-    var value = e.target.value;
-    if(name==='category'){
+  const updateFilters = e => {
+    var name = e.target.name
+    var value = e.target.value
+    if (name === 'category') {
       value = e.target.textContent
     }
-    if(name==='skintype'){
+    if (name === 'skintype') {
       value = e.target.textContent
-    }
-    else if(name==='price'){
+    } else if (name === 'price') {
       value = Number(value)
-    }
-    else if(name==='onSale'){
+    } else if (name === 'onSale') {
       value = e.target.checked
     }
-    dispatch({type: UPDATE_FILTERS, payload: {name, value}})
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
   const clearFilters = () => {
-    dispatch({type: CLEAR_FILTERS})
+    dispatch({ type: CLEAR_FILTERS })
   }
-  const updateSearch = (e) => {
+  const updateSearch = e => {
     const name = e.target.name
     const value = e.target.value
-    dispatch({type: UPDATE_SEARCH, payload: {name, value}})
+    dispatch({ type: UPDATE_SEARCH, payload: { name, value } })
   }
-  const clearSearch = ()=>{
-    dispatch({type: CLEAR_SEARCH})
+  const clearSearch = () => {
+    dispatch({ type: CLEAR_SEARCH })
   }
 
   return (
-    <FilterContext.Provider value={{
-      ...state,
-      setGridView,
-      setListView,
-      updateSort,
-      updateFilters,
-      clearFilters,
-      updateSearch,
-      clearSearch,
-      }}>
+    <FilterContext.Provider
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        updateSort,
+        updateFilters,
+        clearFilters,
+        updateSearch,
+        clearSearch,
+      }}
+    >
       {children}
     </FilterContext.Provider>
   )

@@ -15,10 +15,8 @@ const CheckoutPage = () => {
   )
 }
 const Wrapper = styled.div`
-  h1{
+  h1 {
     text-align: center;
   }
-  
 `
 export default CheckoutPage
-

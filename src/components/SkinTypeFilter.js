@@ -3,20 +3,20 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues } from '../utils/helpers'
 
-const Filters = ()=>{
-  const { filters:{
-      text,
-      skintype,
-    },
-    updateFilters, clearFilters, all_items } = useFilterContext()
+const Filters = () => {
+  const {
+    filters: { text, skintype },
+    updateFilters,
+    clearFilters,
+    all_items,
+  } = useFilterContext()
 
   const skintypes = getUniqueValues(all_items, 'skinTypeBadge', '', true)
 
   return (
     <Wrapper>
-      <div className='content'>
-        <form onSubmit={(e)=>e.preventDefault()}>
-
+      <div className="content">
+        <form onSubmit={e => e.preventDefault()}>
           {/* search input */}
           <div className="form-control">
             <input
@@ -36,17 +36,18 @@ const Filters = ()=>{
           <div className="form-control">
             <h5>Skin Types</h5>
             <div>
-              {skintypes.map((st, i)=>{
-                return(
+              {skintypes.map((st, i) => {
+                return (
                   <button
                     tabIndex={0}
                     key={i}
                     name="skintype"
                     type="button"
                     className={`${
-                      skintype === st.toLowerCase() ? 'active': null
+                      skintype === st.toLowerCase() ? 'active' : null
                     }`}
-                    onClick={updateFilters}>
+                    onClick={updateFilters}
+                  >
                     {st}
                   </button>
                 )
@@ -55,7 +56,14 @@ const Filters = ()=>{
           </div>
           {/* skintype btn filters */}
         </form>
-        <button tabIndex="0" type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
+        <button
+          tabIndex="0"
+          type="button"
+          className="clear-btn"
+          onClick={clearFilters}
+        >
+          clear filters
+        </button>
       </div>
     </Wrapper>
   )
@@ -83,7 +91,7 @@ const Wrapper = styled.section`
   }
   .search-input::placeholder {
     text-transform: capitalize;
-    font-size: .73rem;
+    font-size: 0.73rem;
   }
   button {
     background: transparent;

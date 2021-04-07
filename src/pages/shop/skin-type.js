@@ -20,10 +20,10 @@ const SkintypePage = () => {
         <PageHero title="Shop By Skin Type" />
         <Wrapper className="page">
           <div className="section-center items">
-            <SkinTypeFilter/>
+            <SkinTypeFilter />
             <div>
-              <Sort/>
-              <ProductList/>
+              <Sort />
+              <ProductList />
             </div>
           </div>
         </Wrapper>

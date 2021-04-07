@@ -20,10 +20,10 @@ const CategoryPage = () => {
         <PageHero title="Shop By Product Category" />
         <Wrapper className="page">
           <div className="section-center items">
-            <CategoryFilter/>
+            <CategoryFilter />
             <div>
-              <Sort/>
-              <ProductList/>
+              <Sort />
+              <ProductList />
             </div>
           </div>
         </Wrapper>

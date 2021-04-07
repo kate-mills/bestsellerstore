@@ -8,7 +8,7 @@ import SearchBar from './SearchBar'
 const Layout = ({ children }) => (
   <React.Fragment>
     <Navbar />
-    <SearchBar/>
+    <SearchBar />
     <Sidebar />
     {children}
     <Footer />

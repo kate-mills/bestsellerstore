@@ -2,12 +2,26 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaPlus, FaMinus } from 'react-icons/fa'
 
-const QuantityButtons = ({quantity, increase, decrease}) => {
+const QuantityButtons = ({ quantity, increase, decrease }) => {
   return (
     <Wrapper className="quantity-btns">
-      <button type="button" className="quantity-btn" onClick={decrease} aria-label="decrease"><FaMinus/></button>
-      <h2 className='quantity'>{quantity}</h2>
-      <button type="button" className="quantity-btn" onClick={increase} aria-label="increase"><FaPlus/></button>
+      <button
+        type="button"
+        className="quantity-btn"
+        onClick={decrease}
+        aria-label="decrease"
+      >
+        <FaMinus />
+      </button>
+      <h2 className="quantity">{quantity}</h2>
+      <button
+        type="button"
+        className="quantity-btn"
+        onClick={increase}
+        aria-label="increase"
+      >
+        <FaPlus />
+      </button>
     </Wrapper>
   )
 }

@@ -1,28 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
 import { shopTypes } from '../utils/constants'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 
 const ShopBy = () => {
   return (
     <Wrapper>
       <div className="section-center">
         <article className="header">
-          <h3>Shop Smarter<br/>
+          <h3>
+            Shop Smarter
+            <br />
             Three ways to filter products
           </h3>
           <p>
-            Shop by Skin Condition, Product Type, or use an Advanced Filter to get you to glowing skin.
-          < /p>
+            Shop by Skin Condition, Product Type, or use an Advanced Filter to
+            get you to glowing skin.
+          </p>
         </article>
         <div className="services-center">
-          {shopTypes.map((service)=>{
-            const {id, url, icon, title, text} = service
-            return(
+          {shopTypes.map(service => {
+            const { id, url, icon, title, text } = service
+            return (
               <article key={id} className="service">
                 <span className="icon">{icon}</span>
-                <h4><Link to={url}>{title}</Link></h4>
-                <p><Link to={url}>Click here {text}</Link></p>
+                <h4>
+                  <Link to={url}>{title}</Link>
+                </h4>
+                <p>
+                  <Link to={url}>Click here {text}</Link>
+                </p>
               </article>
             )
           })}
@@ -36,7 +43,7 @@ const Wrapper = styled.section`
   h3 {
     color: var(--clr-primary-1);
   }
-  h4{
+  h4 {
     font-size: 1.4rem;
     color: var(--clr-primary-11);
     a {
@@ -45,7 +52,10 @@ const Wrapper = styled.section`
       font-size: 1.55rem;
     }
   }
-  h3{ line-height: 2.35rem; text-transform: none;}
+  h3 {
+    line-height: 2.35rem;
+    text-transform: none;
+  }
   padding: 5rem 0;
 
   background: var(--clr-primary-9);
@@ -76,7 +86,7 @@ const Wrapper = styled.section`
       color: var(--clr-primary-11);
       font-size: 1rem;
     }
-    h4{
+    h4 {
       color: var(--clr-primary-9);
     }
   }

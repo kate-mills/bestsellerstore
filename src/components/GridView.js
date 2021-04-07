@@ -5,8 +5,8 @@ import Product from './Product'
 const GridView = ({ items }) => {
   return (
     <Wrapper className="section-center">
-      <div className='items-container'>
-        {items.map(({node}) => {
+      <div className="items-container">
+        {items.map(({ node }) => {
           return <Product key={node.id} {...node} />
         })}
       </div>
@@ -29,26 +29,26 @@ const Wrapper = styled.section`
   }
 
   /*phone*/
-  @media (min-width: 300px) and (max-width: 480px){
+  @media (min-width: 300px) and (max-width: 480px) {
     .items-container {
       grid-template-columns: repeat(1, 1fr);
     }
   }
   /*tablet - sm*/
-  @media (min-width:481px) and (max-width: 767px){
+  @media (min-width: 481px) and (max-width: 767px) {
     .items-container {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   /*tablet - landscape*/
-  @media (min-width:768px) and (max-width:1024px) and (orientation:landscape){
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .items-container {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   /*tablet - md*/
-  @media (min-width:768px) and (max-width:1024px){
+  @media (min-width: 768px) and (max-width: 1024px) {
     .items-container {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -64,8 +64,7 @@ const Wrapper = styled.section`
     .items-container {
       grid-template-columns: repeat(4, 1fr);
     }
- }
-
+  }
 `
 
 export default GridView

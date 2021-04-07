@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useLocation } from "@reach/router"
-import { useStaticQuery, graphql } from "gatsby"
-import SchemaOrg from "./SchemaOrg"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import { useLocation } from '@reach/router'
+import { useStaticQuery, graphql } from 'gatsby'
+import SchemaOrg from './SchemaOrg'
 
-const SEO = ({ title, description, image, article, lang, product}) => {
+const SEO = ({ title, description, image, article, lang, product }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -19,7 +19,7 @@ const SEO = ({ title, description, image, article, lang, product}) => {
   } = site.siteMetadata
 
   const seo = {
-    title: title ? `${title} | ${organization.name}`: organization.name,
+    title: title ? `${title} | ${organization.name}` : organization.name,
     description: description || organization.description,
     image: `${image || defaultImage}`,
     url: `${baseUrl}${pathname}`,
@@ -70,7 +70,10 @@ const SEO = ({ title, description, image, article, lang, product}) => {
         )}
 
         {seo.image && <meta name="twitter:image" content={seo.image} />}
-        <meta name="google-site-verification" content="7UnvE8-rOXz_Hkv5wBdV1R3iszP71jXVr4ah0ENCwwE" />
+        <meta
+          name="google-site-verification"
+          content="7UnvE8-rOXz_Hkv5wBdV1R3iszP71jXVr4ah0ENCwwE"
+        />
       </Helmet>
       <SchemaOrg
         defaultTitle={organization.name}

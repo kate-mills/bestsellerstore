@@ -4,10 +4,10 @@ import { formatPrice } from '../utils/helpers'
 import QuantityButtons from './QuantityButtons'
 import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-const CartItem = ({id, image, name, size, price, quantity}) => {
-  const {removeItem, toggleQuantity} = useCartContext()
+const CartItem = ({ id, image, name, size, price, quantity }) => {
+  const { removeItem, toggleQuantity } = useCartContext()
   const increase = () => {
     toggleQuantity(id, 'inc')
   }
@@ -19,26 +19,39 @@ const CartItem = ({id, image, name, size, price, quantity}) => {
 
   return (
     <Wrapper>
-      <div className='title'>
+      <div className="title">
         <GatsbyImage image={image} alt={name} />
         <div>
           <h5 className="name">{nm}</h5>
-          <p className="product-size"><span>{sz} {size}</span></p>
+          <p className="product-size">
+            <span>
+              {sz} {size}
+            </span>
+          </p>
           <h5 className="price-small">{formatPrice(price)}</h5>
         </div>
       </div>
-      <h5 className="price">{formatPrice(price)}</h5> 
-      <QuantityButtons quantity={quantity} increase={increase} decrease={decrease} className="quantity-btns"/>
-      <h5 className='subtotal'>{formatPrice(price * quantity)}</h5>
-      <button type="button" className="remove-btn" onClick={()=>removeItem(id)}>
-        <FaTrash/>
+      <h5 className="price">{formatPrice(price)}</h5>
+      <QuantityButtons
+        quantity={quantity}
+        increase={increase}
+        decrease={decrease}
+        className="quantity-btns"
+      />
+      <h5 className="subtotal">{formatPrice(price * quantity)}</h5>
+      <button
+        type="button"
+        className="remove-btn"
+        onClick={() => removeItem(id)}
+      >
+        <FaTrash />
       </button>
     </Wrapper>
-  );
+  )
 }
 
 const Wrapper = styled.article`
-  &{
+  & {
     align-items: center;
     display: grid;
     gap: 3rem 1rem;
@@ -47,7 +60,8 @@ const Wrapper = styled.article`
     justify-items: center;
     margin-bottom: 3rem;
   }
-  .price, .subtotal {
+  .price,
+  .subtotal {
     color: var(--clr-black);
     display: none;
     font-size: 1rem;
@@ -58,19 +72,21 @@ const Wrapper = styled.article`
     height: 100%;
     width: 100%;
   }
-  img{ object-fit: contain !important; }
+  img {
+    object-fit: contain !important;
+  }
   h5 {
     font-size: 1rem;
-    line-height: 1rem; 
+    line-height: 1rem;
     margin-bottom: 0;
   }
-  .name{
+  .name {
     font-size: 0.75rem;
     line-height: 1.1rem;
     white-space: pre-line;
   }
   .product-size {
-    >span{
+    > span {
       background: var(--clr-grey-9);
     }
   }
@@ -112,17 +128,24 @@ const Wrapper = styled.article`
     text-align: left;
   }
   @media (min-width: 776px) {
-    &{
+    & {
       grid-template-columns: 1fr 1fr 1fr 1fr auto;
     }
-    img {height: 100%;}
-    .name {font-size: 0.9rem;}
-    .price-small { display: none; }
-    .price, .subtotal {
+    img {
+      height: 100%;
+    }
+    .name {
+      font-size: 0.9rem;
+    }
+    .price-small {
+      display: none;
+    }
+    .price,
+    .subtotal {
       display: block;
       margin-bottom: 0;
     }
-    .quantity-btns{
+    .quantity-btns {
       width: 100px;
       button {
         font-size: 1rem;

@@ -1,21 +1,17 @@
-import { graphql, useStaticQuery  } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import React, { useContext, useReducer, createContext } from 'react'
 import reducer from '../reducers/products_reducer'
-import {
-  SIDEBAR_OPEN,
-  SIDEBAR_CLOSE,
-  SET_FOCUS_PRICE,
-} from '../actions'
+import { SIDEBAR_OPEN, SIDEBAR_CLOSE, SET_FOCUS_PRICE } from '../actions'
 
 const query = graphql`
   {
     allItems: allContentfulMccProduct(
-      filter: {removeFromActiveLists: {ne: true}},
-      sort: {fields: name, order: ASC}
+      filter: { removeFromActiveLists: { ne: true } }
+      sort: { fields: name, order: ASC }
     ) {
-      itemtypeList:distinct(field: category)
-      skintypeList:distinct(field: skinType)
+      itemtypeList: distinct(field: category)
+      skintypeList: distinct(field: skinType)
       edges {
         node {
           id
@@ -29,8 +25,13 @@ const query = graphql`
           shortName
           featured
           skinTypeBadge
-          skinTypeList:skinType
-          priceMap{ id name size price }
+          skinTypeList: skinType
+          priceMap {
+            id
+            name
+            size
+            price
+          }
           skinType
           onSale
           description {
@@ -54,9 +55,9 @@ const query = graphql`
       }
     }
     featuredItems: allContentfulMccProduct(
-      filter: {featured: {eq: true}}
-      limit:3,
-      sort: {fields: name, order: ASC}
+      filter: { featured: { eq: true } }
+      limit: 3
+      sort: { fields: name, order: ASC }
     ) {
       edges {
         node {
@@ -71,9 +72,9 @@ const query = graphql`
         }
       }
     }
-    distinctList:allContentfulMccProduct {
-      itemtypeList:distinct(field: category)
-      skintypeList:distinct(field: skinType)
+    distinctList: allContentfulMccProduct {
+      itemtypeList: distinct(field: category)
+      skintypeList: distinct(field: skinType)
     }
   }
 `
@@ -83,27 +84,35 @@ const initialState = {
   products_error: false,
   all_items: [],
   featured_items: [],
-  itemtype_list:[],
-  skintype_list:[],
-  focus_price: 0
-};
+  itemtype_list: [],
+  skintype_list: [],
+  focus_price: 0,
+}
 
-const ProductsContext = createContext();
+const ProductsContext = createContext()
 
 export const ProductsProvider = ({ children }) => {
-  const { allItems, featuredItems, distinctList:{itemtypeList, skintypeList} } = useStaticQuery(query);
+  const {
+    allItems,
+    featuredItems,
+    distinctList: { itemtypeList, skintypeList },
+  } = useStaticQuery(query)
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  const openSidebar =  () => { dispatch({ type: SIDEBAR_OPEN }) };
-  const closeSidebar = () => { dispatch({ type: SIDEBAR_CLOSE }) };
+  const openSidebar = () => {
+    dispatch({ type: SIDEBAR_OPEN })
+  }
+  const closeSidebar = () => {
+    dispatch({ type: SIDEBAR_CLOSE })
+  }
 
-  const setFocusPrice = (price) => { 
+  const setFocusPrice = price => {
     dispatch({
       type: SET_FOCUS_PRICE,
-      payload: {price},
+      payload: { price },
     })
-  };
+  }
 
   return (
     <ProductsContext.Provider
@@ -114,12 +123,15 @@ export const ProductsProvider = ({ children }) => {
         setFocusPrice,
         all_items: allItems,
         featured_items: featuredItems.edges,
-        itemtypes:itemtypeList,
-        skintypes:skintypeList,
-      }}>
+        itemtypes: itemtypeList,
+        skintypes: skintypeList,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   )
-};
+}
 
-export const useProductsContext=()=>{return useContext(ProductsContext)};
+export const useProductsContext = () => {
+  return useContext(ProductsContext)
+}

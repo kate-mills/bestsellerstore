@@ -1,16 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 
 const PageHero = ({ title, shop }) => {
-
   return (
     <Wrapper>
       <div className="section-center">
-        <h3><Link to="/">Home</Link>
-          {shop && <Link to="/shop">/ Shop</Link> }
-          /<span className="title"> {title}
-          </span>
+        <h3>
+          <Link to="/">Home</Link>
+          {shop && <Link to="/shop">/ Shop</Link>}/
+          <span className="title"> {title}</span>
         </h3>
       </div>
     </Wrapper>
@@ -33,18 +32,18 @@ const Wrapper = styled.section`
   a:hover {
     color: var(--clr-primary-5d);
   }
-  h3{
+  h3 {
     line-height: normal;
     margin-bottom: unset;
     > a,
-    > .title{
+    > .title {
       font-family: var(--font-title);
       font-size: inherit;
-      font-weight: var(--font-weight-title);/* font-title span */
+      font-weight: var(--font-weight-title); /* font-title span */
       line-height: normal;
     }
   }
-  @media(max-width: 500px){
+  @media (max-width: 500px) {
     min-height: 15vh;
   }
 `

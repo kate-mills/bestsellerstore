@@ -9,30 +9,52 @@ import CartButtons from './CartButtons'
 //import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
-  const {isSidebarOpen, closeSidebar} = useProductsContext()
+  const { isSidebarOpen, closeSidebar } = useProductsContext()
 
-  return(
+  return (
     <SidebarContainer>
-      <aside className={`${isSidebarOpen?'sidebar show-sidebar':'sidebar'}`}>
+      <aside
+        className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}
+      >
         <div className="sidebar-header">
-          <Link to='/' onClick={closeSidebar}><img src={logo} className="logo" alt="skincare webstore logo"/>{ /* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}</Link>
-          <button onClick={closeSidebar} className="close-btn" type="button"
+          <Link to="/" onClick={closeSidebar}>
+            <img src={logo} className="logo" alt="skincare webstore logo" />
+            {/* https://www.iconfinder.com/icons/3249825/health_treatment_illustration_hair_beauty_icon Creative Commons Attribution 2.5 Generic (CC BY 2.5) https://www.iconfinder.com/rizal999 */}
+          </Link>
+          <button
+            onClick={closeSidebar}
+            className="close-btn"
+            type="button"
             aria-label="close sidebar"
-          ><FaTimes/></button>
-        </div>{/* CLOSE SIDEBR-HEADER */}
+          >
+            <FaTimes />
+          </button>
+        </div>
+        {/* CLOSE SIDEBR-HEADER */}
 
         <ul className="links">
           {/* START MAP */}
-            { links.map(({id, text, url}) =>{
-              return<li key={id}><Link to={url} onClick={closeSidebar}>{text}</Link></li>})
-          }{/* END MAP */}
+          {links.map(({ id, text, url }) => {
+            return (
+              <li key={id}>
+                <Link to={url} onClick={closeSidebar}>
+                  {text}
+                </Link>
+              </li>
+            )
+          })}
+          {/* END MAP */}
 
           {/* START EXTRA li */}
-          <li><Link to='/checkout' onClick={closeSidebar}>checkout</Link></li>
+          <li>
+            <Link to="/checkout" onClick={closeSidebar}>
+              checkout
+            </Link>
+          </li>
           {/* END EXTRA li */}
         </ul>
 
-        <CartButtons/>
+        <CartButtons />
       </aside>
     </SidebarContainer>
   )
@@ -109,4 +131,3 @@ const SidebarContainer = styled.div`
 `
 
 export default Sidebar
-

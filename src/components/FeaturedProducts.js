@@ -6,22 +6,24 @@ import Loading from './Loading'
 import Product from './Product'
 
 const FeaturedProducts = () => {
-  const {products_loading, products_error,  featured_items } = useProductsContext()
+  const {
+    products_loading,
+    products_error,
+    featured_items,
+  } = useProductsContext()
 
-  if(products_loading || products_error) {
-    return <Loading/>
+  if (products_loading || products_error) {
+    return <Loading />
   }
   return (
     <Wrapper className="section">
       <div className="title">
         <h2>featured products</h2>
-        <div className="underline"/>
+        <div className="underline" />
         <div className="section-center featured">
-          {
-            featured_items.map(({node})=>{
-              return <Product key={node.id} {...node}/>
-          })
-          }
+          {featured_items.map(({ node }) => {
+            return <Product key={node.id} {...node} />
+          })}
         </div>
       </div>
     </Wrapper>
