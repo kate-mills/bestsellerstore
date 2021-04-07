@@ -220,13 +220,11 @@ export const query = graphql`
         description
       }
       imgRetail {
-        gatsbyImageData(placeholder: TRACED_SVG)
-        fixed(height: 500, width: 500, cropFocus: CENTER, quality: 100) {
+        file{url}
+        fixed{
           src
         }
-        file {
-          url
-        }
+        gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED, quality:10)
       }
       video
       keyIngredients {
