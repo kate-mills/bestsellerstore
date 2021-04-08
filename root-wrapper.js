@@ -1,8 +1,8 @@
 import React from 'react'
-import './src/components/layout.css'
 import { ProductsProvider } from './src/context/products_context'
 import { FilterProvider } from './src/context/filter_context'
 import { CartProvider } from './src/context/cart_context'
+import './src/components/layout.css'
 //import { UserProvider } from './src/context/user_context'
 
 export const wrapRootElement = ({ element }) => {

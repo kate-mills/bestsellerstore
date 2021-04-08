@@ -8,7 +8,6 @@ import {
   UPDATE_FILTERS,
   FILTER_ITEMS,
   CLEAR_FILTERS,
-  UPDATE_SEARCH,
   SEARCH_ITEM_LIST,
   CLEAR_SEARCH,
   TOGGLE_FILTER_DISPLAY,
@@ -142,23 +141,21 @@ const filter_reducer = (state, action) => {
     }
   }
   if (action.type === SEARCH_ITEM_LIST) {
-    const { all_items, searchStr } = state
+    const { all_items } = state
+    const {searchStr} = action.payload
     let tempItems = [...all_items]
     if (searchStr) {
       tempItems = tempItems.filter(({ node }) => {
         return node.name.toLowerCase().indexOf(searchStr.toLowerCase()) >= 0 // fuzzy search
       })
     }
-    return { ...state, search_items: tempItems }
-  }
-  if (action.type === UPDATE_SEARCH) {
-    const { name, value } = action.payload
-    return { ...state, [name]: value }
+    return { ...state, search_items: tempItems, search_close:false  }
   }
   if (action.type === CLEAR_SEARCH) {
     return {
       ...state,
-      searchStr: '',
+      search_close:true,
+      search_items: [],
     }
   }
   if (action.type === TOGGLE_FILTER_DISPLAY){

@@ -12,12 +12,12 @@ const HomePage = () => {
   return (
     <Layout>
       <MySeo />
-      <main>
+      <div>
         <Hero />
         <FeaturedProducts />
         <ShopBy />
         <Contact />
-      </main>
+      </div>
     </Layout>
   )
 }

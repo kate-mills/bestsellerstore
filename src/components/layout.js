@@ -10,7 +10,9 @@ const Layout = ({ children }) => (
     <Navbar />
     <SearchBar />
     <Sidebar />
-    {children}
+    <main>
+      {children}
+    </main>
     <Footer />
   </React.Fragment>
 )

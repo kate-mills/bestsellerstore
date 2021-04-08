@@ -5,12 +5,12 @@ const CheckoutPage = () => {
   return (
     <Layout>
       <MySeo title="Checkout" />
-      <main>
+      <section>
         <PageHero title="checkout" />
         <Wrapper className="page">
           <h1 className="stencil">Checkout Here</h1>
         </Wrapper>
-      </main>
+      </section>
     </Layout>
   )
 }

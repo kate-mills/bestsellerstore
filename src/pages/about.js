@@ -7,7 +7,6 @@ const AboutPage = ({data}) => {
   return (
     <Layout>
       <MySeo />
-      <main>
         <PageHero title="about" />
         <Wrapper className="page section section-center">
           <StaticImage src="../images/about/bubbles.png" alt="Clear stream of water with floating bubbles." />
@@ -22,7 +21,6 @@ const AboutPage = ({data}) => {
             </div>
           </article>
         </Wrapper>
-      </main>
     </Layout>
   )
 }

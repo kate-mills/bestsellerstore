@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, createContext, useContext, useReducer } from 'react'
 import reducer from '../reducers/cart_reducer'
 
@@ -57,7 +58,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: COUNT_CART_TOTALS })
     localStorage.setItem('skincarewebstorecart', JSON.stringify(state.cart))
-  }, [state.cart])
+  }, [])
 
   return (
     <CartContext.Provider

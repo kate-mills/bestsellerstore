@@ -92,6 +92,9 @@ export const ProductsProvider = ({ children }) => {
         closeSidebar,
         setFocusPrice,
         all_items: allItems,
+        skintype_list: allItems.skintypeList,
+        itemtype_list: allItems.itemtypeList,
+        filtered_items: allItems.edges,
         featured_items: featuredItems.edges,
       }}
     >

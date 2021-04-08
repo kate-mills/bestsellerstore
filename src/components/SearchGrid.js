@@ -4,16 +4,20 @@ import Product from './Product'
 import { useFilterContext } from '../context/filter_context'
 
 const SearchGrid = ({ items }) => {
-  const { clearSearch } = useFilterContext()
-  return (
-    <Wrapper className="section-center" onClick={clearSearch}>
-      <div className="items-container">
-        {items.map(({ node }) => {
-          return <Product key={node.id} {...node} />
-        })}
-      </div>
-    </Wrapper>
-  )
+  const { clearSearch, search_close } = useFilterContext()
+  if(!search_close){
+    return (
+      <Wrapper className="section-center" onClick={clearSearch}>
+        <div className="items-container">
+          {items.map(({ node }) => {
+            return <Product key={node.id} {...node} />
+          })}
+        </div>
+      </Wrapper>
+    )
+  } else{
+   return null
+  }
 }
 
 const Wrapper = styled.section`

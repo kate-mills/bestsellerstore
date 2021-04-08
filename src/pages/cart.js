@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
@@ -17,7 +18,7 @@ const CartPage = () => {
       setCartIsEmpty(true)
       setMsgH2('Your cart is empty')
     }
-  }, [cart])
+  }, [])
 
   return (
     <Layout>

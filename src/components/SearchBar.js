@@ -1,42 +1,40 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
-
 import SearchList from './SearchListView'
 
 const SearchBar = () => {
-  const textRef = React.useRef()
-  const { searchStr, updateSearch, clearSearch } = useFilterContext()
+  const { updateSearch } = useFilterContext()
+  const searchRef = React.useRef('')
+  const reset = ()=>{ 
+    updateSearch(searchRef.current.value='')
+  }
   return (
     <>
-      <Wrapper className={`${searchStr.length > 0 ? 'add-margin' : ''}`}>
-        <form onSubmit={e => e.preventDefault()}>
+      <Wrapper className={`${searchRef?.current?.value?.length > 0 ? 'add-margin' : ''}`}>
+        <form onSubmit={e => {
+          e.preventDefault()
+        }}>
           {/* search input */}
           <div className="form-control">
             <input
-              ref={textRef}
               type="text"
               name="searchStr"
               autoComplete="off"
               placeholder="Search the store"
               className="search-input"
-              value={searchStr}
-              onChange={updateSearch}
+              ref={searchRef}
+              onChange={()=>updateSearch(searchRef.current.value)}
             />
             <button
               tabIndex="0"
               type="button"
               className={`${
-                searchStr.length > 0
+                searchRef?.current?.value?.length > 0
                   ? 'show-btn clear-btn'
                   : 'hide-btn clear-btn'
               }`}
-              onClick={e => {
-                clearSearch()
-                textRef.current.focus()
-              }}
-            >
+              onClick={reset}>
               clear
             </button>
           </div>
@@ -44,12 +42,12 @@ const SearchBar = () => {
         </form>
         {/*eslint-disable-next-line jsx-a11y/click-events-have-key-events*/}
       </Wrapper>
-      {!!searchStr.length ? (
+      {!!searchRef?.current?.value?.length ? (
         <SearchList
           tabIndex="0"
           role="button"
           aria-label="Clear search filter"
-          onClick={clearSearch}
+          onClick={reset}
         />
       ) : null}
     </>

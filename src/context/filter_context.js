@@ -12,9 +12,7 @@ import {
   FILTER_ITEMS,
   CLEAR_FILTERS,
   SEARCH_ITEM_LIST,
-  UPDATE_SEARCH,
   CLEAR_SEARCH,
-  TOGGLE_FILTER_DISPLAY,
 } from '../actions'
 
 const initialState = {
@@ -22,6 +20,7 @@ const initialState = {
   filtered_items: [],
   skintype_list: [],
   itemtype_list: [],
+  search_close: true,
   search_items: [],
   searchStr: '',
   grid_view: true,
@@ -44,22 +43,20 @@ const FilterContext = createContext()
 
 export const FilterProvider = ({ children }) => {
   const { all_items } = useProductsContext()
-
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  useEffect(() => {
-    dispatch({ type: LOAD_ITEMS, payload: all_items })
+  useEffect(()=>{
+    dispatch({type:LOAD_ITEMS, payload: all_items})
   }, [all_items])
 
   useEffect(() => {
-    dispatch({ type: SEARCH_ITEM_LIST })
-  },[state.searchStr])
-
-  useEffect(() => {
-    dispatch({ type: FILTER_ITEMS })
-    dispatch({ type: SORT_ITEMS })
+    let run = true
+    if(run){
+      dispatch({ type: FILTER_ITEMS })
+      dispatch({ type: SORT_ITEMS })
+    }
+    return () => {run=false}
   }, [state.sort, state.filters])
-
 
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW })
@@ -91,17 +88,11 @@ export const FilterProvider = ({ children }) => {
   const clearFilters = () => {
     dispatch({ type: CLEAR_FILTERS })
   }
-  const updateSearch = e => {
-    const name = e.target.name
-    const value = e.target.value
-    dispatch({ type: UPDATE_SEARCH, payload: { name, value } })
+  const updateSearch = (searchStr) => {
+    dispatch({ type: SEARCH_ITEM_LIST, payload:{searchStr}})
   }
   const clearSearch = () => {
     dispatch({ type: CLEAR_SEARCH })
-  }
-  const toggleFilters = () =>{
-    console.log('toggleFilters')
-    dispatch({type: TOGGLE_FILTER_DISPLAY})
   }
 
   return (
@@ -115,7 +106,6 @@ export const FilterProvider = ({ children }) => {
         clearFilters,
         updateSearch,
         clearSearch,
-        toggleFilters,
       }}
     >
       {children}

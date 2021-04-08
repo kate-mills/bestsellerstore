@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions*/
+/* eslint-disable react-hooks/exhaustive-deps*/
 
 import React, { useState } from 'react'
 import styled from 'styled-components'
@@ -11,7 +12,7 @@ const ProductImages = ({ images = [], description, name }) => {
     if(images.length>0){
       setMain(getImage(images[0]))
     }
-  }, [images])
+  }, [])
 
   return (
     <Wrapper>
