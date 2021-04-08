@@ -50,13 +50,9 @@ export const FilterProvider = ({ children }) => {
   }, [all_items])
 
   useEffect(() => {
-    let run = true
-    if(run){
-      dispatch({ type: FILTER_ITEMS })
-      dispatch({ type: SORT_ITEMS })
-    }
-    return () => {run=false}
-  }, [state.sort, state.filters])
+    dispatch({ type: FILTER_ITEMS })
+    dispatch({ type: SORT_ITEMS })
+  }, [all_items, state.sort, state.filters])
 
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW })
